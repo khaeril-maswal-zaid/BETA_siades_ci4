@@ -173,76 +173,23 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td nowrap>5</td>
-            <td style="min-width: 170px">Skor Tingkat Kepesertaan BPJS</td>
-            <td nowrap>2</td>
-            <td style="min-width: 200px">Jumlah peserta BPJS/jumlah penduduk antara 0,1 s.d 0,25</td>
-            <td style="min-width: 200px">Fasilitasi kepesertaan BPJS warga Desa hingga &gt; 75%</td>
-            <td nowrap>0.00571429</td>
-            <td nowrap></td>
-            <td nowrap></td>
-            <td nowrap>DINKES</td>
-            <td nowrap></td>
-            <td nowrap></td>
-            <td nowrap></td>
-          </tr>
-          <tr>
-            <td nowrap>5</td>
-            <td style="min-width: 170px">Skor Tingkat Kepesertaan BPJS</td>
-            <td nowrap>2</td>
-            <td style="min-width: 200px">Jumlah peserta BPJS/jumlah penduduk antara 0,1 s.d 0,25</td>
-            <td style="min-width: 200px">Fasilitasi kepesertaan BPJS warga Desa hingga &gt; 75%</td>
-            <td nowrap>0.00571429</td>
-            <td nowrap></td>
-            <td nowrap></td>
-            <td nowrap>DINKES</td>
-            <td nowrap></td>
-            <td nowrap></td>
-            <td nowrap></td>
-          </tr>
-          <tr>
-            <td nowrap>5</td>
-            <td style="min-width: 170px">Skor Tingkat Kepesertaan BPJS</td>
-            <td nowrap>2</td>
-            <td style="min-width: 200px">Jumlah peserta BPJS/jumlah penduduk antara 0,1 s.d 0,25</td>
-            <td style="min-width: 200px">Fasilitasi kepesertaan BPJS warga Desa hingga &gt; 75%</td>
-            <td nowrap>0.00571429</td>
-            <td nowrap></td>
-            <td nowrap></td>
-            <td nowrap>DINKES</td>
-            <td nowrap></td>
-            <td nowrap></td>
-            <td nowrap></td>
-          </tr>
-          <tr>
-            <td nowrap>5</td>
-            <td style="min-width: 170px">Skor Tingkat Kepesertaan BPJS</td>
-            <td nowrap>2</td>
-            <td style="min-width: 200px">Jumlah peserta BPJS/jumlah penduduk antara 0,1 s.d 0,25</td>
-            <td style="min-width: 200px">Fasilitasi kepesertaan BPJS warga Desa hingga &gt; 75%</td>
-            <td nowrap>0.00571429</td>
-            <td nowrap></td>
-            <td nowrap></td>
-            <td nowrap>DINKES</td>
-            <td nowrap></td>
-            <td nowrap></td>
-            <td nowrap></td>
-          </tr>
-          <tr>
-            <td nowrap>5</td>
-            <td style="min-width: 170px">Skor Tingkat Kepesertaan BPJS</td>
-            <td nowrap>2</td>
-            <td style="min-width: 200px">Jumlah peserta BPJS/jumlah penduduk antara 0,1 s.d 0,25</td>
-            <td style="min-width: 200px">Fasilitasi kepesertaan BPJS warga Desa hingga &gt; 75%</td>
-            <td nowrap>0.00571429</td>
-            <td nowrap></td>
-            <td nowrap></td>
-            <td nowrap>DINKES</td>
-            <td nowrap></td>
-            <td nowrap></td>
-            <td nowrap></td>
-          </tr>
+
+          <?php foreach ($dataidm as $idm) : ?>
+            <tr>
+              <td>5</td>
+              <td style="min-width: 170px"><?= $idm['idm'] ?></td>
+              <td><?= $idm['skor'] ?></td>
+              <td style="min-width: 200px"><?= $idm['keterangan'] ?></td>
+              <td style="min-width: 200px"><?= $idm['kegiatan'] ?></td>
+              <td><?= $idm['nilai'] ?></td>
+              <td><?= $idm['pusat'] ?></td>
+              <td><?= $idm['prov'] ?></td>
+              <td><?= $idm['kab'] ?></td>
+              <td><?= $idm['des'] ?></td>
+              <td><?= $idm['csr'] ?></td>
+              <td><?= $idm['lainnya'] ?></td>
+            </tr>
+          <?php endforeach; ?>
 
         </tbody>
       </table>
