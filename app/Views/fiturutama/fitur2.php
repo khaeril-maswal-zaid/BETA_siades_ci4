@@ -17,7 +17,7 @@
       <span class="text-success">Fitur Utama</span>
 
       <span class="px-1">/</span>
-      <span class="text-success">Status IDM</span>
+      <span class="text-success">Keuangan Desa</span>
     </div>
   </div>
 </div>

@@ -28,6 +28,8 @@
     <div class="mb-5">
       <h1 class="display-5 text-primary">Status IDM</h1>
       <p class="fs-5 fw-bold text-primary mb-5"><?= FULLENGKAP ?></p>
+      <a href="https://idm.kemendesa.go.id/open/api/desa/rumusan/730207/2021">API IDM tapi belum ada ID Desa</a>
+      <a href="https://kadu.desa.id/idm">Referensi</a>
     </div>
 
     <!-- Isi Disini -->
