@@ -1,0 +1,5 @@
+@media (min-width: 540px) and (max-width: 719.89px) {
+  div.row div.col-sm-7 p.overflow-hidden {
+    max-height: 7rem !important;
+  }
+}
