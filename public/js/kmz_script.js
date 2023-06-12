@@ -1,4 +1,5 @@
 $(function () {
+  //Model Aduan
   $(".modelAduan").on("click", function () {
     const idTanggapan = $(this).data("id");
     $.ajax({
@@ -37,5 +38,13 @@ $(function () {
         }
       },
     });
+  });
+
+  //Api Data
+  $.ajax({
+    url: "https://idm.kemendesa.go.id/open/api/desa/rumusan/730207003/2022",
+    success: function (data) {
+      console.log(data);
+    },
   });
 });

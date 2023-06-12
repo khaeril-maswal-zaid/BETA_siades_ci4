@@ -28,8 +28,6 @@
     <div class="mb-5">
       <h1 class="display-5 text-primary">Status IDM</h1>
       <p class="fs-5 fw-bold text-primary mb-5"><?= FULLENGKAP ?></p>
-      <a href="https://idm.kemendesa.go.id/open/api/desa/rumusan/730207/2021">API IDM tapi belum ada ID Desa</a>
-      <a href="https://kadu.desa.id/idm">Referensi</a>
     </div>
 
     <!-- Isi Disini -->
@@ -40,7 +38,14 @@
             <div class="card text-white bg-secondary  mb-2 h-100">
               <div class="card-header">SKOR IDM TERKINI</div>
               <div class="card-body  position-relative me-2">
-                <h1 class="text-white mt-3">0.1657</h1>
+                <h1 class="text-white mt-3">
+
+                  <?php
+                  $skorIdmTerkini = number_format(array_sum($dataidm[2]) / 3, 4);
+                  echo $skorIdmTerkini
+                  ?>
+
+                </h1>
                 <i class="bi bi-graph-up position-absolute bottom-0 end-0" style="font-size: 4em;"></i>
               </div>
             </div>
@@ -49,7 +54,7 @@
             <div class="card text-white bg-warning mb-2 h-100">
               <div class="card-header">STATUS IDM</div>
               <div class="card-body  position-relative me-2">
-                <h1 class="text-white mt-3">MAJU</h1>
+                <h2 class="text-white mt-3 text-uppercase"><?= $statusIdm ?></h2>
                 <i class="bi bi-pin-angle-fill position-absolute bottom-0 end-0" style="font-size: 4em;"></i>
               </div>
             </div>
@@ -75,79 +80,74 @@
         </div>
       </div>
       <div class="col-md-6">
-        <figure class="highcharts-figure">
+        <figure class="highcharts-figure my-0">
           <div id="container"></div>
         </figure>
 
-        <script src="<?= base_url() ?>highcharts/highcharts.js"></script>
-        <script src="<?= base_url() ?>highcharts/modules/variable-pie.js"></script>
-        <script src="<?= base_url() ?>highcharts/modules/exporting.js"></script>
-        <script src="<?= base_url() ?>highcharts/modules/export-data.js"></script>
-        <script src="<?= base_url() ?>highcharts/modules/accessibility.js"></script>
+        <div class="close">
+          <script src="<?= base_url() ?>highcharts/highcharts.js"></script>
+          <script src="<?= base_url() ?>highcharts/modules/variable-pie.js"></script>
+          <script src="<?= base_url() ?>highcharts/modules/exporting.js"></script>
+          <script src="<?= base_url() ?>highcharts/modules/export-data.js"></script>
+          <script src="<?= base_url() ?>highcharts/modules/accessibility.js"></script>
 
-        <script type="text/javascript">
-          // Data retrieved from https://worldpopulationreview.com/country-rankings/countries-by-density
-          Highcharts.chart('container', {
-            chart: {
-              type: 'variablepie'
-            },
-            title: {
-              text: 'Countries compared by population density and total area, 2022.',
-              align: 'left'
-            },
-            tooltip: {
-              headerFormat: '',
-              pointFormat: '<span style="color:{point.color}">\u25CF</span> <b> {point.name}</b><br/>' +
-                'Area (square km): <b>{point.y}</b><br/>' +
-                'Population density (people per square km): <b>{point.z}</b><br/>'
-            },
-            series: [{
-              minPointSize: 10,
-              innerSize: '20%',
-              zMin: 0,
-              name: 'countries',
-              borderRadius: 5,
-              data: [{
-                name: 'Spain',
-                y: 505992,
-                z: 92
-              }, {
-                name: 'France',
-                y: 551695,
-                z: 119
-              }, {
-                name: 'Poland',
-                y: 312679,
-                z: 121
-              }, {
-                name: 'Czech Republic',
-                y: 78865,
-                z: 136
-              }, {
-                name: 'Italy',
-                y: 301336,
-                z: 200
-              }, {
-                name: 'Switzerland',
-                y: 41284,
-                z: 213
-              }, {
-                name: 'Germany',
-                y: 357114,
-                z: 235
-              }],
-              colors: [
-                '#4caefe',
-                '#3dc3e8',
-                '#2dd9db',
-                '#1feeaf',
-                '#0ff3a0',
-                '#00e887',
-                '#23e274'
-              ]
-            }]
-          });
-        </script>
+          <script type="text/javascript">
+            // Data retrieved from https://worldpopulationreview.com/country-rankings/countries-by-density
+            Highcharts.chart('container', {
+              chart: {
+                type: 'variablepie'
+              },
+              title: {
+                text: 'Indeks Desa Membangun (IDM)'
+              },
+              subtitle: {
+                text: 'SKOR : IKS, IKE, IKL'
+              },
+              tooltip: {
+                headerFormat: '',
+                pointFormat: '<span style="color:{point.color};">\u25CF</span> <b> {point.z}</b><br/><br/>' +
+                  'Skor : <b>{point.y}</b><br/>' +
+                  'Persentase : <b>{point.percentage:.1f} %</b><br/>'
+              },
+              series: [{
+                minPointSize: 100,
+                innerSize: '20%',
+                zMin: 0,
+                name: 'countries',
+                borderRadius: 5,
+                data: [
+                  <?php
+                  $pattern = "/\((.*?)\)/"; // Pola regex untuk mencari teks di dalam tanda kurung
+                  $matches = array();
+
+                  $patternl = "/\s*\([^)]+\)/"; // Pola regex untuk mencocokkan teks di dalam tanda kurung dan teks sekitarnya
+                  $replacement = ""; // Mengganti teks yang cocok dengan string kosong
+
+                  $iValc = 0;
+
+                  foreach ($dataidm[0] as $idmc) :
+                  ?> {
+                      name: `<?php
+                              preg_match($pattern, $idmc['group'], $matches);
+                              echo  $matches[1];
+                              ?>`,
+                      y: <?= $dataidm[2][$iValc++] ?>,
+                      z: `<?php
+                          $hasil = preg_replace($patternl, $replacement, $idmc['group']);
+                          echo $hasil;
+                          ?>`
+                    },
+                  <?php endforeach ?>
+                ],
+                colors: [
+                  '#4caefe',
+                  '#23e274',
+                  '#cfeb1a',
+                ]
+              }]
+            });
+          </script>
+        </div>
       </div>
     </div>
 
@@ -155,12 +155,12 @@
       <table class="table table-striped table-bordered" style="font-size: 75%;">
         <thead>
           <tr>
-            <th rowspan="2" class="padat">No</th>
-            <th rowspan="2">Indikator IDM</th>
-            <th rowspan="2">Skor</th>
-            <th rowspan="2">Keterangan</th>
-            <th rowspan="2" nowrap>Kegiatan Yang Dapat Dilakukan</th>
-            <th rowspan="2">+ Nilai</th>
+            <th rowspan="2" class="align-middle text-center">No</th>
+            <th rowspan="2" class="align-middle text-center">Indikator IDM</th>
+            <th rowspan="2" class="align-middle text-center">Skor</th>
+            <th rowspan="2" class="align-middle text-center">Keterangan</th>
+            <th rowspan="2" nowrap class="align-middle text-center">Kegiatan Yang Dapat Dilakukan</th>
+            <th rowspan="2" nowrap class="align-middle text-center">+ Nilai</th>
             <th colspan="6" class="text-center">Yang Dapat Melaksanakan Kehiatan</th>
           </tr>
           <tr>
@@ -174,20 +174,29 @@
         </thead>
         <tbody>
 
-          <?php foreach ($dataidm as $idm) : ?>
-            <tr>
-              <td>5</td>
-              <td style="min-width: 170px"><?= $idm['idm'] ?></td>
-              <td><?= $idm['skor'] ?></td>
-              <td style="min-width: 200px"><?= $idm['keterangan'] ?></td>
-              <td style="min-width: 200px"><?= $idm['kegiatan'] ?></td>
-              <td><?= $idm['nilai'] ?></td>
-              <td><?= $idm['pusat'] ?></td>
-              <td><?= $idm['prov'] ?></td>
-              <td><?= $idm['kab'] ?></td>
-              <td><?= $idm['des'] ?></td>
-              <td><?= $idm['csr'] ?></td>
-              <td><?= $idm['lainnya'] ?></td>
+          <?php
+          $no = 1;
+          $iVal = 0;
+          foreach ($dataidm[0] as $idm0) :
+            foreach ($dataidm[1][$iVal++] as $idm1) : ?>
+              <tr>
+                <td><?= $no++ ?></td>
+                <td style="min-width: 170px"> <?= $idm1['idm'] ?> </td>
+                <td> <?= $idm1['skor'] ?> </td>
+                <td style="min-width: 200px"> <?= $idm1['keterangan'] ?> </td>
+                <td style="min-width: 200px"> <?= $idm1['kegiatan'] ?> </td>
+                <td> <?= $idm1['nilai'] ?> </td>
+                <td> <?= $idm1['pusat'] ?> </td>
+                <td> <?= $idm1['prov'] ?> </td>
+                <td> <?= $idm1['kab'] ?> </td>
+                <td> <?= $idm1['des'] ?> </td>
+                <td> <?= $idm1['csr'] ?> </td>
+                <td> <?= $idm1['lainnya'] ?> </td>
+              </tr>
+            <?php endforeach; ?>
+            <tr class="table-primary">
+              <td colspan="3" class="text-center fw-bold"><?= $idm0['group'] ?></td>
+              <td colspan="9" class=" fw-bold"><?= $dataidm[2][$iVal - 1] ?></td>
             </tr>
           <?php endforeach; ?>
 
@@ -195,7 +204,5 @@
       </table>
     </div>
   </div>
-
-
 
   <?php $this->endSection() ?>

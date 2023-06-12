@@ -8,5 +8,5 @@ class IdmModel extends Model
 {
     protected $table = 'siades_idm';
     protected $useTimestamps = true;
-    protected $allowedFields = ["idm", "skor", "keterangan", "kegiatan", "nilai", "pusat", "prov", "kab", "des", "csr", "lainnya"];
+    protected $allowedFields = ["group", "idm", "skor", "keterangan", "kegiatan", "nilai", "pusat", "prov", "kab", "des", "csr", "lainnya"];
 }
