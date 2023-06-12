@@ -61,14 +61,14 @@
                             </svg>
                         </div>
                         <div class="ps-3">
-                            <h4>Pengaduan</h4>
+                            <h4>Stasus SDGS</h4>
                             <span>Penanganan keluhan dan masukan masyarakat</span>
                         </div>
                     </div>
                     <div class="portfolio-text">
                         <h4 class="text-white mb-2 mt-5">Selengkapnya...</h4>
                         <div class="d-flex">
-                            <a class="btn btn-lg-square rounded-circle mx-2" href="/layanan-pengaduan"><i class="fa fa-eye"></i></a>
+                            <a class="btn btn-lg-square rounded-circle mx-2" href="/sdgs-desa"><i class="fa fa-eye"></i></a>
                         </div>
                     </div>
                 </div>
