@@ -52,27 +52,6 @@
 <section class="container-fluid top-feature pb-lg-4 pt-lg-0">
     <div class="container py-5 pt-lg-0">
         <div class="row gx-0">
-            <div class="col-lg-4 wow fadeIn" data-wow-delay="0.5s">
-                <div class="bg-white shadow d-flex align-items-center h-100 px-5 portfolio-inner" style="min-height: 160px">
-                    <div class="d-flex">
-                        <div class="flex-shrink-0 btn-lg-square rounded-circle bg-light">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="20" fill="#198754" class="bi bi-telephone-fill" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
-                            </svg>
-                        </div>
-                        <div class="ps-3">
-                            <h4>Pengaduan</h4>
-                            <span>Penanganan keluhan dan masukan masyarakat</span>
-                        </div>
-                    </div>
-                    <div class="portfolio-text">
-                        <h4 class="text-white mb-2 mt-5">Selengkapnya...</h4>
-                        <div class="d-flex">
-                            <a class="btn btn-lg-square rounded-circle mx-2" href="/layanan-pengaduan"><i class="fa fa-eye"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="col-lg-4 wow fadeIn" data-wow-delay="0.1s">
                 <div class="bg-white shadow d-flex align-items-center h-100 px-5 portfolio-inner" style="min-height: 160px">
                     <div class="d-flex">
@@ -114,6 +93,27 @@
                         <h4 class="text-white mb-2 mt-5">Selengkapnya...</h4>
                         <div class="d-flex">
                             <a class="btn btn-lg-square rounded-circle mx-2" href="/status-idm"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+                <div class="bg-white shadow d-flex align-items-center h-100 px-5 portfolio-inner" style="min-height: 160px">
+                    <div class="d-flex">
+                        <div class="flex-shrink-0 btn-lg-square rounded-circle bg-light">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" fill="#198754" class="bi bi-gear-wide" viewBox="0 0 16 16">
+                                <path d="M8.932.727c-.243-.97-1.62-.97-1.864 0l-.071.286a.96.96 0 0 1-1.622.434l-.205-.211c-.695-.719-1.888-.03-1.613.931l.08.284a.96.96 0 0 1-1.186 1.187l-.284-.081c-.96-.275-1.65.918-.931 1.613l.211.205a.96.96 0 0 1-.434 1.622l-.286.071c-.97.243-.97 1.62 0 1.864l.286.071a.96.96 0 0 1 .434 1.622l-.211.205c-.719.695-.03 1.888.931 1.613l.284-.08a.96.96 0 0 1 1.187 1.187l-.081.283c-.275.96.918 1.65 1.613.931l.205-.211a.96.96 0 0 1 1.622.434l.071.286c.243.97 1.62.97 1.864 0l.071-.286a.96.96 0 0 1 1.622-.434l.205.211c.695.719 1.888.03 1.613-.931l-.08-.284a.96.96 0 0 1 1.187-1.187l.283.081c.96.275 1.65-.918.931-1.613l-.211-.205a.96.96 0 0 1 .434-1.622l.286-.071c.97-.243.97-1.62 0-1.864l-.286-.071a.96.96 0 0 1-.434-1.622l.211-.205c.719-.695.03-1.888-.931-1.613l-.284.08a.96.96 0 0 1-1.187-1.186l.081-.284c.275-.96-.918-1.65-1.613-.931l-.205.211a.96.96 0 0 1-1.622-.434L8.932.727zM8 12.997a4.998 4.998 0 1 1 0-9.995 4.998 4.998 0 0 1 0 9.996z" />
+                            </svg>
+                        </div>
+                        <div class="ps-3">
+                            <h4>Stasus SDGS</h4>
+                            <span>Penanganan keluhan dan masukan masyarakat</span>
+                        </div>
+                    </div>
+                    <div class="portfolio-text">
+                        <h4 class="text-white mb-2 mt-5">Selengkapnya...</h4>
+                        <div class="d-flex">
+                            <a class="btn btn-lg-square rounded-circle mx-2" href="/sdgs-desa"><i class="fa fa-eye"></i></a>
                         </div>
                     </div>
                 </div>
@@ -337,18 +337,28 @@
 <!-- Berita End -->
 
 <!-- Maps dan Flayer Start -->
-<section class="container-xxl px-3 p-lg-5 bg-light mt-4">
+<section class="container-xxl p-lg-5 bg-light mt-4">
     <!-- <div class="container"> -->
-    <div class="row g-5 align-items-center">
-        <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="row align-items-centerX">
+        <div class="col-lg-8 wow fadeInUp" data-wow-delay="0.1s">
             <h1 class="display-5 text-primary mb-3">Peta Desa <?= DESA ?></h1>
 
-            <div class="overflowhidden border border-4 border-success rounded">
+            <div class="overflowhidden border border-3 border-success rounded">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12428.04460640446!2d120.41324731012118!3d-5.488315148052575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbc0972e26dcbb5%3A0x32c1c4177d63233d!2sPakubalaho%2C%20Kec.%20Bonto%20Tiro%2C%20Kabupaten%20Bulukumba%2C%20Sulawesi%20Selatan!5e0!3m2!1sid!2sid!4v1684291021556!5m2!1sid!2sid" width="100%" height="450" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
-        <div class="col-lg-5 px-3 px-lg-0">
-            <div class="row g-4 align-items-center">
+        <div class="col-lg-4 px-3 pt-4 px-lg-0 wow fadeInDown" data-wow-delay="0.1s">
+            <div class="bg-primary mt-5 p-5 rounded">
+                <h2 class="text-white">Layanan Pengaduan</h2>
+                <h4 class="text-white pb-2">Desa <?= DESA ?></h4>
+
+                <div class="aduan-area mt-4 pe-4">
+                    <p class="mb-5 text-white">Kami sangat menghargai setiap masukan dan aduan dari Masyarakat. Jika Anda memiliki aduan atau keluhan yang perlu disampaikan kepada kami, silakan kunjungi laman Layanan Pengaduan!</p>
+                    <a class="btn btn-warning py-3 px-4" href="/layanan-pengaduan">Layanan Pengaduan</a>
+                </div>
+            </div>
+
+            <!-- <div class="row g-4 align-items-center">
                 <div class="col-md-6">
                     <div class="row g-4">
                         <div class="col-12 wow fadeIn" data-wow-delay="0.5s">
@@ -374,7 +384,7 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <!-- </div> -->

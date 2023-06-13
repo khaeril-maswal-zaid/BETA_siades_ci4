@@ -3,42 +3,32 @@
 namespace App\Controllers\Fiturutama;
 
 use App\Controllers\BaseController;
-
-use App\Models\AduanModel;
+use App\Models\SdgsModel;
 
 class Fitur1 extends BaseController
 {
     protected $templatelayaout;
-    protected $aduanmodel;
+    protected $sdgsmodel;
 
     public function __construct()
     {
         $this->templatelayaout = ['layout-htmlcodex/header', 'layout-htmlcodex/footer'];
-        $this->aduanmodel = new AduanModel;
+        $this->sdgsmodel = new SdgsModel();
     }
 
     public function index()
     {
-        if (session()->getFlashdata('validation')) {
-            $validation = session()->getFlashdata('validation');
-        } else {
-            $validation = [false, false, false, false];
-        }
-
-        $dataaduan = $this->aduanmodel->orderBy('id', 'DESC')->findAll();
 
         $data = [
             'templatelayaout' => $this->templatelayaout,
 
-            'title' => 'Layanan Pengaduan ' . LENGKAP,
-            'metakeywords' => 'Layanan Pengaduan ' . FULLENGKAP . ', Layanan Pengaduan Desa  Terbaik,',
-            'metadescription' => 'Layanan Pengaduan ' . FULLENGKAP,
+            'title' => 'SDGS ' . LENGKAP,
+            'metakeywords' => 'SDGS ' . FULLENGKAP . ', SDGS Desa  Terbaik,',
+            'metadescription' => 'SDGS ' . FULLENGKAP,
 
-            'validation' => $validation,
-            'dataaduan' =>  array_chunk($dataaduan, 2)
+            'sdgs' => $this->sdgsmodel->findAll()
         ];
 
-        session();
         return view('fiturutama/fitur1', $data);
     }
 }
