@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Controllers\Fiturutama;
+namespace App\Controllers\Pages;
 
 use App\Controllers\BaseController;
 
 use App\Models\AduanModel;
 
-class Fitur1 extends BaseController
+class Page7 extends BaseController
 {
     protected $templatelayaout;
     protected $aduanmodel;
@@ -39,6 +39,6 @@ class Fitur1 extends BaseController
         ];
 
         session();
-        return view('fiturutama/fitur1', $data);
+        return view('pages/page7', $data);
     }
 }

@@ -46,6 +46,7 @@ $routes->get('/galeri-desa', 'Pages\Page3::index');
 $routes->get('/data-wilayah', 'Pages\Page4::index');
 $routes->get('/kontak-desa', 'Pages\Page5::index');
 $routes->get('/visi-misi-desa', 'Pages\Page6::index');
+$routes->get('/layanan-pengaduan', 'Pages\Page7::index');
 
 //Fitur Utama
 $routes->get('/sdgs-desa', 'Fiturutama\Fitur1::index');
