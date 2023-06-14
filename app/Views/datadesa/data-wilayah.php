@@ -24,69 +24,73 @@
 </div>
 <!-- Alamat Web Start -->
 
-<div class="container">
-   <table class="table table-striped table-bordered">
-      <thead>
-         <tr class="text-center">
-            <th scope="col">#</th>
-            <th scope="col" colspan="3">Wilayah/Ketua</th>
-            <th scope="col">L</th>
-            <th scope="col">P</th>
-            <th scope="col">L+P</th>
-            <th scope="col">KK</th>
-         </tr>
-      </thead>
-      <tbody>
-         <?php
-         $iDusun = 0;
-         $iNo = 1;
-         foreach ($datawilayah[0] as $wilayah1) :
-         ?>
-            <tr class="#">
-               <th class="text-center align-middle" scope="row" rowspan="<?= $datawilayah[3][$iDusun++] + 1 + $datawilayah[4][$iDusun - 1] ?>"><?= $iNo++ ?></th>
-               <td colspan="3" class="ps-md-5 fw-bold">Dusun <?= $wilayah1['dusun'] ?></td>
-               <td class="fw-bold text-center"><?= $datawilayah[5][$iDusun - 1][0] ?></td>
-               <td class="fw-bold text-center"><?= $datawilayah[5][$iDusun - 1][1] ?></td>
-               <td class="fw-bold text-center"><?= $datawilayah[5][$iDusun - 1][0] + $datawilayah[5][$iDusun - 1][1] ?></td>
-               <td class="fw-bold text-center"><?= $datawilayah[5][$iDusun - 1][2] ?></td>
-            </tr>
+<div class="container-xxl py-5">
+   <div class="container">
+      <h1 class="display-5 text-primary">Status SDGS</h1>
+      <p class="fs-5 fw-bold text-primary mb-5"><?= FULLENGKAP ?></p>
 
+      <table class="table table-striped table-bordered">
+         <thead>
+            <tr class="text-center">
+               <th scope="col">#</th>
+               <th scope="col" colspan="3">Wilayah/Ketua</th>
+               <th scope="col">L</th>
+               <th scope="col">P</th>
+               <th scope="col">L+P</th>
+               <th scope="col">KK</th>
+            </tr>
+         </thead>
+         <tbody>
             <?php
-            $iRk = 0;
-            $noRk = 0;
-            foreach ($datawilayah[1][$iDusun - 1] as $wilayah2) :
+            $iDusun = 0;
+            $iNo = 1;
+            foreach ($datawilayah[0] as $wilayah1) :
             ?>
                <tr class="#">
-                  <td class="text-center align-middle" rowspan="<?= count($datawilayah[2][$iDusun - 1][$noRk++]) + 1 ?>"><?= $noRk ?></td>
-                  <td class="ps-md-4 fw-bold" colspan="2">RW <?= $wilayah2['rk'] ?></td>
-                  <td class="fw-bold text-center"><?= $datawilayah[6][$iDusun - 1][$iRk][0] ?></td>
-                  <td class="fw-bold text-center"><?= $datawilayah[6][$iDusun - 1][$iRk][1] ?></td>
-                  <td class="fw-bold text-center"><?= $datawilayah[6][$iDusun - 1][$iRk][0] + $datawilayah[6][$iDusun - 1][$iRk][1] ?></td>
-                  <td class="fw-bold text-center"><?= $datawilayah[6][$iDusun - 1][$iRk][2] ?></td>
+                  <th class="text-center align-middle" scope="row" rowspan="<?= $datawilayah[3][$iDusun++] + 1 + $datawilayah[4][$iDusun - 1] ?>"><?= $iNo++ ?></th>
+                  <td colspan="3" class="ps-md-5 fw-bold">Dusun <?= $wilayah1['dusun'] ?></td>
+                  <td class="fw-bold text-center"><?= $datawilayah[5][$iDusun - 1][0] ?></td>
+                  <td class="fw-bold text-center"><?= $datawilayah[5][$iDusun - 1][1] ?></td>
+                  <td class="fw-bold text-center"><?= $datawilayah[5][$iDusun - 1][0] + $datawilayah[5][$iDusun - 1][1] ?></td>
+                  <td class="fw-bold text-center"><?= $datawilayah[5][$iDusun - 1][2] ?></td>
                </tr>
 
-               <?php $noRt = 1;
-               foreach ($datawilayah[2][$iDusun - 1][$iRk++] as $wilayah3) : ?>
+               <?php
+               $iRk = 0;
+               $noRk = 0;
+               foreach ($datawilayah[1][$iDusun - 1] as $wilayah2) :
+               ?>
                   <tr class="#">
-                     <td class="text-center"><?= $noRt++ ?></td>
-                     <td class="#">RT <?= $wilayah3['rt'] ?></td>
-                     <td class="text-center"><?= $wilayah3['l'] ?></td>
-                     <td class="text-center"><?= $wilayah3['p'] ?></td>
-                     <td class="text-center">
-                        <?php
-                        $pr = [$wilayah3['p'], $wilayah3['l']];
-                        echo array_sum($pr);
-                        ?>
-                     </td>
-                     <td class="text-center"><?= $wilayah3['kk'] ?></td>
+                     <td class="text-center align-middle" rowspan="<?= count($datawilayah[2][$iDusun - 1][$noRk++]) + 1 ?>"><?= $noRk ?></td>
+                     <td class="ps-md-4 fw-bold" colspan="2">RW <?= $wilayah2['rk'] ?></td>
+                     <td class="fw-bold text-center"><?= $datawilayah[6][$iDusun - 1][$iRk][0] ?></td>
+                     <td class="fw-bold text-center"><?= $datawilayah[6][$iDusun - 1][$iRk][1] ?></td>
+                     <td class="fw-bold text-center"><?= $datawilayah[6][$iDusun - 1][$iRk][0] + $datawilayah[6][$iDusun - 1][$iRk][1] ?></td>
+                     <td class="fw-bold text-center"><?= $datawilayah[6][$iDusun - 1][$iRk][2] ?></td>
                   </tr>
+
+                  <?php $noRt = 1;
+                  foreach ($datawilayah[2][$iDusun - 1][$iRk++] as $wilayah3) : ?>
+                     <tr class="#">
+                        <td class="text-center"><?= $noRt++ ?></td>
+                        <td class="#">RT <?= $wilayah3['rt'] ?></td>
+                        <td class="text-center"><?= $wilayah3['l'] ?></td>
+                        <td class="text-center"><?= $wilayah3['p'] ?></td>
+                        <td class="text-center">
+                           <?php
+                           $pr = [$wilayah3['p'], $wilayah3['l']];
+                           echo array_sum($pr);
+                           ?>
+                        </td>
+                        <td class="text-center"><?= $wilayah3['kk'] ?></td>
+                     </tr>
+                  <?php endforeach ?>
                <?php endforeach ?>
             <?php endforeach ?>
-         <?php endforeach ?>
-      </tbody>
-   </table>
+         </tbody>
+      </table>
+   </div>
 </div>
-
 
 
 <?php $this->endSection() ?>

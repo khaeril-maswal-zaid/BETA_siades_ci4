@@ -9,7 +9,7 @@
 </div>
 
 <!-- Alamat Web Start -->
-<div class="container-fluid">
+<div class="container">
    <div class="px-3">
       <div class="alert alert-success py-2" role="alert">
          <a href="/"><i class="bi bi-house-door-fill"></i></a>
@@ -28,10 +28,13 @@
 <!-- Features Start -->
 <div class="container-xxl py-5">
    <div class="container">
-      <div class="row g-5">
+      <h1 class="display-5 text-primary"><?= $detailpersonil['jabatan'] ?></h1>
+      <p class="fs-5 fw-bold text-primary mb-5"><?= LENGKAP ?></p>
+
+      <div class="row g-5 mt-4">
          <div class="col-lg-4 px-4 pe-lg-0 mt-2">
             <div class="wow fadeInUp bg-light p-3 pb-2 border-success border-4 border-start position-sticky" data-wow-delay="0.5s" style="top: 7rem">
-               <p class="fs-5 fw-bold text-primary"><?= $detailpersonil['jabatan'] ?></p>
+               <p class="fs-5 fw-bold text-primary">Personil</p>
                <div class="team-item rounded wow fadeInUp mb-2" data-wow-delay="0.1s">
                   <img class="img-fluid" src="/img/personil/<?= $detailpersonil['foto'] ?>" alt="<?= $detailpersonil['nama'] ?>" />
                   <div class="team-text bottom-0 mb-3">

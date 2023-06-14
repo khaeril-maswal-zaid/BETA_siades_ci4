@@ -44,7 +44,7 @@
     </div>
 
     <div class="chart-line mt-5">
-      <figure class="highcharts-figureX">
+      <figure class="highcharts-figure">
         <div id="container"></div>
 
       </figure>

@@ -62,10 +62,10 @@
          <div class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Data</a>
             <div class="dropdown-menu bg-light m-0">
-               <a href="data-desa/data-wilayah" class="dropdown-item">Data Wilayah</a>
+               <a href="/data-desa/data-wilayah" class="dropdown-item">Data Wilayah</a>
 
                <?php foreach (KATEGORIDATADESA as $kategori) : ?>
-                  <a href="data-desa/<?= url_title($kategori['slug'], '-', true) ?>" class="dropdown-item"><?= $kategori['slug'] ?></a>
+                  <a href="/data-desa/<?= url_title($kategori['slug'], '-', true) ?>" class="dropdown-item"><?= $kategori['slug'] ?></a>
                <?php endforeach ?>
 
             </div>

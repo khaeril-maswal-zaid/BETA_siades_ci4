@@ -3,8 +3,8 @@
 
 <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
    <div class="container text-center py-5">
-      <h1 class="display-5 text-white mb-3 slideInDown"><?= $namalembaga ?></h1>
-      <h1 class="display-4 text-white mb-2 slideInDown"><?= DESA ?></h1>
+      <h1 class="display-5 text-white mb-3 slideInDown">Situs Resmi</h1>
+      <h1 class="display-4 text-white mb-2 slideInDown">Desa <?= DESA ?></h1>
    </div>
 </div>
 
@@ -25,7 +25,11 @@
 <!-- Features Start -->
 <section class="container-xxl py-5">
    <div class="container">
-      <div class="row g-5">
+
+      <h1 class="display-5 text-primary"><?= $namalembaga ?></h1>
+      <p class="fs-5 fw-bold text-primary mb-5"><?= FULLENGKAP ?></p>
+
+      <div class="row g-5 mt-4">
          <div class="col-lg-4 px-4 pe-lg-0 mt-2">
             <div class="wow fadeInUp bg-light p-3 pb-2 border-success border-4 border-start position-sticky" data-wow-delay="0.5s" style="top: 6rem">
                <p class="fs-5 fw-bold text-primary">Personil <?= $singkatanlembaga ?></p>

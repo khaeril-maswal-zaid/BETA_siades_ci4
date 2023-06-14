@@ -111,14 +111,44 @@ class Index extends BaseController
       $kategori = str_replace("-", " ", $kategori);
       $kategori = ucwords($kategori);
 
+      $valLkPr = $this->datadesamodel->select(['val_lk', 'val_pr'])->where('slug', $kategori)->findAll();
+
+
+      if ($valLkPr == null) {
+         return view('errors/html/error_404');
+      }
+
+      $totalPerdata = [];
+      foreach ($valLkPr as $valvalLkPr) {
+         $totalPerdata[] = array_sum($valvalLkPr);
+      }
+
+
+      $jkQuery = ['val_lk', 'val_pr'];
+      $totalperJk = [];
+      for ($i = 0; $i < 2; $i++) {
+         $valJk = $this->datadesamodel->select($jkQuery[$i])->where('slug', $kategori)->findAll();
+
+         $rowvalJk = [];
+         foreach ($valJk as $Jk) {
+            $rowvalJk[] = $Jk[$jkQuery[$i]];
+         }
+
+         $totalperJk[] = array_sum($rowvalJk);
+      }
+
       $data = [
          'templatelayaout' => $this->templatelayaout,
 
-         'title' => 'Data Desa ' . LENGKAP,
-         'metakeywords' => 'Data Desa ' . FULLENGKAP . ', Data Desa  Terbaik,',
-         'metadescription' => 'Data Desa ' . FULLENGKAP,
+         'title' => $kategori . ' ' . LENGKAP,
+         'metakeywords' => $kategori . ' ' . FULLENGKAP . ', ' . $kategori . ' Terbaik,',
+         'metadescription' => $kategori . ' ' . FULLENGKAP,
 
-         'datadesa' => $this->datadesamodel->where('slug', $kategori)->findAll()
+         'label' => $kategori,
+         'datadesa' => $this->datadesamodel->where('slug', $kategori)->findAll(),
+         'totalPerdata' => $totalPerdata,
+         'totalJumlah' => array_sum($totalPerdata),
+         'totalperjk' => $totalperJk
       ];
 
       return view('datadesa/data-desa', $data);

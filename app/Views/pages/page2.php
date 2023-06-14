@@ -26,6 +26,9 @@
 
 <!-- Aparat Start -->
 <div class="container-fluid py-5">
+   <h1 class="display-5 text-primary">Struktur Pemerintahan</h1>
+   <p class="fs-5 fw-bold text-primary mb-5"><?= LENGKAP ?></p>
+
    <div class="row g-5 px-4">
       <div class="col-lg-5 wow fadeInUp mt-3 px-lg-0 px-3" data-wow-delay="0.1s">
          <div class="card border-success mb-3">
