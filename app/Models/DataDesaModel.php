@@ -4,9 +4,9 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class DataWilayahModel extends Model
+class DataDesaModel extends Model
 {
-    protected $table = 'siades_datawilayah';
+    protected $table = 'siades_datadesa';
     protected $useTimestamps = true;
     protected $allowedFields = ['time', 'slug', 'judul', 'description', 'picture', 'oleh', 'kategori', 'level', 'artikel', 'visit', 'view'];
 }

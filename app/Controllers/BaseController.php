@@ -9,17 +9,22 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
-/*** NAMA DESA ---------------------*/
+use App\Models\DataDesaModel;
 
+/*** NAMA DESA ---------------------*/
 define('DESA', 'Wakanda Raya');
 define('KEC', 'Konoha Timur');
 define('KAB', 'Londong Raya');
 define('LENGKAP', 'Desa ' . DESA . ', Kec. ' . KEC . ', Kab. ' . KAB);
 define('FULLENGKAP', 'Desa ' . DESA . ', Kecamatan ' . KEC . ', Kabupaten ' . KAB);
-
-// session();
-
 /***------------------------------------------ */
+
+
+/*** UNTUK DATA DESA DI NAV HEADER ---------------------*/
+$datadesamodel = new DataDesaModel();
+$kategoridatadesa = $datadesamodel->select('slug')->distinct()->findAll();
+define('KATEGORIDATADESA', $kategoridatadesa);
+/***---------------------*/
 
 
 /**

@@ -41,9 +41,13 @@ $routes->get('/karang-taruna', 'Pages\Page1::index/kartan-kmz-165');
 $routes->get('/struktur-pemerintahan', 'Pages\Page2::index');
 $routes->get('/struktur-pemerintahan/(:any)/(:any)/', 'Pages\Page2::detail/$1/$2');
 
+//PAGES 4 DATA-----------------------------------------------
+$routes->get('/data-desa/data-wilayah', 'Datadesa\index::index');
+$routes->get('/data-desa/(:any)', 'Datadesa\index::Datadesa/$1');
+
+
 //More Page---------------------------------------------------
 $routes->get('/galeri-desa', 'Pages\Page3::index');
-$routes->get('/data-wilayah', 'Pages\Page4::index');
 $routes->get('/kontak-desa', 'Pages\Page5::index');
 $routes->get('/visi-misi-desa', 'Pages\Page6::index');
 $routes->get('/layanan-pengaduan', 'Pages\Page7::index');

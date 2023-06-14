@@ -1,20 +1,22 @@
 <?php
 
-namespace App\Controllers\Pages;
+namespace App\Controllers\Datadesa;
 
 use App\Controllers\BaseController;
-
+use App\Models\DataDesaModel;
 use App\Models\DataWilayahModel;
 
-class Page4 extends BaseController
+class Index extends BaseController
 {
    protected $templatelayaout;
    protected $datawilyahmodel;
+   protected $datadesamodel;
 
    public function __construct()
    {
       $this->templatelayaout = ['layout-htmlcodex/header', 'layout-htmlcodex/footer'];
       $this->datawilyahmodel = new DataWilayahModel;
+      $this->datadesamodel = new DataDesaModel();
    }
 
    public function index()
@@ -91,18 +93,34 @@ class Page4 extends BaseController
          $value[] = [array_sum($vL), array_sum($vR), array_sum($vKk)];
       }
 
-      // dd($rt);
-
       $data = [
          'templatelayaout' => $this->templatelayaout,
 
-         'title' => 'Daya Wilayah ' . LENGKAP,
-         'metakeywords' => 'Daya Wilayah ' . FULLENGKAP . ', Daya Wilayah Desa  Terbaik,',
-         'metadescription' => 'Daya Wilayah ' . FULLENGKAP,
+         'title' => 'Data Wilayah ' . LENGKAP,
+         'metakeywords' => 'Data Wilayah ' . FULLENGKAP . ', Data Wilayah Desa  Terbaik,',
+         'metadescription' => 'Data Wilayah ' . FULLENGKAP,
 
          'datawilayah' => [$dusun, $rk, $rt, $CdRk, $CdRt, $value, $CdRtRk]
       ];
 
-      return view('pages/page4', $data);
+      return view('datadesa/data-wilayah', $data);
+   }
+
+   function Datadesa($kategori)
+   {
+      $kategori = str_replace("-", " ", $kategori);
+      $kategori = ucwords($kategori);
+
+      $data = [
+         'templatelayaout' => $this->templatelayaout,
+
+         'title' => 'Data Desa ' . LENGKAP,
+         'metakeywords' => 'Data Desa ' . FULLENGKAP . ', Data Desa  Terbaik,',
+         'metadescription' => 'Data Desa ' . FULLENGKAP,
+
+         'datadesa' => $this->datadesamodel->where('slug', $kategori)->findAll()
+      ];
+
+      return view('datadesa/data-desa', $data);
    }
 }

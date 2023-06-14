@@ -1,7 +1,5 @@
 <?php $this->extend('layout-htmlcodex/template') ?>
-<?php $this->section('content');
-// dd($datawilayah[1]) 
-?>
+<?php $this->section('content'); ?>
 
 <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
    <div class="container text-center py-5">
