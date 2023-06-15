@@ -5,13 +5,13 @@ namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 
 
-class Admin extends BaseController
+class Index extends BaseController
 {
     protected $templatelayaout;
 
     public function __construct()
     {
-        $this->templatelayaout = ['layout-htmlcodex/header', 'layout-htmlcodex/footer'];
+        $this->templatelayaout = ['layout-admin/header', 'layout-admin/footer'];
     }
 
     public function index()

@@ -70,7 +70,7 @@ $routes->get('/(:any)/(:num)', 'Blog\index::index/$1/$2');
 
 
 //ADMIN-----------------------------------------------------
-$routes->get('/admindes', 'Admindes\Admindes::index');
+$routes->get('/admindes', 'Admin\Index::index');
 
 /*
  * --------------------------------------------------------------------
