@@ -10,6 +10,7 @@ use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
 use App\Models\DataDesaModel;
+use App\Models\Page1Model;
 
 /*** NAMA DESA ---------------------*/
 define('DESA', 'Wakanda Raya');
@@ -20,10 +21,17 @@ define('FULLENGKAP', 'Desa ' . DESA . ', Kecamatan ' . KEC . ', Kabupaten ' . KA
 /***------------------------------------------ */
 
 
-/*** UNTUK DATA DESA DI NAV HEADER ---------------------*/
+/*** UNTUK DATA DESA & LEMBAGA DI NAV HEADER ---------------------*/
 $datadesamodel = new DataDesaModel();
 $kategoridatadesa = $datadesamodel->select('slug')->distinct()->findAll();
 define('KATEGORIDATADESA', $kategoridatadesa);
+
+$lembagadesamodel = new Page1Model();
+$lembagadesamodel->select(['namepage', 'nicknamepage'])->where('idGroup', '1');
+$kategoridatadesa = $lembagadesamodel->select(['namepage', 'nicknamepage'])->where('slug !=', 'bpd-kmz-165')->findAll();
+define('LEMABAGADESA', $kategoridatadesa);
+
+
 /***---------------------*/
 
 

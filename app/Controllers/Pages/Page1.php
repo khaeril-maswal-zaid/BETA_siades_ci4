@@ -31,7 +31,7 @@ class Page1 extends BaseController
       $data = [
          'templatelayaout' => $this->templatelayaout,
 
-         'title' => $valuespage['nicknamepage'] . DESA,
+         'title' => $valuespage['nicknamepage'] . ' Desa ' . DESA,
          'metakeywords' => $valuespage['namepage'] . ' (' . $valuespage['nicknamepage'] . '), ' . FULLENGKAP . ', ' . $valuespage['nicknamepage'] . ' Desa Terbaik,',
          'metadescription' => $valuespage['metadescription'],
 

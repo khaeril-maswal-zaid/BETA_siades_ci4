@@ -49,7 +49,6 @@ class Index extends BaseController
     public function khusus($slug)
     {
         $artikel = $this->artikelmodel->where('slug', $slug)->first();
-        // dd($artikel);
 
         $data = [
             'templatelayaout' => $this->templatelayaout,

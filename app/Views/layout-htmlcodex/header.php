@@ -54,9 +54,17 @@
          <div class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Kelembagaan</a>
             <div class="dropdown-menu bg-light m-0">
-               <a href="/lembaga-pemberdayaan-desa" class="dropdown-item">Lembaga Pemberdayaan Masyarakat (LPM)</a>
-               <a href="/pembinaan-kesejahteraan-keluarga" class="dropdown-item">Pembinaan Kesejahteraan Keluarga (PKK)</a>
-               <a href="/karang-taruna" class="dropdown-item">Karang Taruna</a>
+
+               <?php foreach (LEMABAGADESA as $lemabaga) : ?>
+                  <a href="/lembaga-pemberdayaan-desa" class="dropdown-item">
+                     <?php if ($lemabaga['namepage'] !=  $lemabaga['nicknamepage']) {
+                        echo $lemabaga['namepage'] . ' (' . $lemabaga['nicknamepage'] . ')';
+                     } else {
+                        echo $lemabaga['namepage'];
+                     } ?>
+                  </a>
+               <?php endforeach ?>
+
             </div>
          </div>
          <div class="nav-item dropdown">

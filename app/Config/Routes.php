@@ -71,6 +71,10 @@ $routes->get('/(:any)/(:num)', 'Blog\index::index/$1/$2');
 
 //ADMIN-----------------------------------------------------
 $routes->get('/admindes', 'Admin\Index::index');
+$routes->get('/admindes/kabar-desa', 'Admin\Index::blog');
+
+$routes->get('/admindes/profil-desa/(:any)', 'Admin\Index::blogAdd/$1/Update $1');
+$routes->get('/admindes/blog/add', 'Admin\Index::blogAdd');
 
 /*
  * --------------------------------------------------------------------
