@@ -4,6 +4,8 @@
 
 <main class="ms-sm-auto p-md-4 pb-md-0">
     <form action="/adm-proses/blog" method="post" enctype="multipart/form-data">
+        <?= csrf_field() ?>
+        <input type="hidden" name="id" value="<?= ($dataupdate) ? $dataupdate['id'] : ''; ?>">
         <div class="container-fluid bg-light px-4 rounded">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
                 <h1 class="h3"><?= $label ?></h1>
@@ -15,7 +17,14 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="form-floating mb-2">
-                        <input value="<?= old('judul') ?>" name="judul" type="text" class="form-control <?= ($validation[0]) ? 'is-invalid' : ''; ?>" id="judulberita" autofocus>
+                        <input value="<?php
+                                        if (old('judul')) {
+                                            echo old('judul');
+                                        } elseif ($dataupdate) {
+                                            echo $dataupdate['judul'];
+                                        } else {
+                                            echo '';
+                                        } ?>" name="judul" type="text" class="form-control <?= ($validation[0]) ? 'is-invalid' : ''; ?>" id="judulberita" autofocus>
                         <label for="judulberita">Judul Artikel</label>
                         <div class="invalid-feedback">
                             Judul wajib diisi
@@ -232,14 +241,14 @@
                 <div class="col-md-4">
                     <div class="form-floating mb-2">
                         <select name="oleh" class="form-select" id="olehselect" aria-label="Floating label select example">
-                            <option value="Admin">Admin</option>
+                            <option value="Admin" selected>Admin</option>
                             <option value="">Lainnya</option>
                         </select>
                         <label for="olehselect">Oleh</label>
                     </div>
 
                     <div class="form-floating mb-2">
-                        <input name="oleh-lainnya" type="text" disabled class="form-control disabled" id="penuliscustom">
+                        <input name="oleh-lainnya" type="text" disabled class="form-control disabled" id="penuliscustom" value=" <?= ($dataupdate) ? $dataupdate['oleh'] : ''; ?>">
                         <label for="penuliscustom">Oleh Lainnya</label>
                         <?php if (session()->getFlashdata('val-oleh')) : ?>
                             $validation = session()->getFlashdata('validation');
@@ -261,7 +270,7 @@
                     </div>
 
                     <div class="W-100" id="uploaded">
-                        <img src="/img/assets/image-default.jpg" class="img-thumbnail img-fluid" alt="default">
+                        <img src="<?= ($dataupdate) ? "/img/blog/" . $dataupdate['picture'] : "/img/assets/image-default.jpg"; ?>" class="img-thumbnail img-fluid" alt="default">
                     </div>
                 </div>
             </div>

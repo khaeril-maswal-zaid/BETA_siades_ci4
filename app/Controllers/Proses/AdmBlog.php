@@ -40,6 +40,7 @@ class AdmBlog extends BaseController
         }
 
         if ($this->request->getVar('oleh') == '' && $this->request->getVar('oleh-lainnya') == '') {
+            dd('ok');
             session()->setFlashdata('val-oleh', true);
             return redirect()->to(base_url() . 'admindes/profil-desa/profil-wilayah')->withInput();
         }
