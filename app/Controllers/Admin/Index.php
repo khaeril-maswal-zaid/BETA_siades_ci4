@@ -42,6 +42,12 @@ class Index extends BaseController
 
     public function blogAdd($slug = null, $label = 'Tambah Artikel')
     {
+        if (session()->getFlashdata('validation')) {
+            $validation = session()->getFlashdata('validation');
+        } else {
+            $validation = [false, false];
+        }
+
         $dataartikel = $this->artikelmodel->where('slug', $slug)->first();
 
         $label = str_replace("-", " ", $label);
@@ -55,9 +61,12 @@ class Index extends BaseController
             'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
 
             'dataupdate' => $dataartikel,
-            'label' => $label
+            'label' => $label,
+
+            'validation' => $validation,
         ];
 
+        session();
         return view('admin/blogAdd', $data);
     }
 }
