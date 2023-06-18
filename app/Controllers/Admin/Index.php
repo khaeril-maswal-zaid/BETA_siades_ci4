@@ -44,6 +44,9 @@ class Index extends BaseController
             'templatelayaout' => $this->templatelayaout,
             'metakeywords' => null,
             'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
+
+            'artikels' => $this->artikelmodel->orderBy('id', 'DESC')->paginate(9, 'siades_bloger'),
+            'pager' => $this->artikelmodel->pager,
         ];
 
         return view('admin/bloger', $data);

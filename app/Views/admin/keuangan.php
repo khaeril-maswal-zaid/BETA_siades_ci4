@@ -22,7 +22,7 @@
                     foreach ($keuangan[1][$iTit++] as $value1) :
                     ?>
                         <h5 class="card-title"><?= $value1['subtitle'] ?></h5>
-                        <table class="table table-striped table-bordered mb-4">
+                        <table class="table table-striped table-bordered mb-4" id="<?= url_title('Keuangan Desa ' . DESA, '-', true) ?>">
                             <thead>
                                 <tr>
                                     <th class="text-center" scope="col" style="width: 122px;">#</th>
@@ -30,6 +30,7 @@
                                     <th class="text-center" scope="col">Angaran (Rp)</th>
                                     <th class="text-center" scope="col">Realisasi (Rp)</th>
                                     <th class="text-center" scope="col">Lebih/Kurang (Rp)</th>
+                                    <th class="text-center" scope="col">Update By</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -38,11 +39,12 @@
                                 foreach ($keuangan[2][$iTit - 1][$iSub++] as $value2) :
                                 ?>
                                     <tr>
-                                        <th class="text-center" scope="row"><?= $value2['kode'] ?></th>
+                                        <td class="text-center" scope="row"><?= $value2['kode'] ?></th>
                                         <td><?= $value2['uraian'] ?></td>
                                         <td class="text-center"><?= number_format($value2['anggaran'], 0, ',', '.') ?></td>
                                         <td class="text-center"><?= number_format($value2['realisasi'], 0, ',', '.') ?></td>
                                         <td class="text-center"><?= number_format($value2['anggaran'] - $value2['realisasi'], 0, ',', '.') ?></td>
+                                        <td><?= $value2['updated_by'] ?></td>
                                     </tr>
                                 <?php endforeach ?>
 

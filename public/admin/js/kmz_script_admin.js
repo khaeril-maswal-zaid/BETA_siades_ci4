@@ -41,8 +41,8 @@ $(document).ready(function () {
     }
   }
 
+  //ambil val h1 yg dijadikan id di table
   const idTable = $("h1.h3").text().toLowerCase().replace(/\s+/g, "-");
-
   doubleClickEdit(idTable, "urlAjax");
   // doubleClickEdit("sdgs-table", "urlAjax");
 

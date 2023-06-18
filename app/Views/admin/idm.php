@@ -144,6 +144,7 @@
                         <th rowspan="2" nowrap class="align-middle text-center">Kegiatan Yang Dapat Dilakukan</th>
                         <th rowspan="2" nowrap class="align-middle text-center">+ Nilai</th>
                         <th colspan="6" class="text-center">Yang Dapat Melaksanakan Kehiatan</th>
+                        <th rowspan="2" class="align-middle text-center">Update By</th>
                     </tr>
                     <tr>
                         <th>Pusat</th>
@@ -174,6 +175,7 @@
                                 <td> <?= $idm1['des'] ?> </td>
                                 <td> <?= $idm1['csr'] ?> </td>
                                 <td> <?= $idm1['lainnya'] ?> </td>
+                                <td> <?= $idm1['updated_by'] ?> </td>
                             </tr>
                         <?php endforeach; ?>
                         <tr class="table-primary">
