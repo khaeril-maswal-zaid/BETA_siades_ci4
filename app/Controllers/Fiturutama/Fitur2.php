@@ -40,7 +40,6 @@ class Fitur2 extends BaseController
             }
             $values[] = $valuesrow;
         }
-        // dd($subtitle);
 
         $data = [
             'templatelayaout' => $this->templatelayaout,

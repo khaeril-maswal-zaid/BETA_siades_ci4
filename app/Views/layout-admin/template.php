@@ -29,6 +29,7 @@
 
    <!-- Template Stylesheet -->
    <link href="<?= base_url() ?>admin/css/style.css" rel="stylesheet">
+   <link href="<?= base_url() ?>admin/css/kmz_style_admin.css" rel="stylesheet">
 </head>
 
 <body>
@@ -50,6 +51,7 @@
    <script src="<?= base_url() ?>admin/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
    <!-- Template Javascript -->
+   <script src="<?= base_url() ?>admin/js/kmz_script_admin.js"></script>
    <script src="<?= base_url() ?>admin/js/main.js"></script>
 </body>
 

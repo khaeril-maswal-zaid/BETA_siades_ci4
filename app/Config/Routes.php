@@ -76,6 +76,10 @@ $routes->get('/admindes/kabar-desa', 'Admin\Index::blog');
 $routes->get('/admindes/profil-desa/(:any)', 'Admin\Index::blogAdd/$1/Update $1');
 $routes->get('/admindes/blog/add', 'Admin\Index::blogAdd');
 
+$routes->get('/admindes/status-sdgs', 'Admin\Index::sdgs');
+$routes->get('/admindes/status-idm', 'Admin\Index::idm');
+$routes->get('/admindes/keuangan-desa', 'Admin\Index::keuangan');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
