@@ -3,7 +3,7 @@ $(function () {
   $(".modelAduan").on("click", function () {
     const idTanggapan = $(this).data("id");
     $.ajax({
-      url: "http://localhost:8080/layanan-pengaduan/getTunggal",
+      url: "/layanan-pengaduan/getTunggal",
       data: { id: idTanggapan },
       method: "post",
       dataType: "json",
@@ -38,27 +38,5 @@ $(function () {
         }
       },
     });
-  });
-
-  //HANYA SEMENTARA..................................
-  //Api Data
-  $.ajax({
-    url: "https://idm.kemendesa.go.id/open/api/desa/rumusan/730207003/2022",
-    success: function (data) {
-      console.log(data);
-    },
-  });
-
-  $.ajax({
-    url: "https://sid.kemendesa.go.id/sdgs/searching/score-sdgs",
-    type: "GET",
-    dataType: "JSON",
-    data: {
-      location_code: "pakubalaho",
-    },
-
-    success: function (response) {
-      console.log(response);
-    },
   });
 });

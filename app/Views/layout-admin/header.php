@@ -31,10 +31,10 @@
                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Informasi Publik</a>
                <div class="dropdown-menu bg-transparent border-0">
                   <a href="/admindes/kabar-desa" class="dropdown-item">Kabar Desa</a>
-                  <a href="/admindes" class="dropdown-item">Keuangan Desa</a>
-                  <a href="typography.html" class="dropdown-item">Status IDM</a>
-                  <a href="typography.html" class="dropdown-item">Status SDGs</a>
-                  <a href="element.html" class="dropdown-item">Aduan Masyarakat</a>
+                  <a href="/admindes/keuangan-desa" class="dropdown-item">Keuangan Desa</a>
+                  <a href="/admindes/status-idm" class="dropdown-item">Status IDM</a>
+                  <a href="/admindes/status-sdgs" class="dropdown-item">Status SDGs</a>
+                  <a href="/admindes/" class="dropdown-item">Aduan Masyarakat</a>
                </div>
             </div>
 

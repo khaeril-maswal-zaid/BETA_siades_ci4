@@ -7,139 +7,52 @@
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
             <h1 class="h2">Kabar Desa</h1>
 
-            <a href="/admindes/blog/add" class="btn btn-sm btn-success">Tambah Artikel</a>
+            <a href="/admindes/profil-desa/add" class="btn btn-sm btn-success">Tambah Artikel</a>
 
         </div>
     </div>
 
     <div class="container-fluid bg-light border p-4 rounded">
         <div class="table-responsive">
-            <table class="table table-striped table-sm">
+            <table class="table table-striped table-bordered">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Header</th>
-                        <th scope="col">Header</th>
-                        <th scope="col">Header</th>
-                        <th scope="col">Header</th>
+                        <th scope="col" class="text-center">No</th>
+                        <th scope="col" class="text-center">Aksi</th>
+                        <th scope="col" class="text-center">Tanggal/Waktu</th>
+                        <th scope="col" class="text-center">Judul</th>
+                        <th scope="col" class="text-center">Oleh</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1,001</td>
-                        <td>random</td>
-                        <td>data</td>
-                        <td>placeholder</td>
-                        <td>text</td>
-                    </tr>
-                    <tr>
-                        <td>1,002</td>
-                        <td>placeholder</td>
-                        <td>irrelevant</td>
-                        <td>visual</td>
-                        <td>layout</td>
-                    </tr>
-                    <tr>
-                        <td>1,003</td>
-                        <td>data</td>
-                        <td>rich</td>
-                        <td>dashboard</td>
-                        <td>tabular</td>
-                    </tr>
-                    <tr>
-                        <td>1,003</td>
-                        <td>information</td>
-                        <td>placeholder</td>
-                        <td>illustrative</td>
-                        <td>data</td>
-                    </tr>
-                    <tr>
-                        <td>1,004</td>
-                        <td>text</td>
-                        <td>random</td>
-                        <td>layout</td>
-                        <td>dashboard</td>
-                    </tr>
-                    <tr>
-                        <td>1,005</td>
-                        <td>dashboard</td>
-                        <td>irrelevant</td>
-                        <td>text</td>
-                        <td>placeholder</td>
-                    </tr>
-                    <tr>
-                        <td>1,006</td>
-                        <td>dashboard</td>
-                        <td>illustrative</td>
-                        <td>rich</td>
-                        <td>data</td>
-                    </tr>
-                    <tr>
-                        <td>1,007</td>
-                        <td>placeholder</td>
-                        <td>tabular</td>
-                        <td>information</td>
-                        <td>irrelevant</td>
-                    </tr>
-                    <tr>
-                        <td>1,008</td>
-                        <td>random</td>
-                        <td>data</td>
-                        <td>placeholder</td>
-                        <td>text</td>
-                    </tr>
-                    <tr>
-                        <td>1,009</td>
-                        <td>placeholder</td>
-                        <td>irrelevant</td>
-                        <td>visual</td>
-                        <td>layout</td>
-                    </tr>
-                    <tr>
-                        <td>1,010</td>
-                        <td>data</td>
-                        <td>rich</td>
-                        <td>dashboard</td>
-                        <td>tabular</td>
-                    </tr>
-                    <tr>
-                        <td>1,011</td>
-                        <td>information</td>
-                        <td>placeholder</td>
-                        <td>illustrative</td>
-                        <td>data</td>
-                    </tr>
-                    <tr>
-                        <td>1,012</td>
-                        <td>text</td>
-                        <td>placeholder</td>
-                        <td>layout</td>
-                        <td>dashboard</td>
-                    </tr>
-                    <tr>
-                        <td>1,013</td>
-                        <td>dashboard</td>
-                        <td>irrelevant</td>
-                        <td>text</td>
-                        <td>visual</td>
-                    </tr>
-                    <tr>
-                        <td>1,014</td>
-                        <td>dashboard</td>
-                        <td>illustrative</td>
-                        <td>rich</td>
-                        <td>data</td>
-                    </tr>
-                    <tr>
-                        <td>1,015</td>
-                        <td>random</td>
-                        <td>tabular</td>
-                        <td>information</td>
-                        <td>text</td>
-                    </tr>
+                    <?php $no = 1;
+                    foreach ($artikels as $artikel) : ?>
+                        <tr>
+                            <td class="align-middle"><?= $no++ ?></td>
+                            <td class="align-middle">
+                                <div class="btn-group" role="group">
+                                    <button id="btnGroupDrop1" type="button" class="btn btn-sm btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Action
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                        <li><a href="/<?= $artikel['slug'] . '/' . $artikel['time'] ?>" class="dropdown-item" target="_blank">View</a></li>
+                                        <li><a href="#" class="dropdown-item">Hapus</a></li>
+                                        <li><a href="/admindes/profil-desa/<?= $artikel['slug'] ?>" class="dropdown-item">Edit</a></li>
+                                        <li><a href="#" class="dropdown-item" target="_blank">Share WA</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                            <td class="align-middle"><?= $artikel['created_at'] ?></td>
+                            <td class="align-middle"><?= $artikel['judul'] ?></td>
+                            <td class="align-middle" nowrap><?= $artikel['oleh'] ?></td>
+                        </tr>
+                    <?php endforeach ?>
                 </tbody>
             </table>
         </div>
+
+        <!-- //pagination CI4 -->
+        <?= $pager->links('siades_bloger', 'newtemplate') ?>
     </div>
 </main>
 
