@@ -36,8 +36,8 @@
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                                         <li><a href="/<?= $artikel['slug'] . '/' . $artikel['time'] ?>" class="dropdown-item" target="_blank">View</a></li>
-                                        <li><a href="#" class="dropdown-item">Hapus</a></li>
                                         <li><a href="/admindes/profil-desa/<?= $artikel['slug'] ?>" class="dropdown-item">Edit</a></li>
+                                        <li><a href="#" class="dropdown-item">Hapus</a></li>
                                         <li><a href="#" class="dropdown-item" target="_blank">Share WA</a></li>
                                     </ul>
                                 </div>
