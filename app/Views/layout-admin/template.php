@@ -53,6 +53,7 @@
    <!-- Template Javascript -->
    <script src="<?= base_url() ?>admin/js/kmz_script_admin.js"></script>
    <script src="<?= base_url() ?>admin/js/main.js"></script>
+   <script src="<?= base_url() ?>admin/js/kmz_script.js"></script>
 </body>
 
 </html>

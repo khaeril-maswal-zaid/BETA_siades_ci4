@@ -61,6 +61,8 @@ $routes->get('/status-idm', 'Fiturutama\Fitur3::index');
 $routes->post('/post-layanan-pengaduan', 'Proses\Layananaduan::add');
 $routes->post('/layanan-pengaduan/getTunggal', 'Proses\Layananaduan::getAjaxTunggal');
 
+$routes->post('/adm-proses/blog', 'Proses\AdmBlog::save');
+
 
 //BLOG-----------------------------------------------------
 $routes->get('/potensi-desa', 'Blog\index::khusus/potensi-desa');
@@ -79,6 +81,18 @@ $routes->get('/admindes/profil-desa/add', 'Admin\Index::blogAdd');
 $routes->get('/admindes/status-sdgs', 'Admin\Index::sdgs');
 $routes->get('/admindes/status-idm', 'Admin\Index::idm');
 $routes->get('/admindes/keuangan-desa', 'Admin\Index::keuangan');
+
+// Post Foto menggunakan Ajax
+$routes->post('/postfotoajaxl/blog/(:any)', function ($judulberita) {
+    $datafile = explode('.', $_FILES["file"]["name"]);
+    $ext = end($datafile);
+    $name = url_title($judulberita, '-', true) . '.' . $ext;
+
+    move_uploaded_file($_FILES["file"]["tmp_name"], "img/blog/" . $name);
+
+    echo '<img src="/img/blog/' . $name . '" class="img-thumbnail" />';
+    echo '<input type="hidden" name="fotopost" value="' . $name . '">';
+});
 
 /*
  * --------------------------------------------------------------------
