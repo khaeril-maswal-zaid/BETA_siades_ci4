@@ -106,7 +106,7 @@ class Index extends BaseController
       return view('datadesa/data-wilayah', $data);
    }
 
-   function Datadesa($kategori)
+   public function Datadesa($kategori)
    {
       $kategori = str_replace("-", " ", $kategori);
       $kategori = ucwords($kategori);

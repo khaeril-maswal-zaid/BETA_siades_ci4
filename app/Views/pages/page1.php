@@ -94,9 +94,10 @@
                            </tr>
                         </thead>
                         <tbody>
-                           <?php foreach ($personildesa as $personil) : ?>
+                           <?php $no = 1;
+                           foreach ($personildesa as $personil) : ?>
                               <tr>
-                                 <th scope="row">1</th>
+                                 <th scope="row"><?= $no++ ?></th>
                                  <td><?= $personil['nama'] ?></td>
                                  <td><?= $personil['jabatan'] ?></td>
                                  <td><?= $personil['alamat'] ?></td>

@@ -75,12 +75,22 @@ $routes->get('/(:any)/(:num)', 'Blog\index::index/$1/$2');
 $routes->get('/admindes', 'Admin\Index::index');
 $routes->get('/admindes/kabar-desa', 'Admin\Index::blog');
 
+$routes->get('/admindes/aduan-masyarakat', 'Admin\Index::aduan');
+
 $routes->get('/admindes/profil-desa/(:any)', 'Admin\Index::blogAdd/$1/Update $1'); //PIKIRKAN KLW ARTIKEL DI DTB ITU TDK ADA
 $routes->get('/admindes/profil-desa/add', 'Admin\Index::blogAdd');
 
 $routes->get('/admindes/status-sdgs', 'Admin\Index::sdgs');
 $routes->get('/admindes/status-idm', 'Admin\Index::idm');
 $routes->get('/admindes/keuangan-desa', 'Admin\Index::keuangan');
+
+$routes->get('/admindes/bpd', 'Admin\Index::lembaga/bpd-kmz-165');
+$routes->get('/admindes/lpm', 'Admin\Index::lembaga/lpmdes-kmz-165');
+$routes->get('/admindes/pkk', 'Admin\Index::lembaga/pkk-kmz-165');
+$routes->get('/admindes/karang-taruna', 'Admin\Index::lembaga/kartan-kmz-165');
+
+$routes->get('/admindes/data-desa/data-wilayah', 'Admin\index::dataWilayah');
+$routes->get('/admindes/data-desa/(:any)', 'Admin\index::dataDesa/$1');
 
 // Post Foto menggunakan Ajax
 $routes->post('/postfotoajaxl/blog/(:any)', function ($judulberita) {

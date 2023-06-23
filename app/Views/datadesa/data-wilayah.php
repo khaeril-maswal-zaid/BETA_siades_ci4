@@ -34,10 +34,10 @@
             <tr class="text-center">
                <th scope="col">#</th>
                <th scope="col" colspan="3">Wilayah/Ketua</th>
+               <th scope="col">KK</th>
                <th scope="col">L</th>
                <th scope="col">P</th>
                <th scope="col">L+P</th>
-               <th scope="col">KK</th>
             </tr>
          </thead>
          <tbody>
@@ -74,6 +74,7 @@
                      <tr class="#">
                         <td class="text-center"><?= $noRt++ ?></td>
                         <td class="#">RT <?= $wilayah3['rt'] ?></td>
+                        <td class="text-center"><?= $wilayah3['kk'] ?></td>
                         <td class="text-center"><?= $wilayah3['l'] ?></td>
                         <td class="text-center"><?= $wilayah3['p'] ?></td>
                         <td class="text-center">
@@ -82,7 +83,6 @@
                            echo array_sum($pr);
                            ?>
                         </td>
-                        <td class="text-center"><?= $wilayah3['kk'] ?></td>
                      </tr>
                   <?php endforeach ?>
                <?php endforeach ?>

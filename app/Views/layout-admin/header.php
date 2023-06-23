@@ -34,7 +34,7 @@
                   <a href="/admindes/keuangan-desa" class="dropdown-item">Keuangan Desa</a>
                   <a href="/admindes/status-idm" class="dropdown-item">Status IDM</a>
                   <a href="/admindes/status-sdgs" class="dropdown-item">Status SDGs</a>
-                  <a href="/admindes/" class="dropdown-item">Aduan Masyarakat</a>
+                  <a href="/admindes/aduan-masyarakat" class="dropdown-item">Aduan Masyarakat</a>
                </div>
             </div>
 
@@ -52,8 +52,8 @@
                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pemerintahan</a>
                <div class="dropdown-menu bg-transparent border-0">
                   <a href="/admindes/bpd" class="dropdown-item">BPD</a>
-                  <a href="signup.html" class="dropdown-item">Visi Misi</a>
-                  <a href="404.html" class="dropdown-item">Struktur Desa</a>
+                  <a href="/admindes/visi-misi" class="dropdown-item">Visi Misi</a>
+                  <a href="/admindes/struktur-desa" class="dropdown-item">Struktur Desa</a>
                </div>
             </div>
 
@@ -61,20 +61,20 @@
                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Kelembagaan</a>
                <div class="dropdown-menu bg-transparent border-0">
                   <?php foreach (LEMABAGADESA as $lemabaga) : ?>
-                     <a href="signin.html" class="dropdown-item"><?= $lemabaga['nicknamepage'] ?></a>
+                     <a href="/admindes/<?= url_title($lemabaga['nicknamepage'], '-', true) ?>" class="dropdown-item"><?= $lemabaga['nicknamepage'] ?></a>
                   <?php endforeach ?>
 
-                  <a href="404.html" class="dropdown-item">Tambah Lembaga</a>
+                  <a href="/admindes/addlembaga" class="dropdown-item bg-warning">Tambah Lembaga </a>
                </div>
             </div>
 
             <div class="nav-item dropdown">
                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Data Desa</a>
                <div class="dropdown-menu bg-transparent border-0">
-                  <a href="signin.html" class="dropdown-item">Data Wilayah</a>
+                  <a href="/admindes/data-desa/data-wilayah" class="dropdown-item">Data Wilayah</a>
 
                   <?php foreach (KATEGORIDATADESA as $kategori) : ?>
-                     <a href="signin.html" class="dropdown-item"><?= $kategori['slug'] ?></a>
+                     <a href="/admindes/data-desa/<?= url_title($kategori['slug'], '-', true) ?>" class="dropdown-item"><?= $kategori['slug'] ?></a>
                   <?php endforeach ?>
 
                </div>
