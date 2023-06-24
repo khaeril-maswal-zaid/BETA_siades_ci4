@@ -69,10 +69,21 @@ $(document).on("change", "#pictureartikel", function () {
   }
 });
 
+$(document).ready(function () {
+  $("#isinaArtikel").val($(".ck-editor__main div").html()); // Awal
+});
+
+$(document).on("keyup", ".ck-editor__main div", function () {
+  $("#isinaArtikel").val($(this).html()); //timpa
+});
+
 //UNTUK DOUBLE CLIK EDIT ------------------------------------------------------
 //-----------------------------------------------------------------------------
 function doubleClickEdit(sTable, urlAjax) {
   var table = document.getElementById(sTable);
+  if (table == null) {
+    return;
+  }
   var rows = table.getElementsByTagName("tr");
 
   // Tambahkan event listener double click pada setiap baris

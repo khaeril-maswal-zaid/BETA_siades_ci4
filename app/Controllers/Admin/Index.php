@@ -67,7 +67,7 @@ class Index extends BaseController
         return view('admin/bloger', $data);
     }
 
-    public function blogAdd($slug = null, $label = 'Tambah Artikel')
+    public function blogAdd($slug = null, $label = 'Tambah Artikel', $disabled = false)
     {
         if (session()->getFlashdata('validation')) {
             $validation = session()->getFlashdata('validation');
@@ -77,8 +77,11 @@ class Index extends BaseController
 
         $dataartikel = $this->artikelmodel->where('slug', $slug)->first();
 
-        $label = str_replace("-", " ", $label);
-        $label = ucwords($label);
+        if ($dataartikel) {
+            $label = $dataartikel['judul'];
+        } else {
+            $label = str_replace("-", " ", $label);
+        }
 
 
         $data = [
@@ -91,6 +94,7 @@ class Index extends BaseController
             'label' => $label,
 
             'validation' => $validation,
+            'disabled' => $disabled
         ];
 
         session();

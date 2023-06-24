@@ -6,6 +6,9 @@
     <form action="/adm-proses/blog" method="post" enctype="multipart/form-data">
         <?= csrf_field() ?>
         <input type="hidden" name="id" value="<?= ($dataupdate) ? $dataupdate['id'] : ''; ?>">
+        <input type="hidden" name="picture" value="<?= ($dataupdate) ? $dataupdate['picture'] : ''; ?>">
+        <input type="hidden" name="isinaArtikel" id="isinaArtikel">
+
         <div class="container-fluid bg-light px-4 rounded">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
                 <h1 class="h3"><?= $label ?></h1>
@@ -14,17 +17,35 @@
         </div>
 
         <div class="container-fluid bg-light border p-2 rounded">
+
+            <?php if (session()->getFlashdata('addArtikel')) : ?>
+                <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                    <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                    </symbol>
+                </svg>
+                <div class="alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert">
+                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+                        <use xlink:href="#check-circle-fill" />
+                    </svg>
+                    <div>
+                        <?= session()->getFlashdata('addArtikel') ?>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php endif ?>
+
             <div class="row">
                 <div class="col-md-8">
                     <div class="form-floating mb-2">
-                        <input value="<?php
-                                        if (old('judul')) {
-                                            echo old('judul');
-                                        } elseif ($dataupdate) {
-                                            echo $dataupdate['judul'];
-                                        } else {
-                                            echo '';
-                                        } ?>" name="judul" type="text" class="form-control <?= ($validation[0]) ? 'is-invalid' : ''; ?>" id="judulberita" autofocus>
+                        <input <?= ($disabled) ? $disabled : ''; ?> value="<?php
+                                                                            if (old('judul')) {
+                                                                                echo old('judul');
+                                                                            } elseif ($dataupdate) {
+                                                                                echo $dataupdate['judul'];
+                                                                            } else {
+                                                                                echo '';
+                                                                            } ?>" name="judul" type="text" class="form-control <?= ($validation[0]) ? 'is-invalid' : ''; ?>" id="judulberita" autofocus>
                         <label for="judulberita">Judul Artikel</label>
                         <div class="invalid-feedback">
                             Judul wajib diisi
@@ -248,11 +269,11 @@
                     </div>
 
                     <div class="form-floating mb-2">
-                        <input name="oleh-lainnya" type="text" disabled class="form-control disabled" id="penuliscustom" value=" <?= ($dataupdate) ? $dataupdate['oleh'] : ''; ?>">
+                        <input name="oleh-lainnya" type="text" disabled class="form-control <?= (session()->getFlashdata('val-oleh')) ? 'is-invalid' : ''; ?>" id="penuliscustom" value="<?= ($dataupdate) ? $dataupdate['oleh'] : ''; ?>">
                         <label for="penuliscustom">Oleh Lainnya</label>
-                        <?php if (session()->getFlashdata('val-oleh')) : ?>
-                            $validation = session()->getFlashdata('validation');
-                        <?php endif ?>
+                        <div class="invalid-feedback">
+                            Wajib untuk diisi !
+                        </div>
                     </div>
 
                     <hr>

@@ -61,7 +61,7 @@ abstract class BaseController extends Controller
      *
      * @var array
      */
-    protected $helpers = ['generateWhatsappLink'];
+    protected $helpers = ['generateWhatsappLink', 'text'];
 
     /**
      * Be sure to declare properties for any property fetch you initialized.

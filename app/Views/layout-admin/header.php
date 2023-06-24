@@ -41,10 +41,10 @@
             <div class="nav-item dropdown">
                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Profil Desa</a>
                <div class="dropdown-menu bg-transparent border-0">
-                  <a href="/admindes/profil-desa/profil-wilayah" class="dropdown-item">Profil Wilayah</a>
-                  <a href="/admindes/profil-desa/sejarah-desa" class="dropdown-item">Sejarah Desa</a>
-                  <a href="404.html" class="dropdown-item">Galeri Desa</a>
-                  <a href="/admindes/profil-desa/potensi-desa" class="dropdown-item">Potensi Desa</a>
+                  <a href="/admindes/profil-wilayah" class="dropdown-item">Profil Wilayah</a>
+                  <a href="/admindes/sejarah-desa" class="dropdown-item">Sejarah Desa</a>
+                  <!-- <a href="masih-belum" class="dropdown-item">Galeri Desa</a> -->
+                  <a href="/admindes/potensi-desa" class="dropdown-item">Potensi Desa</a>
                </div>
             </div>
 

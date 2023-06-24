@@ -18,7 +18,7 @@
         <a href="#">Informasi</a>
         <span class="px-1">/</span>
 
-        <span class="text-success"><?= $dataartikel['kategori'] ?></span>
+        <span class="text-success">Kabar Desa</span>
     </div>
 </div>
 <!-- Petunjuk URL Enad -->
@@ -38,7 +38,6 @@
                     </div>
                     <div class="d-flex align-items-center">
                         <span class="ms-2"><i class="far fa-eye mr-2"></i> <?= $dataartikel['visit'] ?></span>
-                        <span class="ms-2"><i class="far fa-solid fa-user mr-2"></i> <?= $dataartikel['view'] ?></span>
                     </div>
                 </div>
 

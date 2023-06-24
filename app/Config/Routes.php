@@ -77,8 +77,12 @@ $routes->get('/admindes/kabar-desa', 'Admin\Index::blog');
 
 $routes->get('/admindes/aduan-masyarakat', 'Admin\Index::aduan');
 
-$routes->get('/admindes/profil-desa/(:any)', 'Admin\Index::blogAdd/$1/Update $1'); //PIKIRKAN KLW ARTIKEL DI DTB ITU TDK ADA
-$routes->get('/admindes/profil-desa/add', 'Admin\Index::blogAdd');
+$routes->get('/admindes/profil-wilayah', 'Admin\Index::blogAdd/profil-wilayah/Update profil-wilayah/readonly');
+$routes->get('/admindes/sejarah-desa', 'Admin\Index::blogAdd/sejarah-desa/Update sejarah-desa/readonly');
+$routes->get('/admindes/potensi-desa', 'Admin\Index::blogAdd/potensi-desa/Update potensi-desa/readonly');
+
+$routes->get('/admindes/kabar-desa/add', 'Admin\Index::blogAdd');
+$routes->get('/admindes/kabar-desa/update/(:any)', 'Admin\Index::blogAdd/$1/Update $1');
 
 $routes->get('/admindes/status-sdgs', 'Admin\Index::sdgs');
 $routes->get('/admindes/status-idm', 'Admin\Index::idm');
