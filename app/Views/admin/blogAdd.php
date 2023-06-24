@@ -11,7 +11,7 @@
 
         <div class="container-fluid bg-light px-4 rounded">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-                <h1 class="h3"><?= $label ?></h1>
+                <h1 class="h4"><?= $label ?></h1>
                 <button type="submit" class="btn btn-success">Submit</button>
             </div>
         </div>
@@ -70,7 +70,7 @@
                             }
                         </style>
 
-                        <div id="container">
+                        <div id="containerBlog">
                             <div id="editor">
                                 <?= ($dataupdate) ? $dataupdate['artikel'] : ''; ?>
                             </div>
@@ -254,6 +254,18 @@
                                         'FormatPainter',
                                         'TableOfContents'
                                     ]
+                                });
+                            </script>
+                            <script>
+                                document.addEventListener("DOMContentLoaded", function() {
+                                    const topoksi = document.querySelector("#containerBlog .ck-editor__main div");
+                                    const valTupoksi = document.getElementById("isinaArtikel");
+
+                                    valTupoksi.value = topoksi.innerHTML;
+
+                                    topoksi.addEventListener("keyup", function(event) {
+                                        valTupoksi.value = event.target.innerHTML;
+                                    });
                                 });
                             </script>
                         </div>

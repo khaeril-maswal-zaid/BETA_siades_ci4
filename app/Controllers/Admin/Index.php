@@ -13,7 +13,6 @@ use App\Models\Page1Model;
 use App\Models\PersonilDesaModel;
 use App\Models\SdgsModel;
 
-use App\Models\UpdateDbclickAjaxModel;
 
 class Index extends BaseController
 {
@@ -26,7 +25,7 @@ class Index extends BaseController
         $personildesa,
         $datadesamodel,
         $datawilyahmodel,
-        $aduanmodel, $targetmodel;
+        $aduanmodel;
 
     public function __construct()
     {
@@ -40,8 +39,6 @@ class Index extends BaseController
         $this->datadesamodel = new DataDesaModel();
         $this->datawilyahmodel = new DataWilayahModel();
         $this->aduanmodel = new AduanModel();
-
-        $this->targetmodel = new UpdateDbclickAjaxModel();
     }
 
     public function index()
@@ -209,6 +206,41 @@ class Index extends BaseController
         return view('admin/keuangan', $data);
     }
 
+    public function visimisi()
+    {
+        $visimisimodel = $this->lemabagamodel;
+        $visimisi = $visimisimodel->select(['tentang', 'tupoksi', 'id'])->where('slug', 'visi-misi-desa')->first();
+
+        if (!isset($visimisi)) {
+            return view('errors/html/error_404');
+        }
+
+        $data = [
+            'title' => 'Desa ' . DESA,
+            'templatelayaout' => $this->templatelayaout,
+            'metakeywords' => null,
+            'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
+            'visimisi' => ['visi' => $visimisi['tentang'], 'misi' => $visimisi['tupoksi'], 'idUpdate' => $visimisi['id']]
+        ];
+
+        return view('admin/visimisi', $data);
+    }
+
+    public function struktur()
+    {
+        $data = [
+            'title' => 'Desa ' . DESA,
+            'templatelayaout' => $this->templatelayaout,
+            'metakeywords' => null,
+            'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
+
+            'personildesa' => $this->personildesa->personilAll('apdes-kmz-165'),
+            'tabeldtb' => $this->personildesa->table
+        ];
+
+        return view('admin/struktur', $data);
+    }
+
     public function lembaga($slug = null)
     {
         $lemnbaga = $this->lemabagamodel->where('slug', $slug)->first();
@@ -223,8 +255,10 @@ class Index extends BaseController
             'singkatanlembaga' => $lemnbaga['nicknamepage'],
             'tentang' => $lemnbaga['tentang'],
             'tupoksi' => $lemnbaga['tupoksi'],
+            'idlembaga' => $lemnbaga['id'],
 
-            'personildesa' => $this->personildesa->personilAll($slug)
+            'personildesa' => $this->personildesa->personilAll($slug),
+            'tabeldtb' => $this->personildesa->table
         ];
 
         return view('admin/lembaga', $data);

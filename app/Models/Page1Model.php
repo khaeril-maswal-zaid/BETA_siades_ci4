@@ -8,10 +8,7 @@ class Page1Model extends Model
 {
     protected $table = 'siades_pages1';
     protected $useTimestamps = true;
-    protected $createdField  = true;
-    protected $updatedField   = true;
-    protected $allowedFields = ['slug', 'metadescription', 'namapage', 'singkatan', 'tentang', 'tupoksi', 'createdField', 'updatedField'];
-
+    protected $allowedFields = ['idGroup', 'metadescription', 'slug', 'namapage', 'nicknamepage', 'tentang', 'tupoksi'];
 
     public function valuesPages1($slug)
     {

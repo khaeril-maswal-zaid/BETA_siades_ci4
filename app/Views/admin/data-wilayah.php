@@ -5,7 +5,7 @@
 <main class="ms-sm-auto p-md-4 pb-md-0">
     <div class="container-fluid bg-light px-4 rounded">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-            <h1 class="h3">Data Wilayah <?= DESA ?></h1>
+            <h1 class="h3 id-table">Data Wilayah <?= DESA ?></h1>
             <a href="#" class="btn btn-sm btn-success">Tambah Data</a>
         </div>
     </div>

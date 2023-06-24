@@ -27,8 +27,13 @@
                 <tr>
                     <td><?= $no++ ?></td>
                     <td>
-                        <a href="#" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">View</a>
-                        <a href="#" class="btn btn-sm btn-danger" onclick="confirm('Yakin mau menghapus?')">Hapus</a>
+                        <button id="btnGroupDrop1" type="button" class="btn btn-sm btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Action
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                            <li><a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal">View</a></li>
+                            <li><a href="#" class="dropdown-item" onclick="confirm('Yakin mau menghapus?')">Hapus</a></li>
+                        </ul>
                     </td>
                     <td><?= $aduan['name'] ?></td>
                     <td><?= $aduan['subject'] ?></td>

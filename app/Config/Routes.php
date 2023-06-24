@@ -58,12 +58,16 @@ $routes->get('/keuangan-dasa', 'Fiturutama\Fitur2::index');
 $routes->get('/status-idm', 'Fiturutama\Fitur3::index');
 
 //Proses---------------------------------------------------
+//----------------------------------------------------------
 $routes->post('/post-layanan-pengaduan', 'Proses\Layananaduan::add');
 $routes->post('/layanan-pengaduan/getTunggal', 'Proses\Layananaduan::getAjaxTunggal');
 
-
 $routes->post('/adm-proses/blog', 'Proses\AdmBlog::save');
 $routes->post('/adm-proses/update-dbclick-ajax/(:any)', 'Proses\Updatedbclickajax::index/$1');
+$routes->post('/adm-proses/update-lembaga/(:any)', 'Proses\Updatelembaga::index/$1');
+$routes->post('/adm-proses/update-visimisi/(:any)', 'Proses\Updatelembaga::index/$1');
+//----------------------------------------------------------
+
 
 
 //BLOG-----------------------------------------------------
@@ -89,6 +93,9 @@ $routes->get('/admindes/kabar-desa/update/(:any)', 'Admin\Index::blogAdd/$1/Upda
 $routes->get('/admindes/status-sdgs', 'Admin\Index::sdgs');
 $routes->get('/admindes/status-idm', 'Admin\Index::idm');
 $routes->get('/admindes/keuangan-desa', 'Admin\Index::keuangan');
+
+$routes->get('/admindes/visi-misi', 'Admin\Index::visimisi');
+$routes->get('/admindes/struktur-desa', 'Admin\Index::struktur');
 
 $routes->get('/admindes/bpd', 'Admin\Index::lembaga/bpd-kmz-165');
 $routes->get('/admindes/lpm', 'Admin\Index::lembaga/lpmdes-kmz-165');

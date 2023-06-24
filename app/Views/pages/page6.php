@@ -16,10 +16,7 @@
          <span class="px-1">/</span>
 
 
-         <a href="/struktur-pemerintahan">Struktur Pemerintahan</a>
-         <span class="px-1">/</span>
-
-         <span class="text-success"><?= $detailpersonil['jabatan'] ?></span>
+         <a href="/struktur-pemerintahan">Visi Misi</a>
       </div>
    </div>
 </div>

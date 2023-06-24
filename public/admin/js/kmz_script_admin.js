@@ -72,13 +72,13 @@ $(document).on("change", "#pictureartikel", function () {
   }
 });
 
-$(document).ready(function () {
-  $("#isinaArtikel").val($(".ck-editor__main div").html()); // Awal
-});
+// $(document).ready(function () {
+//   $(".isinaArtikel").val($(".ck-editor__main div").html()); // Awal
+// });
 
-$(document).on("keyup", ".ck-editor__main div", function () {
-  $("#isinaArtikel").val($(this).html()); //timpa
-});
+// $(document).on("keyup", ".ck-editor__main div", function () {
+//   $(".isinaArtikel").val($(this).html()); //timpa
+// });
 
 //UNTUK DOUBLE CLIK EDIT ------------------------------------------------------
 //-----------------------------------------------------------------------------
@@ -154,7 +154,7 @@ function doubleClickEdit(sTable, urlAjax) {
 }
 
 //ambil val h1 yg dijadikan id di table
-const idTable = $("h1.h3").text().toLowerCase().replace(/\s+/g, "-");
+const idTable = $("h1.id-table").text().toLowerCase().replace(/\s+/g, "-");
 doubleClickEdit(idTable, "urlAjax");
 //-----------------------------------------------------------------------------
 
