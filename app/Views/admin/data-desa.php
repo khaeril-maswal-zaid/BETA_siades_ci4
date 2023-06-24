@@ -7,12 +7,12 @@
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
             <h1 class="h3"><?= $label ?></h1>
 
-            <a href="#" class="btn btn-sm btn-success">Tambah Artikel</a>
+            <a href="#" class="btn btn-sm btn-success">Tambah Data</a>
 
         </div>
     </div>
 
-    <table class="table table-striped table-bordered" id="<?= url_title($label, '-',  true) ?>">
+    <table class="table table-striped table-bordered" id="<?= url_title($label, '-',  true) ?>" data-tabelsiades="<?= caesarCipherReverse($tabeldtb); ?>">
         <thead>
             <tr class="text-center">
                 <th scope="col" rowspan="2" class="align-middle">#</th>
@@ -39,9 +39,9 @@
                 <tr class="#">
                     <td class="text-center"><?= $iNo++ ?></td>
                     <td class="#"><?= $val['label'] ?></td>
-                    <td class="text-center edit-dbClick"><?= $val['val_lk'] ?></td>
+                    <td class="text-center edit-dbClick" data-id="<?= convertToLetter($val['id']) ?>" data-colum="<?= caesarCipherReverse('val_lk'); ?>"><?= $val['val_lk'] ?></td>
                     <td class="text-center"><?= number_format(($val['val_lk'] / $totalJumlah) * 100, 2) ?> %</td>
-                    <td class="text-center edit-dbClick"><?= $val['val_pr'] ?></td>
+                    <td class="text-center edit-dbClick" data-id="<?= convertToLetter($val['id']) ?>" data-colum="<?= caesarCipherReverse('val_pr'); ?>"><?= $val['val_pr'] ?></td>
                     <td class="text-center"><?= number_format(($val['val_pr'] / $totalJumlah) * 100, 2) ?> %</td>
                     <td class="text-center"><?= $totalPerdata[$iNo - 2] ?></td>
                     <td class="text-center"><?= number_format(($totalPerdata[$iNo - 2] / $totalJumlah) * 100, 2) ?> %</td>

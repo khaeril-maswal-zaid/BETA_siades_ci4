@@ -64,7 +64,7 @@
                      <a href="/admindes/<?= url_title($lemabaga['nicknamepage'], '-', true) ?>" class="dropdown-item"><?= $lemabaga['nicknamepage'] ?></a>
                   <?php endforeach ?>
 
-                  <a href="/admindes/addlembaga" class="dropdown-item bg-warning">Tambah Lembaga </a>
+                  <a href="/admindes/addlembaga" class="dropdown-item bg-warning">Tambah Lembaga</a>
                </div>
             </div>
 
@@ -77,6 +77,7 @@
                      <a href="/admindes/data-desa/<?= url_title($kategori['slug'], '-', true) ?>" class="dropdown-item"><?= $kategori['slug'] ?></a>
                   <?php endforeach ?>
 
+                  <a href="/admindes/addkategoridata" class="dropdown-item bg-warning">Tambah Kategori Data</a>
                </div>
             </div>
 

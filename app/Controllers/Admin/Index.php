@@ -13,6 +13,8 @@ use App\Models\Page1Model;
 use App\Models\PersonilDesaModel;
 use App\Models\SdgsModel;
 
+use App\Models\UpdateDbclickAjaxModel;
+
 class Index extends BaseController
 {
     protected $templatelayaout,
@@ -24,7 +26,7 @@ class Index extends BaseController
         $personildesa,
         $datadesamodel,
         $datawilyahmodel,
-        $aduanmodel;
+        $aduanmodel, $targetmodel;
 
     public function __construct()
     {
@@ -38,6 +40,8 @@ class Index extends BaseController
         $this->datadesamodel = new DataDesaModel();
         $this->datawilyahmodel = new DataWilayahModel();
         $this->aduanmodel = new AduanModel();
+
+        $this->targetmodel = new UpdateDbclickAjaxModel();
     }
 
     public function index()
@@ -307,7 +311,8 @@ class Index extends BaseController
             'metakeywords' => 'Data Wilayah ' . FULLENGKAP . ', Data Wilayah Desa  Terbaik,',
             'metadescription' => 'Data Wilayah ' . FULLENGKAP,
 
-            'datawilayah' => [$dusun, $rk, $rt, $CdRk, $CdRt, $value, $CdRtRk]
+            'datawilayah' => [$dusun, $rk, $rt, $CdRk, $CdRt, $value, $CdRtRk],
+            'tabeldtb' => $this->datawilyahmodel->table
         ];
 
         return view('admin/data-wilayah', $data);
@@ -319,7 +324,6 @@ class Index extends BaseController
         $kategori = ucwords($kategori);
 
         $valLkPr = $this->datadesamodel->select(['val_lk', 'val_pr'])->where('slug', $kategori)->findAll();
-
 
         if ($valLkPr == null) {
             return view('errors/html/error_404');
@@ -355,7 +359,8 @@ class Index extends BaseController
             'datadesa' => $this->datadesamodel->where('slug', $kategori)->findAll(),
             'totalPerdata' => $totalPerdata,
             'totalJumlah' => array_sum($totalPerdata),
-            'totalperjk' => $totalperJk
+            'totalperjk' => $totalperJk,
+            'tabeldtb' => $this->datadesamodel->table
         ];
 
         return view('admin/data-desa', $data);

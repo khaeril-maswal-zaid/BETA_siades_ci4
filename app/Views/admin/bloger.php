@@ -8,7 +8,6 @@
             <h1 class="h2">Kabar Desa</h1>
 
             <a href="/admindes/kabar-desa/add" class="btn btn-sm btn-success">Tambah Artikel</a>
-
         </div>
     </div>
 

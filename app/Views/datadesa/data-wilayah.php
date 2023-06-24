@@ -49,10 +49,10 @@
                <tr class="#">
                   <th class="text-center align-middle" scope="row" rowspan="<?= $datawilayah[3][$iDusun++] + 1 + $datawilayah[4][$iDusun - 1] ?>"><?= $iNo++ ?></th>
                   <td colspan="3" class="ps-md-5 fw-bold">Dusun <?= $wilayah1['dusun'] ?></td>
+                  <td class="fw-bold text-center"><?= $datawilayah[5][$iDusun - 1][2] ?></td>
                   <td class="fw-bold text-center"><?= $datawilayah[5][$iDusun - 1][0] ?></td>
                   <td class="fw-bold text-center"><?= $datawilayah[5][$iDusun - 1][1] ?></td>
                   <td class="fw-bold text-center"><?= $datawilayah[5][$iDusun - 1][0] + $datawilayah[5][$iDusun - 1][1] ?></td>
-                  <td class="fw-bold text-center"><?= $datawilayah[5][$iDusun - 1][2] ?></td>
                </tr>
 
                <?php
@@ -63,10 +63,10 @@
                   <tr class="#">
                      <td class="text-center align-middle" rowspan="<?= count($datawilayah[2][$iDusun - 1][$noRk++]) + 1 ?>"><?= $noRk ?></td>
                      <td class="ps-md-4 fw-bold" colspan="2">RW <?= $wilayah2['rk'] ?></td>
+                     <td class="fw-bold text-center"><?= $datawilayah[6][$iDusun - 1][$iRk][2] ?></td>
                      <td class="fw-bold text-center"><?= $datawilayah[6][$iDusun - 1][$iRk][0] ?></td>
                      <td class="fw-bold text-center"><?= $datawilayah[6][$iDusun - 1][$iRk][1] ?></td>
                      <td class="fw-bold text-center"><?= $datawilayah[6][$iDusun - 1][$iRk][0] + $datawilayah[6][$iDusun - 1][$iRk][1] ?></td>
-                     <td class="fw-bold text-center"><?= $datawilayah[6][$iDusun - 1][$iRk][2] ?></td>
                   </tr>
 
                   <?php $noRt = 1;

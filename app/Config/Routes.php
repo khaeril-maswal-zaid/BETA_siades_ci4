@@ -61,7 +61,9 @@ $routes->get('/status-idm', 'Fiturutama\Fitur3::index');
 $routes->post('/post-layanan-pengaduan', 'Proses\Layananaduan::add');
 $routes->post('/layanan-pengaduan/getTunggal', 'Proses\Layananaduan::getAjaxTunggal');
 
+
 $routes->post('/adm-proses/blog', 'Proses\AdmBlog::save');
+$routes->post('/adm-proses/update-dbclick-ajax/(:any)', 'Proses\Updatedbclickajax::index/$1');
 
 
 //BLOG-----------------------------------------------------

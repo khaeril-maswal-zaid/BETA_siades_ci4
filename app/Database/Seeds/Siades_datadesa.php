@@ -16,7 +16,7 @@ class Siades_datadesa extends Seeder
                 'val_lk' => '123',
                 'val_pr' => '123',
                 'created_at' => Time::now(),
-                'update_at' => Time::now(),
+                'updated_at' => Time::now(),
             ],
             [
                 'slug' => 'Data Agama',
@@ -24,7 +24,7 @@ class Siades_datadesa extends Seeder
                 'val_lk' => '123',
                 'val_pr' => '123',
                 'created_at' => Time::now(),
-                'update_at' => Time::now(),
+                'updated_at' => Time::now(),
             ],
             [
                 'slug' => 'Data Agama',
@@ -32,7 +32,7 @@ class Siades_datadesa extends Seeder
                 'val_lk' => '123',
                 'val_pr' => '123',
                 'created_at' => Time::now(),
-                'update_at' => Time::now(),
+                'updated_at' => Time::now(),
             ],
             [
                 'slug' => 'Data Agama',
@@ -40,7 +40,7 @@ class Siades_datadesa extends Seeder
                 'val_lk' => '123',
                 'val_pr' => '123',
                 'created_at' => Time::now(),
-                'update_at' => Time::now(),
+                'updated_at' => Time::now(),
             ],
             [
                 'slug' => 'Data Agama',
@@ -48,7 +48,7 @@ class Siades_datadesa extends Seeder
                 'val_lk' => '123',
                 'val_pr' => '123',
                 'created_at' => Time::now(),
-                'update_at' => Time::now(),
+                'updated_at' => Time::now(),
             ],
             [
                 'slug' => 'Data Asuransi Kesehatan',
@@ -56,7 +56,7 @@ class Siades_datadesa extends Seeder
                 'val_lk' => '123',
                 'val_pr' => '123',
                 'created_at' => Time::now(),
-                'update_at' => Time::now(),
+                'updated_at' => Time::now(),
             ],
             [
                 'slug' => 'Data Asuransi Kesehatan',
@@ -64,7 +64,7 @@ class Siades_datadesa extends Seeder
                 'val_lk' => '123',
                 'val_pr' => '123',
                 'created_at' => Time::now(),
-                'update_at' => Time::now(),
+                'updated_at' => Time::now(),
             ],
             [
                 'slug' => 'Data Asuransi Kesehatan',
@@ -72,7 +72,7 @@ class Siades_datadesa extends Seeder
                 'val_lk' => '123',
                 'val_pr' => '123',
                 'created_at' => Time::now(),
-                'update_at' => Time::now(),
+                'updated_at' => Time::now(),
             ],
             [
                 'slug' => 'Data Asuransi Kesehatan',
@@ -80,7 +80,7 @@ class Siades_datadesa extends Seeder
                 'val_lk' => '123',
                 'val_pr' => '123',
                 'created_at' => Time::now(),
-                'update_at' => Time::now(),
+                'updated_at' => Time::now(),
             ],
             [
                 'slug' => 'Data Status Perkawinan',
@@ -88,7 +88,7 @@ class Siades_datadesa extends Seeder
                 'val_lk' => '123',
                 'val_pr' => '123',
                 'created_at' => Time::now(),
-                'update_at' => Time::now(),
+                'updated_at' => Time::now(),
             ],
             [
                 'slug' => 'Data Status Perkawinan',
@@ -96,7 +96,7 @@ class Siades_datadesa extends Seeder
                 'val_lk' => '123',
                 'val_pr' => '123',
                 'created_at' => Time::now(),
-                'update_at' => Time::now(),
+                'updated_at' => Time::now(),
             ],
             [
                 'slug' => 'Data Status Perkawinan',
@@ -104,7 +104,7 @@ class Siades_datadesa extends Seeder
                 'val_lk' => '123',
                 'val_pr' => '123',
                 'created_at' => Time::now(),
-                'update_at' => Time::now(),
+                'updated_at' => Time::now(),
             ],
             [
                 'slug' => 'Data Status Perkawinan',
@@ -112,7 +112,7 @@ class Siades_datadesa extends Seeder
                 'val_lk' => '123',
                 'val_pr' => '123',
                 'created_at' => Time::now(),
-                'update_at' => Time::now(),
+                'updated_at' => Time::now(),
             ],
             [
                 'slug' => 'Data Pendidikan',
@@ -120,7 +120,7 @@ class Siades_datadesa extends Seeder
                 'val_lk' => '123',
                 'val_pr' => '123',
                 'created_at' => Time::now(),
-                'update_at' => Time::now(),
+                'updated_at' => Time::now(),
             ],
             [
                 'slug' => 'Data Pendidikan',
@@ -128,7 +128,7 @@ class Siades_datadesa extends Seeder
                 'val_lk' => '123',
                 'val_pr' => '123',
                 'created_at' => Time::now(),
-                'update_at' => Time::now(),
+                'updated_at' => Time::now(),
             ],
             [
                 'slug' => 'Data Pendidikan',
@@ -136,7 +136,7 @@ class Siades_datadesa extends Seeder
                 'val_lk' => '123',
                 'val_pr' => '123',
                 'created_at' => Time::now(),
-                'update_at' => Time::now(),
+                'updated_at' => Time::now(),
             ],
             [
                 'slug' => 'Data Pendidikan',
@@ -144,7 +144,7 @@ class Siades_datadesa extends Seeder
                 'val_lk' => '123',
                 'val_pr' => '123',
                 'created_at' => Time::now(),
-                'update_at' => Time::now(),
+                'updated_at' => Time::now(),
             ],
             [
                 'slug' => 'Data Pendidikan',
@@ -152,7 +152,7 @@ class Siades_datadesa extends Seeder
                 'val_lk' => '123',
                 'val_pr' => '123',
                 'created_at' => Time::now(),
-                'update_at' => Time::now(),
+                'updated_at' => Time::now(),
             ],
             [
                 'slug' => 'Data Pendidikan',
@@ -160,7 +160,7 @@ class Siades_datadesa extends Seeder
                 'val_lk' => '123',
                 'val_pr' => '123',
                 'created_at' => Time::now(),
-                'update_at' => Time::now(),
+                'updated_at' => Time::now(),
             ],
             [
                 'slug' => 'Data Pendidikan',
@@ -168,7 +168,7 @@ class Siades_datadesa extends Seeder
                 'val_lk' => '123',
                 'val_pr' => '123',
                 'created_at' => Time::now(),
-                'update_at' => Time::now(),
+                'updated_at' => Time::now(),
             ],
             [
                 'slug' => 'Data Pendidikan',
@@ -176,7 +176,7 @@ class Siades_datadesa extends Seeder
                 'val_lk' => '123',
                 'val_pr' => '123',
                 'created_at' => Time::now(),
-                'update_at' => Time::now(),
+                'updated_at' => Time::now(),
             ],
             [
                 'slug' => 'Data Pendidikan',
@@ -184,7 +184,7 @@ class Siades_datadesa extends Seeder
                 'val_lk' => '123',
                 'val_pr' => '123',
                 'created_at' => Time::now(),
-                'update_at' => Time::now(),
+                'updated_at' => Time::now(),
             ],
         ];
 

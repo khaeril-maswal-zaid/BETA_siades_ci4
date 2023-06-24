@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class SiadesDataDesa extends Migration
+class SiadesDataWilayah extends Migration
 {
     public function up()
     {
@@ -15,19 +15,27 @@ class SiadesDataDesa extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'slug' => [
+            'dusun' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
             ],
-            'label' => [
+            'rk' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '200',
+                'constraint' => '50',
             ],
-            'val_lk' => [
+            'rt' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '50',
+            ],
+            'kk' => [
                 'type'       => 'INT',
                 'constraint' => '11',
             ],
-            'val_pr' => [
+            'l' => [
+                'type'       => 'INT',
+                'constraint' => '11',
+            ],
+            'p' => [
                 'type'       => 'INT',
                 'constraint' => '11',
             ],
@@ -41,11 +49,11 @@ class SiadesDataDesa extends Migration
             ]
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('siades_datadesa');
+        $this->forge->createTable('siades_datawilayah');
     }
 
     public function down()
     {
-        $this->forge->dropTable('siades_datadesa');
+        $this->forge->dropTable('siades_datawilayah');
     }
 }

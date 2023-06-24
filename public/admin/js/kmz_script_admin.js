@@ -1,3 +1,6 @@
+const baseUrl = window.location.protocol + "//" + window.location.host;
+// console.log(baseUrl);
+
 //Atur penulis artikel
 $(document).on("change", "#olehselect", function () {
   if ($("#olehselect").val() === "") {
@@ -90,11 +93,6 @@ function doubleClickEdit(sTable, urlAjax) {
   for (var i = 0; i < rows.length; i++) {
     rows[i].addEventListener("dblclick", function (event) {
       var target = event.target;
-      var isLastColumn =
-        target.cellIndex === target.parentNode.cells.length - 1; //tidak terpke dulu
-
-      // Periksa apakah target adalah sel td dan bukan kolom terakhir
-      // if (target.tagName.toLowerCase() === "td" && !isLastColumn) {
 
       if (
         target.tagName.toLowerCase() === "td" &&
@@ -103,22 +101,51 @@ function doubleClickEdit(sTable, urlAjax) {
         var cellValue = target.textContent;
 
         target.innerHTML =
-          '<textarea name="" id="">' + cellValue + "</textarea>";
+          '<textarea class="dibuat-oleh-ajax">' + cellValue + "</textarea>";
 
         var input = target.querySelector("textarea");
 
         // Fokuskan input saat pertama kali diubah
         input.focus();
 
+        function updateClickEdit() {
+          target.textContent = input.value;
+
+          // console.log(table.dataset.tabelsiades);
+
+          // Mengirim data ke server menggunakan AJAX
+          var newValue = input.value;
+          var xhr = new XMLHttpRequest();
+          xhr.open(
+            "POST",
+            `${baseUrl}/adm-proses/update-dbclick-ajax/${table.dataset.tabelsiades}`,
+            true
+          );
+          xhr.setRequestHeader(
+            "Content-type",
+            "application/x-www-form-urlencoded"
+          );
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+              // Tanggapan dari server
+              console.log(xhr.responseText);
+            }
+          };
+
+          xhr.send(
+            `idUpdate=${target.dataset.id}&targetColum=${target.dataset.colum}&newvalue=${newValue}`
+          );
+        }
+
         // Tambahkan event listener blur pada input untuk menyimpan perubahan saat kehilangan fokus
         input.addEventListener("blur", function () {
-          target.textContent = input.value;
+          updateClickEdit();
         });
 
         // Tambahkan event listener keypress pada input untuk mengembalikan mode non-input saat tombol Enter ditekan
         input.addEventListener("keypress", function (event) {
           if (event.key === "Enter") {
-            target.textContent = input.value;
+            updateClickEdit();
           }
         });
       }
