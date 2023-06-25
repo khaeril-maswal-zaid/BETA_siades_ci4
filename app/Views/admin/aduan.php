@@ -54,7 +54,7 @@
                             ?>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="font-size: 90%;">
-                            <li><a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal">View</a></li>
+                            <li><button class="dropdown-item modelAduan" data-id="<?= $aduan['id'] ?>" data-bs-toggle="modal" data-bs-target="#staticBackdrop">View</button></li>
                             <form action="/adm-proses/aduan-delete/<?= $aduan['id'] ?>" method="post">
                                 <?= csrf_field() ?>
                                 <input type="hidden" name="_method" value="DELETE">
@@ -73,19 +73,27 @@
     </table>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">LAYANAN PENGADUAN</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                <div class="modal-body bg-light">
+                    <div class="card">
+                        <div class="card-header">
+                            <span id="nama">Khaeril Maswal Zaid</span>
+                            <span id="status" class="badge bg-secondary float-end">Aman diproses</span>
+                        </div>
+                        <div class="card-body">
+                            <div id="lampiran">
+                                <img src="/img/aduan/default.jpg" alt="default" class="img-fluid mb-3" sizes="80%">
+                            </div>
+                            <h5 id="subjectm" class="card-title">Penawaran Domain Website Desa</h5>
+                            <p id="aduan" class="card-text">Kami senang dapat menyediakan layanan domain website desa untuk memperkuat kehadiran online dan mempromosikan potensi dan informasi penting dari Desa Wakanda Raya</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
