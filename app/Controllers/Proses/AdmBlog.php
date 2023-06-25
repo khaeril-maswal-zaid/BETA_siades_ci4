@@ -14,7 +14,7 @@ class AdmBlog extends BaseController
         $this->artikelmodel = new ArtikelModel();
     }
 
-    public function save()
+    public function save($idUpdate = null)
     {
         //Cek artikel khusus atau bukan
         if (
@@ -39,7 +39,7 @@ class AdmBlog extends BaseController
                     'mime_in' => 'Yang anda pilih bukan picture',
                 ]
             ]
-        ]) && $this->request->getVar('id')) {
+        ]) && $idUpdate) {
             //Error------------------------------------
             session()->setFlashdata('validation', [
                 $this->validator->getError('judul'),
@@ -60,7 +60,7 @@ class AdmBlog extends BaseController
                     'mime_in' => 'Yang anda pilih bukan picture',
                 ]
             ]
-        ]) && !$this->request->getVar('id')) {
+        ]) && !$idUpdate) {
             //Error------------------------------------
             session()->setFlashdata('validation', [
                 $this->validator->getError('judul'),
@@ -102,7 +102,7 @@ class AdmBlog extends BaseController
 
         //Save Data------------------------------------------
         $this->artikelmodel->save([
-            'id' => $this->request->getVar('id'),
+            'id' => $idUpdate,
             'time' => time(),
             'slug' => $slug,
             'judul' => $this->request->getVar('judul'),
@@ -115,7 +115,7 @@ class AdmBlog extends BaseController
         ]);
 
 
-        if ($this->request->getVar('id')) {
+        if ($idUpdate) {
             if ($redirect == 'kabar-desa/add') {
                 session()->setFlashdata('addArtikel', 'Data berhasil diperbaharui');
                 return redirect()->to(base_url() . 'admindes/kabar-desa/update/' . $slug);
@@ -127,5 +127,20 @@ class AdmBlog extends BaseController
             session()->setFlashdata('addArtikel', 'Data berhasil ditambahkan');
             return redirect()->to(base_url() . 'admindes/kabar-desa');
         }
+    }
+
+    public function delete($id)
+    {
+        $image = $this->artikelmodel->select('picture')->where('id', $id)->first();
+
+        if ($image['picture'] != '') {
+            unlink('img/blog/' . $image['picture']);
+        }
+
+
+        $this->artikelmodel->delete($id);
+
+        session()->setFlashdata('addArtikel', 'Data berhasil dihapus');
+        return redirect()->to(base_url() . 'admindes/kabar-desa');
     }
 }

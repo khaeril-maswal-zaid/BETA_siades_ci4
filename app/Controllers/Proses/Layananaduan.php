@@ -76,4 +76,19 @@ class Layananaduan extends BaseController
         $data = $this->aduanmodel->where('id', $_POST['id'])->first();
         return json_encode($data);
     }
+
+    public function delete($idDelete)
+    {
+        $image = $this->aduanmodel->select('file')->where('id', $idDelete)->first();
+
+        if ($image['file'] != '') {
+            unlink('img/aduan/' . $image['file']);
+        }
+
+
+        $this->aduanmodel->delete($idDelete);
+
+        session()->setFlashdata('addArtikel', 'Data berhasil dihapus');
+        return redirect()->to(base_url() . 'admindes/aduan-masyarakat');
+    }
 }
