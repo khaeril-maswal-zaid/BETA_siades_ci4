@@ -62,7 +62,12 @@ $routes->get('/status-idm', 'Fiturutama\Fitur3::index');
 $routes->post('/post-layanan-pengaduan', 'Proses\Layananaduan::add');
 $routes->post('/layanan-pengaduan/getTunggal', 'Proses\Layananaduan::getAjaxTunggal');
 
-$routes->post('/adm-proses/blog', 'Proses\AdmBlog::save');
+$routes->delete('/adm-proses/aduan-delete/(:num)', 'Proses\Layananaduan::delete/$1');
+
+
+$routes->delete('/adm-proses/blog-delete/(:num)', 'Proses\AdmBlog::delete/$1');
+$routes->post('/adm-proses/blog', 'Proses\AdmBlog::save'); // Save
+$routes->post('/adm-proses/blog/(:num)', 'Proses\AdmBlog::save/$1'); //Edit 
 $routes->post('/adm-proses/update-dbclick-ajax/(:any)', 'Proses\Updatedbclickajax::index/$1');
 $routes->post('/adm-proses/update-lembaga/(:any)', 'Proses\Updatelembaga::index/$1');
 $routes->post('/adm-proses/update-visimisi/(:any)', 'Proses\Updatelembaga::index/$1');
@@ -78,6 +83,7 @@ $routes->get('/(:any)/(:num)', 'Blog\index::index/$1/$2');
 
 
 //ADMIN-----------------------------------------------------
+
 $routes->get('/admindes', 'Admin\Index::index');
 $routes->get('/admindes/kabar-desa', 'Admin\Index::blog');
 

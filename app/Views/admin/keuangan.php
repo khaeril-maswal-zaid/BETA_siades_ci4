@@ -10,52 +10,50 @@
         </div>
     </div>
 
-    <div class="container-fluid bg-light p-4 rounded">
-        <?php $iTit = 0;
-        foreach ($keuangan[0] as $value0) :
-        ?>
-            <div class="card border-primary mb-3">
-                <div class="card-header bg-primary text-white"><?= $value0['title'] ?></div>
-                <div class="card-body">
+    <?php $iTit = 0;
+    foreach ($keuangan[0] as $value0) :
+    ?>
+        <div class="card border-primary mb-3">
+            <div class="card-header bg-primary text-white"><?= $value0['title'] ?></div>
+            <div class="card-body">
 
-                    <?php $iSub = 0;
-                    foreach ($keuangan[1][$iTit++] as $value1) :
-                    ?>
-                        <h5 class="card-title"><?= $value1['subtitle'] ?></h5>
-                        <table class="table table-striped table-bordered mb-4" id="<?= url_title('Keuangan Desa ' . DESA, '-', true) ?>">
-                            <thead>
+                <?php $iSub = 0;
+                foreach ($keuangan[1][$iTit++] as $value1) :
+                ?>
+                    <h5 class="card-title"><?= $value1['subtitle'] ?></h5>
+                    <table class="table table-striped table-bordered mb-4" id="<?= url_title('Keuangan Desa ' . DESA, '-', true) ?>">
+                        <thead>
+                            <tr>
+                                <th class="text-center" scope="col" style="width: 122px;">#</th>
+                                <th class="text-center" scope="col" style="width: 550px;">Uraian</th>
+                                <th class="text-center" scope="col">Angaran (Rp)</th>
+                                <th class="text-center" scope="col">Realisasi (Rp)</th>
+                                <th class="text-center" scope="col">Lebih/Kurang (Rp)</th>
+                                <th class="text-center" scope="col">Update By</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <?php $iVal = 0;
+                            foreach ($keuangan[2][$iTit - 1][$iSub++] as $value2) :
+                            ?>
                                 <tr>
-                                    <th class="text-center" scope="col" style="width: 122px;">#</th>
-                                    <th class="text-center" scope="col" style="width: 550px;">Uraian</th>
-                                    <th class="text-center" scope="col">Angaran (Rp)</th>
-                                    <th class="text-center" scope="col">Realisasi (Rp)</th>
-                                    <th class="text-center" scope="col">Lebih/Kurang (Rp)</th>
-                                    <th class="text-center" scope="col">Update By</th>
+                                    <td class="text-center" scope="row"><?= $value2['kode'] ?></th>
+                                    <td><?= $value2['uraian'] ?></td>
+                                    <td class="text-center"><?= number_format($value2['anggaran'], 0, ',', '.') ?></td>
+                                    <td class="text-center"><?= number_format($value2['realisasi'], 0, ',', '.') ?></td>
+                                    <td class="text-center"><?= number_format($value2['anggaran'] - $value2['realisasi'], 0, ',', '.') ?></td>
+                                    <td><?= $value2['updated_by'] ?></td>
                                 </tr>
-                            </thead>
-                            <tbody>
+                            <?php endforeach ?>
 
-                                <?php $iVal = 0;
-                                foreach ($keuangan[2][$iTit - 1][$iSub++] as $value2) :
-                                ?>
-                                    <tr>
-                                        <td class="text-center" scope="row"><?= $value2['kode'] ?></th>
-                                        <td><?= $value2['uraian'] ?></td>
-                                        <td class="text-center"><?= number_format($value2['anggaran'], 0, ',', '.') ?></td>
-                                        <td class="text-center"><?= number_format($value2['realisasi'], 0, ',', '.') ?></td>
-                                        <td class="text-center"><?= number_format($value2['anggaran'] - $value2['realisasi'], 0, ',', '.') ?></td>
-                                        <td><?= $value2['updated_by'] ?></td>
-                                    </tr>
-                                <?php endforeach ?>
+                        </tbody>
+                    </table>
+                <?php endforeach ?>
 
-                            </tbody>
-                        </table>
-                    <?php endforeach ?>
-
-                </div>
             </div>
-        <?php endforeach ?>
-    </div>
+        </div>
+    <?php endforeach ?>
 
 </main>
 
