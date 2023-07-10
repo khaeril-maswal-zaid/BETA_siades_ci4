@@ -5,7 +5,6 @@
 <main class="ms-sm-auto p-md-4 pb-md-0">
     <form action="/adm-proses/blog/<?= ($dataupdate) ? $dataupdate['id'] : ''; ?>" method="post" enctype="multipart/form-data">
         <?= csrf_field() ?>
-        <!-- <input type="hidden" name="id" value="<?= ($dataupdate) ? $dataupdate['id'] : ''; ?>"> -->
         <input type="hidden" name="picture" value="<?= ($dataupdate) ? $dataupdate['picture'] : ''; ?>">
         <input type="hidden" name="isinaArtikel" id="isinaArtikel">
 
@@ -45,7 +44,7 @@
                                                                                 echo $dataupdate['judul'];
                                                                             } else {
                                                                                 echo '';
-                                                                            } ?>" name="judul" type="text" class="form-control <?= ($validation[0]) ? 'is-invalid' : ''; ?>" id="judulberita" autofocus>
+                                                                            } ?>" name="judul" type="text" class="form-control <?= ($validation[0]) ? 'is-invalid' : ''; ?>" id="labelimgajax" autofocus>
                         <label for="judulberita">Judul Artikel</label>
                         <div class="invalid-feedback">
                             Judul wajib diisi
@@ -295,7 +294,7 @@
                     </div>
 
                     <div class="form-floating mb-2">
-                        <input value="<?= old('imageblog') ?>" name="imageblog" type="file" class="form-control <?= ($validation[1]) ? 'is-invalid' : ''; ?>" id="pictureartikel">
+                        <input value="<?= old('imageblog') ?>" name="imageblog" type="file" class="form-control <?= ($validation[1]) ? 'is-invalid' : ''; ?>" id="imgtarget">
                         <label for="pictureartikel">Image</label>
                         <div class="invalid-feedback">
                             <?= ($validation[1]) ? $validation[1] : ''; ?>

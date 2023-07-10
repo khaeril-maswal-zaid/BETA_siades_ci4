@@ -129,9 +129,15 @@ class AdmBlog extends BaseController
         }
     }
 
-    public function delete($id)
+    public function delete($idF)
     {
+        $id = convertToNumber($idF);
+
         $image = $this->artikelmodel->select('picture')->where('id', $id)->first();
+
+        if (!isset($image)) {
+            return view('errors/html/error_404');
+        }
 
         if ($image['picture'] != '') {
             unlink('img/blog/' . $image['picture']);

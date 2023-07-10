@@ -9,6 +9,7 @@ use App\Models\DataDesaModel;
 use App\Models\DataWilayahModel;
 use App\Models\IdmModel;
 use App\Models\KeuanganModel;
+use App\Models\KonfigurasiModel;
 use App\Models\Page1Model;
 use App\Models\PersonilDesaModel;
 use App\Models\SdgsModel;
@@ -25,7 +26,8 @@ class Index extends BaseController
         $personildesa,
         $datadesamodel,
         $datawilyahmodel,
-        $aduanmodel;
+        $aduanmodel,
+        $konfigurasimodel;
 
     public function __construct()
     {
@@ -39,6 +41,7 @@ class Index extends BaseController
         $this->datadesamodel = new DataDesaModel();
         $this->datawilyahmodel = new DataWilayahModel();
         $this->aduanmodel = new AduanModel();
+        $this->konfigurasimodel = new KonfigurasiModel();
     }
 
     public function index()
@@ -243,7 +246,14 @@ class Index extends BaseController
 
     public function lembaga($slug = null)
     {
-        $lemnbaga = $this->lemabagamodel->where('slug', $slug)->first();
+        $lembaga = $this->lemabagamodel->where('slug', $slug)->first();
+
+        if (!isset($lembaga)) {
+            return view('errors/html/error_404');
+        }
+
+        $active = $this->personildesa->select('class')->where('slug', $slug);
+        $active = $this->personildesa->select('class')->where('class', 'active')->findAll();
 
         $data = [
             'title' => 'Desa ' . DESA,
@@ -251,14 +261,15 @@ class Index extends BaseController
             'metakeywords' => null,
             'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
 
-            'namalembaga' => $lemnbaga['namepage'],
-            'singkatanlembaga' => $lemnbaga['nicknamepage'],
-            'tentang' => $lemnbaga['tentang'],
-            'tupoksi' => $lemnbaga['tupoksi'],
-            'idlembaga' => $lemnbaga['id'],
+            'namalembaga' => $lembaga['namepage'],
+            'singkatanlembaga' => $lembaga['nicknamepage'],
+            'tentang' => $lembaga['tentang'],
+            'tupoksi' => $lembaga['tupoksi'],
+            'idlembaga' => $lembaga['id'],
 
             'personildesa' => $this->personildesa->personilAll($slug),
-            'tabeldtb' => $this->personildesa->table
+            'tabeldtb' => $this->personildesa->table,
+            'active' => count($active)
         ];
 
         return view('admin/lembaga', $data);
@@ -266,6 +277,7 @@ class Index extends BaseController
 
     public function dataWilayah()
     {
+        $dusuns = $this->konfigurasimodel->select('value')->where('slug', 'dusun-kmz-165')->distinct()->findAll();
 
         $rk = [];
         $rt = [];
@@ -346,7 +358,8 @@ class Index extends BaseController
             'metadescription' => 'Data Wilayah ' . FULLENGKAP,
 
             'datawilayah' => [$dusun, $rk, $rt, $CdRk, $CdRt, $value, $CdRtRk],
-            'tabeldtb' => $this->datawilyahmodel->table
+            'tabeldtb' => $this->datawilyahmodel->table,
+            'dusuns' => $dusuns
         ];
 
         return view('admin/data-wilayah', $data);

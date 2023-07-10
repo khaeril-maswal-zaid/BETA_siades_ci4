@@ -22,9 +22,9 @@ class Page5 extends BaseController
       $data = [
          'templatelayaout' => $this->templatelayaout,
 
-         'title' => 'Galeri ' . LENGKAP,
-         'metakeywords' => 'Galeri ' . FULLENGKAP . ', Galeri Desa  Terbaik,',
-         'metadescription' => 'Galeri ' . FULLENGKAP,
+         'title' => 'Kontak ' . LENGKAP,
+         'metakeywords' => 'Kontak ' . FULLENGKAP . ', Kontak Desa  Terbaik,',
+         'metadescription' => 'Kontak ' . FULLENGKAP,
 
          'sosmed' => $this->konfigurasi->where('slug', 'sosial-media')->findAll()
       ];

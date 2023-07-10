@@ -55,10 +55,10 @@
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="font-size: 90%;">
                             <li><button class="dropdown-item modelAduan" data-id="<?= $aduan['id'] ?>" data-bs-toggle="modal" data-bs-target="#staticBackdrop">View</button></li>
-                            <form action="/adm-proses/aduan-delete/<?= $aduan['id'] ?>" method="post">
+                            <form action="/adm-proses/aduan-delete/<?= convertToLetter($aduan['id']) ?>" method="post">
                                 <?= csrf_field() ?>
                                 <input type="hidden" name="_method" value="DELETE">
-                                <button class="dropdown-item" onclick="return confirm('Yakin mau menghapus ?')">Hapus</button>
+                                <button type="submit" class="dropdown-item" onclick="return confirm('Yakin mau menghapus ?')">Hapus</button>
                             </form>
                         </ul>
                     </td>

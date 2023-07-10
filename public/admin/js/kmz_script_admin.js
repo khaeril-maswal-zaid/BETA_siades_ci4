@@ -14,12 +14,12 @@ $(document).on("change", "#olehselect", function () {
 
 //Post foto ajax
 //..................................
-$(document).on("change", "#pictureartikel", function () {
-  var name = document.getElementById("pictureartikel").files[0].name;
+$(document).on("change", "#imgtarget", function () {
+  var name = document.getElementById("imgtarget").files[0].name;
   var form_data = new FormData();
   var ext = name.split(".").pop().toLowerCase();
 
-  var judulberita = document.getElementById("judulberita").value;
+  var judulberita = document.getElementById("labelimgajax").value;
   var pesanerror = $("#pesan-error");
 
   if (judulberita == "") {
@@ -35,8 +35,8 @@ $(document).on("change", "#pictureartikel", function () {
   }
 
   var oFReader = new FileReader();
-  oFReader.readAsDataURL(document.getElementById("pictureartikel").files[0]);
-  var f = document.getElementById("pictureartikel").files[0];
+  oFReader.readAsDataURL(document.getElementById("imgtarget").files[0]);
+  var f = document.getElementById("imgtarget").files[0];
   var fsize = f.size || f.fileSize;
 
   if (fsize > 510000) {
@@ -47,13 +47,10 @@ $(document).on("change", "#pictureartikel", function () {
     pesanerror.addClass("d-none");
     $(this).removeClass("is-invalid");
 
-    form_data.append(
-      "file",
-      document.getElementById("pictureartikel").files[0]
-    );
+    form_data.append("file", document.getElementById("imgtarget").files[0]);
 
     $.ajax({
-      url: "/postfotoajaxl/blog/" + judulberita,
+      url: "/postfotoajax/" + judulberita,
       method: "POST",
       data: form_data,
       contentType: false,
@@ -71,14 +68,6 @@ $(document).on("change", "#pictureartikel", function () {
     });
   }
 });
-
-// $(document).ready(function () {
-//   $(".isinaArtikel").val($(".ck-editor__main div").html()); // Awal
-// });
-
-// $(document).on("keyup", ".ck-editor__main div", function () {
-//   $(".isinaArtikel").val($(this).html()); //timpa
-// });
 
 //UNTUK DOUBLE CLIK EDIT ------------------------------------------------------
 //-----------------------------------------------------------------------------

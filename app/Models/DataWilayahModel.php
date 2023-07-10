@@ -8,5 +8,5 @@ class DataWilayahModel extends Model
 {
     protected $table = 'siades_datawilayah';
     protected $useTimestamps = true;
-    protected $allowedFields = ['time', 'slug', 'judul', 'description', 'picture', 'oleh', 'kategori', 'level', 'artikel', 'visit', 'view'];
+    protected $allowedFields = ['dusun', 'rk', 'rt', 'kk', 'l', 'p'];
 }

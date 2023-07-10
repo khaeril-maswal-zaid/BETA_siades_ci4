@@ -8,5 +8,5 @@ class DataDesaModel extends Model
 {
     protected $table = 'siades_datadesa';
     protected $useTimestamps = true;
-    protected $allowedFields = ['time', 'slug', 'judul', 'description', 'picture', 'oleh', 'kategori', 'level', 'artikel', 'visit', 'view'];
+    protected $allowedFields = ['slug', 'label', 'val_lk', 'val_pr'];
 }

@@ -8,7 +8,7 @@ class PersonilDesaModel extends Model
 {
     protected $table = 'siades_personildesa';
     protected $useTimestamps = true;
-    // protected $allowedFields = ['slug', 'metadescription', 'namapage', 'singkatan', 'tentang', 'tupoksi', 'createdField', 'updatedField'];
+    protected $allowedFields = ['idGroup', 'slug', 'class', 'nama', 'jabatan', 'alamat', 'pendidikan', 'kontak', 'foto', 'updated_by'];
 
 
     public function personilAll($slug)

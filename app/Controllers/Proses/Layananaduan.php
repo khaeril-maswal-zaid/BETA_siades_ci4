@@ -77,14 +77,19 @@ class Layananaduan extends BaseController
         return json_encode($data);
     }
 
-    public function delete($idDelete)
+    public function delete($idDeleteF)
     {
+        $idDelete = convertToNumber($idDeleteF);
+
         $image = $this->aduanmodel->select('file')->where('id', $idDelete)->first();
+
+        if (!isset($image)) {
+            return view('errors/html/error_404');
+        }
 
         if ($image['file'] != '') {
             unlink('img/aduan/' . $image['file']);
         }
-
 
         $this->aduanmodel->delete($idDelete);
 

@@ -54,10 +54,10 @@
                                     <li><a href="/<?= $artikel['slug'] . '/' . $artikel['time'] ?>" class="dropdown-item" target="_blank">View</a></li>
                                     <li><a href="/admindes/kabar-desa/update/<?= $artikel['slug'] ?>" class="dropdown-item">Edit</a></li>
                                     <li>
-                                        <form action="/adm-proses/blog-delete/<?= $artikel['id'] ?>" method="post">
+                                        <form action="/adm-proses/blog-delete/<?= convertToLetter($artikel['id']) ?>" method="post">
                                             <?= csrf_field() ?>
                                             <input type="hidden" name="_method" value="DELETE">
-                                            <button class="dropdown-item" onclick="return confirm('Yakin mau menghapus ?')">Hapus</button>
+                                            <button type="submit" class="dropdown-item" onclick="return confirm('Yakin mau menghapus ?')">Hapus</button>
                                         </form>
                                     </li>
                                     <li><a href="<?= generetWaShareAdmin('pke nomor admin login', base_url() . $artikel['slug'] . '/' . $artikel['time']) ?>" class="dropdown-item" target="_blank">Share WA</a></li>

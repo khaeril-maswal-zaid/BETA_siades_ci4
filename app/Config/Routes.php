@@ -33,9 +33,9 @@ $routes->get('/', 'home\Home::index');
 
 //PAGES 1 ---------------------------------------------------
 $routes->get('/badan-permusyawaratam-desa', 'Pages\Page1::index/bpd-kmz-165');
-$routes->get('/lembaga-pemberdayaan-desa', 'Pages\Page1::index/lpmdes-kmz-165');
+$routes->get('/lembaga-pemberdayaan-desa', 'Pages\Page1::index/lpm-kmz-165');
 $routes->get('/pembinaan-kesejahteraan-keluarga', 'Pages\Page1::index/pkk-kmz-165');
-$routes->get('/karang-taruna', 'Pages\Page1::index/kartan-kmz-165');
+$routes->get('/karang-taruna', 'Pages\Page1::index/karangtaruna-kmz-165');
 
 //PAGES 2 ---------------------------------------------------
 $routes->get('/struktur-pemerintahan', 'Pages\Page2::index');
@@ -62,15 +62,24 @@ $routes->get('/status-idm', 'Fiturutama\Fitur3::index');
 $routes->post('/post-layanan-pengaduan', 'Proses\Layananaduan::add');
 $routes->post('/layanan-pengaduan/getTunggal', 'Proses\Layananaduan::getAjaxTunggal');
 
-$routes->delete('/adm-proses/aduan-delete/(:num)', 'Proses\Layananaduan::delete/$1');
+$routes->delete('/adm-proses/aduan-delete/(:any)', 'Proses\Layananaduan::delete/$1');
 
 
-$routes->delete('/adm-proses/blog-delete/(:num)', 'Proses\AdmBlog::delete/$1');
+$routes->delete('/adm-proses/blog-delete/(:any)', 'Proses\AdmBlog::delete/$1');
 $routes->post('/adm-proses/blog', 'Proses\AdmBlog::save'); // Save
 $routes->post('/adm-proses/blog/(:num)', 'Proses\AdmBlog::save/$1'); //Edit 
 $routes->post('/adm-proses/update-dbclick-ajax/(:any)', 'Proses\Updatedbclickajax::index/$1');
 $routes->post('/adm-proses/update-lembaga/(:any)', 'Proses\Updatelembaga::index/$1');
 $routes->post('/adm-proses/update-visimisi/(:any)', 'Proses\Updatelembaga::index/$1');
+$routes->post('/adm-proses/add-datadesa/(:any)', 'Proses\DataDesa::index/$1');
+$routes->delete('/adm-proses/delete-datadesa/(:any)/(:any)', 'Proses\DataDesa::delete/$1/$2');
+$routes->post('/adm-proses/add-datawilayah', 'Proses\DataWilayah::index');
+$routes->delete('/adm-proses/delete-datawilayah/(:any)/(:any)', 'Proses\DataWilayah::delete/$1/$2');
+
+$routes->post('/adm-proses/add-personillemabga/(:any)', 'Proses\PersonilDesa::index/$1');
+$routes->delete('/adm-proses/delete-personillembaga/(:any)/(:any)', 'Proses\PersonilDesa::delete/$1/$2');
+$routes->post('/adm-proses/mainfoto-lembaga/(:any)/(:any)', 'Proses\PersonilDesa::mianfoto/$1/$2');
+
 //----------------------------------------------------------
 
 
@@ -104,22 +113,22 @@ $routes->get('/admindes/visi-misi', 'Admin\Index::visimisi');
 $routes->get('/admindes/struktur-desa', 'Admin\Index::struktur');
 
 $routes->get('/admindes/bpd', 'Admin\Index::lembaga/bpd-kmz-165');
-$routes->get('/admindes/lpm', 'Admin\Index::lembaga/lpmdes-kmz-165');
+$routes->get('/admindes/lpm', 'Admin\Index::lembaga/lpm-kmz-165');
 $routes->get('/admindes/pkk', 'Admin\Index::lembaga/pkk-kmz-165');
-$routes->get('/admindes/karang-taruna', 'Admin\Index::lembaga/kartan-kmz-165');
+$routes->get('/admindes/karang-taruna', 'Admin\Index::lembaga/karangtaruna-kmz-165');
 
 $routes->get('/admindes/data-desa/data-wilayah', 'Admin\index::dataWilayah');
 $routes->get('/admindes/data-desa/(:any)', 'Admin\index::dataDesa/$1');
 
 // Post Foto menggunakan Ajax
-$routes->post('/postfotoajaxl/blog/(:any)', function ($judulberita) {
+$routes->post('/postfotoajax/(:any)', function ($judulberita) {
     $datafile = explode('.', $_FILES["file"]["name"]);
     $ext = end($datafile);
     $name = url_title($judulberita, '-', true) . '.' . $ext;
 
-    move_uploaded_file($_FILES["file"]["tmp_name"], "img/blog/" . $name);
+    move_uploaded_file($_FILES["file"]["tmp_name"], "img/sementarabyajax/" . $name);
 
-    echo '<img src="/img/blog/' . $name . '" class="img-thumbnail" />';
+    echo '<img src="/img/sementarabyajax/' . $name . '" class="img-thumbnail" />';
     echo '<input type="hidden" name="fotopost" value="' . $name . '">';
 });
 

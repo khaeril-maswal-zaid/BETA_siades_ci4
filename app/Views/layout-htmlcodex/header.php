@@ -56,13 +56,14 @@
             <div class="dropdown-menu bg-light m-0">
 
                <?php foreach (LEMABAGADESA as $lemabaga) : ?>
-                  <a href="/lembaga-pemberdayaan-desa" class="dropdown-item">
-                     <?php if ($lemabaga['namepage'] !=  $lemabaga['nicknamepage']) {
-                        echo $lemabaga['namepage'] . ' (' . $lemabaga['nicknamepage'] . ')';
-                     } else {
-                        echo $lemabaga['namepage'];
-                     } ?>
-                  </a>
+                  <?php
+
+                  if ($lemabaga['namepage'] !=  $lemabaga['nicknamepage']) {
+                     echo '<a href="/' . url_title($lemabaga['namepage'], '-', true) . '" class="dropdown-item">' . $lemabaga['namepage'] . ' (' . $lemabaga['nicknamepage'] . ')</a>';
+                  } else {
+                     echo '<a href="/' . url_title($lemabaga['namepage'], '-', true) . '" class="dropdown-item">' . $lemabaga['namepage'] . '</a>';
+                  } ?>
+
                <?php endforeach ?>
 
             </div>
