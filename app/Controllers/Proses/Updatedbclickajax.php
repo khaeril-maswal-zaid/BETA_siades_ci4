@@ -22,9 +22,6 @@ class Updatedbclickajax extends BaseController
         $targetColum = caesarCipherReverse($_POST['targetColum'], -7);
         $newvalue = $_POST['newvalue'];
 
-        // var_dump($table,  $idUpdate, $targetColum, $newvalue);
-        // die;
-
         $this->targetmodel->updateData($table,  $idUpdate, $targetColum, $newvalue);
     }
 }
