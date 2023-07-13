@@ -591,16 +591,16 @@
                             <div class="mb-3">
                                 <input class="form-control form-control-sm" id="imgtarget" type="file">
                             </div>
-
-                            <div class="alert alert-danger d-none" role="alert" id="pesan-error">
-                                BUG dev.by KMZ
-                            </div>
                         </div>
                         <div class="col-6">
                             <div class="W-100" id="uploaded">
                                 <img src="<?= "/img/assets/image-default.jpg"; ?>" class="img-thumbnail img-fluid" alt="default">
                             </div>
                         </div>
+                    </div>
+
+                    <div class="alert alert-danger d-none" role="alert" id="pesan-error">
+                        BUG dev.by KMZ
                     </div>
                 </div>
                 <div class="modal-footer">

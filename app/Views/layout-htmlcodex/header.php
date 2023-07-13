@@ -46,7 +46,7 @@
          <div class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pemerintahan</a>
             <div class="dropdown-menu bg-light m-0">
-               <a href="/badan-permusyawaratam-desa" class="dropdown-item">Badan Permusyawaratan Desa (BPD)</a>
+               <a href="/badan-permusyawaratan-desa" class="dropdown-item">Badan Permusyawaratan Desa (BPD)</a>
                <a href="/visi-misi-desa" class="dropdown-item">Visi Misi Desa</a>
                <a href="/struktur-pemerintahan" class="dropdown-item">Struktur Pemerintahan</a>
             </div>

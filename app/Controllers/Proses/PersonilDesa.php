@@ -16,6 +16,8 @@ class PersonilDesa extends BaseController
 
     public function index($bakalslug)
     {
+        // BELUM ADA VALIDASI
+        //KERJA VALIDASI
         $slug = $bakalslug . '-kmz-165';
         $fotoajax = $this->request->getVar('fotopost');
 

@@ -32,7 +32,7 @@ $routes->set404Override();
 $routes->get('/', 'home\Home::index');
 
 //PAGES 1 ---------------------------------------------------
-$routes->get('/badan-permusyawaratam-desa', 'Pages\Page1::index/bpd-kmz-165');
+$routes->get('/badan-permusyawaratan-desa', 'Pages\Page1::index/bpd-kmz-165');
 $routes->get('/lembaga-pemberdayaan-desa', 'Pages\Page1::index/lpm-kmz-165');
 $routes->get('/pembinaan-kesejahteraan-keluarga', 'Pages\Page1::index/pkk-kmz-165');
 $routes->get('/karang-taruna', 'Pages\Page1::index/karangtaruna-kmz-165');
