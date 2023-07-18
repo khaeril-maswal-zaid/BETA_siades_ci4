@@ -50,6 +50,19 @@
                             Judul wajib diisi
                         </div>
                     </div>
+
+                    <div class="form-floating mb-2">
+                        <textarea name="deskripsi" class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 100px; resize: vertical;"><?php
+                                                                                                                                                                            if (old('deskripsi')) {
+                                                                                                                                                                                echo old('deskripsi');
+                                                                                                                                                                            } elseif ($dataupdate) {
+                                                                                                                                                                                echo $dataupdate['description'];
+                                                                                                                                                                            } else {
+                                                                                                                                                                                echo '';
+                                                                                                                                                                            } ?></textarea>
+                        <label for="floatingTextarea">Deskripsi artikel</label>
+                    </div>
+
                     <div class="ck-editor">
                         <style>
                             /* #container {

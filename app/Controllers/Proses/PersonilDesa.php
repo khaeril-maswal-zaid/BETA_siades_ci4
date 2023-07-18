@@ -14,11 +14,14 @@ class PersonilDesa extends BaseController
         $this->personaildesamodel = new PersonilDesaModel();
     }
 
-    public function index($bakalslug)
+    public function index($bacaslug)
     {
         // BELUM ADA VALIDASI
         //KERJA VALIDASI
-        $slug = str_replace('-', '',  $bakalslug) . '-kmz-165';
+
+        $bakalslug = str_replace('-', '',  $bacaslug);
+
+        $slug = $bakalslug . '-kmz-165';
         $fotoajax = $this->request->getVar('fotopost');
 
         $this->personaildesamodel->save([
@@ -30,7 +33,7 @@ class PersonilDesa extends BaseController
             'jabatan' => $this->request->getVar('jabatan'),
             'pendidikan' => $this->request->getVar('pendidikan'),
             'kontak' => $this->request->getVar('kontak'),
-            'foto' => str_replace('-', '',  $bakalslug) . '_' . $fotoajax,
+            'foto' => $bakalslug . '_' . $fotoajax,
             'updated_by' => 'Admin'
         ]);
 
@@ -41,12 +44,18 @@ class PersonilDesa extends BaseController
         }
 
         session()->setFlashdata('updateData', 'Data berhasil ditambahkan');
-        return redirect()->to(base_url() . 'admindes/' . $bakalslug);
+        return redirect()->to(base_url() . 'admindes/' . $bacaslug);
     }
 
     public function delete($idDeleteF, $slug)
     {
         $idDelete = convertToNumber($idDeleteF);
+
+        $image = $this->personaildesamodel->select('foto')->where('id', $idDelete)->first();
+
+        if ($image['foto'] != '') {
+            unlink('img/personil/' . $image['foto']);
+        }
 
         $this->personaildesamodel->delete($idDelete);
 
@@ -58,6 +67,8 @@ class PersonilDesa extends BaseController
     {
         $idUpdate = convertToNumber($idUpdateF);
 
+        //Kosongkan dulu baru update yg dipilih
+        $this->personaildesamodel->where('slug', str_replace('-', '', $slug) . '-kmz-165')->set('class', '')->update();
         $this->personaildesamodel->update($idUpdate, ['class' => 'active']);
 
         session()->setFlashdata('updateData', "Berhasil Menetapkan 'Foto Utama'");

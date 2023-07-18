@@ -106,7 +106,7 @@ class AdmBlog extends BaseController
             'time' => time(),
             'slug' => $slug,
             'judul' => $this->request->getVar('judul'),
-            'description' => '',
+            'description' => $this->request->getVar('deskripsi'),
             'picture' => $picture,
             'album' => '1', //1 Artinya True
             'oleh' => $oleh,

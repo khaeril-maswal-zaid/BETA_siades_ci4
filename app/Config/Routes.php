@@ -61,7 +61,6 @@ $routes->get('/status-idm', 'Fiturutama\Fitur3::index');
 //----------------------------------------------------------
 $routes->post('/post-layanan-pengaduan', 'Proses\Layananaduan::add');
 $routes->post('/layanan-pengaduan/getTunggal', 'Proses\Layananaduan::getAjaxTunggal');
-
 $routes->delete('/adm-proses/aduan-delete/(:any)', 'Proses\Layananaduan::delete/$1');
 
 $routes->delete('/adm-proses/blog-delete/(:any)', 'Proses\AdmBlog::delete/$1');
@@ -72,6 +71,7 @@ $routes->post('/adm-proses/update-dbclick-ajax/(:any)', 'Proses\Updatedbclickaja
 
 $routes->post('/adm-proses/update-lembaga/(:any)', 'Proses\Updatelembaga::index/$1');
 $routes->post('/adm-proses/update-visimisi/(:any)', 'Proses\Updatelembaga::index/$1');
+
 $routes->post('/adm-proses/add-datadesa/(:any)', 'Proses\DataDesa::index/$1');
 $routes->delete('/adm-proses/delete-datadesa/(:any)/(:any)', 'Proses\DataDesa::delete/$1/$2');
 $routes->post('/adm-proses/add-datawilayah', 'Proses\DataWilayah::index');
@@ -84,6 +84,8 @@ $routes->post('/adm-proses/mainfoto-lembaga/(:any)/(:any)', 'Proses\PersonilDesa
 $routes->post('/adm-proses/add-keuangan', 'Proses\Keuangan::index');
 $routes->delete('/adm-proses/delete-keuangan/(:any)', 'Proses\Keuangan::delete/$1');
 
+$routes->post('/adm-proses/add-struktur', 'Proses\PersonilDesa::index/struktur-desa');
+$routes->delete('/adm-proses/delete-struktur/(:any)', 'Proses\PersonilDesa::delete/$1/struktur-desa');
 
 //----------------------------------------------------------
 

@@ -43,7 +43,7 @@ class Home extends BaseController
          'metakeywords' => null,
          'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
 
-         'personildesa' => $this->personildesa->personilAll('apdes-kmz-165'),
+         'personildesa' => $this->personildesa->personilAll('strukturdesa-kmz-165'),
          'artikels' => $this->artikelmodel->orderBy('id', 'DESC')->findAll(6),
 
          'statistik' => ['kk' => array_sum($kk), 'lk' => array_sum($lk), 'pr' => array_sum($pr)]

@@ -71,9 +71,17 @@
                             <tr>
                                 <th scope="row"><?= $no++ ?></th>
                                 <td>
-                                    <button style="font-size: 87%!important;" id="btnGroupDrop1" type="button" class="btn btn-sm btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button style="font-size: 87%;" id="btnGroupDrop1" type="button" class="btn btn-sm btn-primary dropdown-toggle position-relative" data-bs-toggle="dropdown" aria-expanded="false">
                                         Action
+                                        <?= ($personil['class']) ?
+                                            '<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                                M
+                                                <span class="visually-hidden">KMZ Alzaid</span>
+                                            </span>' : ''
+                                        ?>
                                     </button>
+
+
                                     <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="font-size: 90%!important;">
                                         <li><a href="#" class="dropdown-item">View</a></li>
                                         <li>

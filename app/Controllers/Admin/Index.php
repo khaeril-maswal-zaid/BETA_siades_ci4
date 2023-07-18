@@ -234,14 +234,18 @@ class Index extends BaseController
 
     public function struktur()
     {
+        $active = $this->personildesa->select('class')->where('slug', 'strukturdesa-kmz-165');
+        $active = $this->personildesa->select('class')->where('class', 'active')->findAll();
+
         $data = [
             'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
             'metakeywords' => null,
             'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
 
-            'personildesa' => $this->personildesa->personilAll('apdes-kmz-165'),
-            'tabeldtb' => $this->personildesa->table
+            'personildesa' => $this->personildesa->personilAll('strukturdesa-kmz-165'),
+            'tabeldtb' => $this->personildesa->table,
+            'active' => count($active)
         ];
 
         return view('admin/struktur', $data);
