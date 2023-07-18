@@ -555,7 +555,7 @@
 </main>
 
 <!-- Modal -->
-<form action="/adm-proses/add-personillemabga/<?= url_title($singkatanlembaga, '', true) ?>" method="post">
+<form action="/adm-proses/add-personillemabga/<?= url_title($singkatanlembaga, '-', true) ?>" method="post">
     <?= csrf_field() ?>
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">

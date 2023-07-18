@@ -18,7 +18,7 @@ class PersonilDesa extends BaseController
     {
         // BELUM ADA VALIDASI
         //KERJA VALIDASI
-        $slug = $bakalslug . '-kmz-165';
+        $slug = str_replace('-', '',  $bakalslug) . '-kmz-165';
         $fotoajax = $this->request->getVar('fotopost');
 
         $this->personaildesamodel->save([
@@ -30,12 +30,15 @@ class PersonilDesa extends BaseController
             'jabatan' => $this->request->getVar('jabatan'),
             'pendidikan' => $this->request->getVar('pendidikan'),
             'kontak' => $this->request->getVar('kontak'),
-            'foto' => $bakalslug . '_' . $fotoajax,
+            'foto' => str_replace('-', '',  $bakalslug) . '_' . $fotoajax,
             'updated_by' => 'Admin'
         ]);
 
-        //Pindahkan file yg dari Ajax ke tempat tujuan
-        rename('img/sementarabyajax/' . $fotoajax, 'img/personil/' . $bakalslug . '_' . $fotoajax);
+        // Meskipun sudah ada validasi untuk menghindari terhpus Folder 'sementarabyajax'
+        if (isset($fotoajax)) {
+            //Pindahkan file yg dari Ajax ke tempat tujuan
+            rename('img/sementarabyajax/' . $fotoajax, 'img/personil/' . $bakalslug . '_' . $fotoajax);
+        }
 
         session()->setFlashdata('updateData', 'Data berhasil ditambahkan');
         return redirect()->to(base_url() . 'admindes/' . $bakalslug);

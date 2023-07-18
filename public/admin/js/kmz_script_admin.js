@@ -71,7 +71,7 @@ $(document).on("change", "#imgtarget", function () {
 
 //UNTUK DOUBLE CLIK EDIT ------------------------------------------------------
 //-----------------------------------------------------------------------------
-function doubleClickEdit(sTable, urlAjax) {
+function doubleClickEdit(sTable) {
   var table = document.getElementById(sTable);
   if (table == null) {
     return;
@@ -144,7 +144,7 @@ function doubleClickEdit(sTable, urlAjax) {
 
 //ambil val h1 yg dijadikan id di table
 const idTable = $("h1.id-table").text().toLowerCase().replace(/\s+/g, "-");
-doubleClickEdit(idTable, "urlAjax");
+doubleClickEdit(idTable);
 //-----------------------------------------------------------------------------
 
 //HANYA SEMENTARA..................................

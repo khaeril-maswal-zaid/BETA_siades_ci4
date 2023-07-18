@@ -92,13 +92,13 @@ class AdmBlog extends BaseController
         $slug = url_title($this->request->getVar('judul'), '-', true);
 
         // Cari indeks awal tag <p>
-        $start = strpos($this->request->getVar('isinaArtikel'), '<p');
+        // $start = strpos($this->request->getVar('isinaArtikel'), '<p');
 
-        // Cari indeks akhir tag </p>
-        $end = strpos($this->request->getVar('isinaArtikel'), '</p>', $start);
+        // // Cari indeks akhir tag </p>
+        // $end = strpos($this->request->getVar('isinaArtikel'), '</p>', $start);
 
-        // Ambil teks di antara tag <p> dan </p>
-        $tagPertama = substr($this->request->getVar('isinaArtikel'), $start, $end - $start);
+        // // Ambil teks di antara tag <p> dan </p>
+        // $tagPertama = substr($this->request->getVar('isinaArtikel'), $start, $end - $start);
 
         //Save Data------------------------------------------
         $this->artikelmodel->save([
@@ -106,7 +106,7 @@ class AdmBlog extends BaseController
             'time' => time(),
             'slug' => $slug,
             'judul' => $this->request->getVar('judul'),
-            'description' => $tagPertama,
+            'description' => '',
             'picture' => $picture,
             'album' => '1', //1 Artinya True
             'oleh' => $oleh,

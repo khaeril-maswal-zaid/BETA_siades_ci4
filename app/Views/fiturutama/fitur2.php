@@ -40,8 +40,8 @@
           <?php $iSub = 0;
           foreach ($keuangan[1][$iTit++] as $value1) :
           ?>
-            <h5 class="card-title"><?= $value1['subtitle'] ?></h5>
-            <table class="table table-striped table-bordered mb-4">
+            <h6 class="card-title"><?= $value1['subtitle'] ?></h6>
+            <table style="font-size: 80%!important;" class="table table-striped table-bordered mb-4">
               <thead>
                 <tr>
                   <th class="text-center" scope="col" style="width: 122px;">#</th>

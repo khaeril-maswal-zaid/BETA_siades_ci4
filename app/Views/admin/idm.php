@@ -27,7 +27,7 @@
                                     ?>
 
                                 </h1>
-                                <i class="bi bi-graph-up position-absolute bottom-0 end-0" style="font-size: 4em;"></i>
+                                <!-- <i class="bi bi-graph-up position-absolute bottom-0 end-0" style="font-size: 4em;"></i> -->
                             </div>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
                             <div class="card-header">STATUS IDM</div>
                             <div class="card-body  position-relative me-2">
                                 <h2 class="text-white mt-3 text-uppercase"><?= $statusIdm ?></h2>
-                                <i class="bi bi-pin-angle-fill position-absolute bottom-0 end-0" style="font-size: 4em;"></i>
+                                <!-- <i class="bi bi-pin-angle-fill position-absolute bottom-0 end-0" style="font-size: 4em;"></i> -->
                             </div>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                             <div class="card-header">SKOR MINIMAL</div>
                             <div class="card-body  position-relative me-2">
                                 <h1 class="text-white mt-3">0.1234</h1>
-                                <i class="bi bi-calendar-event position-absolute bottom-0 end-0" style="font-size: 4em;"></i>
+                                <!-- <i class="bi bi-calendar-event position-absolute bottom-0 end-0" style="font-size: 4em;"></i> -->
                             </div>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                             <div class="card-header">TARGET STATUS</div>
                             <div class="card-body position-relative me-2">
                                 <h2 class="text-white mt-3">MANDIRI</h2>
-                                <i class="bi bi-clipboard-data position-absolute bottom-0 end-0" style="font-size: 4em;"></i>
+                                <!-- <i class="bi bi-clipboard-data position-absolute bottom-0 end-0" style="font-size: 4em;"></i> -->
                             </div>
                         </div>
                     </div>
@@ -180,7 +180,7 @@
                         <?php endforeach; ?>
                         <tr class="table-primary">
                             <td colspan="3" class="text-center fw-bold"><?= $idm0['group'] ?></td>
-                            <td colspan="9" class=" fw-bold"><?= $dataidm[2][$iVal - 1] ?></td>
+                            <td colspan="10" class=" fw-bold"><?= $dataidm[2][$iVal - 1] ?></td>
                         </tr>
                     <?php endforeach; ?>
 

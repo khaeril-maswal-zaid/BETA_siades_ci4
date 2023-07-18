@@ -8,5 +8,5 @@ class KeuanganModel extends Model
 {
     protected $table = 'siades_keuangan';
     protected $useTimestamps = true;
-    protected $allowedFields = ['nik', 'name', 'email', 'hp', 'subject', 'aduan', 'file', 'status'];
+    protected $allowedFields = ['title', 'subtitle', 'kode', 'uraian', 'anggaran', 'realisasi', 'updated_by'];
 }

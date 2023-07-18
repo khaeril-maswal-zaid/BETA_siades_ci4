@@ -64,7 +64,6 @@ $routes->post('/layanan-pengaduan/getTunggal', 'Proses\Layananaduan::getAjaxTung
 
 $routes->delete('/adm-proses/aduan-delete/(:any)', 'Proses\Layananaduan::delete/$1');
 
-
 $routes->delete('/adm-proses/blog-delete/(:any)', 'Proses\AdmBlog::delete/$1');
 $routes->post('/adm-proses/blog', 'Proses\AdmBlog::save'); // Save
 $routes->post('/adm-proses/blog/(:num)', 'Proses\AdmBlog::save/$1'); //Edit 
@@ -81,6 +80,10 @@ $routes->delete('/adm-proses/delete-datawilayah/(:any)/(:any)', 'Proses\DataWila
 $routes->post('/adm-proses/add-personillemabga/(:any)', 'Proses\PersonilDesa::index/$1');
 $routes->delete('/adm-proses/delete-personillembaga/(:any)/(:any)', 'Proses\PersonilDesa::delete/$1/$2');
 $routes->post('/adm-proses/mainfoto-lembaga/(:any)/(:any)', 'Proses\PersonilDesa::mianfoto/$1/$2');
+
+$routes->post('/adm-proses/add-keuangan', 'Proses\Keuangan::index');
+$routes->delete('/adm-proses/delete-keuangan/(:any)', 'Proses\Keuangan::delete/$1');
+
 
 //----------------------------------------------------------
 

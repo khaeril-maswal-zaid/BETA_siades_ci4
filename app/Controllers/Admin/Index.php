@@ -177,6 +177,7 @@ class Index extends BaseController
     {
         //Ambil TITLE
         $title = $this->keuanganmodel->select('title')->distinct()->findAll();
+        $subtitleAll = $this->keuanganmodel->select('subtitle')->distinct()->findAll();
 
         $subtitle = [];
         $values = [];
@@ -203,7 +204,9 @@ class Index extends BaseController
             'metakeywords' => null,
             'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
 
-            'keuangan' => [$title, $subtitle, $values]
+            'keuangan' => [$title, $subtitle, $values],
+            'subtitleAll' => $subtitleAll,
+            'tabeldtb' => $this->keuanganmodel->table,
         ];
 
         return view('admin/keuangan', $data);

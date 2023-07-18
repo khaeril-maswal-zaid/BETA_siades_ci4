@@ -22,7 +22,7 @@ class Updatelembaga extends BaseController
 
         $nicknamepage = $this->lemabagamodel->select('nicknamepage')->where('id', $idUpdate)->first();
 
-        // dd($idUpdate, $targetColum, $newvalue);
+        // dd($targetColum);
 
         $this->lemabagamodel->update($idUpdate, [$targetColum => $newvalue]);
 

@@ -133,11 +133,11 @@
                         <?php endforeach ?>
                     </select>
                     <div class="form-floating mb-3">
-                        <input autocomplete="off" type="text" class="form-control" id="aas" placeholder="RK" name="rk">
+                        <input autocomplete="off" value="RW 000" type="text" class="form-control" id="aas" placeholder="RK" name="rk">
                         <label for="aas">RW</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input autocomplete="off" type="text" class="form-control" id="aav" placeholder="RT" name="rt">
+                        <input autocomplete="off" type="text" value="RT 000" class="form-control" id="aav" placeholder="RT" name="rt">
                         <label for="aav">RT</label>
                     </div>
                     <div class="form-floating mb-2">
