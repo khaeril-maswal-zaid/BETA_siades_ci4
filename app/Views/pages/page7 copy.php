@@ -154,41 +154,24 @@
 
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">LAYANAN PENGADUAN</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body bg-light">
-        <div class="row">
-          <div class="col-md-7">
-            <div class="card">
-              <div class="card-header">
-                <span id="nama">Khaeril Maswal Zaid</span>
-                <span id="status" class="badge bg-secondary float-end">Aman diproses</span>
-              </div>
-              <div class="card-body">
-                <div id="lampiran" style="height: 13em;" class="overflow-hidden mb-3">
-                  <img src="/imgc/aduan/default.jpg" alt="default" class="">
-                </div>
-                <h5 id="subjectm" class="card-title">Penawaran Domain Website Desa</h5>
-                <p id="aduan" class="card-text">Kami senang dapat menyediakan layanan domain website desa untuk memperkuat kehadiran online dan mempromosikan potensi dan informasi penting dari Desa Wakanda Raya</p>
-              </div>
-            </div>
+        <div class="card">
+          <div class="card-header">
+            <span id="nama">Khaeril Maswal Zaid</span>
+            <span id="status" class="badge bg-secondary float-end">Aman diproses</span>
           </div>
-
-          <div class="col-md-5">
-            <div class="card">
-              <div class="card-header">
-                <span id="nama">Respon</span>
-              </div>
-              <div class="card-body">
-                <p id="respon" class="card-text">
-
-                </p>
-              </div>
+          <div class="card-body">
+            <div id="lampiran">
+              <img src="/img/aduan/default.jpg" alt="default" class="img-fluid mb-3" sizes="80%">
             </div>
+            <h5 id="subjectm" class="card-title">Penawaran Domain Website Desa</h5>
+            <p id="aduan" class="card-text">Kami senang dapat menyediakan layanan domain website desa untuk memperkuat kehadiran online dan mempromosikan potensi dan informasi penting dari Desa Wakanda Raya</p>
           </div>
         </div>
       </div>

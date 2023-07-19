@@ -2,6 +2,10 @@ $(function () {
   //Model Aduan
   $(".modelAduan").on("click", function () {
     const idTanggapan = $(this).data("id");
+
+    //ALAMAT RESPON
+    $("#formrespon").attr("action", "/adm-proses/aduan-respon/" + idTanggapan);
+
     $.ajax({
       url: "/layanan-pengaduan/getTunggal",
       data: { id: idTanggapan },
@@ -14,20 +18,20 @@ $(function () {
         $("#aduan").text(data.aduan);
 
         if (data.status == "Sedang diproses") {
-          $("#status").removeClass("bg-secondary");
+          $("#status").removeClass("bg-dark");
           $("#status").removeClass("bg-success");
 
-          $("#status").addClass("bg-warning");
+          $("#status").addClass("bg-info");
         } else if (data.status == "Selesai diproses") {
-          $("#status").removeClass("bg-secondary");
-          $("#status").removeClass("bg-warning");
+          $("#status").removeClass("bg-dark");
+          $("#status").removeClass("bg-info");
 
           $("#status").addClass("bg-success");
         } else if (data.status == "Belum diproses") {
-          $("#status").removeClass("bg-warning");
+          $("#status").removeClass("bg-info");
           $("#status").removeClass("bg-success");
 
-          $("#status").addClass("bg-secondary");
+          $("#status").addClass("bg-dark");
         }
 
         if (data.file == "") {
@@ -36,6 +40,9 @@ $(function () {
           $("#lampiran img").attr("src", "/img/aduan/" + data.file);
           $("#lampiran").show();
         }
+
+        //Tampilkan hasil respon admin
+        $("#respon").html(data.respon);
       },
     });
   });

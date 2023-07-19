@@ -96,4 +96,26 @@ class Layananaduan extends BaseController
         session()->setFlashdata('addArtikel', 'Data berhasil dihapus');
         return redirect()->to(base_url() . 'admindes/aduan-masyarakat');
     }
+
+    public function status($idDeleteF)
+    {
+        $idDelete = convertToNumber($idDeleteF);
+
+        $this->aduanmodel->update($idDelete, ['status' => 'Selesai diproses']);
+
+        session()->setFlashdata('addArtikel', 'Data berhasil diproses');
+        return redirect()->to(base_url() . 'admindes/aduan-masyarakat');
+    }
+
+    public function respon($idDelete)
+    {
+        $this->aduanmodel->update($idDelete, [
+            'status' => 'Sedang diproses',
+            'updated_by' => 'BELUM',
+            'respon' => $this->request->getVar('respon')
+        ]);
+
+        session()->setFlashdata('addArtikel', 'Data berhasil ditanggapi');
+        return redirect()->to(base_url() . 'admindes/aduan-masyarakat');
+    }
 }

@@ -31,6 +31,7 @@ class AdmBlog extends BaseController
         //Jika Artikel khusus (punya id)
         if (!$this->validate([
             'judul' => 'required',
+            'deskripsi' => 'required',
             'imageblog' =>            [
                 'rules' => 'max_size[imageblog,510]|is_image[imageblog]|mime_in[imageblog,image/jpg,image/jpeg,image/png]',
                 'errors' => [
@@ -43,6 +44,7 @@ class AdmBlog extends BaseController
             //Error------------------------------------
             session()->setFlashdata('validation', [
                 $this->validator->getError('judul'),
+                $this->validator->getError('deskripsi'),
                 $this->validator->getError('imageblog'),
             ]);
 
@@ -51,6 +53,7 @@ class AdmBlog extends BaseController
         //Jika Artikel uumum (tidak punya id)
         elseif (!$this->validate([
             'judul' => 'required',
+            'deskripsi' => 'required',
             'imageblog' =>            [
                 'rules' => 'uploaded[imageblog]|max_size[imageblog,510]|is_image[imageblog]|mime_in[imageblog,image/jpg,image/jpeg,image/png]',
                 'errors' => [
@@ -64,14 +67,22 @@ class AdmBlog extends BaseController
             //Error------------------------------------
             session()->setFlashdata('validation', [
                 $this->validator->getError('judul'),
+                $this->validator->getError('deskripsi'),
                 $this->validator->getError('imageblog'),
             ]);
 
             return redirect()->to(base_url() . 'admindes/' . $redirect)->withInput();
         }
 
+        //OLEH & OLEH LAINNYA tidak boleh kosong
         if ($this->request->getVar('oleh') == '' && $this->request->getVar('oleh-lainnya') == '') {
             session()->setFlashdata('val-oleh', true);
+            return redirect()->to(base_url() . 'admindes/' . $redirect)->withInput();
+        }
+
+        $defaultartikel = '<p class="ck-placeholder" data-placeholder="Ketikkan disini !"><br data-cke-filler="true"></p>';
+        if ($this->request->getVar('isinaArtikel') == $defaultartikel) {
+            session()->setFlashdata('val-isinaArtikel', true);
             return redirect()->to(base_url() . 'admindes/' . $redirect)->withInput();
         }
 
@@ -82,7 +93,7 @@ class AdmBlog extends BaseController
             $picture = $this->request->getVar('picture');
         }
 
-        //Cek oleh
+        //Cek oleh klw kosong gunkan yg lainnya
         if ($this->request->getVar('oleh') != '') {
             $oleh = $this->request->getVar('oleh');
         } else {
@@ -90,15 +101,6 @@ class AdmBlog extends BaseController
         }
 
         $slug = url_title($this->request->getVar('judul'), '-', true);
-
-        // Cari indeks awal tag <p>
-        // $start = strpos($this->request->getVar('isinaArtikel'), '<p');
-
-        // // Cari indeks akhir tag </p>
-        // $end = strpos($this->request->getVar('isinaArtikel'), '</p>', $start);
-
-        // // Ambil teks di antara tag <p> dan </p>
-        // $tagPertama = substr($this->request->getVar('isinaArtikel'), $start, $end - $start);
 
         //Save Data------------------------------------------
         $this->artikelmodel->save([
@@ -115,15 +117,21 @@ class AdmBlog extends BaseController
         ]);
 
 
-        if ($idUpdate) {
-            if ($redirect == 'kabar-desa/add') {
-                session()->setFlashdata('addArtikel', 'Data berhasil diperbaharui');
+        // Meskipun sudah ada validasi untuk menghindari terhpus Folder 'sementarabyajax'
+        if (isset($picture)) {
+            //Pindahkan file yg dari Ajax ke tempat tujuan
+            rename('img/sementarabyajax/' . $picture, 'img/blog/' . $picture);
+        }
+
+        if ($idUpdate) { // Edit data
+            session()->setFlashdata('addArtikel', 'Data berhasil diperbaharui');
+
+            if ($redirect == 'kabar-desa/add') { // umum
                 return redirect()->to(base_url() . 'admindes/kabar-desa/update/' . $slug);
-            } else {
-                session()->setFlashdata('addArtikel', 'Data berhasil diperbaharui');
+            } else { //khusus
                 return redirect()->to(base_url() . 'admindes/' . url_title($this->request->getVar('judul'), '-', true));
             }
-        } else {
+        } else { // data baru
             session()->setFlashdata('addArtikel', 'Data berhasil ditambahkan');
             return redirect()->to(base_url() . 'admindes/kabar-desa');
         }

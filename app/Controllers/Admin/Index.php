@@ -76,7 +76,7 @@ class Index extends BaseController
         if (session()->getFlashdata('validation')) {
             $validation = session()->getFlashdata('validation');
         } else {
-            $validation = [false, false];
+            $validation = [false, false, false]; // JUMLAH ROLE
         }
 
         $dataartikel = $this->artikelmodel->where('slug', $slug)->first();

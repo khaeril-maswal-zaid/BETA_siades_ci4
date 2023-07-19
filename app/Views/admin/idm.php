@@ -133,7 +133,7 @@
             </div>
         </div>
 
-        <div class="overflow-auto">
+        <div class="overflow-auto" style="max-height: 500px;">
             <table class="table table-striped table-bordered" style="font-size: 75%;" id="<?= url_title('Status IMD Desa ' . DESA, '-', true) ?>">
                 <thead>
                     <tr>

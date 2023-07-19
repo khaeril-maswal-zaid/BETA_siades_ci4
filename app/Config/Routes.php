@@ -62,6 +62,8 @@ $routes->get('/status-idm', 'Fiturutama\Fitur3::index');
 $routes->post('/post-layanan-pengaduan', 'Proses\Layananaduan::add');
 $routes->post('/layanan-pengaduan/getTunggal', 'Proses\Layananaduan::getAjaxTunggal');
 $routes->delete('/adm-proses/aduan-delete/(:any)', 'Proses\Layananaduan::delete/$1');
+$routes->post('/adm-proses/aduan-status/(:any)', 'Proses\Layananaduan::status/$1');
+$routes->post('/adm-proses/aduan-respon/(:any)', 'Proses\Layananaduan::respon/$1');
 
 $routes->delete('/adm-proses/blog-delete/(:any)', 'Proses\AdmBlog::delete/$1');
 $routes->post('/adm-proses/blog', 'Proses\AdmBlog::save'); // Save

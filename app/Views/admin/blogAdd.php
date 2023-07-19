@@ -52,15 +52,18 @@
                     </div>
 
                     <div class="form-floating mb-2">
-                        <textarea name="deskripsi" class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 100px; resize: vertical;"><?php
-                                                                                                                                                                            if (old('deskripsi')) {
-                                                                                                                                                                                echo old('deskripsi');
-                                                                                                                                                                            } elseif ($dataupdate) {
-                                                                                                                                                                                echo $dataupdate['description'];
-                                                                                                                                                                            } else {
-                                                                                                                                                                                echo '';
-                                                                                                                                                                            } ?></textarea>
+                        <textarea name="deskripsi" class="form-control <?= ($validation[1]) ? 'is-invalid' : ''; ?>" placeholder="Leave a comment here" id="floatingTextarea" style="height: 100px; resize: vertical;"><?php
+                                                                                                                                                                                                                        if (old('deskripsi')) {
+                                                                                                                                                                                                                            echo old('deskripsi');
+                                                                                                                                                                                                                        } elseif ($dataupdate) {
+                                                                                                                                                                                                                            echo $dataupdate['description'];
+                                                                                                                                                                                                                        } else {
+                                                                                                                                                                                                                            echo '';
+                                                                                                                                                                                                                        } ?></textarea>
                         <label for="floatingTextarea">Deskripsi artikel</label>
+                        <div class="invalid-feedback">
+                            Deskripsi wajib diisi
+                        </div>
                     </div>
 
                     <div class="ck-editor">
@@ -83,8 +86,11 @@
                         </style>
 
                         <div id="containerBlog">
-                            <div id="editor">
+                            <div id="editor" class="<?= (session()->getFlashdata('val-isinaArtikel')) ? 'is-invalid' : ''; ?>">
                                 <?= ($dataupdate) ? $dataupdate['artikel'] : ''; ?>
+                            </div>
+                            <div class="invalid-feedback mt-2">
+                                Artikel wajib untuk diisi !
                             </div>
                         </div>
 
@@ -307,10 +313,10 @@
                     </div>
 
                     <div class="form-floating mb-2">
-                        <input value="<?= old('imageblog') ?>" name="imageblog" type="file" class="form-control <?= ($validation[1]) ? 'is-invalid' : ''; ?>" id="imgtarget">
+                        <input value="<?= old('imageblog') ?>" name="imageblog" type="file" class="form-control <?= ($validation[2]) ? 'is-invalid' : ''; ?>" id="imgtarget">
                         <label for="pictureartikel">Image</label>
                         <div class="invalid-feedback">
-                            <?= ($validation[1]) ? $validation[1] : ''; ?>
+                            <?= ($validation[2]) ? $validation[2] : ''; ?>
                         </div>
                     </div>
 
