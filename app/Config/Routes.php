@@ -61,6 +61,7 @@ $routes->get('/status-idm', 'Fiturutama\Fitur3::index');
 //----------------------------------------------------------
 $routes->post('/post-layanan-pengaduan', 'Proses\Layananaduan::add');
 $routes->post('/layanan-pengaduan/getTunggal', 'Proses\Layananaduan::getAjaxTunggal');
+//--
 $routes->delete('/adm-proses/aduan-delete/(:any)', 'Proses\Layananaduan::delete/$1');
 $routes->post('/adm-proses/aduan-status/(:any)', 'Proses\Layananaduan::status/$1');
 $routes->post('/adm-proses/aduan-respon/(:any)', 'Proses\Layananaduan::respon/$1');
@@ -73,6 +74,8 @@ $routes->post('/adm-proses/update-dbclick-ajax/(:any)', 'Proses\Updatedbclickaja
 
 $routes->post('/adm-proses/update-lembaga/(:any)', 'Proses\Updatelembaga::index/$1');
 $routes->post('/adm-proses/update-visimisi/(:any)', 'Proses\Updatelembaga::index/$1');
+$routes->post('/adm-proses/add-lembaga', 'Proses\Updatelembaga::add');
+$routes->delete('/adm-proses/delete-lembaga/(:any)', 'Proses\Updatelembaga::delete/$1');
 
 $routes->post('/adm-proses/add-datadesa/(:any)', 'Proses\DataDesa::index/$1');
 $routes->delete('/adm-proses/delete-datadesa/(:any)/(:any)', 'Proses\DataDesa::delete/$1/$2');
@@ -86,8 +89,10 @@ $routes->post('/adm-proses/mainfoto-lembaga/(:any)/(:any)', 'Proses\PersonilDesa
 $routes->post('/adm-proses/add-keuangan', 'Proses\Keuangan::index');
 $routes->delete('/adm-proses/delete-keuangan/(:any)', 'Proses\Keuangan::delete/$1');
 
-$routes->post('/adm-proses/add-struktur', 'Proses\PersonilDesa::index/struktur-desa');
-$routes->delete('/adm-proses/delete-struktur/(:any)', 'Proses\PersonilDesa::delete/$1/struktur-desa');
+$routes->post('/adm-proses/add-struktur', 'Proses\PersonilDesa::index/struktur-desa'); // struktur-desa => karena jug adigunkan di lembaga
+$routes->delete('/adm-proses/delete-struktur/(:any)', 'Proses\PersonilDesa::delete/$1/struktur-desa'); // struktur-desa => karena jug adigunkan di lembaga
+$routes->post('/adm-proses/getAjaxOne-struktur', 'Proses\PersonilDesa::getAjaxOne');
+$routes->post('/adm-proses/updatefoto-struktur/(:any)', 'Proses\PersonilDesa::updateFoto/$1/struktur-desa');
 
 //----------------------------------------------------------
 
@@ -125,6 +130,7 @@ $routes->get('/admindes/bpd', 'Admin\Index::lembaga/bpd-kmz-165');
 $routes->get('/admindes/lpm', 'Admin\Index::lembaga/lpm-kmz-165');
 $routes->get('/admindes/pkk', 'Admin\Index::lembaga/pkk-kmz-165');
 $routes->get('/admindes/karang-taruna', 'Admin\Index::lembaga/karangtaruna-kmz-165');
+$routes->get('/admindes/daftar-lembaga', 'Admin\index::daftarLembaga');
 
 $routes->get('/admindes/data-desa/data-wilayah', 'Admin\index::dataWilayah');
 $routes->get('/admindes/data-desa/(:any)', 'Admin\index::dataDesa/$1');
@@ -137,7 +143,7 @@ $routes->post('/postfotoajax/(:any)', function ($judulberita) {
 
     move_uploaded_file($_FILES["file"]["tmp_name"], "img/sementarabyajax/" . $name);
 
-    echo '<img src="/img/sementarabyajax/' . $name . '" class="img-thumbnail" />';
+    echo '<img src="/img/sementarabyajax/' . $name . '" class="card-img-top img-fluid" />';
     echo '<input type="hidden" name="fotopost" value="' . $name . '">';
 });
 

@@ -14,60 +14,71 @@ $(document).on("change", "#olehselect", function () {
 
 //Post foto ajax
 //..................................
-$(document).on("change", "#imgtarget", function () {
-  var name = document.getElementById("imgtarget").files[0].name;
-  var form_data = new FormData();
-  var ext = name.split(".").pop().toLowerCase();
+var inputFile = document.getElementsByClassName("imgtarget");
 
-  var judulberita = document.getElementById("labelimgajax").value;
-  var pesanerror = $("#pesan-error");
+// Tambahkan event listener CHANGER pada setiap input file foto
+for (let i = 0; i < inputFile.length; i++) {
+  inputFile[i].addEventListener("change", function (dataEvent) {
+    var pilih = dataEvent.target;
 
-  if (judulberita == "") {
-    pesanerror.removeClass("d-none");
-    pesanerror.html("Isi judul terlebih dahulu");
-    return false;
-  }
+    // Tangkap model yang sesuai jika lebih dari 1 model
+    var modal = pilih.closest(".modal-dialog");
+    var pesanerror = modal.querySelector(".pesan-error");
 
-  if (jQuery.inArray(ext, ["png", "jpg", "jpeg"]) == -1) {
-    pesanerror.removeClass("d-none");
-    pesanerror.html("Format gambar tidak sesusai");
-    return false;
-  }
+    var name = pilih.files[0].name;
+    var form_data = new FormData();
+    var ext = name.split(".").pop().toLowerCase();
 
-  var oFReader = new FileReader();
-  oFReader.readAsDataURL(document.getElementById("imgtarget").files[0]);
-  var f = document.getElementById("imgtarget").files[0];
-  var fsize = f.size || f.fileSize;
+    var judulberita = modal.querySelector(".labelimgajax").value;
 
-  if (fsize > 510000) {
-    pesanerror.removeClass("d-none");
-    pesanerror.html("Maks. file 500 KB");
-    return false;
-  } else {
-    pesanerror.addClass("d-none");
-    $(this).removeClass("is-invalid");
+    if (judulberita === "") {
+      pesanerror.classList.remove("d-none");
+      pesanerror.innerHTML = "Isi judul terlebih dahulu";
+      return false;
+    }
 
-    form_data.append("file", document.getElementById("imgtarget").files[0]);
+    if (["png", "jpg", "jpeg"].indexOf(ext) === -1) {
+      pesanerror.classList.remove("d-none");
+      pesanerror.innerHTML = "Format gambar tidak sesuai";
+      return false;
+    }
 
-    $.ajax({
-      url: "/postfotoajax/" + judulberita,
-      method: "POST",
-      data: form_data,
-      contentType: false,
-      cache: false,
-      processData: false,
-      beforeSend: function () {
-        $("#uploaded").html(
-          "<label class='text-success'>Sedang Mengupload Gambar...</label>"
-        );
-      },
-      success: function (data) {
-        $("#uploaded").html(data);
-        // console.log(data);
-      },
-    });
-  }
-});
+    var oFReader = new FileReader();
+    oFReader.readAsDataURL(pilih.files[0]);
+    var f = pilih.files[0];
+    var fsize = f.size || f.fileSize;
+
+    if (fsize > 510000) {
+      pesanerror.classList.remove("d-none");
+      pesanerror.innerHTML = "Maks. file 500 KB";
+      return false;
+    } else {
+      pesanerror.classList.add("d-none");
+      pilih.classList.remove("is-invalid");
+
+      form_data.append("file", pilih.files[0]);
+
+      let uploaded = modal.querySelector(".uploaded");
+
+      $.ajax({
+        url: "/postfotoajax/" + judulberita,
+        method: "POST",
+        data: form_data,
+        contentType: false,
+        cache: false,
+        processData: false,
+        beforeSend: function () {
+          uploaded.innerHTML =
+            "<label class='text-success'>Sedang Mengupload Gambar...</label>";
+        },
+        success: function (data) {
+          uploaded.innerHTML = data;
+          // console.log(data);
+        },
+      });
+    }
+  });
+}
 
 //UNTUK DOUBLE CLIK EDIT ------------------------------------------------------
 //-----------------------------------------------------------------------------
@@ -117,7 +128,7 @@ function doubleClickEdit(sTable) {
           xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
               // Tanggapan dari server
-              console.log(xhr.responseText);
+              // console.log(xhr.responseText);
             }
           };
 
@@ -146,6 +157,45 @@ function doubleClickEdit(sTable) {
 const idTable = $("h1.id-table").text().toLowerCase().replace(/\s+/g, "-");
 doubleClickEdit(idTable);
 //-----------------------------------------------------------------------------
+
+//View Struktur-----------------------
+$(".viewStruktur").on("click", function () {
+  const idTanggapan = $(this).data("id");
+
+  $.ajax({
+    url: "/adm-proses/getAjaxOne-struktur",
+    data: { id: idTanggapan },
+    method: "post",
+    dataType: "json",
+    success: function (data) {
+      $(".vwFoto").attr("src", "/img/personil/" + data.foto);
+      $("#vwForm").attr("action", "/adm-proses/updatefoto-struktur/" + data.id);
+
+      $("#vwNama").html(": " + data.nama);
+      $("#vwJabatan").html(": " + data.jabatan);
+      $("#vwAlamat").html(": " + data.alamat);
+      $("#vwPendidikan").html(": " + data.pendidikan);
+      $("#vwKontak").html(": " + data.kontak);
+      $("#vwBy").html(": " + data.updated_by);
+      $("#vwDate").html(": " + data.updated_at);
+
+      $("#labelimgajax").val(data.nama);
+
+      setTimeout(function () {
+        $("#blockspinner").addClass("d-none");
+        // console.log("ok");
+      }, 1750);
+    },
+  });
+});
+
+$("#closeView").on("click", function () {
+  $("#blockspinner").removeClass("d-none");
+  $(".uploaded img").addClass("vwFoto");
+
+  const resetFwFile = document.querySelector("#vwImgtarget");
+  resetFwFile.value = null;
+});
 
 //HANYA SEMENTARA..................................
 //Api Data

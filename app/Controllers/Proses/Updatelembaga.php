@@ -29,4 +29,28 @@ class Updatelembaga extends BaseController
         session()->setFlashdata('updateData', 'Data berhasil diperbaharui');
         return redirect()->to(base_url() . 'admindes/' . url_title($nicknamepage['nicknamepage'], '-', true));
     }
+
+    public function delete($idDeleteF)
+    {
+        $idDelete = convertToNumber($idDeleteF);
+
+        $this->lemabagamodel->delete($idDelete);
+
+        session()->setFlashdata('updateData', 'Lembaga berhasil dihapus');
+        return redirect()->to(base_url() . 'admindes/daftar-lembaga');
+    }
+
+    public function add()
+    {
+        $this->lemabagamodel->save([
+            'idGroup' => '1',
+            'slug' => url_title($this->request->getVar('singkatanlembaga'), '-', true) . '-kmz-165',
+            'namepage' => $this->request->getVar('namalembaga'),
+            'nicknamepage' => $this->request->getVar('singkatanlembaga'),
+            'updated_by' => 'Admin'
+        ]);
+
+        session()->setFlashdata('updateData', 'Lembaga baru berhasil ditambahkan');
+        return redirect()->to(base_url() . 'admindes/daftar-lembaga');
+    }
 }

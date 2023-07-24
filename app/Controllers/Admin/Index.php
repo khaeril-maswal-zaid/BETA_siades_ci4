@@ -434,4 +434,19 @@ class Index extends BaseController
 
         return view('admin/aduan', $data);
     }
+
+    public function daftarLembaga()
+    {
+        $data = [
+            'title' => 'Desa ' . DESA,
+            'templatelayaout' => $this->templatelayaout,
+            'metakeywords' => null,
+            'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
+
+            'lembaga' => $this->lemabagamodel->where('idGroup', '1')->findAll(),
+            'tabeldtb' => $this->lemabagamodel->table
+        ];
+
+        return view('admin/daftar-lembaga', $data);
+    }
 }
