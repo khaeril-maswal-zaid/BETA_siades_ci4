@@ -169,7 +169,7 @@ $(".viewStruktur").on("click", function () {
     dataType: "json",
     success: function (data) {
       $(".vwFoto").attr("src", "/img/personil/" + data.foto);
-      $("#vwForm").attr("action", "/adm-proses/updatefoto-struktur/" + data.id);
+      $("#vwForm").attr("action", "/adm-proses/updatefoto-personil/" + idTanggapan + "/" + $('h1.id-table').data("bakalslug"));
 
       $("#vwNama").html(": " + data.nama);
       $("#vwJabatan").html(": " + data.jabatan);

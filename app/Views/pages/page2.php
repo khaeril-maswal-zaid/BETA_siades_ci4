@@ -49,7 +49,7 @@
                      <div class="team-item rounded wow fadeInUp mb-2" data-wow-delay="0.1s">
                         <img class="img-fluid" src="/img/personil/<?= $personil['foto'] ?>" alt="" />
                         <div class="team-text bottom-0 mb-3">
-                           <h5 class="mb-0"><?= $personil['nama'] ?></h5>
+                           <h5 class="mb-0"><?= $personil['nama'] ?></h5> 
                            <span><?= $personil['jabatan'] ?></span>
                            <div class="d-flex team-social mt-3">
                               <a class="btn btn-lg-square rounded-circle mx-2" href="/img/personil/<?= $personil['foto'] ?>" data-lightbox="aparatur"><i class="fa fa-eye"></i></a>

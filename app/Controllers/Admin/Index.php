@@ -22,7 +22,7 @@ class Index extends BaseController
         $sdgsmodel,
         $idmmodel,
         $keuanganmodel,
-        $lemabagamodel,
+        $lembagamodel,
         $personildesa,
         $datadesamodel,
         $datawilyahmodel,
@@ -36,7 +36,7 @@ class Index extends BaseController
         $this->sdgsmodel = new SdgsModel();
         $this->idmmodel = new IdmModel();
         $this->keuanganmodel = new KeuanganModel();
-        $this->lemabagamodel = new Page1Model();
+        $this->lembagamodel = new Page1Model();
         $this->personildesa = new PersonilDesaModel();
         $this->datadesamodel = new DataDesaModel();
         $this->datawilyahmodel = new DataWilayahModel();
@@ -214,7 +214,7 @@ class Index extends BaseController
 
     public function visimisi()
     {
-        $visimisimodel = $this->lemabagamodel;
+        $visimisimodel = $this->lembagamodel;
         $visimisi = $visimisimodel->select(['tentang', 'tupoksi', 'id'])->where('slug', 'visi-misi-desa')->first();
 
         if (!isset($visimisi)) {
@@ -251,15 +251,18 @@ class Index extends BaseController
         return view('admin/struktur', $data);
     }
 
-    public function lembaga($slug = null)
+    public function lembaga($blembaga = null)
     {
-        $lembaga = $this->lemabagamodel->where('slug', $slug)->first();
+        $lembaga = str_replace("-", " ", $blembaga);
+        $lembaga = strtolower($lembaga);
+
+        $lembaga = $this->lembagamodel->where('nicknamepage', $lembaga)->first();
 
         if (!isset($lembaga)) {
             return view('errors/html/error_404');
         }
 
-        $active = $this->personildesa->select('class')->where('slug', $slug);
+        $active = $this->personildesa->select('class')->where('slug', $lembaga['slug']);
         $active = $this->personildesa->select('class')->where('class', 'active')->findAll();
 
         $data = [
@@ -274,7 +277,7 @@ class Index extends BaseController
             'tupoksi' => $lembaga['tupoksi'],
             'idlembaga' => $lembaga['id'],
 
-            'personildesa' => $this->personildesa->personilAll($slug),
+            'personildesa' => $this->personildesa->personilAll($lembaga['slug']),
             'tabeldtb' => $this->personildesa->table,
             'active' => count($active)
         ];
@@ -443,8 +446,8 @@ class Index extends BaseController
             'metakeywords' => null,
             'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
 
-            'lembaga' => $this->lemabagamodel->where('idGroup', '1')->findAll(),
-            'tabeldtb' => $this->lemabagamodel->table
+            'lembaga' => $this->lembagamodel->where('idGroup', '1')->findAll(),
+            'tabeldtb' => $this->lembagamodel->table
         ];
 
         return view('admin/daftar-lembaga', $data);
