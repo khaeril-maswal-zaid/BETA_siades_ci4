@@ -85,7 +85,8 @@ class PersonilDesa extends BaseController
 
     public function updateFoto($idUpdate, $bacaslug)
     {
-        // dd($idUpdate);
+        $idUpdate = convertToNumber($idUpdate);
+
         $bakalslug = str_replace('-', '',  $bacaslug);
         $fotoajax = $this->request->getVar('fotopost');
 

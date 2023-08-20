@@ -28,7 +28,7 @@ class Page2 extends BaseController
          'metadescription' => 'Struktur Pemerintahan ' . FULLENGKAP,
 
 
-         'personildesa' => $this->personildesa->personilAll('apdes-kmz-165')
+         'personildesa' => $this->personildesa->personilAll('strukturdesa-kmz-165')
       ];
 
       return view('pages/page2', $data);
