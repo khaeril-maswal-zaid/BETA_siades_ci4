@@ -5,7 +5,7 @@
 <main class="ms-sm-auto p-md-4 pb-md-0">
     <div class="container-fluid bg-light px-4 rounded">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-            <h1 class="h4 id-table">Struktur Desa <?= DESA ?></h1>
+            <h1 class="h4 id-table" data-bakalslug="struktur-desa">Struktur Desa <?= DESA ?></h1>
             <button type="button" class="btn btn-sm btn-success float-end" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 Tambah Data
             </button>

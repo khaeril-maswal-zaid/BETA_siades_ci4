@@ -20,9 +20,12 @@ class Page1 extends BaseController
       $this->personildesa = new PersonilDesaModel;
    }
 
-   public function index($slug)
+   public function index($lembaga)
    {
-      $valuespage = $this->page1model->valuesPages1($slug);
+      $lembaga = str_replace("-", " ", $lembaga);
+      $lembaga = ucwords($lembaga);
+
+      $valuespage = $this->page1model->where('namepage', $lembaga)->first();
 
       if (!isset($valuespage)) {
          return view('errors/html/error_404');
@@ -40,7 +43,7 @@ class Page1 extends BaseController
          'tentang' => $valuespage['tentang'],
          'tupoksi' => $valuespage['tupoksi'],
 
-         'personildesa' => $this->personildesa->personilAll($slug)
+         'personildesa' => $this->personildesa->personilAll($valuespage['slug'])
       ];
 
       return view('pages/page1', $data);

@@ -5,7 +5,7 @@
 <main class="ms-sm-auto p-md-4 pb-md-0">
     <div class="container-fluid bg-light px-4 rounded">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-            <h1 class="h3 id-table"><?= $singkatanlembaga . ' ' . DESA ?></h1>
+            <h1 class="h3 id-table" data-bakalslug="<?=url_title($singkatanlembaga, '-', true)?>"><?= $singkatanlembaga . ' ' . DESA ?></h1>
         </div>
     </div>
 
@@ -83,7 +83,11 @@
 
 
                                     <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="font-size: 90%!important;">
-                                        <li><a href="#" class="dropdown-item">View</a></li>
+                                        <li>
+                                            <button type="button" data-id="<?= convertToLetter($personil['id']) ?>" class="dropdown-item viewStruktur" data-bs-toggle="modal" data-bs-target="#staticBackdropView">
+                                                View
+                                            </button>
+                                        </li>
                                         <li>
                                             <form action="/adm-proses/delete-personillembaga/<?= convertToLetter($personil['id']) ?>/<?= url_title($singkatanlembaga, '-', true) ?>" method="post">
                                                 <?= csrf_field() ?>
@@ -118,7 +122,7 @@
 
             <div class="card border-primary mb-3">
                 <div class="card-header bg-primary text-white">
-                    <span class="d-inline text-white fs-5">Tugas Pokok & Fungsi <?= $singkatanlembaga ?></span>
+                    <span class="d-inline text-white fs-5">Profil <?= $singkatanlembaga ?></span>
                     <button type="submit" class="float-end btn btn-warning btn-sm update-data">Edit</button>
                 </div>
                 <div class="card-body">
@@ -562,8 +566,8 @@
 
 </main>
 
-<!-- Modal -->
-<form action="/adm-proses/add-personillemabga/<?= url_title($singkatanlembaga, '-', true) ?>" method="post">
+<!-- Modal Add-->
+<form action="/adm-proses/add-personillembaga/<?= url_title($singkatanlembaga, '-', true) ?>" method="post">
     <?= csrf_field() ?>
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -613,6 +617,77 @@
                 </div>
                 <div class="modal-footer">
                     <button type="subnit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- Modal View-->
+<form action="/dariAjax" method="post" id="vwForm">
+    <?= csrf_field() ?>
+    <div class="modal fade" id="staticBackdropView" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog" style="max-width: 700px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">View Foto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeView"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="card bg-white">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="uploaded">
+                                        <img src="/img/personil/team-1.jpg" class="card-img-top img-fluid vwFoto" alt="kmz" id="vwFoto">
+                                    </div>
+                                    <div class="alert alert-danger d-none pesan-error m-0 mt-2" role="alert">
+                                        BUG dev.by KMZ
+                                    </div>
+                                </div>
+
+                                <div class="col-md-7">
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <ul class="ps-3">
+                                                <li class="mb-2">Nama </li>
+                                                <li class="mb-2">Jabatan </li>
+                                                <li class="mb-2">Alamat </li>
+                                                <li class="mb-2">Pendidikan</li>
+                                                <li class="mb-2">Kontak</li>
+                                                <li class="mb-2 fst-italic">Updated By</li>
+                                                <li class="mb-2 fst-italic">Updated Date</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-7">
+                                            <span id="vwNama" class="mb-2 d-block">: Khaeril Maswal Zaid </span>
+                                            <span id="vwJabatan" class="mb-2 d-block">: Presiden RI </span>
+                                            <span id="vwAlamat" class="mb-2 d-block">: Dusun Samaenre </span>
+                                            <span id="vwPendidikan" class="mb-2 d-block">: Sarjana 1</span>
+                                            <span id="vwKontak" class="mb-2 d-block">: +62 853-4365-2494</span>
+                                            <span id="vwBy" class="mb-2 d-block fst-italic">: Admin</span>
+                                            <span id="vwDate" class="mb-2 d-block fst-italic">: 1234567</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-floating mt-2">
+                                        <input name="imageblog" type="file" class="form-control imgtarget" id="aabc">
+                                        <label for="aabc">Foto</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="position-absolute start-0 end-0 top-0 text-center bg-white" id="blockspinner" style="height: 100%;">
+                                <div class="spinner-border text-info position-relative top-50" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" name="nama" value="dariAjax" class="labelimgajax" id="labelimgajax">
+                    <button type="submit" class="btn btn-primary">Update</button>
                 </div>
             </div>
         </div>

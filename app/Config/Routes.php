@@ -31,12 +31,6 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'home\Home::index');
 
-//PAGES 1 ---------------------------------------------------
-$routes->get('/badan-permusyawaratan-desa', 'Pages\Page1::index/bpd-kmz-165');
-$routes->get('/lembaga-pemberdayaan-desa', 'Pages\Page1::index/lpm-kmz-165');
-$routes->get('/pembinaan-kesejahteraan-keluarga', 'Pages\Page1::index/pkk-kmz-165');
-$routes->get('/karang-taruna', 'Pages\Page1::index/karangtaruna-kmz-165');
-
 //PAGES 2 ---------------------------------------------------
 $routes->get('/struktur-pemerintahan', 'Pages\Page2::index');
 $routes->get('/struktur-pemerintahan/(:any)/(:any)/', 'Pages\Page2::detail/$1/$2');
@@ -82,7 +76,7 @@ $routes->delete('/adm-proses/delete-datadesa/(:any)/(:any)', 'Proses\DataDesa::d
 $routes->post('/adm-proses/add-datawilayah', 'Proses\DataWilayah::index');
 $routes->delete('/adm-proses/delete-datawilayah/(:any)/(:any)', 'Proses\DataWilayah::delete/$1/$2');
 
-$routes->post('/adm-proses/add-personillemabga/(:any)', 'Proses\PersonilDesa::index/$1');
+$routes->post('/adm-proses/add-personillembaga/(:any)', 'Proses\PersonilDesa::index/$1');
 $routes->delete('/adm-proses/delete-personillembaga/(:any)/(:any)', 'Proses\PersonilDesa::delete/$1/$2');
 $routes->post('/adm-proses/mainfoto-lembaga/(:any)/(:any)', 'Proses\PersonilDesa::mianfoto/$1/$2');
 
@@ -92,17 +86,10 @@ $routes->delete('/adm-proses/delete-keuangan/(:any)', 'Proses\Keuangan::delete/$
 $routes->post('/adm-proses/add-struktur', 'Proses\PersonilDesa::index/struktur-desa'); // struktur-desa => karena jug adigunkan di lembaga
 $routes->delete('/adm-proses/delete-struktur/(:any)', 'Proses\PersonilDesa::delete/$1/struktur-desa'); // struktur-desa => karena jug adigunkan di lembaga
 $routes->post('/adm-proses/getAjaxOne-struktur', 'Proses\PersonilDesa::getAjaxOne');
-$routes->post('/adm-proses/updatefoto-struktur/(:any)', 'Proses\PersonilDesa::updateFoto/$1/struktur-desa');
+
+$routes->post('/adm-proses/updatefoto-personil/(:any)/(:any)', 'Proses\PersonilDesa::updateFoto/$1/$2');
 
 //----------------------------------------------------------
-
-
-
-//BLOG-----------------------------------------------------
-$routes->get('/potensi-desa', 'Blog\index::khusus/potensi-desa');
-$routes->get('/sejarah-desa', 'Blog\index::khusus/sejarah-desa');
-$routes->get('/profil-wilayah', 'Blog\index::khusus/profil-wilayah');
-$routes->get('/(:any)/(:num)', 'Blog\index::index/$1/$2');
 
 
 //ADMIN-----------------------------------------------------
@@ -126,14 +113,12 @@ $routes->get('/admindes/keuangan-desa', 'Admin\Index::keuangan');
 $routes->get('/admindes/visi-misi', 'Admin\Index::visimisi');
 $routes->get('/admindes/struktur-desa', 'Admin\Index::struktur');
 
-$routes->get('/admindes/bpd', 'Admin\Index::lembaga/bpd-kmz-165');
-$routes->get('/admindes/lpm', 'Admin\Index::lembaga/lpm-kmz-165');
-$routes->get('/admindes/pkk', 'Admin\Index::lembaga/pkk-kmz-165');
-$routes->get('/admindes/karang-taruna', 'Admin\Index::lembaga/karangtaruna-kmz-165');
-$routes->get('/admindes/daftar-lembaga', 'Admin\index::daftarLembaga');
-
 $routes->get('/admindes/data-desa/data-wilayah', 'Admin\index::dataWilayah');
-$routes->get('/admindes/data-desa/(:any)', 'Admin\index::dataDesa/$1');
+$routes->get('/admindes/data-desa/(:any)/(:any)', 'Admin\index::dataDesa/$1/$2');
+
+$routes->get('/admindes/bpd', 'Admin\Index::lembaga/bpd'); // Supaya tidak masuk kategori lembaga di URL 
+$routes->get('/admindes/daftar-lembaga', 'Admin\index::daftarLembaga');
+$routes->get('/admindes/(:any)', 'Admin\Index::lembaga/$1');
 
 // Post Foto menggunakan Ajax
 $routes->post('/postfotoajax/(:any)', function ($judulberita) {
@@ -147,6 +132,14 @@ $routes->post('/postfotoajax/(:any)', function ($judulberita) {
     echo '<input type="hidden" name="fotopost" value="' . $name . '">';
 });
 
+//BLOG-----------------------------------------------------
+$routes->get('/potensi-desa', 'Blog\index::khusus/potensi-desa');
+$routes->get('/sejarah-desa', 'Blog\index::khusus/sejarah-desa');
+$routes->get('/profil-wilayah', 'Blog\index::khusus/profil-wilayah');
+$routes->get('/(:any)/(:num)', 'Blog\index::index/$1/$2');
+
+//PAGES 1 ---------------------------------------------------
+$routes->get('/(:any)', 'Pages\Page1::index/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
