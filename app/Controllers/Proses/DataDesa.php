@@ -42,4 +42,15 @@ class DataDesa extends BaseController
         session()->setFlashdata('AddData', 'Data berhasil dihapus');
         return redirect()->to(base_url() . 'admindes/data-desa/' . url_title($kelompok, '-', true));
     }
+
+    public function addKategori()
+    {
+        $this->datadesamodel->save([
+            'slug' => $this->request->getVar('kategoribaru'),
+            'updated_by' => 'Admin'
+        ]);
+
+        session()->setFlashdata('updateData', 'Kategori baru berhasil ditambahkan');
+        return redirect()->to(base_url() . '/admindes/daftar-kategori-data');
+    }
 }

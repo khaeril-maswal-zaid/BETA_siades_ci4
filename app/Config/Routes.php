@@ -73,6 +73,7 @@ $routes->delete('/adm-proses/delete-lembaga/(:any)', 'Proses\Updatelembaga::dele
 
 $routes->post('/adm-proses/add-datadesa/(:any)', 'Proses\DataDesa::index/$1');
 $routes->delete('/adm-proses/delete-datadesa/(:any)/(:any)', 'Proses\DataDesa::delete/$1/$2');
+$routes->post('/adm-proses/add-kategori-lembaga', 'Proses\DataDesa::addKategori');
 $routes->post('/adm-proses/add-datawilayah', 'Proses\DataWilayah::index');
 $routes->delete('/adm-proses/delete-datawilayah/(:any)/(:any)', 'Proses\DataWilayah::delete/$1/$2');
 
@@ -114,7 +115,7 @@ $routes->get('/admindes/visi-misi', 'Admin\Index::visimisi');
 $routes->get('/admindes/struktur-desa', 'Admin\Index::struktur');
 
 $routes->get('/admindes/data-desa/data-wilayah', 'Admin\index::dataWilayah');
-$routes->get('/admindes/data-desa/(:any)/(:any)', 'Admin\index::dataDesa/$1/$2');
+$routes->get('/admindes/data-desa/(:any)', 'Admin\index::dataDesa/$1');
 $routes->get('/admindes/daftar-kategori-data', 'Admin\index::daftarData');
 
 $routes->get('/admindes/bpd', 'Admin\Index::lembaga/bpd'); // Supaya tidak masuk kategori lembaga di URL 

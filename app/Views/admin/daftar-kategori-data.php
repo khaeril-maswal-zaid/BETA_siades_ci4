@@ -69,23 +69,19 @@
 </main>
 
 <!-- Modal -->
-<form action="/adm-proses/add-lembaga" method="post">
+<form action="/adm-proses/add-kategori-lembaga" method="post">
     <?= csrf_field() ?>
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Tambah Lembaga</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Tambah Kategori Data</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="form-floating mb-3">
-                        <input autocomplete="off" type="text" class="form-control" id="aa" placeholder="Nama Lembaga" name="namalembaga">
-                        <label for="aa">Nama Lembaga</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input autocomplete="off" type="text" class="form-control" id="bb" placeholder="Singkatan Lembaga" name="singkatanlembaga">
-                        <label for="bb">Singkatan Lembaga</label>
+                        <input autocomplete="off" type="text" class="form-control" id="aa" placeholder="Kategori Data Baru" name="kategoribaru">
+                        <label for="aa">Kategori Data Baru</label>
                     </div>
                 </div>
                 <div class="modal-footer">

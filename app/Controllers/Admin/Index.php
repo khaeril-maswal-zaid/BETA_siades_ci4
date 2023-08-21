@@ -391,7 +391,6 @@ class Index extends BaseController
             $totalPerdata[] = array_sum($valvalLkPr);
         }
 
-
         $jkQuery = ['val_lk', 'val_pr'];
         $totalperJk = [];
         for ($i = 0; $i < 2; $i++) {
@@ -405,6 +404,19 @@ class Index extends BaseController
             $totalperJk[] = array_sum($rowvalJk);
         }
 
+        ///...................... BELUM SELESAI ............................
+        $datadesa = $this->datadesamodel->where('slug', $kategori)->findAll();
+        if (!$datadesa[0]['val_lk']) {
+            $datadesa = [[
+                'id' => 1001,
+                'label' => 'NO data',
+                'val_lk' => 0,
+                'val_pr' => 0,
+            ]];
+        }
+        ///...................... BELUM SELESAI ............................
+        //-----------------------------------------------------------------------
+
         $data = [
             'templatelayaout' => $this->templatelayaout,
 
@@ -413,7 +425,7 @@ class Index extends BaseController
             'metadescription' => $kategori . ' ' . FULLENGKAP,
 
             'label' => $kategori,
-            'datadesa' => $this->datadesamodel->where('slug', $kategori)->findAll(),
+            'datadesa' => $datadesa,
             'totalPerdata' => $totalPerdata,
             'totalJumlah' => array_sum($totalPerdata),
             'totalperjk' => $totalperJk,
