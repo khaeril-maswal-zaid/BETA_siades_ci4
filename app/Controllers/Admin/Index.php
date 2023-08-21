@@ -405,15 +405,15 @@ class Index extends BaseController
         }
 
         ///...................... BELUM SELESAI ............................
-        $datadesa = $this->datadesamodel->where('slug', $kategori)->findAll();
-        if (!$datadesa[0]['val_lk']) {
-            $datadesa = [[
-                'id' => 1001,
-                'label' => 'NO data',
-                'val_lk' => 0,
-                'val_pr' => 0,
-            ]];
-        }
+        // $datadesa = $this->datadesamodel->where('slug', $kategori)->findAll();
+        // if (!$datadesa[0]['val_lk']) {
+        //     $datadesa = [[
+        //         'id' => 1001,
+        //         'label' => 'NO data',
+        //         'val_lk' => 0,
+        //         'val_pr' => 0,
+        //     ]];
+        // }
         ///...................... BELUM SELESAI ............................
         //-----------------------------------------------------------------------
 
@@ -425,7 +425,7 @@ class Index extends BaseController
             'metadescription' => $kategori . ' ' . FULLENGKAP,
 
             'label' => $kategori,
-            'datadesa' => $datadesa,
+            'datadesa' => $this->datadesamodel->where('slug', $kategori)->findAll(),
             'totalPerdata' => $totalPerdata,
             'totalJumlah' => array_sum($totalPerdata),
             'totalperjk' => $totalperJk,

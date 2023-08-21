@@ -47,6 +47,9 @@ class DataDesa extends BaseController
     {
         $this->datadesamodel->save([
             'slug' => $this->request->getVar('kategoribaru'),
+            'label' => 'doubel klik ki untuk edit',
+            'val_lk' => '0',
+            'val_pr' => '0',
             'updated_by' => 'Admin'
         ]);
 
