@@ -114,7 +114,7 @@
 <form action="/adm-proses/add-struktur" method="post">
     <?= csrf_field() ?>
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog parent-control-post-foto">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">Tambah Struktur Pemerintahan</h5>
@@ -172,7 +172,7 @@
 <form action="/dariAjax" method="post" id="vwForm">
     <?= csrf_field() ?>
     <div class="modal fade" id="staticBackdropView" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog" style="max-width: 700px;">
+        <div class="modal-dialog parent-control-post-foto" style="max-width: 700px;">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">View Foto</h5>

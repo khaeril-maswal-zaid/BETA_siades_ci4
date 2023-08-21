@@ -22,14 +22,14 @@ for (let i = 0; i < inputFile.length; i++) {
     var pilih = dataEvent.target;
 
     // Tangkap model yang sesuai jika lebih dari 1 model
-    var modal = pilih.closest(".modal-dialog");
-    var pesanerror = modal.querySelector(".pesan-error");
+    var pcpo = pilih.closest(".parent-control-post-foto");
+    var pesanerror = pcpo.querySelector(".pesan-error");
 
     var name = pilih.files[0].name;
     var form_data = new FormData();
     var ext = name.split(".").pop().toLowerCase();
 
-    var judulberita = modal.querySelector(".labelimgajax").value;
+    var judulberita = pcpo.querySelector(".labelimgajax").value;
 
     if (judulberita === "") {
       pesanerror.classList.remove("d-none");
@@ -58,7 +58,7 @@ for (let i = 0; i < inputFile.length; i++) {
 
       form_data.append("file", pilih.files[0]);
 
-      let uploaded = modal.querySelector(".uploaded");
+      let uploaded = pcpo.querySelector(".uploaded");
 
       $.ajax({
         url: "/postfotoajax/" + judulberita,
@@ -170,7 +170,13 @@ $(".viewStruktur").on("click", function () {
     success: function (data) {
       $(".vwFoto").attr("src", "/img/personil/" + data.foto);
 
-      $("#vwForm").attr("action", "/adm-proses/updatefoto-personil/" + idTanggapan + "/" + $('h1.id-table').data("bakalslug"));
+      $("#vwForm").attr(
+        "action",
+        "/adm-proses/updatefoto-personil/" +
+          idTanggapan +
+          "/" +
+          $("h1.id-table").data("bakalslug")
+      );
       // $("#vwForm").attr("action", "/adm-proses/updatefoto-struktur/" + data.id);
 
       $("#vwNama").html(": " + data.nama);

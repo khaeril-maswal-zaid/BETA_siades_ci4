@@ -34,7 +34,7 @@
                 </div>
             <?php endif ?>
 
-            <div class="row">
+            <div class="row parent-control-post-foto">
                 <div class="col-md-8">
                     <div class="form-floating mb-2">
                         <input <?= ($disabled) ? $disabled : ''; ?> value="<?php
@@ -44,7 +44,7 @@
                                                                                 echo $dataupdate['judul'];
                                                                             } else {
                                                                                 echo '';
-                                                                            } ?>" name="judul" type="text" class="form-control <?= ($validation[0]) ? 'is-invalid' : ''; ?>" id="labelimgajax" autofocus>
+                                                                            } ?>" name="judul" type="text" class="labelimgajax form-control <?= ($validation[0]) ? 'is-invalid' : ''; ?>" autofocus>
                         <label for="judulberita">Judul Artikel</label>
                         <div class="invalid-feedback">
                             Judul wajib diisi
@@ -95,7 +95,6 @@
                         </div>
 
                         <div class="close">
-
                             <script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/super-build/ckeditor.js"></script>
                             <script>
                                 // This sample still does not showcase all CKEditor 5 features (!)
@@ -308,19 +307,20 @@
 
                     <hr>
 
-                    <div class="alert alert-danger d-none" role="alert" id="pesan-error">
+                    <div class="alert alert-danger d-none pesan-error" role="alert">
                         BUG dev.by KMZ
                     </div>
 
                     <div class="form-floating mb-2">
-                        <input value="<?= old('imageblog') ?>" name="imageblog" type="file" class="form-control <?= ($validation[2]) ? 'is-invalid' : ''; ?>" id="imgtarget">
+                        <input value="<?= old('imageblog') ?>" name="imageblog" type="file" class="imgtarget form-control <?= ($validation[2]) ? 'is-invalid' : ''; ?>">
+
                         <label for="pictureartikel">Image</label>
                         <div class="invalid-feedback">
                             <?= ($validation[2]) ? $validation[2] : ''; ?>
                         </div>
                     </div>
 
-                    <div class="W-100" id="uploaded">
+                    <div class="W-100 uploaded">
                         <img src="<?= ($dataupdate) ? "/img/blog/" . $dataupdate['picture'] : "/img/assets/image-default.jpg"; ?>" class="img-thumbnail img-fluid" alt="default">
                     </div>
                 </div>
