@@ -115,6 +115,7 @@ $routes->get('/admindes/struktur-desa', 'Admin\Index::struktur');
 
 $routes->get('/admindes/data-desa/data-wilayah', 'Admin\index::dataWilayah');
 $routes->get('/admindes/data-desa/(:any)/(:any)', 'Admin\index::dataDesa/$1/$2');
+$routes->get('/admindes/daftar-kategori-data', 'Admin\index::daftarData');
 
 $routes->get('/admindes/bpd', 'Admin\Index::lembaga/bpd'); // Supaya tidak masuk kategori lembaga di URL 
 $routes->get('/admindes/daftar-lembaga', 'Admin\index::daftarLembaga');

@@ -31,6 +31,10 @@ class SiadesDataDesa extends Migration
                 'type'       => 'INT',
                 'constraint' => '11',
             ],
+            'updated_by' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '200',
+            ],
             'created_at' => [
                 'type'       => 'DATETIME',
                 'null'       => true

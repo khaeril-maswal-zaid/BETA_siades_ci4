@@ -77,7 +77,7 @@
                      <a href="/admindes/data-desa/<?= url_title($kategori['slug'], '-', true) ?>" class="dropdown-item"><?= $kategori['slug'] ?></a>
                   <?php endforeach ?>
 
-                  <a href="/admindes/kategoridata" class="dropdown-item bg-warning">Tambah Kategori Data</a>
+                  <a href="/admindes/daftar-kategori-data" class="dropdown-item bg-warning">Tambah Kategori Data</a>
                </div>
             </div>
 

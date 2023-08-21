@@ -90,14 +90,23 @@ class PersonilDesa extends BaseController
         $bakalslug = str_replace('-', '',  $bacaslug);
         $fotoajax = $this->request->getVar('fotopost');
 
-        rename('img/sementarabyajax/' . $fotoajax, 'img/personil/' . $bakalslug . '_' . $fotoajax);
+        if ($fotoajax) {
+            rename('img/sementarabyajax/' . $fotoajax, 'img/personil/' . $bakalslug . '_' . $fotoajax);
 
-        $this->personaildesamodel->update($idUpdate, [
-            'foto' => $bakalslug . '_' . $fotoajax,
-            'updated_by' => 'BELUM'
-        ]);
+            $this->personaildesamodel->update($idUpdate, [
+                'foto' => $bakalslug . '_' . $fotoajax,
+                'updated_by' => 'BELUM'
+            ]);
 
-        session()->setFlashdata('updateData', 'Foto berhasil diperbarui');
+            $pesansession = 'Foto berhasil diperbarui';
+        } else {
+            $pesansession = 'Tidak ada foto diperbarui';
+        }
+
+
+
+
+        session()->setFlashdata('updateData', $pesansession);
         return redirect()->to(base_url() . 'admindes/' . $bacaslug);
     }
 }

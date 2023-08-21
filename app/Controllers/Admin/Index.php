@@ -440,16 +440,35 @@ class Index extends BaseController
 
     public function daftarLembaga()
     {
+        $daftarlembaga = $this->lembagamodel->where('idGroup', '1');
+        $daftarlembaga = $this->lembagamodel->where('nicknamepage !=', 'bpd')->findAll();
+
         $data = [
             'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
             'metakeywords' => null,
             'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
 
-            'lembaga' => $this->lembagamodel->where('idGroup', '1')->findAll(),
+            'lembaga' =>  $daftarlembaga,
             'tabeldtb' => $this->lembagamodel->table
         ];
 
         return view('admin/daftar-lembaga', $data);
+    }
+
+    public function daftarData()
+    {
+        $data = [
+            'title' => 'Desa ' . DESA,
+            'templatelayaout' => $this->templatelayaout,
+            'metakeywords' => null,
+            'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
+
+            'kategoridata' =>  $this->datadesamodel->select('id, slug, updated_by')->groupBy('slug')->findAll(),
+            // 'kategoridata' =>  $this->datadesamodel->select('slug')->distinct()->findAll(),
+            'tabeldtb' => $this->lembagamodel->table
+        ];
+
+        return view('admin/daftar-kategori-data', $data);
     }
 }

@@ -5,7 +5,7 @@
 <main class="ms-sm-auto p-md-4 pb-md-0">
     <div class="container-fluid bg-light px-4 rounded">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-            <h1 class="h3 id-table" data-bakalslug="<?=url_title($singkatanlembaga, '-', true)?>"><?= $singkatanlembaga . ' ' . DESA ?></h1>
+            <h1 class="h3 id-table" data-bakalslug="<?= url_title($singkatanlembaga, '-', true) ?>"><?= $singkatanlembaga . ' ' . DESA ?></h1>
         </div>
     </div>
 
@@ -123,7 +123,7 @@
             <div class="card border-primary mb-3">
                 <div class="card-header bg-primary text-white">
                     <span class="d-inline text-white fs-5">Profil <?= $singkatanlembaga ?></span>
-                    <button type="submit" class="float-end btn btn-warning btn-sm update-data">Edit</button>
+                    <button type="submit" class="float-end btn btn-warning btn-sm update-data">Submit</button>
                 </div>
                 <div class="card-body">
                     <div class="ck-editor">
@@ -355,7 +355,7 @@
             <div class="card border-primary mb-3">
                 <div class="card-header bg-primary text-white">
                     <span class="d-inline text-white fs-5">Tugas Pokok & Fungsi <?= $singkatanlembaga ?></span>
-                    <button type="submit" class="float-end btn btn-warning btn-sm">Edit</button>
+                    <button type="submit" class="float-end btn btn-warning btn-sm">Submit</button>
                 </div>
                 <div class="card-body">
                     <div class="ck-editor">
@@ -573,13 +573,13 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Tambah Pengurus <?= $singkatanlembaga ?></h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Tambah Struktur Lembaga</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="form-floating mb-2">
-                        <input autocomplete="off" type="text" class="form-control" id="labelimgajax" placeholder="nama" name="nama">
-                        <label for="labelimgajax">Nama</label>
+                        <input autocomplete="off" type="text" class="form-control labelimgajax" id="aad2" placeholder="nama" name="nama">
+                        <label for="aad2">Nama</label>
                     </div>
                     <div class="form-floating mb-2">
                         <input autocomplete="off" type="text" class="form-control" id="bb" placeholder="Alamat" name="alamat">
@@ -601,17 +601,17 @@
                             </div>
 
                             <div class="mb-3">
-                                <input class="form-control form-control-sm" id="imgtarget" type="file">
+                                <input class="form-control form-control-sm imgtarget" id="vwImgtarget" type="file">
                             </div>
                         </div>
                         <div class="col-6">
-                            <div class="W-100" id="uploaded">
+                            <div class="W-100 uploaded">
                                 <img src="<?= "/img/assets/image-default.jpg"; ?>" class="img-thumbnail img-fluid" alt="default">
                             </div>
                         </div>
                     </div>
 
-                    <div class="alert alert-danger d-none" role="alert" id="pesan-error">
+                    <div class="alert alert-danger d-none pesan-error" role="alert">
                         BUG dev.by KMZ
                     </div>
                 </div>
@@ -622,6 +622,7 @@
         </div>
     </div>
 </form>
+
 
 <!-- Modal View-->
 <form action="/dariAjax" method="post" id="vwForm">
