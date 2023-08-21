@@ -48,12 +48,22 @@ class DataDesa extends BaseController
         $this->datadesamodel->save([
             'slug' => $this->request->getVar('kategoribaru'),
             'label' => 'doubel klik ki untuk edit',
-            'val_lk' => '0',
-            'val_pr' => '0',
+            'val_lk' => '123',
+            'val_pr' => '123',
             'updated_by' => 'Admin'
         ]);
 
         session()->setFlashdata('updateData', 'Kategori baru berhasil ditambahkan');
         return redirect()->to(base_url() . '/admindes/daftar-kategori-data');
+    }
+
+    public function deleteKategori($idDeleteF)
+    {
+        $idDelete = convertToNumber($idDeleteF);
+
+        $this->datadesamodel->delete($idDelete);
+
+        session()->setFlashdata('updateData', 'Data berhasil dihapus');
+        return redirect()->to(base_url() . 'admindes/daftar-kategori-data');
     }
 }

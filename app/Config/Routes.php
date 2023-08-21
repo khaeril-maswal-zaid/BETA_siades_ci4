@@ -74,6 +74,7 @@ $routes->delete('/adm-proses/delete-lembaga/(:any)', 'Proses\Updatelembaga::dele
 $routes->post('/adm-proses/add-datadesa/(:any)', 'Proses\DataDesa::index/$1');
 $routes->delete('/adm-proses/delete-datadesa/(:any)/(:any)', 'Proses\DataDesa::delete/$1/$2');
 $routes->post('/adm-proses/add-kategori-lembaga', 'Proses\DataDesa::addKategori');
+$routes->delete('/adm-proses/delete-kategori-data/(:any)', 'Proses\DataDesa::deleteKategori/$1');
 $routes->post('/adm-proses/add-datawilayah', 'Proses\DataWilayah::index');
 $routes->delete('/adm-proses/delete-datawilayah/(:any)/(:any)', 'Proses\DataWilayah::delete/$1/$2');
 

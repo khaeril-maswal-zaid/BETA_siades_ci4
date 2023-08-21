@@ -68,7 +68,7 @@
                             <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin mau menghapus ?')">Hapus</button>
                         </form>
                     </td>
-                    <td class="#"><?= $val['label'] ?></td>
+                    <td class="edit-dbClick" data-id="<?= convertToLetter($val['id']) ?>" data-colum="<?= caesarCipherReverse('label'); ?>"><?= $val['label'] ?></td>
                     <td class="text-center edit-dbClick" data-id="<?= convertToLetter($val['id']) ?>" data-colum="<?= caesarCipherReverse('val_lk'); ?>"><?= $val['val_lk'] ?></td>
                     <td class="text-center"><?= number_format(($val['val_lk'] / $totalJumlah) * 100, 2) ?> %</td>
                     <td class="text-center edit-dbClick" data-id="<?= convertToLetter($val['id']) ?>" data-colum="<?= caesarCipherReverse('val_pr'); ?>"><?= $val['val_pr'] ?></td>
