@@ -27,6 +27,10 @@ class SiadesKonfigurasi extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => '255'
             ],
+            'more' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '300'
+            ],
             'created_at' => [
                 'type'       => 'DATETIME',
                 'null'       => true

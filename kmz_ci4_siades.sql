@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 22 Agu 2023 pada 04.04
--- Versi server: 10.4.28-MariaDB
--- Versi PHP: 8.2.4
+-- Generation Time: Aug 22, 2023 at 07:30 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `auth_activation_attempts`
+-- Table structure for table `auth_activation_attempts`
 --
 
 CREATE TABLE `auth_activation_attempts` (
@@ -38,7 +38,7 @@ CREATE TABLE `auth_activation_attempts` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `auth_groups`
+-- Table structure for table `auth_groups`
 --
 
 CREATE TABLE `auth_groups` (
@@ -50,7 +50,7 @@ CREATE TABLE `auth_groups` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `auth_groups_permissions`
+-- Table structure for table `auth_groups_permissions`
 --
 
 CREATE TABLE `auth_groups_permissions` (
@@ -61,7 +61,7 @@ CREATE TABLE `auth_groups_permissions` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `auth_groups_users`
+-- Table structure for table `auth_groups_users`
 --
 
 CREATE TABLE `auth_groups_users` (
@@ -72,7 +72,7 @@ CREATE TABLE `auth_groups_users` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `auth_logins`
+-- Table structure for table `auth_logins`
 --
 
 CREATE TABLE `auth_logins` (
@@ -85,7 +85,7 @@ CREATE TABLE `auth_logins` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data untuk tabel `auth_logins`
+-- Dumping data for table `auth_logins`
 --
 
 INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `success`) VALUES
@@ -98,7 +98,7 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `succ
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `auth_permissions`
+-- Table structure for table `auth_permissions`
 --
 
 CREATE TABLE `auth_permissions` (
@@ -110,7 +110,7 @@ CREATE TABLE `auth_permissions` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `auth_reset_attempts`
+-- Table structure for table `auth_reset_attempts`
 --
 
 CREATE TABLE `auth_reset_attempts` (
@@ -125,7 +125,7 @@ CREATE TABLE `auth_reset_attempts` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `auth_tokens`
+-- Table structure for table `auth_tokens`
 --
 
 CREATE TABLE `auth_tokens` (
@@ -139,7 +139,7 @@ CREATE TABLE `auth_tokens` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `auth_users_permissions`
+-- Table structure for table `auth_users_permissions`
 --
 
 CREATE TABLE `auth_users_permissions` (
@@ -150,7 +150,7 @@ CREATE TABLE `auth_users_permissions` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -164,7 +164,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data untuk tabel `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`, `batch`) VALUES
@@ -179,7 +179,7 @@ INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `siades_aduan`
+-- Table structure for table `siades_aduan`
 --
 
 CREATE TABLE `siades_aduan` (
@@ -199,7 +199,7 @@ CREATE TABLE `siades_aduan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `siades_aduan`
+-- Dumping data for table `siades_aduan`
 --
 
 INSERT INTO `siades_aduan` (`id`, `nik`, `name`, `email`, `hp`, `subject`, `aduan`, `file`, `status`, `updated_by`, `respon`, `created_at`, `updated_at`) VALUES
@@ -215,7 +215,7 @@ INSERT INTO `siades_aduan` (`id`, `nik`, `name`, `email`, `hp`, `subject`, `adua
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `siades_artikel`
+-- Table structure for table `siades_artikel`
 --
 
 CREATE TABLE `siades_artikel` (
@@ -237,7 +237,7 @@ CREATE TABLE `siades_artikel` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data untuk tabel `siades_artikel`
+-- Dumping data for table `siades_artikel`
 --
 
 INSERT INTO `siades_artikel` (`id`, `time`, `slug`, `judul`, `description`, `picture`, `album`, `oleh`, `kategori`, `level`, `artikel`, `visit`, `view`, `created_at`, `updated_at`) VALUES
@@ -349,7 +349,7 @@ INSERT INTO `siades_artikel` (`id`, `time`, `slug`, `judul`, `description`, `pic
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `siades_datadesa`
+-- Table structure for table `siades_datadesa`
 --
 
 CREATE TABLE `siades_datadesa` (
@@ -364,11 +364,11 @@ CREATE TABLE `siades_datadesa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data untuk tabel `siades_datadesa`
+-- Dumping data for table `siades_datadesa`
 --
 
 INSERT INTO `siades_datadesa` (`id`, `slug`, `label`, `val_lk`, `val_pr`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, 'Data Agama', 'ISLAM', 6, 0, '', '2023-06-14 01:05:48', '2023-08-22 01:57:28'),
+(1, 'Data Agama', 'ISLAM', 587, 0, '', '2023-06-14 01:05:48', '2023-08-22 08:07:33'),
 (2, 'Data Agama', 'KRISTEN', 123, 123, '', '2023-06-14 01:05:48', '2023-08-22 01:44:56'),
 (3, 'Data Agama', 'KATHOLIK', 123, 123, '', '2023-06-14 01:05:48', '2023-06-14 01:05:48'),
 (4, 'Data Agama', 'HINDU', 123, 123, '', '2023-06-14 01:05:48', '2023-06-14 01:05:48'),
@@ -380,7 +380,7 @@ INSERT INTO `siades_datadesa` (`id`, `slug`, `label`, `val_lk`, `val_pr`, `updat
 (11, 'Data Status Perkawinan', 'KAWIN', 123, 123, '', '2023-06-14 01:05:48', '2023-06-14 01:05:48'),
 (12, 'Data Status Perkawinan', 'CERAI HIDUP', 123, 123, '', '2023-06-14 01:05:48', '2023-06-14 01:05:48'),
 (13, 'Data Status Perkawinan', 'CERAI MATI', 120, 123, '', '2023-06-14 01:05:48', '2023-06-14 01:05:48'),
-(14, 'Data Pendidikan', 'BELUM MASUK TK/KELOMPOK BERMAIN', 123, 123, '', '2023-06-14 01:05:48', '2023-06-14 01:05:48'),
+(14, 'Data Pendidikan', 'BELUM MASUK TK/KELOMPOK BERMAIN', 123, 123, '', '2023-06-14 01:05:48', '2023-08-22 15:54:51'),
 (15, 'Data Pendidikan', 'SEDANG TK/KELOMPOK BERMAIN', 123, 123, '', '2023-06-14 01:05:48', '2023-06-14 01:05:48'),
 (16, 'Data Pendidikan', 'TIDAK PERNAH SEKOLAH', 12, 12, '', '2023-06-14 01:05:48', '2023-06-14 01:05:48'),
 (17, 'Data Pendidikan', 'TIDAK TAMAT SD/SEDERAJAT', 123, 123, '', '2023-06-14 01:05:48', '2023-06-14 01:05:48'),
@@ -394,7 +394,7 @@ INSERT INTO `siades_datadesa` (`id`, `slug`, `label`, `val_lk`, `val_pr`, `updat
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `siades_datawilayah`
+-- Table structure for table `siades_datawilayah`
 --
 
 CREATE TABLE `siades_datawilayah` (
@@ -410,7 +410,7 @@ CREATE TABLE `siades_datawilayah` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `siades_datawilayah`
+-- Dumping data for table `siades_datawilayah`
 --
 
 INSERT INTO `siades_datawilayah` (`id`, `dusun`, `rk`, `rt`, `kk`, `l`, `p`, `created_at`, `updated_at`) VALUES
@@ -443,12 +443,14 @@ INSERT INTO `siades_datawilayah` (`id`, `dusun`, `rk`, `rt`, `kk`, `l`, `p`, `cr
 (40, 'Tau Lannya', '002', '004', 0, 0, 0, NULL, NULL),
 (43, 'Kayu Eja', '004', '007', 0, 0, 0, NULL, NULL),
 (44, 'Dusun Wakanda Timur', 'RW 001', 'RT 001', 12, 12, 12, '2023-07-18 09:56:41', '2023-07-18 09:56:41'),
-(45, 'Dusun Wakanda Timur', 'RW 001', 'RT 002', 11, 11, 11, '2023-07-18 09:57:09', '2023-07-18 09:57:09');
+(45, 'Dusun Wakanda Timur', 'RW 001', 'RT 002', 11, 11, 11, '2023-07-18 09:57:09', '2023-07-18 09:57:09'),
+(46, 'Dusun Samaenre', 'RW 123', 'RT 456', 123, 123, 123, '2023-08-22 08:23:34', '2023-08-22 08:23:34'),
+(47, 'Dusun Samaenre', 'RW 123', 'RT 122', 12, 13, 12, '2023-08-22 08:24:14', '2023-08-22 08:24:14');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `siades_idm`
+-- Table structure for table `siades_idm`
 --
 
 CREATE TABLE `siades_idm` (
@@ -471,7 +473,7 @@ CREATE TABLE `siades_idm` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data untuk tabel `siades_idm`
+-- Dumping data for table `siades_idm`
 --
 
 INSERT INTO `siades_idm` (`id`, `group`, `idm`, `skor`, `keterangan`, `kegiatan`, `nilai`, `pusat`, `prov`, `kab`, `des`, `csr`, `lainnya`, `updated_by`, `created_at`, `update_at`) VALUES
@@ -529,7 +531,7 @@ INSERT INTO `siades_idm` (`id`, `group`, `idm`, `skor`, `keterangan`, `kegiatan`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `siades_keuangan`
+-- Table structure for table `siades_keuangan`
 --
 
 CREATE TABLE `siades_keuangan` (
@@ -546,11 +548,11 @@ CREATE TABLE `siades_keuangan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data untuk tabel `siades_keuangan`
+-- Dumping data for table `siades_keuangan`
 --
 
 INSERT INTO `siades_keuangan` (`id`, `title`, `subtitle`, `kode`, `uraian`, `anggaran`, `realisasi`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, 'PENDAPATAN DESA', 'Transfer', '4.2.1.01', 'Dana Desa g', 2500000, 200000, '', '2023-06-09 03:49:41', '2023-08-20 00:00:42'),
+(1, 'PENDAPATAN DESA', 'Transfer', '4.2.1.01', 'Dana Desa', 2500000, 200000, '', '2023-06-09 03:49:41', '2023-08-22 09:34:09'),
 (2, 'PENDAPATAN DESA', 'Transfer', '4.2.2.01', 'Bagian dari Hasil Pajak dan Retribusi Daerah Kabupaten/kota', 2500000, 200000, '', '2023-06-09 03:49:41', '2023-06-09 03:49:41'),
 (3, 'PENDAPATAN DESA', 'Transfer', '4.2.3.01', 'Alokasi Dana Desa', 2500000, 200000, '', '2023-06-09 03:49:41', '2023-06-09 03:49:41'),
 (4, 'PENDAPATAN DESA', 'Belanja Pegawai', '4.2.4.01', 'Bantuan Keuangan dari APBD Provinsi', 2500000, 200000, '', '2023-06-09 03:49:41', '2023-06-09 03:49:41'),
@@ -565,7 +567,7 @@ INSERT INTO `siades_keuangan` (`id`, `title`, `subtitle`, `kode`, `uraian`, `ang
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `siades_konfigurasi`
+-- Table structure for table `siades_konfigurasi`
 --
 
 CREATE TABLE `siades_konfigurasi` (
@@ -573,28 +575,33 @@ CREATE TABLE `siades_konfigurasi` (
   `slug` varchar(255) NOT NULL,
   `label` varchar(200) NOT NULL,
   `value` varchar(255) NOT NULL,
+  `more` varchar(300) NOT NULL,
   `updated_by` varchar(250) NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data untuk tabel `siades_konfigurasi`
+-- Dumping data for table `siades_konfigurasi`
 --
 
-INSERT INTO `siades_konfigurasi` (`id`, `slug`, `label`, `value`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, 'sosial-media', 'Telpon', '081234567890', '', NULL, NULL),
-(2, 'sosial-media', 'WhatsApp', '08123456789', '', NULL, NULL),
-(3, 'sosial-media', 'E-Mail', ' official@wakandaraya.desa.id', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(4, 'sosial-media', 'Facebook', 'Desa Wakanda Raya', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(5, 'sosial-media', 'Instagram', 'Desa Wakanda Raya', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(6, 'dusun-kmz-165', 'Dusun', 'Wakanda Timur', '', NULL, NULL),
-(7, 'dusun-kmz-165', 'Dusun', 'Wakanda Barat', '', NULL, NULL);
+INSERT INTO `siades_konfigurasi` (`id`, `slug`, `label`, `value`, `more`, `updated_by`, `created_at`, `updated_at`) VALUES
+(1, 'media-sosial-kmz-165', 'Telpon', '081234567890', '', '', NULL, '2023-08-22 16:28:56'),
+(2, 'media-sosial-kmz-165', 'WhatsApp', '08123456789', '', '', NULL, NULL),
+(3, 'media-sosial-kmz-165', 'E-Mail', ' official@wakandaraya.desa.id', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(4, 'media-sosial-kmz-165', 'Facebook', 'Desa Wakanda Raya', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(5, 'media-sosial-kmz-165', 'Instagram', 'Desa Wakanda Raya', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(6, 'dusun-kmz-165', 'Dusun', 'Wakanda Timur', '', '', NULL, NULL),
+(7, 'dusun-kmz-165', 'Dusun', 'Wakanda Barat', '', '', NULL, NULL),
+(8, 'dusun-kmz-165', 'Dusun', 'Samaenre', '', '', NULL, NULL),
+(9, 'media-sosial-kmz-165', 'Discord', 'Desa Maju', '', 'Admin', '2023-08-22 16:51:26', '2023-08-22 17:22:14'),
+(16, 'add-media-sosial-kmz-165', 'LNSD', 'ODJD', '', 'Admin', '2023-08-22 17:09:47', '2023-08-22 17:09:47'),
+(17, 'add-media-sosial-kmz-165', 'LJCKJAHCKHCKH', 'KASBKBDKDB', '', 'Admin', '2023-08-22 17:10:34', '2023-08-22 17:10:34');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `siades_pages1`
+-- Table structure for table `siades_pages1`
 --
 
 CREATE TABLE `siades_pages1` (
@@ -612,27 +619,26 @@ CREATE TABLE `siades_pages1` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `siades_pages1`
+-- Dumping data for table `siades_pages1`
 --
 
 INSERT INTO `siades_pages1` (`id`, `idGroup`, `metadescription`, `slug`, `namepage`, `nicknamepage`, `tentang`, `tupoksi`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, '1', 'Merupakan lembaga perwujudan demokrasi dalam penyelenggaraan pemerintahan desa', 'bpd-kmz-165', 'Badan Permusyawaratan Desa', 'BPD', '<p class=\"text-dark\" data-placeholder=\"Ketikkan disini !\"><span class=\"fw-bold\">Badan Permusyawaratan Desa (BPD)</span> dalam Permendagri No.110/2016 Tugas Badan Permusyawaratan Desa (BPD) mempunyai fungsi, membahas dan menyepakati Rancangan Peraturan Desa bersama Kepala Desa, menampung dan menyalurkan aspirasi masyarakat Desa, dan melakukan pengawasan kinerja Kepala Desa. Selain melaksanakan fungsi diatas, Badan Permusyawaratan Desa juga mempunyai tugas sebagai berikut. Tugas Badan Permusyawaratan Desa :</p><ol><li class=\"text-dark\">Menggali aspirasi masyarakat</li><li class=\"text-dark\">Menampung aspirasi masyarakat</li><li class=\"text-dark\">Mengelola aspirasi masyarakat</li><li class=\"text-dark\">Menyalurkan aspirasi masyarakat</li><li class=\"text-dark\">Menyelenggarakan musyawarah Tugas Badan Permusyawaratan Desa ()</li><li class=\"text-dark\">Menyelenggarakan musyawarah Desa</li><li class=\"text-dark\">Membentuk panitia pemilihan Kepala Desa</li><li class=\"text-dark\">Menyelenggarakan musyawarah Desa khusus untuk pemilihan Kepala Desa antarwaktu</li><li class=\"text-dark\">Membahas dan menyepakati rancangan Peraturan Desa bersama Kepala Desa</li><li class=\"text-dark\">Melaksanakan pengawasan terhadap kinerja Kepala Desa</li><li class=\"text-dark\">Melakukan evaluasi laporan keterangan penyelenggaraan Pemerintahan Desa</li><li class=\"text-dark\">Menciptakan hubungan kerja yang harmonis dengan Pemerintah Desa dan lembaga Desa lainnya; dan melaksanakan tugas lain yang diatur dalam ketentuan peraturan perundang-undangan.</li></ol>', '<p class=\"text-dark\" data-placeholder=\"Ketikkan disini !\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.</p><p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.</p>', '', NULL, '2023-07-18 11:02:26'),
+(1, '1', 'Merupakan lembaga perwujudan demokrasi dalam penyelenggaraan pemerintahan desa', 'bpd-kmz-165', 'Data Agama', 'BPD', '<p class=\"text-dark\" data-placeholder=\"Ketikkan disini !\"><span class=\"fw-bold\">Badan Permusyawaratan Desa (BPD)</span> dalam Permendagri No.110/2016 Tugas Badan Permusyawaratan Desa (BPD) mempunyai fungsi, membahas dan menyepakati Rancangan Peraturan Desa bersama Kepala Desa, menampung dan menyalurkan aspirasi masyarakat Desa, dan melakukan pengawasan kinerja Kepala Desa. Selain melaksanakan fungsi diatas, Badan Permusyawaratan Desa juga mempunyai tugas sebagai berikut. Tugas Badan Permusyawaratan Desa :</p><ol><li class=\"text-dark\">Menggali aspirasi masyarakat</li><li class=\"text-dark\">Menampung aspirasi masyarakat</li><li class=\"text-dark\">Mengelola aspirasi masyarakat</li><li class=\"text-dark\">Menyalurkan aspirasi masyarakat</li><li class=\"text-dark\">Menyelenggarakan musyawarah Tugas Badan Permusyawaratan Desa ()</li><li class=\"text-dark\">Menyelenggarakan musyawarah Desa</li><li class=\"text-dark\">Membentuk panitia pemilihan Kepala Desa</li><li class=\"text-dark\">Menyelenggarakan musyawarah Desa khusus untuk pemilihan Kepala Desa antarwaktu</li><li class=\"text-dark\">Membahas dan menyepakati rancangan Peraturan Desa bersama Kepala Desa</li><li class=\"text-dark\">Melaksanakan pengawasan terhadap kinerja Kepala Desa</li><li class=\"text-dark\">Melakukan evaluasi laporan keterangan penyelenggaraan Pemerintahan Desa</li><li class=\"text-dark\">Menciptakan hubungan kerja yang harmonis dengan Pemerintah Desa dan lembaga Desa lainnya; dan melaksanakan tugas lain yang diatur dalam ketentuan peraturan perundang-undangan.</li></ol>', '<p class=\"text-dark\" data-placeholder=\"Ketikkan disini !\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.</p><p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.</p>', '', NULL, '2023-08-22 09:44:58'),
 (2, '1', '', 'lpm-kmz-165', 'Lembaga Pemberdayaan Desa', 'LPM', '<p data-placeholder=\"Ketikkan disini !\">Fungsi Pokok</p>', '<p class=\"text-dark\" data-placeholder=\"Ketikkan disini !\">Tugas Pokok</p><p class=\"text-dark\" data-placeholder=\"Ketikkan disini !\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.</p><p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.</p>', '', NULL, '2023-07-18 10:01:55'),
 (3, '1', '', 'pkk-kmz-165', 'Pembinaan Kesejahteraan Keluarga', 'PKK', '<p data-placeholder=\"Ketikkan disini !\">Tugas Pokok dan Fungsi PKK</p>', '<p data-placeholder=\"Ketikkan disini !\"><span style=\"background-color:rgb(255,255,255);color:rgb(15,66,41);font-family:&quot;Open Sans&quot;, sans-serif;font-size:16px;\"><span style=\"-webkit-text-stroke-width:0px;display:inline !important;float:none;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.</span></span></p>', '', NULL, '2023-07-18 10:11:20'),
-(4, '1', '', 'karangtaruna-kmz-165', 'Karang Taruna', 'Karang Taruna', '<p data-placeholder=\"Ketikkan disini !\">cEKk</p>', '<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n', '', NULL, '2023-07-18 11:20:11'),
-(6, '', '', '-', 'Bendahara Desa', 'Bendahara Desa', '', '<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n', '', NULL, NULL),
+(4, '1', '', 'karangtaruna-kmz-165', 'Karang Taruna', 'Karang Taruna', '<p data-placeholder=\"Ketikkan disini !\">cEKk</p>', '<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n', '', NULL, '2023-08-22 15:59:59'),
+(6, '', '', '-', 'Data Asuransi Kesehatang', 'Bendahara Desa', '', '<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n', '', NULL, '2023-08-22 09:45:15'),
 (7, '', '', '-', 'Kasi Pemerintahan', '', '', '<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n', '', NULL, NULL),
 (8, '', '', '', 'Kasi Kesra', '', '', '<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n', '', NULL, NULL),
 (9, '', '', '-', 'Kepala Desa', '', '', '<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n', '', NULL, NULL),
 (10, '', '', '-', 'Sekretaris Desa', '', '', '<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n', '', NULL, NULL),
 (11, '', '', 'visi-misi-desa', 'Visi Misi Desa', 'Visi Misi', '<p data-placeholder=\"Ketikkan disini !\">Visi Misi ini kodong na</p>', '<p data-placeholder=\"Ketikkan disini !\">Misi juga ini na</p>', '', NULL, '2023-07-18 11:21:27'),
-(12, '1', '', 'fkprm-kmz-165', 'Forum Komunikasi Pemuda Remaja Masjid', 'FKPRM', '', '', 'Admin', '2023-08-20 08:40:19', '2023-08-20 08:40:19'),
-(13, '1', '', 'fkprm-kmz-165', 'Forum Komunikasi Pemuda Remaja Masjid', 'FKPRM', '', '', 'Admin', '2023-08-20 08:40:19', '2023-08-20 08:40:19');
+(12, '1', '', 'fkprm-kmz-165', 'Forum Komunikasi Pemuda Remaja Masjid', 'FKPRM', '', '', 'Admin', '2023-08-20 08:40:19', '2023-08-20 08:40:19');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `siades_personildesa`
+-- Table structure for table `siades_personildesa`
 --
 
 CREATE TABLE `siades_personildesa` (
@@ -652,7 +658,7 @@ CREATE TABLE `siades_personildesa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `siades_personildesa`
+-- Dumping data for table `siades_personildesa`
 --
 
 INSERT INTO `siades_personildesa` (`id`, `diGroup`, `slug`, `class`, `nama`, `jabatan`, `alamat`, `pendidikan`, `kontak`, `foto`, `updated_by`, `created_at`, `updated_at`) VALUES
@@ -674,7 +680,7 @@ INSERT INTO `siades_personildesa` (`id`, `diGroup`, `slug`, `class`, `nama`, `ja
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `siades_sdgs`
+-- Table structure for table `siades_sdgs`
 --
 
 CREATE TABLE `siades_sdgs` (
@@ -688,7 +694,7 @@ CREATE TABLE `siades_sdgs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data untuk tabel `siades_sdgs`
+-- Dumping data for table `siades_sdgs`
 --
 
 INSERT INTO `siades_sdgs` (`id`, `slug`, `label`, `value`, `updated_by`, `created_at`, `update_at`) VALUES
@@ -714,7 +720,7 @@ INSERT INTO `siades_sdgs` (`id`, `slug`, `label`, `value`, `updated_by`, `create
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -738,7 +744,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `email`, `username`, `fullname`, `admin_image`, `password_hash`, `reset_hash`, `reset_at`, `reset_expires`, `activate_hash`, `status`, `status_message`, `active`, `force_pass_reset`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -749,33 +755,33 @@ INSERT INTO `users` (`id`, `email`, `username`, `fullname`, `admin_image`, `pass
 --
 
 --
--- Indeks untuk tabel `auth_activation_attempts`
+-- Indexes for table `auth_activation_attempts`
 --
 ALTER TABLE `auth_activation_attempts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `auth_groups`
+-- Indexes for table `auth_groups`
 --
 ALTER TABLE `auth_groups`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `auth_groups_permissions`
+-- Indexes for table `auth_groups_permissions`
 --
 ALTER TABLE `auth_groups_permissions`
   ADD KEY `auth_groups_permissions_permission_id_foreign` (`permission_id`),
   ADD KEY `group_id_permission_id` (`group_id`,`permission_id`);
 
 --
--- Indeks untuk tabel `auth_groups_users`
+-- Indexes for table `auth_groups_users`
 --
 ALTER TABLE `auth_groups_users`
   ADD KEY `auth_groups_users_user_id_foreign` (`user_id`),
   ADD KEY `group_id_user_id` (`group_id`,`user_id`);
 
 --
--- Indeks untuk tabel `auth_logins`
+-- Indexes for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
   ADD PRIMARY KEY (`id`),
@@ -783,19 +789,19 @@ ALTER TABLE `auth_logins`
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indeks untuk tabel `auth_permissions`
+-- Indexes for table `auth_permissions`
 --
 ALTER TABLE `auth_permissions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `auth_reset_attempts`
+-- Indexes for table `auth_reset_attempts`
 --
 ALTER TABLE `auth_reset_attempts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `auth_tokens`
+-- Indexes for table `auth_tokens`
 --
 ALTER TABLE `auth_tokens`
   ADD PRIMARY KEY (`id`),
@@ -803,223 +809,223 @@ ALTER TABLE `auth_tokens`
   ADD KEY `selector` (`selector`);
 
 --
--- Indeks untuk tabel `auth_users_permissions`
+-- Indexes for table `auth_users_permissions`
 --
 ALTER TABLE `auth_users_permissions`
   ADD KEY `auth_users_permissions_permission_id_foreign` (`permission_id`),
   ADD KEY `user_id_permission_id` (`user_id`,`permission_id`);
 
 --
--- Indeks untuk tabel `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `siades_aduan`
+-- Indexes for table `siades_aduan`
 --
 ALTER TABLE `siades_aduan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `siades_artikel`
+-- Indexes for table `siades_artikel`
 --
 ALTER TABLE `siades_artikel`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `siades_datadesa`
+-- Indexes for table `siades_datadesa`
 --
 ALTER TABLE `siades_datadesa`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `siades_datawilayah`
+-- Indexes for table `siades_datawilayah`
 --
 ALTER TABLE `siades_datawilayah`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `siades_idm`
+-- Indexes for table `siades_idm`
 --
 ALTER TABLE `siades_idm`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `siades_keuangan`
+-- Indexes for table `siades_keuangan`
 --
 ALTER TABLE `siades_keuangan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `siades_konfigurasi`
+-- Indexes for table `siades_konfigurasi`
 --
 ALTER TABLE `siades_konfigurasi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `siades_pages1`
+-- Indexes for table `siades_pages1`
 --
 ALTER TABLE `siades_pages1`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `siades_personildesa`
+-- Indexes for table `siades_personildesa`
 --
 ALTER TABLE `siades_personildesa`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `siades_sdgs`
+-- Indexes for table `siades_sdgs`
 --
 ALTER TABLE `siades_sdgs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `auth_activation_attempts`
+-- AUTO_INCREMENT for table `auth_activation_attempts`
 --
 ALTER TABLE `auth_activation_attempts`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `auth_groups`
+-- AUTO_INCREMENT for table `auth_groups`
 --
 ALTER TABLE `auth_groups`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `auth_logins`
+-- AUTO_INCREMENT for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `auth_permissions`
+-- AUTO_INCREMENT for table `auth_permissions`
 --
 ALTER TABLE `auth_permissions`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `auth_reset_attempts`
+-- AUTO_INCREMENT for table `auth_reset_attempts`
 --
 ALTER TABLE `auth_reset_attempts`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `auth_tokens`
+-- AUTO_INCREMENT for table `auth_tokens`
 --
 ALTER TABLE `auth_tokens`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `siades_aduan`
+-- AUTO_INCREMENT for table `siades_aduan`
 --
 ALTER TABLE `siades_aduan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
--- AUTO_INCREMENT untuk tabel `siades_artikel`
+-- AUTO_INCREMENT for table `siades_artikel`
 --
 ALTER TABLE `siades_artikel`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 
 --
--- AUTO_INCREMENT untuk tabel `siades_datadesa`
+-- AUTO_INCREMENT for table `siades_datadesa`
 --
 ALTER TABLE `siades_datadesa`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT untuk tabel `siades_datawilayah`
+-- AUTO_INCREMENT for table `siades_datawilayah`
 --
 ALTER TABLE `siades_datawilayah`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
--- AUTO_INCREMENT untuk tabel `siades_idm`
+-- AUTO_INCREMENT for table `siades_idm`
 --
 ALTER TABLE `siades_idm`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
--- AUTO_INCREMENT untuk tabel `siades_keuangan`
+-- AUTO_INCREMENT for table `siades_keuangan`
 --
 ALTER TABLE `siades_keuangan`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT untuk tabel `siades_konfigurasi`
+-- AUTO_INCREMENT for table `siades_konfigurasi`
 --
 ALTER TABLE `siades_konfigurasi`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT untuk tabel `siades_pages1`
+-- AUTO_INCREMENT for table `siades_pages1`
 --
 ALTER TABLE `siades_pages1`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT untuk tabel `siades_personildesa`
+-- AUTO_INCREMENT for table `siades_personildesa`
 --
 ALTER TABLE `siades_personildesa`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT untuk tabel `siades_sdgs`
+-- AUTO_INCREMENT for table `siades_sdgs`
 --
 ALTER TABLE `siades_sdgs`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `auth_groups_permissions`
+-- Constraints for table `auth_groups_permissions`
 --
 ALTER TABLE `auth_groups_permissions`
   ADD CONSTRAINT `auth_groups_permissions_group_id_foreign` FOREIGN KEY (`group_id`) REFERENCES `auth_groups` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `auth_groups_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `auth_permissions` (`id`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `auth_groups_users`
+-- Constraints for table `auth_groups_users`
 --
 ALTER TABLE `auth_groups_users`
   ADD CONSTRAINT `auth_groups_users_group_id_foreign` FOREIGN KEY (`group_id`) REFERENCES `auth_groups` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `auth_groups_users_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `auth_tokens`
+-- Constraints for table `auth_tokens`
 --
 ALTER TABLE `auth_tokens`
   ADD CONSTRAINT `auth_tokens_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `auth_users_permissions`
+-- Constraints for table `auth_users_permissions`
 --
 ALTER TABLE `auth_users_permissions`
   ADD CONSTRAINT `auth_users_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `auth_permissions` (`id`) ON DELETE CASCADE,

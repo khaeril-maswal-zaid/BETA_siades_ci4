@@ -89,6 +89,10 @@ $routes->post('/adm-proses/add-struktur', 'Proses\PersonilDesa::index/struktur-d
 $routes->delete('/adm-proses/delete-struktur/(:any)', 'Proses\PersonilDesa::delete/$1/struktur-desa'); // struktur-desa => karena jug adigunkan di lembaga
 $routes->post('/adm-proses/getAjaxOne-struktur', 'Proses\PersonilDesa::getAjaxOne');
 
+$routes->post('/adm-proses/add-media-sosial', 'Proses\Konfigurasi::add/media-sosial');
+$routes->post('/adm-proses/add-dusun', 'Proses\Konfigurasi::add/dusun');
+$routes->delete('/adm-proses/delete-conf/(:any)/(:any)', 'Proses\Konfigurasi::delete/$1/$2');
+
 $routes->post('/adm-proses/updatefoto-personil/(:any)/(:any)', 'Proses\PersonilDesa::updateFoto/$1/$2');
 
 //----------------------------------------------------------
@@ -119,9 +123,13 @@ $routes->get('/admindes/data-desa/data-wilayah', 'Admin\index::dataWilayah');
 $routes->get('/admindes/data-desa/(:any)', 'Admin\index::dataDesa/$1');
 $routes->get('/admindes/daftar-kategori-data', 'Admin\index::daftarData');
 
+$routes->get('/admindes/daftar-dusun', 'Admin\Index::konfDusun/dusun-kmz-165');
+$routes->get('/admindes/daftar-media-sosial', 'Admin\Index::konfMedsos/media-sosial-kmz-165');
+
 $routes->get('/admindes/bpd', 'Admin\Index::lembaga/bpd'); // Supaya tidak masuk kategori lembaga di URL 
 $routes->get('/admindes/daftar-lembaga', 'Admin\index::daftarLembaga');
 $routes->get('/admindes/(:any)', 'Admin\Index::lembaga/$1');
+
 
 // Post Foto menggunakan Ajax
 $routes->post('/postfotoajax/(:any)', function ($judulberita) {

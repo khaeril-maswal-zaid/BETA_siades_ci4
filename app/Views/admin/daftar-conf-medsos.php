@@ -5,7 +5,7 @@
 <main class="ms-sm-auto p-md-4 pb-md-0">
     <div class="container-fluid bg-light px-4 rounded">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-            <h1 class="h3 id-table">Daftar Kategori Data</h1>
+            <h1 class="h3 id-table">Daftar Media Sosial</h1>
 
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -34,14 +34,14 @@
     <?php endif ?>
 
 
-    <!-- TIDAK MEMBUAT EDIT dbClick KARENA AKAN MEMBUAT KATEGORI DATA BERTAMBAH SETELAH DI EDIT -->
-    <!-- <table class="table table-striped table-bordered" id="daftar-kategori-data" data-tabelsiades="<?= caesarCipherReverse($tabeldtb); ?>"> -->
-    <table class="table table-striped table-bordered" data-tabelsiades="<?= caesarCipherReverse($tabeldtb); ?>">
+    <table class="table table-striped table-bordered" id="daftar-media-sosial" data-tabelsiades="<?= caesarCipherReverse($tabeldtb); ?>">
         <thead>
             <tr class="text-center">
                 <th>Aksi</th>
                 <th>No</th>
-                <th>Kategori Data</th>
+                <th>Media Sosial</th>
+                <th>Nama Akun</th>
+                <th>Link</th>
                 <th>Updated By</th>
             </tr>
         </thead>
@@ -49,18 +49,20 @@
         <tbody>
             <?php
             $iNo = 1;
-            foreach ($kategoridata as $val) :
+            foreach ($kategoriconf as $val) :
             ?>
                 <tr class="#">
                     <td class="text-center">
-                        <form action="/adm-proses/delete-kategori-data/<?= convertToLetter($val['id']) ?>" method="post">
+                        <form action="/adm-proses/delete-conf/<?= convertToLetter($val['id']) ?>/media-sosial" method="post">
                             <?= csrf_field() ?>
                             <input type="hidden" name="_method" value="DELETE">
                             <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin mau menghapus ?')">Hapus</button>
                         </form>
                     </td>
                     <td class="text-center"><?= $iNo++ ?></td>
-                    <td class="edit-dbClick" data-id="<?= convertToLetter($val['id']) ?>" data-colum="<?= caesarCipherReverse('slug'); ?>"><?= $val['slug'] ?></td>
+                    <td class="edit-dbClick" data-id="<?= convertToLetter($val['id']) ?>" data-colum="<?= caesarCipherReverse('label'); ?>"><?= $val['label'] ?></td>
+                    <td class="edit-dbClick" data-id="<?= convertToLetter($val['id']) ?>" data-colum="<?= caesarCipherReverse('value'); ?>"><?= $val['value'] ?></td>
+                    <td class="edit-dbClick" data-id="<?= convertToLetter($val['id']) ?>" data-colum="<?= caesarCipherReverse('more'); ?>"><?= $val['more'] ?></td>
                     <td><?= $val['updated_by'] ?></td>
                 </tr>
             <?php endforeach ?>
@@ -71,19 +73,27 @@
 </main>
 
 <!-- Modal -->
-<form action="/adm-proses/add-kategori-lembaga" method="post">
+<form action="/adm-proses/add-media-sosial" method="post">
     <?= csrf_field() ?>
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Tambah Kategori Data</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Tambah Media Sosial</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="form-floating mb-3">
-                        <input autocomplete="off" type="text" class="form-control" id="aa" placeholder="Kategori Data Baru" name="kategoribaru">
-                        <label for="aa">Kategori Data Baru</label>
+                        <input autocomplete="off" type="text" class="form-control" id="aa" placeholder="Media Sosial" name="label">
+                        <label for="aa">Media Sosial</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input autocomplete="off" type="text" class="form-control" id="aa" placeholder="Nama Akun" name="value">
+                        <label for="aa">Nama Akun</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input autocomplete="off" type="text" class="form-control" id="aa" placeholder="Link Akun" name="more">
+                        <label for="aa">Link Akun</label>
                     </div>
                 </div>
                 <div class="modal-footer">

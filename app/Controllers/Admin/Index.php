@@ -478,9 +478,39 @@ class Index extends BaseController
 
             'kategoridata' =>  $this->datadesamodel->select('id, slug, updated_by')->groupBy('slug')->findAll(),
             // 'kategoridata' =>  $this->datadesamodel->select('slug')->distinct()->findAll(),
-            'tabeldtb' => $this->lembagamodel->table
+            'tabeldtb' => $this->datadesamodel->table
         ];
 
         return view('admin/daftar-kategori-data', $data);
+    }
+
+    public function konfMedsos($conf)
+    {
+        $data = [
+            'title' => 'Desa ' . DESA,
+            'templatelayaout' => $this->templatelayaout,
+            'metakeywords' => null,
+            'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
+
+            'kategoriconf' =>  $this->konfigurasimodel->where('slug', $conf)->findAll(),
+            'tabeldtb' => $this->konfigurasimodel->table
+        ];
+
+        return view('admin/daftar-conf-medsos', $data);
+    }
+
+    public function konfDusun($conf)
+    {
+        $data = [
+            'title' => 'Desa ' . DESA,
+            'templatelayaout' => $this->templatelayaout,
+            'metakeywords' => null,
+            'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
+
+            'kategoriconf' =>  $this->konfigurasimodel->where('slug', $conf)->findAll(),
+            'tabeldtb' => $this->konfigurasimodel->table
+        ];
+
+        return view('admin/daftar-conf-dusun', $data);
     }
 }
