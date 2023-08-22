@@ -404,18 +404,18 @@ class Index extends BaseController
             $totalperJk[] = array_sum($rowvalJk);
         }
 
-        ///...................... BELUM SELESAI ............................
-        // $datadesa = $this->datadesamodel->where('slug', $kategori)->findAll();
-        // if (!$datadesa[0]['val_lk']) {
-        //     $datadesa = [[
-        //         'id' => 1001,
-        //         'label' => 'NO data',
-        //         'val_lk' => 0,
-        //         'val_pr' => 0,
-        //     ]];
-        // }
-        ///...................... BELUM SELESAI ............................
-        //-----------------------------------------------------------------------
+        $datadesa = $this->datadesamodel->where('slug', $kategori)->findAll();
+
+        //Supaya tdak ada string di value LK dan PR KARENA AKAN ERROR di aritmatika %
+        foreach ($datadesa as &$subArray) {
+            if (!is_numeric($subArray['val_lk'])) {
+                $subArray['val_lk'] = 12345;
+            }
+
+            if (!is_numeric($subArray['val_pr'])) {
+                $subArray['val_pr'] = 1234567;
+            }
+        }
 
         $data = [
             'templatelayaout' => $this->templatelayaout,
@@ -425,7 +425,7 @@ class Index extends BaseController
             'metadescription' => $kategori . ' ' . FULLENGKAP,
 
             'label' => $kategori,
-            'datadesa' => $this->datadesamodel->where('slug', $kategori)->findAll(),
+            'datadesa' => $datadesa,
             'totalPerdata' => $totalPerdata,
             'totalJumlah' => array_sum($totalPerdata),
             'totalperjk' => $totalperJk,
