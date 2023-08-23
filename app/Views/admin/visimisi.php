@@ -33,7 +33,7 @@
 
             <div class="card-header bg-primary text-white">
                 <span class="d-inline text-white fs-5">Visi Desa <?= DESA ?></span>
-                <button type="submit" class="float-end btn btn-warning btn-sm update-data">Edit</button>
+                <button type="submit" class="float-end btn btn-warning btn-sm update-data">Submit</button>
             </div>
 
             <div class="card-body">
@@ -266,7 +266,7 @@
             <input type="hidden" name="kolumtarget" value="<?= caesarCipherReverse('tupoksi') ?>">
             <div class="card-header bg-primary text-white">
                 <span class="d-inline text-white fs-5">Misi Desa <?= DESA ?></span>
-                <button type="submit" class="float-end btn btn-warning btn-sm">Edit</button>
+                <button type="submit" class="float-end btn btn-warning btn-sm">Submit</button>
             </div>
             <div class="card-body">
                 <div class="ck-editor">

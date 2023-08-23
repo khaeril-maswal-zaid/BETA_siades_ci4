@@ -32,7 +32,7 @@ class Keuangan extends BaseController
             'updated_by' => 'BELUM',
         ]);
 
-        session()->setFlashdata('AddData', 'Data berhasil ditambahkan');
+        session()->setFlashdata('updateData', 'Data berhasil ditambahkan');
         return redirect()->to(base_url() . 'admindes/keuangan-desa');
     }
 
@@ -42,7 +42,7 @@ class Keuangan extends BaseController
 
         $this->keuanganmodel->delete($idDelete);
 
-        session()->setFlashdata('AddData', 'Data berhasil dihapus');
+        session()->setFlashdata('updateData', 'Data berhasil dihapus');
         return redirect()->to(base_url() . 'admindes/keuangan-desa');
     }
 }

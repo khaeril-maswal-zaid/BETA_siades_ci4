@@ -69,7 +69,7 @@
                                     <td class="align-middle edit-dbClick" data-id="<?= convertToLetter($value2['id']) ?>" data-colum="<?= caesarCipherReverse('uraian'); ?>"><?= $value2['uraian'] ?></td>
                                     <td class="text-center align-middle edit-dbClick" data-id="<?= convertToLetter($value2['id']) ?>" data-colum="<?= caesarCipherReverse('anggaran'); ?>"><?= number_format($value2['anggaran'], 0, ',', '.') ?></td>
                                     <td class="text-center align-middle edit-dbClick" data-id="<?= convertToLetter($value2['id']) ?>" data-colum="<?= caesarCipherReverse('realisasi'); ?>"><?= number_format($value2['realisasi'], 0, ',', '.') ?></td>
-                                    <td class="text-center align-middle edit-dbClick" data-id="<?= convertToLetter($value2['id']) ?>" data-colum="<?= caesarCipherReverse('anggaran'); ?>"><?= number_format($value2['anggaran'] - $value2['realisasi'], 0, ',', '.') ?></td>
+                                    <td class="text-center align-middle"><?= number_format($value2['anggaran'] - $value2['realisasi'], 0, ',', '.') ?></td>
                                     <td class=" align-middle"><?= $value2['updated_by'] ?></td>
                                 </tr>
                             <?php endforeach ?>

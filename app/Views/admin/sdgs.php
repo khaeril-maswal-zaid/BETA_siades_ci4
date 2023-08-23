@@ -6,7 +6,8 @@
    <div class="container-fluid bg-light px-4 rounded">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
          <h1 class="h3">Status SDGs Desa <?= DESA ?></h1>
-         <button class="btn btn-success">Tambah Data</button>
+         <!-- Karena diusahakan ambil data di API -->
+         <!-- <button class="btn btn-success">Tambah Data</button> -->
       </div>
    </div>
 

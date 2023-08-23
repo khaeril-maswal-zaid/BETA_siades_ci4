@@ -81,12 +81,16 @@ class Index extends BaseController
 
         $dataartikel = $this->artikelmodel->where('slug', $slug)->first();
 
+        if (!isset($dataartikel) && $slug) {
+            return view('errors/html/error_404_admin');
+        }
+
+
         if ($dataartikel) {
             $label = $dataartikel['judul'];
         } else {
             $label = str_replace("-", " ", $label);
         }
-
 
         $data = [
             'title' => 'Desa ' . DESA,

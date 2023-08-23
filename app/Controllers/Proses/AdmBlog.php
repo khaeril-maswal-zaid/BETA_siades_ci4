@@ -16,31 +16,59 @@ class AdmBlog extends BaseController
 
     public function save($idUpdate = null)
     {
+        $judul = $this->request->getVar('judul');
+
+        if ($idUpdate) {
+            $urlUpdate = $this->artikelmodel->select('slug')->where('id', $idUpdate)->first()['slug'];
+        }
+
         //Cek artikel khusus atau bukan
-        if (
-            $this->request->getVar('judul') == 'Profil Wilayah' ||
-            $this->request->getVar('judul') == 'Sejarah Desa' ||
-            $this->request->getVar('judul') == 'Potensi Desa'
-        ) {
-            $redirect = url_title($this->request->getVar('judul'), '-', true);
+        if ($judul == 'Profil Wilayah' ||  $judul == 'Sejarah Desa' || $judul == 'Potensi Desa') {
+            $redirect = 'admindes/' . url_title($this->request->getVar('judul'), '-', true);
+            $sessionFlash = 'Data berhasil diperbaharui';
+        } elseif ($idUpdate) {
+            $redirect = 'admindes/' . 'kabar-desa/update/' . $urlUpdate;
+            $sessionFlash = 'Data berhasil diperbaharui';
         } else {
-            $redirect = 'kabar-desa/add';
+            $redirect = 'admindes/' . 'kabar-desa';
+            $sessionFlash = 'Data berhasil ditambahkan';
+        }
+
+
+        if ($idUpdate) {
+
+            $validrol = [
+                'judul' => 'required',
+                'deskripsi' => 'required',
+                'imageblog' => [
+                    'rules' => 'max_size[imageblog,510]|is_image[imageblog]|mime_in[imageblog,image/jpg,image/jpeg,image/png]',
+                    'errors' => [
+                        'max_size' => 'Max file 500 kb !',
+                        'is_image' => 'Yang anda pilih bukan picture',
+                        'mime_in' => 'Yang anda pilih bukan picture',
+                    ]
+                ]
+            ];
+        } else {
+
+            $validrol = [
+                'judul' => 'required',
+                'deskripsi' => 'required',
+                'imageblog' =>            [
+                    'rules' => 'uploaded[imageblog]|max_size[imageblog,510]|is_image[imageblog]|mime_in[imageblog,image/jpg,image/jpeg,image/png]',
+                    'errors' => [
+                        'uploaded' => 'Imaga wajib diisi !',
+                        'max_size' => 'Max file 500 kb !',
+                        'is_image' => 'Yang anda pilih bukan picture',
+                        'mime_in' => 'Yang anda pilih bukan picture',
+                    ]
+                ]
+            ];
         }
 
         //Validasi------------------------------------
         //Jika Artikel khusus (punya id)
-        if (!$this->validate([
-            'judul' => 'required',
-            'deskripsi' => 'required',
-            'imageblog' =>            [
-                'rules' => 'max_size[imageblog,510]|is_image[imageblog]|mime_in[imageblog,image/jpg,image/jpeg,image/png]',
-                'errors' => [
-                    'max_size' => 'Max file 500 kb !',
-                    'is_image' => 'Yang anda pilih bukan picture',
-                    'mime_in' => 'Yang anda pilih bukan picture',
-                ]
-            ]
-        ]) && $idUpdate) {
+        if (!$this->validate($validrol)) {
             //Error------------------------------------
             session()->setFlashdata('validation', [
                 $this->validator->getError('judul'),
@@ -48,49 +76,14 @@ class AdmBlog extends BaseController
                 $this->validator->getError('imageblog'),
             ]);
 
-            return redirect()->to(base_url() . 'admindes/' . $redirect)->withInput();
-        }
-        //Jika Artikel uumum (tidak punya id)
-        elseif (!$this->validate([
-            'judul' => 'required',
-            'deskripsi' => 'required',
-            'imageblog' =>            [
-                'rules' => 'uploaded[imageblog]|max_size[imageblog,510]|is_image[imageblog]|mime_in[imageblog,image/jpg,image/jpeg,image/png]',
-                'errors' => [
-                    'uploaded' => 'Imaga wajib diisi !',
-                    'max_size' => 'Max file 500 kb !',
-                    'is_image' => 'Yang anda pilih bukan picture',
-                    'mime_in' => 'Yang anda pilih bukan picture',
-                ]
-            ]
-        ]) && !$idUpdate) {
-            //Error------------------------------------
-            session()->setFlashdata('validation', [
-                $this->validator->getError('judul'),
-                $this->validator->getError('deskripsi'),
-                $this->validator->getError('imageblog'),
-            ]);
-
-            return redirect()->to(base_url() . 'admindes/' . $redirect)->withInput();
+            return redirect()->to(base_url() . $redirect)->withInput();
         }
 
-        //OLEH & OLEH LAINNYA tidak boleh kosong
+        //OLEH & OLEH LAINNYA tidak boleh kosong secara bersamaan
+        //Tidk dmasukkan di role validation karena boleh ji kosong salah satunya
         if ($this->request->getVar('oleh') == '' && $this->request->getVar('oleh-lainnya') == '') {
             session()->setFlashdata('val-oleh', true);
-            return redirect()->to(base_url() . 'admindes/' . $redirect)->withInput();
-        }
-
-        $defaultartikel = '<p class="ck-placeholder" data-placeholder="Ketikkan disini !"><br data-cke-filler="true"></p>';
-        if ($this->request->getVar('isinaArtikel') == $defaultartikel) {
-            session()->setFlashdata('val-isinaArtikel', true);
-            return redirect()->to(base_url() . 'admindes/' . $redirect)->withInput();
-        }
-
-        //Cek foto
-        if ($this->request->getVar('fotopost')) {
-            $picture = $this->request->getVar('fotopost');
-        } else {
-            $picture = $this->request->getVar('picture');
+            return redirect()->to(base_url() . $redirect)->withInput();
         }
 
         //Cek oleh klw kosong gunkan yg lainnya
@@ -98,6 +91,26 @@ class AdmBlog extends BaseController
             $oleh = $this->request->getVar('oleh');
         } else {
             $oleh = $this->request->getVar('oleh-lainnya');
+        }
+
+        //PERBAIKI
+        $defaultartikel = '<p class="ck-placeholder" data-placeholder="Ketikkan disini !"><br data-cke-filler="true"></p>';
+        if ($this->request->getVar('isinaArtikel') == $defaultartikel) {
+            session()->setFlashdata('val-isinaArtikel', true);
+            return redirect()->to(base_url() . $redirect)->withInput();
+        }
+
+        //Cek foto
+        if ($this->request->getVar('fotopost')) {
+            $picture = $this->request->getVar('fotopost');
+
+            // Meskipun sudah ada validasi untuk menghindari terhpus Folder 'sementarabyajax'
+            if (isset($picture)) {
+                //Pindahkan file yg dari Ajax ke tempat tujuan
+                rename('img/sementarabyajax/' . $picture, 'img/blog/' . $picture);
+            }
+        } else {
+            $picture = $this->request->getVar('picture');
         }
 
         $slug = url_title($this->request->getVar('judul'), '-', true);
@@ -117,23 +130,15 @@ class AdmBlog extends BaseController
         ]);
 
 
-        // Meskipun sudah ada validasi untuk menghindari terhpus Folder 'sementarabyajax'
-        if (isset($picture)) {
-            //Pindahkan file yg dari Ajax ke tempat tujuan
-            rename('img/sementarabyajax/' . $picture, 'img/blog/' . $picture);
-        }
+        session()->setFlashdata('addArtikel', $sessionFlash);
 
-        if ($idUpdate) { // Edit data
-            session()->setFlashdata('addArtikel', 'Data berhasil diperbaharui');
-
-            if ($redirect == 'kabar-desa/add') { // umum
-                return redirect()->to(base_url() . 'admindes/kabar-desa/update/' . $slug);
-            } else { //khusus
-                return redirect()->to(base_url() . 'admindes/' . url_title($this->request->getVar('judul'), '-', true));
-            }
-        } else { // data baru
-            session()->setFlashdata('addArtikel', 'Data berhasil ditambahkan');
-            return redirect()->to(base_url() . 'admindes/kabar-desa');
+        //Cek redirect berdasarkan tiga jenis (Add, Edit dan Khusus )
+        if ($judul == 'Profil Wilayah' ||  $judul == 'Sejarah Desa' || $judul == 'Potensi Desa') {
+            return redirect()->to(base_url() . $redirect);
+        } elseif ($idUpdate) {
+            return redirect()->to(base_url() . 'admindes/kabar-desa/update/' . $slug);
+        } else {
+            return redirect()->to(base_url() . $redirect);
         }
     }
 

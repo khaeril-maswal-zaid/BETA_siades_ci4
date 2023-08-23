@@ -53,7 +53,7 @@ class PersonilDesa extends BaseController
 
         $image = $this->personaildesamodel->select('foto')->where('id', $idDelete)->first();
 
-        if ($image['foto'] != '') {
+        if ($image['foto'] != '' && file_exists(('img/personil/' . $image['foto']))) {
             unlink('img/personil/' . $image['foto']);
         }
 
