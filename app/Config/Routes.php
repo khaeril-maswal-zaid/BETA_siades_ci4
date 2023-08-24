@@ -149,8 +149,8 @@ $routes->get('/sejarah-desa', 'Blog\index::khusus/sejarah-desa');
 $routes->get('/profil-wilayah', 'Blog\index::khusus/profil-wilayah');
 $routes->get('/(:any)/(:num)', 'Blog\index::index/$1/$2');
 
-//PAGES 1 ---------------------------------------------------
-$routes->get('/(:any)', 'Pages\Page1::index/$1');
+//PAGE TUNGGAL BERITA ---------------------------------------------------
+// $routes->get('/(:any)', 'Pages\Page1::index/$1'); || DI PINDAHKAN KE ROUTS LOGIN MITH/AUTH
 /*
  * --------------------------------------------------------------------
  * Additional Routing
