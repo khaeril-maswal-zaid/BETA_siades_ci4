@@ -27,15 +27,43 @@ class Konfigurasi extends BaseController
 
     public function add($slug)
     {
+        if ($this->request->getVar('more') != '') {
+            $more = $this->request->getVar('more');
+        } else {
+            $more = '#';
+        }
+
         $this->konfigurasimodel->save([
             'slug' => $slug . '-kmz-165',
             'label' => $this->request->getVar('label'),
             'value' => $this->request->getVar('value'),
-            'more' => $this->request->getVar('more'),
+            'more' => $more,
             'updated_by' => 'Admin'
         ]);
 
         session()->setFlashdata('updateData', 'Lembaga baru berhasil ditambahkan');
         return redirect()->to(base_url() . 'admindes/daftar-' . $slug);
+    }
+
+    function updateAplikasi()
+    {
+        $konfApp = $this->konfigurasimodel->select('id, label')->where('slug', 'tentang-aplikasi-kmz-165')->first();
+        $konfAlamat = $this->konfigurasimodel->select('id, label')->where('slug', 'alamat-kantor-kmz-165')->first();
+
+        if ($konfApp['label'] != 'Tentang Aplikasi' && $konfAlamat['label'] != 'Alamat Kantor') {
+            session()->setFlashdata('updateData', 'Konfigurasi Aplikasi Gagal diperbarui');
+            return redirect()->to(base_url() . 'admindes/konf-aplikasi');
+        }
+
+        $this->konfigurasimodel->update($konfApp['id'], [
+            'value' => $this->request->getVar('tentangaplikasi')
+        ]);
+
+        $this->konfigurasimodel->update($konfAlamat['id'], [
+            'value' => $this->request->getVar('alamatkantor')
+        ]);
+
+        session()->setFlashdata('updateData', 'Konfigurasi Aplikasi Berhasil diperbarui');
+        return redirect()->to(base_url() . 'admindes/konf-aplikasi');
     }
 }

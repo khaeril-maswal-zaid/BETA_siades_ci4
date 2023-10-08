@@ -92,6 +92,7 @@ $routes->post('/adm-proses/getAjaxOne-struktur', 'Proses\PersonilDesa::getAjaxOn
 $routes->post('/adm-proses/add-media-sosial', 'Proses\Konfigurasi::add/media-sosial');
 $routes->post('/adm-proses/add-dusun', 'Proses\Konfigurasi::add/dusun');
 $routes->delete('/adm-proses/delete-conf/(:any)/(:any)', 'Proses\Konfigurasi::delete/$1/$2');
+$routes->post('/adm-proses/update-aplikasi', 'Proses\Konfigurasi::updateAplikasi');
 
 $routes->post('/adm-proses/updatefoto-personil/(:any)/(:any)', 'Proses\PersonilDesa::updateFoto/$1/$2');
 
@@ -125,6 +126,7 @@ $routes->get('/admindes/daftar-kategori-data', 'Admin\index::daftarData');
 
 $routes->get('/admindes/daftar-dusun', 'Admin\Index::konfDusun/dusun-kmz-165');
 $routes->get('/admindes/daftar-media-sosial', 'Admin\Index::konfMedsos/media-sosial-kmz-165');
+$routes->get('/admindes/konf-aplikasi', 'Admin\Index::konfAplikasi');
 
 $routes->get('/admindes/bpd', 'Admin\Index::lembaga/bpd'); // Supaya tidak masuk kategori lembaga di URL 
 $routes->get('/admindes/daftar-lembaga', 'Admin\index::daftarLembaga');
@@ -149,8 +151,8 @@ $routes->get('/sejarah-desa', 'Blog\index::khusus/sejarah-desa');
 $routes->get('/profil-wilayah', 'Blog\index::khusus/profil-wilayah');
 $routes->get('/(:any)/(:num)', 'Blog\index::index/$1/$2');
 
-//PAGE TUNGGAL BERITA ---------------------------------------------------
-// $routes->get('/(:any)', 'Pages\Page1::index/$1'); || DI PINDAHKAN KE ROUTS LOGIN MITH/AUTH
+//PAGE LEMBAGA DESA ---------------------------------------------------
+$routes->get('/(:any)', 'Pages\Page1::index/$1'); //|| DI PINDAHKAN KE ROUTS LOGIN MITH/AUTH
 /*
  * --------------------------------------------------------------------
  * Additional Routing

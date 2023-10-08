@@ -60,7 +60,7 @@
                         </form>
                     </td>
                     <td class="text-center"><?= $iNo++ ?></td>
-                    <td class="edit-dbClick" data-id="<?= convertToLetter($val['id']) ?>" data-colum="<?= caesarCipherReverse('label'); ?>"><?= $val['label'] ?></td>
+                    <td><?= $val['label'] ?></td>
                     <td class="edit-dbClick" data-id="<?= convertToLetter($val['id']) ?>" data-colum="<?= caesarCipherReverse('value'); ?>"><?= $val['value'] ?></td>
                     <td class="edit-dbClick" data-id="<?= convertToLetter($val['id']) ?>" data-colum="<?= caesarCipherReverse('more'); ?>"><?= $val['more'] ?></td>
                     <td><?= $val['updated_by'] ?></td>

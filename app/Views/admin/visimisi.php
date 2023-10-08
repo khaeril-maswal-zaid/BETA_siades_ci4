@@ -28,6 +28,8 @@
 
     <form action="/adm-proses/update-visimisi/<?= convertToLetter($visimisi['idUpdate']) ?>" method="post">
         <div class="card border-primary mb-3">
+            <?= csrf_field() ?>
+
             <input type="hidden" name="valueupdate" id="valueVisi">
             <input type="hidden" name="kolumtarget" value="<?= caesarCipherReverse('tentang') ?>">
 

@@ -18,7 +18,7 @@ class Home extends BaseController
    public function __construct()
    {
       $this->templatelayaout = ['layout-htmlcodex/header', 'layout-htmlcodex/footer'];
-      $this->personildesa = new PersonilDesaModel;
+      $this->personildesa = new PersonilDesaModel();
       $this->artikelmodel = new ArtikelModel();
       $this->datawilayah = new DataWilayahModel();
    }

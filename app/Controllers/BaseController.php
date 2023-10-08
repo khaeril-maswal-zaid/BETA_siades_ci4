@@ -10,6 +10,7 @@ use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
 use App\Models\DataDesaModel;
+use App\Models\KonfigurasiModel;
 use App\Models\Page1Model;
 
 /*** NAMA DESA ---------------------*/
@@ -30,7 +31,19 @@ $lembagadesamodel = new Page1Model();
 $lembagadesamodel->select(['namepage', 'nicknamepage'])->where('idGroup', '1');
 $kategoridatadesa = $lembagadesamodel->select(['namepage', 'nicknamepage'])->where('slug !=', 'bpd-kmz-165')->findAll();
 define('LEMABAGADESA', $kategoridatadesa);
+/***---------------------*/
 
+/*** UNTUK DI HEADER DAN FOOTER ---------------------*/
+$konfigurasimodel = new KonfigurasiModel();
+define('TELPON', $konfigurasimodel->select('value')->where('label', 'Telpon')->first()['value']);
+define('WHATSAPP', $konfigurasimodel->select('value')->where('label', 'WhatsApp')->first()['value']);
+define('EMAIL', $konfigurasimodel->select('value')->where('label', 'Email')->first()['value']);
+define('ALAMATKAONTOR', $konfigurasimodel->select('value')->where('label', 'Alamat Kantor')->first()['value']);
+define('TENTANGAPLIKASI', $konfigurasimodel->select('value')->where('label', 'Tentang Aplikasi')->first()['value']);
+
+define('LINKINSTAGRAM', $konfigurasimodel->select('more')->where('label', 'Instagram')->first()['more']);
+define('LINKYOUTUBE', $konfigurasimodel->select('more')->where('label', 'Youtube')->first()['more']);
+define('LINKFACEBOOK', $konfigurasimodel->select('more')->where('label', 'Facebook')->first()['more']);
 
 /***---------------------*/
 

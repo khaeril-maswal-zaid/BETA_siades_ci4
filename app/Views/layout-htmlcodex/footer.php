@@ -4,36 +4,29 @@
          <div class="row g-5">
             <div class="col-lg-5 col-md-6">
                <h4 class="text-white mb-4">Tentang</h4>
-               <p>
-                  Merupakan Website Resmi Desa <?= DESA ?> serta merupakan platform
-                  online yang dirancang secara khusus untuk memberikan kemudahan
-                  dalam berkomunikasi dan bertukar informasi antara pemerintah desa,
-                  warga desa, dan masyarakat umum.
-               </p>
+               <p><?= TENTANGAPLIKASI ?></p>
             </div>
             <div class="col-lg-4 col-md-6 px-4 px-lg-0">
                <h4 class="text-white mb-4">Kontak</h4>
                <p class="mb-2">
-                  <i class="fa fa-map-marker-alt me-3"></i>Jln. Tani, Dusun Konoha,
-                  Desa <?= DESA ?>
+                  <i class="fa fa-map-marker-alt me-3"></i><?= ALAMATKAONTOR ?>
                </p>
                <p class="mb-2">
-                  <i class="fa fa-phone-alt me-3"></i>+012 345 67890, +62
-                  853-4365-2494
+                  <i class="fa fa-phone-alt me-3"></i><?= TELPON . ", " . WHATSAPP ?>
                </p>
                <p class="mb-2">
-                  <i class="fa fa-envelope me-3"></i>official@pakubalaho.desa.id
+                  <i class="fa fa-envelope me-3"></i><?= EMAIL ?>
                </p>
                <div class="d-flex pt-2">
-                  <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i class="fab fa-twitter"></i></a>
-                  <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i class="fab fa-facebook-f"></i></a>
-                  <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i class="fab fa-youtube"></i></a>
+                  <a class="btn btn-square btn-outline-light rounded-circle me-2" href="<?= LINKINSTAGRAM ?>"><i class="fab fa-instagram"></i></a>
+                  <a class="btn btn-square btn-outline-light rounded-circle me-2" href="<?= LINKFACEBOOK ?>"><i class="fab fa-facebook-f"></i></a>
+                  <a class="btn btn-square btn-outline-light rounded-circle me-2" href="<?= LINKYOUTUBE ?>"><i class="fab fa-youtube"></i></a>
                </div>
             </div>
             <div class="col-lg-3 col-md-6">
                <h4 class="text-white mb-4">Layanan</h4>
                <a class="btn btn-link" href="/admindes">Admin</a>
-               <a class="btn btn-link" href="">Direktori</a>
+               <a class="btn btn-link" href="#">Direktori</a>
 
                <p class="btn btn-link">Penelusuran</p>
                <div class="position-relative w-100">

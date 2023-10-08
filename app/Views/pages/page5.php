@@ -36,7 +36,7 @@
               <h5><?= $value['label'] ?></h5>
             </div>
             <div class="col-9">
-              <h5>: <?= $value['value'] ?></h5>
+              <h5>: <a href="<?= $value['more'] ?>"><?= $value['value'] ?></a></h5>
             </div>
           <?php endforeach ?>
         </div>

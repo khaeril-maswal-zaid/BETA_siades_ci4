@@ -52,11 +52,11 @@ class Index extends BaseController
         // $judul = ucwords($judul);
         // $artikel = $this->artikelmodel->where('judul', $judul)->first();
 
-        // if (!isset($artikel)) {
-        //     return view('errors/html/error_404');
-        // }
-
         $artikel = $this->artikelmodel->where('slug', $slug)->first();
+
+        if (!isset($artikel)) {
+            return view('errors/html/error_404');
+        }
 
         $data = [
             'templatelayaout' => $this->templatelayaout,

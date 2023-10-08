@@ -517,4 +517,20 @@ class Index extends BaseController
 
         return view('admin/daftar-conf-dusun', $data);
     }
+
+    public function konfAplikasi()
+    {
+        $data = [
+            'title' => 'Desa ' . DESA,
+            'templatelayaout' => $this->templatelayaout,
+            'metakeywords' => null,
+            'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
+
+            'konftentang' =>  $this->konfigurasimodel->select('value')->where('slug', 'tentang-aplikasi-kmz-165')->first(),
+            'konfalamat' =>  $this->konfigurasimodel->select('value')->where('slug', 'alamat-kantor-kmz-165')->first(),
+            'tabeldtb' => $this->konfigurasimodel->table
+        ];
+
+        return view('admin/daftar-conf-aplikasi', $data);
+    }
 }

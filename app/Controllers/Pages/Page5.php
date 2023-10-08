@@ -26,7 +26,7 @@ class Page5 extends BaseController
          'metakeywords' => 'Kontak ' . FULLENGKAP . ', Kontak Desa  Terbaik,',
          'metadescription' => 'Kontak ' . FULLENGKAP,
 
-         'sosmed' => $this->konfigurasi->where('slug', 'sosial-media')->findAll()
+         'sosmed' => $this->konfigurasi->where('slug', 'media-sosial-kmz-165')->findAll()
       ];
 
       return view('pages/page5', $data);

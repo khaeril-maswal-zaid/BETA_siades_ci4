@@ -23,9 +23,9 @@ class Filters extends BaseConfig
         'secureheaders' => SecureHeaders::class,
 
         //Login Myth\Auth
-        'login'      => \Myth\Auth\Filters\LoginFilter::class,
-        'role'       => \Myth\Auth\Filters\RoleFilter::class,
-        'permission' => \Myth\Auth\Filters\PermissionFilter::class,
+        // 'login'      => \Myth\Auth\Filters\LoginFilter::class,
+        // 'role'       => \Myth\Auth\Filters\RoleFilter::class,
+        // 'permission' => \Myth\Auth\Filters\PermissionFilter::class,
     ];
 
     /**
@@ -67,6 +67,6 @@ class Filters extends BaseConfig
      * 'isLoggedIn' => ['before' => ['account/*', 'profiles/*']]
      */
     public array $filters = [
-        'login' => ['before' => ['admindes', 'admindes/*', 'adm-proses/*']]
+        // 'login' => ['before' => ['admindes', 'admindes/*', 'adm-proses/*']]
     ];
 }

@@ -26,6 +26,7 @@ class Page1 extends BaseController
       $lembaga = ucwords($lembaga);
 
       $valuespage = $this->page1model->where('namepage', $lembaga)->first();
+      // dd($valuespage);
 
       if (!isset($valuespage)) {
          return view('errors/html/error_404');

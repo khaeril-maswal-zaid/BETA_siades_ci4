@@ -86,6 +86,7 @@
                <div class="dropdown-menu bg-transparent border-0">
                   <a href="/admindes/daftar-dusun" class="dropdown-item">Dusun</a>
                   <a href="/admindes/daftar-media-sosial" class="dropdown-item">Media Sosial</a>
+                  <a href="/admindes/konf-aplikasi" class="dropdown-item">Aplikasi</a>
                </div>
             </div>
 

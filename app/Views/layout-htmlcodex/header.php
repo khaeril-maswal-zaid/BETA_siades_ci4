@@ -5,18 +5,18 @@
          <div class="h-100 d-inline-flex align-items-center me-4">
             <a href="/admindes">
                <span class="fa fa-phone-alt me-2"></span>
-               <span>+012 345 6789</span>
+               <span><?= TELPON ?></span>
             </a>
          </div>
          <div class="h-100 d-inline-flex align-items-center">
             <span class="far fa-envelope me-2"></span>
-            <span>official@pakubalaho.desa.id</span>
+            <span><?= EMAIL ?></span>
          </div>
       </div>
       <div class="col-lg-5 px-5 text-end">
          <div class="h-100 d-inline-flex align-items-center mx-n2">
             <a class="btn btn-link text-light pe-2" href=""><i class="fa fa-globe"></i></a>
-            <span>Kabupaten Bulukumba</span>
+            <span>Kabupaten <?= KAB ?></span>
          </div>
       </div>
    </div>
