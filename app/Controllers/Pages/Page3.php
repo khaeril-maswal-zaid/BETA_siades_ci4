@@ -29,7 +29,6 @@ class Page3 extends BaseController
          'metakeywords' => 'Galeri ' . FULLENGKAP . ', Galeri Desa  Terbaik,',
          'metadescription' => 'Galeri ' . FULLENGKAP,
 
-         'personildesa' => $this->personildesa->personilAll('apdes-kmz-165'),
          'artikels' => $this->artikelmodel->orderBy('id', 'DESC')->paginate(9, 'siades_artikel'),
          'pager' => $this->artikelmodel->pager,
          'urutan' => ['first', 'second']

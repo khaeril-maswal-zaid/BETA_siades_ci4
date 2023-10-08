@@ -1,29 +1,34 @@
 <?php $this->extend('layout-htmlcodex/template') ?>
 <?php $this->section('content') ?>
 
-<div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
-   <div class="container text-center py-5">
-      <h1 class="display-5 text-white mb-3 slideInDown">Situs Resmi</h1>
-      <h1 class="display-4 text-white mb-2 slideInDown">Desa <?= DESA ?></h1>
+<section class="mb-md-4">
+   <div class="container-fluid page-header py-5 mb-4 mb-md-5 wow fadeIn" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
+      <div class="container text-center py-5">
+         <h1 class="display-5 text-white mb-3 slideInDown">Situs Resmi</h1>
+         <h1 class="display-4 text-white mb-2 slideInDown">Desa <?= DESA ?></h1>
+      </div>
    </div>
-</div>
 
-<!-- Petunjuk URL Start -->
-<section class="container px-4 px-lg-2">
-   <div class="alert alert-success py-2" role="alert">
-      <a href="#"><i class="bi bi-house-door-fill"></i></a>
-      <span class="px-1">/</span>
+   <!-- Petunjuk URL Start -->
+   <div class="container-xxl">
+      <div class="container">
+         <div class="alert alert-success py-2" role="alert">
+            <a href="/"><i class="bi bi-house-door-fill"></i></a>
+            <span class="px-1">/</span>
 
-      <a href="#">Lembaga</a>
-      <span class="px-1">/</span>
+            <a href="#">Lembaga</a>
+            <span class="px-1">/</span>
 
-      <a href="#"><?= $singkatanlembaga ?></a>
+            <a href="#"><?= $singkatanlembaga ?></a>
+         </div>
+      </div>
    </div>
+   <!-- Petunjuk URL Enad -->
 </section>
-<!-- Petunjuk URL Enad -->
+
 
 <!-- Features Start -->
-<section class="container-xxl py-5">
+<section class="container-xxl py-3">
    <div class="container">
 
       <h1 class="display-5 text-primary"><?= $namalembaga ?></h1>

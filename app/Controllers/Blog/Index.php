@@ -40,7 +40,7 @@ class Index extends BaseController
 
             'dataartikel' => $artikel,
 
-            'personildesa' => $this->personildesa->personilAll('apdes-kmz-165')
+            'personildesa' => $this->personildesa->personilAll('strukturdesa-kmz-165'),
         ];
 
         return view('blog/index', $data);
@@ -67,7 +67,7 @@ class Index extends BaseController
 
             'dataartikel' => $artikel,
 
-            'personildesa' => $this->personildesa->personilAll('apdes-kmz-165')
+            'personildesa' => $this->personildesa->personilAll('strukturdesa-kmz-165'),
         ];
 
         return view('blog/index', $data);

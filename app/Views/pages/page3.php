@@ -1,35 +1,33 @@
 <?php $this->extend('layout-htmlcodex/template') ?>
 <?php $this->section('content') ?>
 
-<div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
-   <div class="container text-center py-5">
-      <h1 class="display-5 text-white mb-3 slideInDown">Situs Resmi</h1>
-      <h1 class="display-4 text-white mb-2 slideInDown">Desa <?= DESA ?></h1>
-   </div>
-</div>
-
-<!-- Alamat Web Start -->
-<div class="container-fluid">
-   <div class="px-3">
-      <div class="alert alert-success py-2" role="alert">
-         <a href="/"><i class="bi bi-house-door-fill"></i></a>
-         <span class="px-1">/</span>
-
-         <a href="/struktur-pemerintahan">Struktur Pemerintahan</a>
-         <span class="px-1">/</span>
-
-         <span class="text-success">Album</span>
+<section class="mb-md-4">
+   <div class="container-fluid page-header py-5 mb-4 mb-md-5 wow fadeIn" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
+      <div class="container text-center py-5">
+         <h1 class="display-5 text-white mb-3 slideInDown">Situs Resmi</h1>
+         <h1 class="display-4 text-white mb-2 slideInDown">Desa <?= DESA ?></h1>
       </div>
    </div>
-</div>
-<!-- Alamat Web Start -->
+
+   <!-- Petunjuk URL Start -->
+   <div class="container-xxl">
+      <div class="container">
+         <div class="alert alert-success py-2" role="alert">
+            <a href="/"><i class="bi bi-house-door-fill"></i></a>
+            <span class="px-1">/</span>
+            <span class="text-success">Galery Desa</span>
+         </div>
+      </div>
+   </div>
+   <!-- Alamat Web Start -->
+</section>
 
 <!-- Projects Start -->
-<div class="container-xxl py-5">
+<section class="container-xxl py-4">
    <div class="container">
       <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-         <p class="fs-5 fw-bold text-primary">Our Projects</p>
-         <h1 class="display-5 mb-5">Some Of Our Wonderful Projects</h1>
+         <h1 class="display-5">Galery Desa</h1>
+         <h1 class="display-5 mb-5"><?= DESA ?></h1>
       </div>
       <div class="row wow fadeInUp" data-wow-delay="0.3s">
          <div class="col-12 text-center">
@@ -64,7 +62,7 @@
       <!-- //pagination CI4 -->
       <?= $pager->links('siades_artikel', 'newtemplate') ?>
    </div>
-</div>
+</section>
 <!-- Projects End -->
 
 <?php $this->endSection() ?>

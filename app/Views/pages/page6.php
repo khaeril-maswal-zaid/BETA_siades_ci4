@@ -1,29 +1,31 @@
 <?php $this->extend('layout-htmlcodex/template') ?>
 <?php $this->section('content'); ?>
 
-<div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
-   <div class="container text-center py-5">
-      <h1 class="display-5 text-white mb-3 slideInDown">Situs Resmi</h1>
-      <h1 class="display-4 text-white mb-2 slideInDown">Desa <?= DESA ?></h1>
-   </div>
-</div>
-
-<!-- Alamat Web Start -->
-<div class="container-fluid">
-   <div class="px-3">
-      <div class="alert alert-success py-2" role="alert">
-         <a href="/"><i class="bi bi-house-door-fill"></i></a>
-         <span class="px-1">/</span>
-
-
-         <a href="/struktur-pemerintahan">Visi Misi</a>
+<section class="mb-md-4">
+   <div class="container-fluid page-header py-5 mb-4 mb-md-5 wow fadeIn" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
+      <div class="container text-center py-5">
+         <h1 class="display-5 text-white mb-3 slideInDown">Situs Resmi</h1>
+         <h1 class="display-4 text-white mb-2 slideInDown">Desa <?= DESA ?></h1>
       </div>
    </div>
-</div>
-<!-- Alamat Web Start -->
+
+   <!-- Petunjuk URL Start -->
+   <div class="container-xxl">
+      <div class="container">
+         <div class="alert alert-success py-2" role="alert">
+            <a href="/"><i class="bi bi-house-door-fill"></i></a>
+            <span class="px-1">/</span>
+
+
+            <a href="/struktur-pemerintahan">Visi Misi</a>
+         </div>
+      </div>
+   </div>
+   <!-- Alamat Web Start -->
+</section>
 
 <!-- Features Start -->
-<div class="container-xxl py-5">
+<section class="container-xxl py-3">
    <div class="container">
       <div class="mb-5">
          <h1 class="display-5 text-primary">Visi Misi</h1>
@@ -90,18 +92,18 @@
                <div class="card-header bg-light">
                   Visi Desa
                </div>
-               <div class="card-body text-success"><?= $visimisi['visi'] ?></div>
+               <div class="card-body"><?= $visimisi['visi'] ?></div>
             </div>
             <div class="card border-success mb-3">
                <div class="card-header bg-light">
                   Misi Desa
                </div>
-               <div class="card-body text-success"><?= $visimisi['misi'] ?></div>
+               <div class="card-body"><?= $visimisi['misi'] ?></div>
             </div>
          </div>
       </div>
    </div>
-</div>
+</section>
 <!-- Features End -->
 
 <?php $this->endSection() ?>

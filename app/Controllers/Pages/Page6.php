@@ -20,13 +20,13 @@ class Page6 extends BaseController
 
    public function index()
    {
-      $personildesa = $this->personildesa->where('jabatan', 'Kepala Desa');
-      $personil = $personildesa->first();
+      $this->personildesa->where('slug', 'strukturdesa-kmz-165');
+      $personildesa = $this->personildesa->where('jabatan', 'Kepala Desa')->first();
 
       $visimisimodel = new Page1Model();
       $visimisi = $visimisimodel->select(['tentang', 'tupoksi'])->where('slug', 'visi-misi-desa')->first();
 
-      if (!isset($personil) || !isset($visimisi)) {
+      if (!isset($personildesa) || !isset($visimisi)) {
          return view('errors/html/error_404');
       }
 
@@ -37,7 +37,7 @@ class Page6 extends BaseController
          'metakeywords' => 'Struktur Pemerintahan' . FULLENGKAP . ' Visi Misi Desa ',
          'metadescription' => 'Struktur Pemerintahan ' . FULLENGKAP,
 
-         'detailpersonil' => $personil,
+         'detailpersonil' => $personildesa,
          'visimisi' => ['visi' => $visimisi['tentang'], 'misi' => $visimisi['tupoksi']]
       ];
 
