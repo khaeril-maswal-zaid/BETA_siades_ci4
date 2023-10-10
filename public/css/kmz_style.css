@@ -3,3 +3,10 @@
     max-height: 7rem !important;
   }
 }
+
+/* UNTUK MENGECILKAN TEKS DI LAYAR HP (MINI) PADA AREA KONTAK KAMI */
+@media (max-width: 450px) {
+  .kontak-area {
+    font-size: 17px;
+  }
+}

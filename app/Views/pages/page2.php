@@ -31,24 +31,27 @@
    <div class="container">
 
       <h1 class="display-5 text-primary">Struktur Pemerintahan</h1>
-      <p class="fs-5 fw-bold text-primary mb-3 mb-md-5"><?= LENGKAP ?></p>
+
+      <p class="fs-4 d-md-block d-none fw-bold text-primary mb-3 mb-md-5"><?= FULLENGKAP ?></p>
+      <p class="d-md-none d-block fw-bold text-primary mb-3 mb-md-5"><?= LENGKAP ?></p>
+
 
       <div class="row g-5 mt-4">
-         <div class="col-lg-5 wow fadeInUp mt-2" data-wow-delay="0.1s">
-            <div class="card border-success mb-3">
+         <div class="col-lg-5 mt-2">
+            <div class="card border-success mb-3 wow fadeInUp position-sticky" data-wow-delay="0.1s" style="top: 7rem">
                <div class="card-header bg-light">Struktur Organisasi</div>
                <div class="card-body text-success px-4">
-                  <img src="/img/personil/struktur.jpg" alt="" class="img-fluid" />
+                  <img src="/img/personil/struktur-organisasi.jpg" alt="struktur-organisasi.jpg" class="img-fluid" />
                </div>
             </div>
          </div>
 
-         <div class="col-lg-7 wow fadeInUp mt-2" data-wow-delay="0.1s">
+         <div class="col-lg-7 wow fadeInUp mt-5 mt-md-2" data-wow-delay="0.1s">
             <div class="row">
 
                <?php foreach ($personildesa as $personil) : ?>
                   <div class="col-md-6 mb-3 col-sm-6 px-lg-1 px-2">
-                     <div class="wow fadeInUp bg-light p-3 pb-2 border-success border-4 border-start position-sticky" data-wow-delay="0.5s" style="top: 7rem">
+                     <div class="wow fadeInUp bg-light p-3 pb-2 border-success border-4 border-start" data-wow-delay="0.5s">
                         <p class="fs-5 fw-bold text-primary"><?= $personil['nama'] ?></p>
                         <div class="team-item rounded wow fadeInUp mb-2" data-wow-delay="0.1s">
                            <img class="img-fluid" src="/img/personil/<?= $personil['foto'] ?>" alt="" />

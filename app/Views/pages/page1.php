@@ -16,10 +16,10 @@
             <a href="/"><i class="bi bi-house-door-fill"></i></a>
             <span class="px-1">/</span>
 
-            <a href="#">Lembaga</a>
+            <span class="px-1">Lembaga</span>
             <span class="px-1">/</span>
 
-            <a href="#"><?= $singkatanlembaga ?></a>
+            <a href="/<?= url_title($namalembaga, '-', true) ?>"><?= $namalembaga ?></a>
          </div>
       </div>
    </div>
@@ -32,7 +32,8 @@
    <div class="container">
 
       <h1 class="display-5 text-primary"><?= $namalembaga ?></h1>
-      <p class="fs-5 fw-bold text-primary mb-5"><?= FULLENGKAP ?></p>
+      <p class="fs-4 d-md-block d-none fw-bold text-primary mb-5"><?= FULLENGKAP ?></p>
+      <p class="d-md-none d-block fw-bold text-primary mb-5"><?= FULLENGKAP ?></p>
 
       <div class="row g-5 mt-4">
          <div class="col-lg-4 px-4 pe-lg-0 mt-2">

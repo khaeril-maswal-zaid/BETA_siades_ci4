@@ -1,33 +1,36 @@
 <?php $this->extend('layout-htmlcodex/template') ?>
-<?php $this->section('content');
-// dd($datawilayah[1]) 
-?>
+<?php $this->section('content'); ?>
 
-<div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
-  <div class="container text-center py-5">
-    <h1 class="display-5 text-white mb-3 slideInDown">Situs Resmi</h1>
-    <h1 class="display-4 text-white mb-2 slideInDown">Desa <?= DESA ?></h1>
-  </div>
-</div>
-
-<!-- Alamat Web Start -->
-<div class="container-fluid">
-  <div class="px-3">
-    <div class="alert alert-success py-2" role="alert">
-      <a href="/"><i class="bi bi-house-door-fill"></i></a>
-      <span class="px-1">/</span>
-
-      <span class="text-success">Layanan Pengaduan</span>
+<section class="mb-md-4">
+  <div class="container-fluid page-header py-5 mb-4 mb-md-5 wow fadeIn" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
+    <div class="container text-center py-5">
+      <h1 class="display-5 text-white mb-3 slideInDown">Situs Resmi</h1>
+      <h1 class="display-4 text-white mb-2 slideInDown">Desa <?= DESA ?></h1>
     </div>
   </div>
-</div>
-<!-- Alamat Web Start -->
+
+  <!-- Petunjuk URL Start -->
+  <div class="container-xxl">
+    <div class="container">
+      <div class="alert alert-success py-2" role="alert">
+        <a href="/"><i class="bi bi-house-door-fill"></i></a>
+        <span class="px-1">/</span>
+
+        <a href="/kontak-desa">Kontak Desa</a>
+      </div>
+    </div>
+  </div>
+  <!-- Petunjuk URL Enad -->
+</section>
 
 
-<div class="container-xxl py-5">
+<!-- Features Start -->
+<section class="container-xxl py-3">
   <div class="container">
+
     <h1 class="display-5 text-primary">Layanan Pengaduan</h1>
-    <p class="fs-5 fw-bold text-primary mb-5"><?= FULLENGKAP ?></p>
+    <p class="fs-4 d-md-block d-none fw-bold text-primary mb-5"><?= FULLENGKAP ?></p>
+    <p class="d-md-none d-block fw-bold text-primary mb-5"><?= FULLENGKAP ?></p>
 
     <div class="row">
       <div class="col-md-5 wow fadeInUp" data-wow-delay="0.1s">
@@ -108,8 +111,11 @@
                 </div>
               </div>
             </div>
-            <div class="col-12">
-              <button class="btn btn-primary py-3 px-4" type="submit">Kirim Aduan</button>
+            <div class="col-12 mb-5">
+              <div class="d-grid gap-2">
+                <button class="btn btn-primary d-block d-md-none" type="submit">Kirim Aduan</button>
+              </div>
+              <button class="btn btn-primary py-3 px-4 d-none d-md-block" type="submit">Kirim Aduan</button>
             </div>
           </div>
         </form>
@@ -150,10 +156,10 @@
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<section class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
@@ -194,7 +200,7 @@
       </div>
     </div>
   </div>
-</div>
+</section>
 
 
 

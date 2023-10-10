@@ -15,9 +15,7 @@
          <div class="alert alert-success py-2" role="alert">
             <a href="/"><i class="bi bi-house-door-fill"></i></a>
             <span class="px-1">/</span>
-
-
-            <a href="/struktur-pemerintahan">Visi Misi</a>
+            <span class="text-success">Visi Misi Desa</span>
          </div>
       </div>
    </div>
@@ -28,11 +26,13 @@
 <section class="container-xxl py-3">
    <div class="container">
       <div class="mb-5">
-         <h1 class="display-5 text-primary">Visi Misi</h1>
-         <p class="fs-5 fw-bold text-primary mb-5"><?= FULLENGKAP ?></p>
+         <h1 class="display-5 text-primary">Visi Misi Desa</h1>
+
+         <p class="fs-4 d-md-block d-none fw-bold text-primary mb-0"><?= FULLENGKAP ?></p>
+         <p class="d-md-none d-block fw-bold text-primary mb-0"><?= LENGKAP ?></p>
       </div>
 
-      <div class="row g-5 mt-5">
+      <div class="row g-5 mt-1">
          <div class="col-lg-4 px-4 pe-lg-0 mt-2">
             <div class="wow fadeInUp bg-light p-3 pb-2 border-success border-4 border-start position-sticky" data-wow-delay="0.5s" style="top: 7rem">
                <p class="fs-5 fw-bold text-primary"><?= $detailpersonil['jabatan'] ?></p>
