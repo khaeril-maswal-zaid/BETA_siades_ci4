@@ -3,13 +3,14 @@
 
 <!-- Quote Start -->
 <div class="container-fluid py-5">
-    <div class="container">
-        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-            <h2 class="display-5 mb-5"><?= lang('Auth.loginTitle') ?></h2>
-        </div>
+    <div class="container"> 
         <div class="row justify-content-center">
             <div class="col-lg-5">
                 <div class="bg-light rounded p-4 p-sm-5 wow fadeInUp" data-wow-delay="0.1s">
+
+                    <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                        <h2 class="display-5 mb-5"><?= lang('Auth.loginTitle') ?></h2>
+                    </div>
 
                     <?= view('Myth\Auth\Views\_message_block') ?>
 
@@ -65,12 +66,12 @@
                             <?php endif; ?>
 
                             <div class="col-12 text-center">
-                                <button class="btn btn-primary py-3 px-4" type="submit">Submit Now</button>
+                                <button class="btn btn-primary px-4" type="submit">Login</button>
                             </div>
                         </div>
                     </form>
 
-                    <div class="">
+                    <div class="mt-4">
                         <?php if ($config->allowRegistration) : ?>
                             <p><a href="<?= url_to('register') ?> "><?= lang('Auth.needAnAccount') ?></a></p>
                         <?php endif; ?>
