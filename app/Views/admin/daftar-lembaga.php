@@ -52,6 +52,39 @@
             ?>
                 <tr class="#">
                     <td class="text-center">
+                        <form>
+                            <button type="" class="btn btn-sm btn-secondary" onclick="return alert('Lembaga Default Tidak Dapat dihapus')">Hapus</button>
+                        </form>
+                    </td>
+                    <td class="text-center"><?= $iNo++ ?></td>
+                    <td>Lembaga Pemberdayaan Desa</td>
+                    <td>LPM</td>
+                    <td>Default</td>
+                </tr>
+                <tr class="#">
+                    <td class="text-center">
+                        <form>
+                            <button type="" class="btn btn-sm btn-secondary" onclick="return alert('Lembaga Default Tidak Dapat dihapus')">Hapus</button>
+                        </form>
+                    </td>
+                    <td class="text-center"><?= $iNo++ ?></td>
+                    <td>Pembinaan Kesejahteraan Keluarga</td>
+                    <td>PKK</td>
+                    <td>Default</td>
+                </tr>
+                <tr class="#">
+                    <td class="text-center">
+                        <form>
+                            <button type="" class="btn btn-sm btn-secondary" onclick="return alert('Lembaga Default Tidak Dapat dihapus')">Hapus</button>
+                        </form>
+                    </td>
+                    <td class="text-center"><?= $iNo++ ?></td>
+                    <td>Karang Taruna</td>
+                    <td>Karang Taruna</td>
+                    <td>Default</td>
+                </tr>
+                <tr class="#">
+                    <td class="text-center">
                         <form action="/adm-proses/delete-lembaga/<?= convertToLetter($val['id']) ?>" method="post">
                             <?= csrf_field() ?>
                             <input type="hidden" name="_method" value="DELETE">

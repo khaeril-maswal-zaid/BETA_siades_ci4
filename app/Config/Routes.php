@@ -31,6 +31,8 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'home\Home::index');
 
+// $routes->get('/(:any)', 'Pages\Page1::index/$1'); //|| DI PINDAHKAN KE ROUTS LOGIN MITH/AUTH
+
 //PAGES 2 ---------------------------------------------------
 $routes->get('/struktur-pemerintahan', 'Pages\Page2::index');
 $routes->get('/struktur-pemerintahan/(:any)/(:any)/', 'Pages\Page2::detail/$1/$2');
@@ -152,7 +154,13 @@ $routes->get('/profil-wilayah', 'Blog\index::khusus/profil-wilayah');
 $routes->get('/(:any)/(:num)', 'Blog\index::index/$1/$2');
 
 //PAGE LEMBAGA DESA ---------------------------------------------------
-$routes->get('/(:any)', 'Pages\Page1::index/$1'); //|| DI PINDAHKAN KE ROUTS LOGIN MITH/AUTH
+$routes->get('/badan-permusyawaratan-desa', 'Pages\Page1::index/badan-permusyawaratan-desa');
+$routes->get('/lembaga-pemberdayaan-desa', 'Pages\Page1::index/lembaga-pemberdayaan-desa');
+$routes->get('/pembinaan-kesejahteraan-keluarga', 'Pages\Page1::index/pembinaan-kesejahteraan-keluarga');
+$routes->get('/karang-taruna', 'Pages\Page1::index/karang-taruna');
+$routes->get('/lembaga/(:any)', 'Pages\Page1::index/$1');
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

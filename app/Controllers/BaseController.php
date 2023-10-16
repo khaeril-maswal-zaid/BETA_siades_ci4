@@ -28,8 +28,14 @@ $kategoridatadesa = $datadesamodel->select('slug')->distinct()->findAll();
 define('KATEGORIDATADESA', $kategoridatadesa);
 
 $lembagadesamodel = new Page1Model();
+
 $lembagadesamodel->select(['namepage', 'nicknamepage'])->where('idGroup', '1');
-$kategoridatadesa = $lembagadesamodel->select(['namepage', 'nicknamepage'])->where('slug !=', 'bpd-kmz-165')->findAll();
+$lembagadesamodel->select(['namepage', 'nicknamepage'])->where('slug !=', 'bpd-kmz-165');
+$lembagadesamodel->select(['namepage', 'nicknamepage'])->where('slug !=', 'lpm-kmz-165');
+$lembagadesamodel->select(['namepage', 'nicknamepage'])->where('slug !=', 'pkk-kmz-165');
+$lembagadesamodel->select(['namepage', 'nicknamepage'])->where('slug !=', 'karangtaruna-kmz-165');
+
+$kategoridatadesa = $lembagadesamodel->select(['namepage', 'nicknamepage'])->findAll();
 define('LEMABAGADESA', $kategoridatadesa);
 /***---------------------*/
 

@@ -27,7 +27,10 @@ class Index extends BaseController
         $datadesamodel,
         $datawilyahmodel,
         $aduanmodel,
-        $konfigurasimodel;
+        $konfigurasimodel,
+
+        $statusaduan,
+        $aduanbelum;
 
     public function __construct()
     {
@@ -42,11 +45,17 @@ class Index extends BaseController
         $this->datawilyahmodel = new DataWilayahModel();
         $this->aduanmodel = new AduanModel();
         $this->konfigurasimodel = new KonfigurasiModel();
+
+        $this->aduanbelum = $this->aduanmodel->where('status', 'Belum diproses')->countAllResults();
+        $this->statusaduan = $this->aduanmodel->select('name, created_at')->where('status', 'Belum diproses')->findAll();
     }
 
     public function index()
     {
         $data = [
+            'aduanbelum' => $this->aduanbelum,
+            'statusaduan' => $this->statusaduan,
+
             'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
             'metakeywords' => null,
@@ -59,6 +68,9 @@ class Index extends BaseController
     public function blog()
     {
         $data = [
+            'aduanbelum' => $this->aduanbelum,
+            'statusaduan' => $this->statusaduan,
+
             'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
             'metakeywords' => null,
@@ -93,6 +105,9 @@ class Index extends BaseController
         }
 
         $data = [
+            'aduanbelum' => $this->aduanbelum,
+            'statusaduan' => $this->statusaduan,
+
             'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
             'metakeywords' => null,
@@ -114,6 +129,9 @@ class Index extends BaseController
         $datasdgs = $this->sdgsmodel->findAll();
 
         $data = [
+            'aduanbelum' => $this->aduanbelum,
+            'statusaduan' => $this->statusaduan,
+
             'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
             'metakeywords' => null,
@@ -165,6 +183,9 @@ class Index extends BaseController
         }
 
         $data = [
+            'aduanbelum' => $this->aduanbelum,
+            'statusaduan' => $this->statusaduan,
+
             'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
             'metakeywords' => null,
@@ -203,6 +224,9 @@ class Index extends BaseController
         }
 
         $data = [
+            'aduanbelum' => $this->aduanbelum,
+            'statusaduan' => $this->statusaduan,
+
             'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
             'metakeywords' => null,
@@ -226,6 +250,9 @@ class Index extends BaseController
         }
 
         $data = [
+            'aduanbelum' => $this->aduanbelum,
+            'statusaduan' => $this->statusaduan,
+
             'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
             'metakeywords' => null,
@@ -242,6 +269,9 @@ class Index extends BaseController
         $active = $this->personildesa->select('class')->where('class', 'active')->findAll();
 
         $data = [
+            'aduanbelum' => $this->aduanbelum,
+            'statusaduan' => $this->statusaduan,
+
             'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
             'metakeywords' => null,
@@ -270,6 +300,9 @@ class Index extends BaseController
         $active = $this->personildesa->select('class')->where('class', 'active')->findAll();
 
         $data = [
+            'aduanbelum' => $this->aduanbelum,
+            'statusaduan' => $this->statusaduan,
+
             'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
             'metakeywords' => null,
@@ -365,6 +398,9 @@ class Index extends BaseController
         }
 
         $data = [
+            'aduanbelum' => $this->aduanbelum,
+            'statusaduan' => $this->statusaduan,
+
             'templatelayaout' => $this->templatelayaout,
 
             'title' => 'Data Wilayah ' . LENGKAP,
@@ -422,6 +458,9 @@ class Index extends BaseController
         }
 
         $data = [
+            'aduanbelum' => $this->aduanbelum,
+            'statusaduan' => $this->statusaduan,
+
             'templatelayaout' => $this->templatelayaout,
 
             'title' => $kategori . ' ' . LENGKAP,
@@ -441,8 +480,10 @@ class Index extends BaseController
 
     public function aduan()
     {
-
         $data = [
+            'aduanbelum' => $this->aduanbelum,
+            'statusaduan' => $this->statusaduan,
+
             'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
             'metakeywords' => null,
@@ -456,10 +497,18 @@ class Index extends BaseController
 
     public function daftarLembaga()
     {
-        $daftarlembaga = $this->lembagamodel->where('idGroup', '1');
-        $daftarlembaga = $this->lembagamodel->where('nicknamepage !=', 'bpd')->findAll();
+        $this->lembagamodel->where('idGroup', '1');
+        $this->lembagamodel->where('nicknamepage !=', 'bpd');
+        $this->lembagamodel->where('nicknamepage !=', 'lpm');
+        $this->lembagamodel->where('nicknamepage !=', 'pkk');
+        $this->lembagamodel->where('nicknamepage !=', 'karang taruna');
+
+        $daftarlembaga = $this->lembagamodel->findAll();
 
         $data = [
+            'aduanbelum' => $this->aduanbelum,
+            'statusaduan' => $this->statusaduan,
+
             'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
             'metakeywords' => null,
@@ -475,6 +524,9 @@ class Index extends BaseController
     public function daftarData()
     {
         $data = [
+            'aduanbelum' => $this->aduanbelum,
+            'statusaduan' => $this->statusaduan,
+
             'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
             'metakeywords' => null,
@@ -491,6 +543,9 @@ class Index extends BaseController
     public function konfMedsos($conf)
     {
         $data = [
+            'aduanbelum' => $this->aduanbelum,
+            'statusaduan' => $this->statusaduan,
+
             'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
             'metakeywords' => null,
@@ -506,6 +561,9 @@ class Index extends BaseController
     public function konfDusun($conf)
     {
         $data = [
+            'aduanbelum' => $this->aduanbelum,
+            'statusaduan' => $this->statusaduan,
+
             'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
             'metakeywords' => null,
@@ -521,6 +579,9 @@ class Index extends BaseController
     public function konfAplikasi()
     {
         $data = [
+            'aduanbelum' => $this->aduanbelum,
+            'statusaduan' => $this->statusaduan,
+
             'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
             'metakeywords' => null,

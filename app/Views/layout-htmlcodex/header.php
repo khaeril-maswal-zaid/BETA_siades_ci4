@@ -54,14 +54,17 @@
          <div class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Kelembagaan</a>
             <div class="dropdown-menu bg-light m-0">
+               <a class="dropdown-item" href="/lembaga-pemberdayaan-desa">Lembaga Pemberdayaan Desa (LPM)</a>
+               <a class="dropdown-item" href="/pembinaan-kesejahteraan-keluarga">Pemberdayaan Kesejahteraan Keluarga (PKK)</a>
+               <a class="dropdown-item" href="/karang-taruna">Karang Taruna</a>
 
                <?php foreach (LEMABAGADESA as $lemabaga) : ?>
                   <?php
 
                   if ($lemabaga['namepage'] !=  $lemabaga['nicknamepage']) {
-                     echo '<a href="/' . url_title($lemabaga['namepage'], '-', true) . '" class="dropdown-item">' . $lemabaga['namepage'] . ' (' . $lemabaga['nicknamepage'] . ')</a>';
+                     echo '<a href="/lembaga/' . url_title($lemabaga['namepage'], '-', true) . '" class="dropdown-item">' . $lemabaga['namepage'] . ' (' . $lemabaga['nicknamepage'] . ')</a>';
                   } else {
-                     echo '<a href="/' . url_title($lemabaga['namepage'], '-', true) . '" class="dropdown-item">' . $lemabaga['namepage'] . '</a>';
+                     echo '<a href="/lembaga/' . url_title($lemabaga['namepage'], '-', true) . '" class="dropdown-item">' . $lemabaga['namepage'] . '</a>';
                   } ?>
 
                <?php endforeach ?>
