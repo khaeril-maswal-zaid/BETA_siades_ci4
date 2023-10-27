@@ -7,7 +7,7 @@
        
         <div class="row justify-content-center">
             <div class="col-lg-7">
-                <div class="bg-light rounded p-4 p-sm-5 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="bg-light rounded p-4 p-sm-5 wow fadeInUp border border-success" data-wow-delay="0.1s">
                     <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
                         <h2 class="display-5 mb-5"><?=lang('Auth.register')?></h2>
                     </div>
