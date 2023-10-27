@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 22, 2023 at 07:30 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Waktu pembuatan: 27 Okt 2023 pada 04.43
+-- Versi server: 10.4.28-MariaDB
+-- Versi PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `auth_activation_attempts`
+-- Struktur dari tabel `auth_activation_attempts`
 --
 
 CREATE TABLE `auth_activation_attempts` (
@@ -35,10 +35,17 @@ CREATE TABLE `auth_activation_attempts` (
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Dumping data untuk tabel `auth_activation_attempts`
+--
+
+INSERT INTO `auth_activation_attempts` (`id`, `ip_address`, `user_agent`, `token`, `created_at`) VALUES
+(1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 Edg/118.0.2088.46', '6cbac73823e31b3ff8524b6d89f15866', '2023-10-16 10:42:43');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `auth_groups`
+-- Struktur dari tabel `auth_groups`
 --
 
 CREATE TABLE `auth_groups` (
@@ -50,7 +57,7 @@ CREATE TABLE `auth_groups` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `auth_groups_permissions`
+-- Struktur dari tabel `auth_groups_permissions`
 --
 
 CREATE TABLE `auth_groups_permissions` (
@@ -61,7 +68,7 @@ CREATE TABLE `auth_groups_permissions` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `auth_groups_users`
+-- Struktur dari tabel `auth_groups_users`
 --
 
 CREATE TABLE `auth_groups_users` (
@@ -72,7 +79,7 @@ CREATE TABLE `auth_groups_users` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `auth_logins`
+-- Struktur dari tabel `auth_logins`
 --
 
 CREATE TABLE `auth_logins` (
@@ -85,7 +92,7 @@ CREATE TABLE `auth_logins` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `auth_logins`
+-- Dumping data untuk tabel `auth_logins`
 --
 
 INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `success`) VALUES
@@ -93,12 +100,14 @@ INSERT INTO `auth_logins` (`id`, `ip_address`, `email`, `user_id`, `date`, `succ
 (2, '::1', 'muhammadkhaerilzaid@gmail.com', 4, '2023-05-27 15:14:14', 0),
 (3, '::1', 'muhammadkhaerilzaid@gmail.com', 5, '2023-06-02 13:28:45', 0),
 (4, '::1', 'muhammadkhaerilzaid@gmail.com', 5, '2023-06-02 13:29:31', 1),
-(5, '::1', 'muhammadkhaerilzaid@gmail.com', 5, '2023-06-02 13:31:11', 1);
+(5, '::1', 'muhammadkhaerilzaid@gmail.com', 5, '2023-06-02 13:31:11', 1),
+(6, '::1', 'bdffd', NULL, '2023-10-16 10:28:23', 0),
+(7, '::1', 'muhammadkhaerilzaid@gmail.com', 6, '2023-10-16 10:43:00', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `auth_permissions`
+-- Struktur dari tabel `auth_permissions`
 --
 
 CREATE TABLE `auth_permissions` (
@@ -110,7 +119,7 @@ CREATE TABLE `auth_permissions` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `auth_reset_attempts`
+-- Struktur dari tabel `auth_reset_attempts`
 --
 
 CREATE TABLE `auth_reset_attempts` (
@@ -125,7 +134,7 @@ CREATE TABLE `auth_reset_attempts` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `auth_tokens`
+-- Struktur dari tabel `auth_tokens`
 --
 
 CREATE TABLE `auth_tokens` (
@@ -139,7 +148,7 @@ CREATE TABLE `auth_tokens` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `auth_users_permissions`
+-- Struktur dari tabel `auth_users_permissions`
 --
 
 CREATE TABLE `auth_users_permissions` (
@@ -150,7 +159,7 @@ CREATE TABLE `auth_users_permissions` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Struktur dari tabel `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -164,7 +173,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `migrations`
+-- Dumping data untuk tabel `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`, `batch`) VALUES
@@ -179,7 +188,7 @@ INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `siades_aduan`
+-- Struktur dari tabel `siades_aduan`
 --
 
 CREATE TABLE `siades_aduan` (
@@ -199,23 +208,21 @@ CREATE TABLE `siades_aduan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `siades_aduan`
+-- Dumping data untuk tabel `siades_aduan`
 --
 
 INSERT INTO `siades_aduan` (`id`, `nik`, `name`, `email`, `hp`, `subject`, `aduan`, `file`, `status`, `updated_by`, `respon`, `created_at`, `updated_at`) VALUES
 (14, 2147483647, 'Andi Mulla Shadra Aznan', '7302021004990002', '081223456789', 'Perekaman e-KTP', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio odit, molestias magni sed, molestiae accusamus, iusto quasi harum esse dolorem expedita consequuntur nisi libero? \n\nDignissimos soluta veritatis doloribus fuga cum voluptatum doloremque, dicta saepe, quam omnis natus earum numquam suscipit! Nostrum, maiores in possimus nesciunt libero fuga repudiandae eos consequuntur officiis eum, commodi velit deserunt ratione maxime assumenda? \nPossimus, obcaecati. Ipsum fuga reiciendis tempora neque aliquam dignissimos eveniet officia, quos quaerat qui cum impedit eum facere aperiam dicta quam soluta dolor mollitia distinctio quia explicabo? Recusandae, harum. Obcaecati eveniet facere quisquam hic vero maxime in. Inventore aliquid ab velit at?', '', 'Selesai diproses', 'BELUM', 'Alhamdulillah', '2023-06-07 02:31:13', '2023-07-19 03:34:08'),
 (15, 2147483647, 'Al-Zaid Abadhy', '7302021004990002', '081223456789', 'Transparansi Anggaran', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio odit, molestias magni sed, molestiae accusamus, iusto quasi harum esse dolorem expedita consequuntur nisi libero? Dignissimos soluta veritatis doloribus fuga cum voluptatum doloremque, dicta saepe, quam omnis natus earum numquam suscipit! Nostrum, maiores in possimus nesciunt libero fuga repudiandae eos consequuntur officiis eum, commodi velit deserunt ratione maxime assumenda? Possimus, obcaecati. Ipsum fuga reiciendis tempora neque aliquam dignissimos eveniet officia, quos quaerat qui cum impedit eum facere aperiam dicta quam soluta dolor mollitia distinctio quia explicabo? Recusandae, harum. Obcaecati eveniet facere quisquam hic vero maxime in. Inventore aliquid ab velit at?\n\nLorem, ipsum dolor sit amet consectetur adipisicing elit. Odio odit, molestias magni sed, molestiae accusamus, iusto quasi harum esse dolorem expedita consequuntur nisi libero? Dignissimos soluta veritatis doloribus fuga cum voluptatum doloremque, dicta saepe, quam omnis natus earum numquam suscipit! Nostrum, maiores in possimus nesciunt libero fuga repudiandae eos consequuntur officiis eum, commodi velit deserunt ratione maxime assumenda? Possimus, obcaecati. Ipsum fuga reiciendis tempora neque aliquam dignissimos eveniet officia, quos quaerat qui cum impedit eum facere aperiam dicta quam soluta dolor mollitia distinctio quia explicabo? Recusandae, harum. Obcaecati eveniet facere quisquam hic vero maxime in. Inventore aliquid ab velit at?', '', 'Sedang diproses', 'BELUM', 'Terima kasih', '2023-06-07 02:37:41', '2023-07-19 03:30:26'),
 (16, 2147483647, 'Jokowi', '7302021004990002', '081223456789', 'Laporan BUMDES', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio odit, molestias magni sed, molestiae accusamus, iusto quasi harum esse dolorem expedita consequuntur nisi libero? Dignissimos soluta veritatis doloribus fuga cum voluptatum doloremque, dicta saepe, quam omnis natus earum numquam suscipit! Nostrum, maiores in possimus nesciunt libero fuga repudiandae eos consequuntur officiis eum, commodi velit deserunt ratione maxime assumenda? Possimus, obcaecati. Ipsum fuga reiciendis tempora neque aliquam dignissimos eveniet officia, quos quaerat qui cum impedit eum facere aperiam dicta quam soluta dolor mollitia distinctio quia explicabo? Recusandae, harum. Obcaecati eveniet facere quisquam hic vero maxime in. Inventore aliquid ab velit at?\r\n\r\nLorem, ipsum dolor sit amet consectetur adipisicing elit. Odio odit, molestias magni sed, molestiae accusamus, iusto quasi harum esse dolorem expedita consequuntur nisi libero? Dignissimos soluta veritatis doloribus fuga cum voluptatum doloremque, dicta saepe, quam omnis natus earum numquam suscipit! Nostrum, maiores in possimus nesciunt libero fuga repudiandae eos consequuntur officiis eum, commodi velit deserunt ratione maxime assumenda? Possimus, obcaecati. Ipsum fuga reiciendis tempora neque aliquam dignissimos eveniet officia, quos quaerat qui cum impedit eum facere aperiam dicta quam soluta dolor mollitia distinctio quia explicabo? Recusandae, harum. Obcaecati eveniet facere quisquam hic vero maxime in. Inventore aliquid ab velit at?', '', 'Sedang diproses', '', '', '2023-06-07 02:39:43', '2023-07-19 02:11:32'),
-(17, 2147483647, 'Jayadi', '7302076010900003', '081223456789', 'Apresiasi ', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio odit, molestias magni sed, molestiae accusamus, iusto quasi harum esse dolorem expedita consequuntur nisi libero? Dignissimos soluta veritatis doloribus fuga cum voluptatum doloremque, dicta saepe, quam omnis natus earum numquam suscipit! Nostrum, maiores in possimus nesciunt libero fuga repudiandae eos consequuntur officiis eum, commodi velit deserunt ratione maxime assumenda? Possimus, obcaecati. Ipsum fuga reiciendis tempora neque aliquam dignissimos eveniet officia, quos quaerat qui cum impedit eum facere aperiam dicta quam soluta dolor mollitia distinctio quia explicabo? Recusandae, harum. Obcaecati eveniet facere quisquam hic vero maxime in. Inventore aliquid ab velit at?', '', 'Belum diproses', '', '', '2023-06-07 02:40:56', '2023-06-07 02:40:56'),
-(32, 2147483647, 'Andi Mulla Shadra Aznan', '7302021004990002', '085784270802', 'Perekaman e-KTP', '                            w      ', '', 'Belum diproses', '', '', '2023-06-08 00:24:02', '2023-06-08 00:24:02'),
-(34, 2147483647, 'Al-Zaid Abadhy', '7302021004990002', '081223456789', 'scds', 'rt', '', 'Sedang diproses', 'BELUM', 'Terima kasih', '2023-06-13 05:18:59', '2023-07-19 03:30:08'),
-(35, 0, 'Nur Asmita', '', '123', 'Buku', 'Lorem', '', 'Belum diproses', '', '', '2023-07-19 02:21:55', '2023-07-19 02:21:55'),
-(36, 0, 'Nur Asmita', '', '123', 'Buku', 'Lorem', 'nur-asmita_buku.png', 'Sedang diproses', '', 'Respon', '2023-07-19 02:22:44', '2023-07-19 03:23:25');
+(17, 2147483647, 'Jayadi', '7302076010900003', '081223456789', 'Apresiasi ', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio odit, molestias magni sed, molestiae accusamus, iusto quasi harum esse dolorem expedita consequuntur nisi libero? Dignissimos soluta veritatis doloribus fuga cum voluptatum doloremque, dicta saepe, quam omnis natus earum numquam suscipit! Nostrum, maiores in possimus nesciunt libero fuga repudiandae eos consequuntur officiis eum, commodi velit deserunt ratione maxime assumenda? Possimus, obcaecati. Ipsum fuga reiciendis tempora neque aliquam dignissimos eveniet officia, quos quaerat qui cum impedit eum facere aperiam dicta quam soluta dolor mollitia distinctio quia explicabo? Recusandae, harum. Obcaecati eveniet facere quisquam hic vero maxime in. Inventore aliquid ab velit at?', '', 'Belum diproses', '', '', '2023-06-07 02:40:56', '2023-10-10 20:34:25'),
+(36, 0, 'Nur Asmita', '', '123', 'Buku', 'Lorem', 'nur-asmita_buku.png', 'Belum diproses', '', 'Respon', '2023-07-19 02:22:44', '2023-10-10 20:34:28'),
+(39, 0, 'Khaeril Maswal Zaid', 'fgd', 'gdfg', 'DFGDG', 'GDGD', '', 'Belum diproses', '', '', '2023-10-10 20:35:17', '2023-10-10 20:35:17');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `siades_artikel`
+-- Struktur dari tabel `siades_artikel`
 --
 
 CREATE TABLE `siades_artikel` (
@@ -237,7 +244,7 @@ CREATE TABLE `siades_artikel` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `siades_artikel`
+-- Dumping data untuk tabel `siades_artikel`
 --
 
 INSERT INTO `siades_artikel` (`id`, `time`, `slug`, `judul`, `description`, `picture`, `album`, `oleh`, `kategori`, `level`, `artikel`, `visit`, `view`, `created_at`, `updated_at`) VALUES
@@ -246,7 +253,7 @@ INSERT INTO `siades_artikel` (`id`, `time`, `slug`, `judul`, `description`, `pic
 (13, '1653545455', 'logika-dan-pentingnya-rasionalitas-argumentasi', 'Logika, dan Pentingnya Rasionalitas Argumentasi', 'Di zaman antik akhir, pengaruh aristoteles sangat besar dibanyak bidang, namun yang paling dikenal ada pada bidang logikanya.', 'logika-dan-pentingnya-rasionalitas-argumentasi.jpeg', '0', 'ISMAWARDI SB SALAMA', 'Filsafat', 'main', '<p>Di zaman antik akhir, pengaruh aristoteles sangat besar dibanyak bidang, namun yang paling dikenal ada pada bidang logikanya. Hal tersebut mendapat pengakuan dari Betrand russel mengenai otoritas logika aristoteles yang tidak tergoyahkan di sepanjang abad pertengahan, kebesaran nama dan karyanya tetap kokoh bukan hanya dari zaman klasik, pertengahan, melainkan masih tetap menjadi magnum epos yang luar biasa bagi pengagum pemikirannya di era modern sampai sekarang ini. &nbsp;</p><p>Berangkat dari hemat tentang sistematika logika, bahwa Memperlihatkan kontradiksi bukanlah hal yang mudah. Perlu keterampilan pengetahuan tentang salah satu metode pada logika yaitu metode kontradiksi itu sendiri. Seperti halnya&nbsp; sokrates yang memperaktekkan dialektika logika yaitu dengan mempertentangkan proposisi afirmatif universal dengan proposisi negatif partikular atau negatif universal dengan afirmatif partikular tapi penggunaan logika pada masa sokrates masih dianggap sebagai logika alami yakni belum dibuatkan suatu sistematisasi atau belum di ilmiahkan.&nbsp;</p><p>Kontradiksi sendiri merupakan bentuk pertentangan proposisi yang dimana bentuk pertentangan tersebut di bahas dalam salah satu sub bab logika. Proposisi&nbsp; A dan O, atau E dan I disebut kontradiksi . Adapun ciri-ciri dari hukum kontradiksi adalah:</p><p>1. Jika salah satunya benar maka yang lainnya salah</p><p>2. Tidak mungkin keduanya benar dan salah secara bersamaan</p><p>Tapi terkadang seseorang melanggar hukum kontradiksi tersebut padahal diketahui. Setidaknya, tulisan ini yang lahir dari hasil diskusi bersama dengan teman-teman tujuannya adalah memperlihatkan pelanggaran terhadap hukum kontradiksi dan proposisi yang bertentangan.&nbsp;</p><p>Yang pertama adalah pelanggaran terhadap hukum kontradiksi, sebagai contoh, apabila ada Seseorang mengeluarkan statement bahwa \"jika pernyataan itu benar maka pernyataan yang lain pasti salah\", hal tersebut sejalan dengan hukum kontradiksi tapi hukum tersebut dilanggar dengan sebuah penyataan yang membenarkan kedua proposisi yang jelas bertentangan satu sama lain. Padahal hukum kontradiksi tidak memperbolehkan hal tersebut terjadi karna itu merupakan salah satu bentuk logical fallacy atau kekeliruan dalam berfikir tapi hal hukum tersebut dilanggar&nbsp; maka itu perlunya mempelajari hukum kontradiksi agar tidak salah menyimpulkan.</p><p>Yang kedua adalah melihat proposisi yang bertentangan, Salah satu contohnya dalam perdebatan mengenai kebenaran Al-Quran terdapat dua proposisi yang terlihat di mana proposisi tersebut saling bertentangan. Antara proposisi A dan O.</p><p>A: setiap kebenaran ada pada Al-Qur\'an</p><p>O: ada kebenaran yang bukan berasal dari Al Qur\'an&nbsp;</p><p>Antara proposisi A dan O tersebut adalah kontradiksi yang dimana jika A benar maka O salah, begitupun sebaliknya, tidak ada jalan untuk mengatakan bahwa proposisi tersebut benar keduanya karna jelas kontradiksinya. Untuk melihat mana proposisi yang benar maka perlu di pengujian terhadap proposisi tersebut. Pengujiannya menggunakan metode&nbsp; Radactio Ad absurdum dan silogisme Aristoteles. Untuk itu mari kita uraikan implikasi pernyataan tersebut.</p><p>A : setiap kebenaran ada pada Al-Qur\'an=&gt; implikasinya: jika setiap kebenaran ada dalam Al-Qur\'an maka tidak perlu lagi belajar dan&nbsp; mencari kebenaran diluar Al Qur\'an. Jika di asumsikan semisal implikasi tersebut benar maka konsekuensinya adalah tidak perlu lagi belajar dan mencari kebenaran diluar Al Qur\'an. Tapi benarkah kebenaran itu hanya ada dalam Al-Qur\'an? Ternyata ditemukan bahwa ada kebenaran yang bukan berasal dari Al Qur\'an contohnya kebenaran logika, kebenaran matematik, kebenaran aksiomatik, kebenaran Postulat yang mana itu merupakan kebenaran yang bukan berasal dari Al Qur\'an.</p><p>Dengan menggunakan metode Redactio Ad absurdum (RAA) yang dimana bunyi hukumnya adalah jika suatu pernyataan ternyata dibuktikan kontradiksi, maka penyataan tersebut&nbsp; jalannya adalah menunjukkan minimal satu atau lebih&nbsp; counter example atau beberapa contoh yang benar, maka peniapan dalam suatu proposisi digagalkan dan dibatalkan yang dengannya pula proposisi yang benar adalah proposisi O yaitu ada kebenaran yang bukan berasal dari Al Qur\'an, alasannya karena proposisi A ternyata kontradiksi.&nbsp;</p><p>Pengujian terhadap metode silogisme formal&nbsp;Aristoteles:</p><p>Premis minor:??</p><p>Premis mayor: setiap kebenaran ada pada Al-Quran</p><p>Konklusi: tidak perlu mencari kebenaran diluar Al Qur\'an</p><p>Apakah argumen tersebut valid? Tentu Belum bisa dinilai, disebabkan premis minornya belum di isi. Adapun jika ternyata di dapat di isi maka argumentasi tersebut tidaklah valid karna argumen dikatakan valid apabila penarikan kesimpulan itu sesuai dengan Premis yang mendahuluinya. Dengan begitu penyataan tidak perlu mencari kebenaran diluar Al Qur\'an adalah penyataan yang tidaklah logis karna melanggar hukum logika yaitu penarikan kesimpulan bukan berdasarkan premis dasarnya. Maka dari pada itu proposisi yang benar adalah proposisi O yaitu ada kebenaran yang bukan berasal dari Al Qur\'an.</p><p>&nbsp;</p><p>Daddy</p><p>Devisi epistemologi S.A.D INSTITUTE</p>', '327', '55', NULL, NULL),
 (17, '1653994787', 'keadilan-dan-moralitas-dalam-negara', 'Keadilan Dan Moralitas Dalam Negara', 'Rakyat biasa dan rakyat serdadu', 'keadilan-dan-moralitas-dalam-negara.jpeg', '0', 'Agus Salim', 'Opini', 'populer-post', '<p><br>Fakta sejarah yang sudah ada sejak manusia menapaki kehidupan di dunia ini, yang semakin kesini mereka makin punya daya untuk mengkreasikan animasi kelangsungann hidup mereka yang bermacam-macam, memberikan efek di setiap pergantian musim kehidupan sambil menyiapkan ancang-ancang kehidupan baru yang penuh eksperimen yang menandakan pintu peradaban baru terus terbuka dengan lebar seperti fenomena zaman yang kita saksikan saat ini.</p><p>Heterogen pikiran dan kehendak manusia yang tidak bisa terhindarkan ataupun di tolak oleh siapapun, sangat massif dalam membuka corong aktivitas manusia dalam hal membumikan pemikiran. Pemikiran memang menjadi perkakas manusia yang diberikan oleh tuhan agar manusia menjadi hewan solutif atas berbagai nomena yang ditarik dari dalam fenomena, tentunya itu menjadi kerja-kerja kepala/pemikiran, sehingga segala karakter kegalauan baik itu filosofis maupun masuk dalam perkara teologis haruslah diselesaikan oleh pemikiran.&nbsp;</p><p>Pemikiran yang identik dengan kemajemukan bahkan sudah mafhum dalam konsep fitrah kehidupan manusia sudah tentu tidak punya titik akhir yang memuaskan bagi&nbsp; manusia selalu ada upaya dinamisasi yang dilakukan oleh para manusia yang pikirannya terfokus pada hal-hal baru dan mencipta hal-hal baru.</p><p>kita mulai dengan karya plato yang monumental itu, yakni konsep “negara” yang menjadi semak belukar dari setiap masyarakat yang menjadikannya sebagai aktualisasi organisasi sosial makro. Tidak ada alasan untuk kita tidak menoleh ke peradaban yunani masa lampau yang menjadi tempat bermukimnya para filsuf-filsuf&nbsp; athena dan sparta, beberapa ide-ide yang sampai sekarang masih hangat dalam kehidupan kita. Yakni Negara, yang biasanya menjadi persemakmuran individual menuju sosial, di mulai dengan persemakmuran ide dari plato sekaligus ayah dari konsep negara yang dilakoni oleh banyak manusia sekarang ini, konsep negara paling awal kita sebut saja sebagai “konsep negara utopia” paling awal. Kutipan itu saya dapat dari literatur betrand russel yakni “sejarah filsafat barat” yang tebalnya kisaran 1100 halaman.</p><p>Bicara negara sangat baik kiranya ketika kita mengikutkan karya plato yakni “republic” disebutkan bahwa tujuan dari buku&nbsp; “republic” adalah mendefinisikan keadilan, itu tandanya konsep keadilan sudah jauh-jauh hari dipikirkan oleh plato juga. Terus terang saja, saya belum memafhumi karya dari plato yang berjudul “republic” ini, namun lebih komplit rasanya ketika kita membincang negara dan keadilan serta perlengkapan-perlengkapan lainnya. Mari kita menyelidiki apa yang bisa menciptakan negara yang adil daripada yang bisa melahirkan&nbsp; individu yang adil. Keadilan harus ada diantara ciri-ciri negara terbaik yang bisa dibayangkan, sebelum terlalu jauh membahas keadilan, maka negara terlebih dahulu harus digambarkan, baru kemudian ditentukan manakah diantaranya “keadilan”. Utopia plato secara garis besar, kita membahas dengan menetapkan pembagian warga negara menjadi tiga kelas :&nbsp;</p><ol><li>Rakyat biasa&nbsp;</li><li>Kaum serdadu</li><li>Golongan pemimpin</li></ol><p>&nbsp;&nbsp;</p><p>Itulah ramalan plato terhadap implikasi negara utopianya, namun poin yang terakhir itu punya relevansi yang selalu hangat sampai saat ini, kita dapat menyaksikan bahwa golongan pemimpinlah yang memiliki kekuasaan politik. tentunya selaku pemimpin mereka diwajibkan untuk memiliki banyak rancangan yang menyangkut dari segi pendidikan, ekonomi, kepedulian biolog, dan urgensi agama.</p><p>Dalam hal ini ketiga konsep yang disampaikan oleh plato bukanlah konsep absolut yang tidak dapat berubah, melainkan ketiganya dapat bertukar posisi apabila diantaranya ada yang lumpuh, sebagai contoh ; anak yang terlahir dari keluarga yang notabene nya “rakyat biasa” itu punya hak untuk duduk di golongan pemimpin, dengan modal didikan yang membuat si anak punya kredibilitas tinggi sehingga itu yang dijadikan tangga untuk naik di puncak piramida kepemimpinan dengan mewujudkan idealismenya yang juga didambakan oleh masyarakat banyak.</p><p>Tentu geneaologi terhadap &nbsp;konsep negara sangat harmonis dengan seluruh lego-lego yang mengusungnya dan menyokongnya, seperti halnya keadilan yang menjadi umpan balik dari hukum. perlu kita tahu bahwa keadilan adalah implikasi dari tatanan hukum yang menjadi perabot dari negara, hukum wajib punya umpan balik kepada masyarakat, Psikologi masyarakat tergantung dari hukum apa yang diberlakukan begitupun sebaliknya, karena hukum adalah karya dari manusia dalam hal ini sebagai steering commite dalam menentukan sosio-kultural,&nbsp; berkenaan itu hukum harus punya kredibilitas tinggi agar ada hasil yang bajik untuk seluruh masyarakat, perumusan hukum harus terhindar dari cacat nalar apalagi memakai kepala yang berisi logika yang sesat, tentu bukan itu yang kita inginkan.&nbsp;</p><p>Sewajibnya negara harus membujuk masyarakat ke jalan moralitas, mana jalan menuju kesejahteraan yang&nbsp; praktis, maka terlebih dahulu pemimpinnya harus punya nilai emanasi moralitas dan dipimpin oleh akal budi yang sehat, agar negara paripurna yang kita dambakan itu terwujud sebagaimana dasar pendiriannya.</p><p>Sebagian narasi diatas saya ambil dari karya ekonom prancis yaitu frederick bastiat yang dimuat dalam buku “HUKUM” “<i>rancangan klasik untuk membangun masyarakat merdeka”</i> setidaknya memberikan sedikit disiplin pengetahuan baru tentang masyarakat sebagaimana masyarakat, negara sebagaimana negara dalam konsep pendiriannya.</p><p>bastiat menyampaikan, hidup, hak milik dan kemerdekaan adalah karunia dari tuhan, ketika kita menginginkan masyarakat yang adil dan bermoral maka karunia tuhan harus bersenyawa dengan kehendak manusia, eksplikasi hukum harus cermat tentang hak alamiah manusia, walaupun di kehidupan sekarang kita menemukan keganjalan yang kontras dengan konsep dasar negara, kita menelisik masuk dan melihat bahwa sebagian besar sebabnya berasal dari pengukuhan hukum yang ambur adul, yang mendesain hukum sebagai alat legalitas perampasan hak milik masyarakat, ketika di analisis dengan kacamata historis semua itu dipengaruhi oleh masuknya sistem monarki otokrasi, berlanjut dengan negara yang dihiasi dengan paham merkantilisme, kapital dan feodalisme yang menjadi tumor bagi kesejahteraan masyarakat negara.&nbsp;</p><p>Di kehidupan sekarang terlihat jelas bahwa hukum yang seharusnya punya dampak bajik pada masyarakat negara itu sangat susah untuk di paparkan apalagi di eksiskan dalam sendi kehidupan masyarakat, sebab para pengelola kekuasaan yang pikirannya hanya fokus mengisi seleranya masing-masing&nbsp; dan mengenyangkan dirinya yang lapar, lupa dengan tanggung jawab sosial, hilang fungsi dalam hal panutan moralitas.<br><br>Oleh: agus salim<br>Kabid hikmah PC IMM BULUKUMBA 21/22</p><p>Ceo-founder S.A.D Institute</p>', '217', '23', NULL, NULL),
 (18, '1653995243', 'pencerahan-dalam-filsafat-descartes', 'Pencerahan Dalam Filsafat Descartes', ' Runtuhnya abad kegelapan dan lembaga kepausan di tandai dengan munculnya periode baru pemikiran atau biasa di sebut sebagai abad pencerahan, berdasar  pada subjektifitas pemikiran manusia yang dengan ini melahirkan banyak perbedaan tentang pandangan dunia yang lebih baru di bandingkan dengan era otoritas gereja. ', 'pencerahan-dalam-filsafat-descartes.jpg', '0', 'Agus Salim', 'Filsafat', 'general', '<p>Runtuhnya abad kegelapan dan lembaga kepausan di tandai dengan munculnya periode baru pemikiran atau biasa di sebut sebagai abad pencerahan, berdasar&nbsp;pada subjektifitas pemikiran manusia yang dengan ini melahirkan banyak perbedaan tentang pandangan dunia yang lebih baru di bandingkan dengan era otoritas gereja. Nuansa sejarah yang lazim di sebut “modern” menyisahkan sejarah dengan warisan kekayaan seperti menguatnya otoritas sains, filsafat dan logika, ilmu sosial dan politik disertai dengan hadirnya para filosof-filosof teoretis yang mendonorkan&nbsp; nafas pemikiran sehingga menjadikannya lebih penting dalam sejarah masa lalu.</p><p>Renatus cartesius atau biasa di sapa descartes adalah sosok pemikir dengan pengakuan sejarah yang dikenal sebagai pionir dari abad pemikiran dengan memperkenalkan sistem filsafat yang baru. “Filsuf kecil” adalah sapaan dari sang ayah(joachim descartes) untuk descartes kecil, perjalanan akademik yang di tekuni di sekolah college royal de fleche, selama hidupnya sekolah ini banyak memberikan pengaruh ilmu pengetahuan kepada descartes sehingga dia memuji sekolah ini sebagai “sekolah yang paling baik di eropa” di sekolah ini descartes memperoleh berbagai jenis ilmu pengetahuan seperti matematika, fisika, ilmu-ilmu alam, serta ilmu-ilmu humaniora. Dan Tentu asupan logika aristoteles banyak di mafhumi di sebabkan inti kurikulum dari sekolah tersebut berpusat pada logika aristoteles. dengan puncak pendidikan serta melihat kesalinghubungan antara sistem filsafat, logika, fisika kosmologi, metafisika, moral dan teologi. Implikasi di atas di ikat dengan kesatuan sistemik antar ilmu yang akan bernilai positif baginya dan pengutip pemikirannya.&nbsp;</p><p>Selain dari cogito ergo sum yang terkenal sebagai diktum descartes yang mendasarkan keraguan radikal sebagai prinsip filsafatnya, di jelaskan dalam buku yang di tulis oleh <i><strong>aquido adri &amp; saiful hadi</strong></i> dengan judul <i>menguak tabir pemikiran rasionalisme dan empirisme</i>, dikatakan <i>“pemahaman berpikir descartes bukanlah sebatas aktivitas yang terjadi dalam alam pikirannya. Jika di pahami dan diartikan dalam bahasa indonesia, cogito bisa berarti kesadaran atau tindakan menyadari. Jika di jabarkan menjadi, “saya menyadari karena itu saya ada. Konsep descartes terhadap pikiran atau cogito adalah segala sesuatu yang didasari dalam diri kita. Ia mengatakan, dengan kata pikiran memaksudkan segala sesuatu&nbsp;yang disadari sedang terjadi dalam diri kita, sejauh kita menyadarinya. Semua yang termasuk cogito adalah segala aktivitas yang dimiliki atas kesadaran, seperti aktivitas membayangkan sesuatu, menginginkan dan juga indrawi. Dasar cogito yang harus di pahami adalah status kesadaran, dan bukan aktivitas melakukan sesuatu, tapi hanya menyadarinya, berarti aktivitas tersebut tidak termasuk cogito. Kebenaran yang pasti yaitu :&nbsp; saya berpikir/menyadari, karena itu saya ada. Yang di maksud kesadaran oleh descartes adalah segala sesuatu yang disadari sedang terjadi dalam diri kita.”</i> Uraian tersebut menunjukan model diktumnya “cogito ergo sum” bahwa pemikiran descartes sama sekali tidak memakai distingsi yang memberatkan keberadaan indrawi maupun akal, keduanya punya peran di masing-masing fakultas ilmu dan terjemahan yang berbeda&nbsp; dalam&nbsp;menyusun struktur argumentasi untuk meyakinkan ke orang-orang bahwa akal adalah pegangan yang kokoh dalam memberikan terjemahan dan pemahaman falsafah segala sesuatu.</p><p><strong>Ide bawaan &amp; substansi menurut descartes</strong></p><p>Dalam perjalanannya selain memperkenalkan cogito sebagai sebuah metode, descartes juga menyisahkan pesan tentang hakikat manusia dan kredo teologi yang termuat dalam pembahasan descartes. Dia berpendapat bahwa&nbsp; manusia mengeksistensi dengan tiga ide bawaan.&nbsp; pertama, ide pemikiran, yang menurutnya manusia adalah makhluk yang punya karakter free will dengan subjek yang sadar akan dirinya sebagai makhluk yang berpikir. Kadua, ide keluasan, dia menafsirkan bahwa ide banyak dipengaruhi oleh lingkungan eksternal yang menyebabkan terjadinya invasi pemikiran yang kaya akan pengetahuan tentang dunia. Dan itu mustahil di capai ketika pikiran manusia terbatas pada relasi internal maupun eksternal. Ketiga, ide tentang kesempurnaan yaitu ide tentang tuhan yang maha sempurna. Descartes mencoba untuk meyakinkan bahwa ide tentang kesempurnaan pasti tidak pernah datang dari dirinya yang tidak sempurna, pembuktian ontologis ini mencoba untuk menggambarkan tuhan sebagai wujud sempurna. Konsep tuhan dalam hemat descartes yaitu sesuatu yang jelas dan terpilah-pilah. Konsep tuhan bagi manusia adalah sesuatu yang jelas sebagai tokoh yang tidak terbatas dan sempurna, seperti dalam diri kita sendiri yang merupakan makhluk terbatas , berarti ada sesuatu yang tidak terbatas , yaitu tuhan. Setelah pengafirmasian descartes tentang tuhan yang maha sempurna dia juga memberikan penjabaran tentang “substansi” yang di maksudkan substansi adalah apa yang tidak bergantung pada siapapun atau memerlukan hal lain dalam geraknya. Maka substansi yang paling luhur adalah tuhan dengan atribut kesempurnaan dan eksistensi yang absolut. Akan tetapi ada hal yang menarik untuk kita ulas dalam pembahasan manusia dan substansi ala descartes, yaitu, dualisme cartesian, pandangan ini menganggap bahwa ada dua macam bahan lagi yang berbeda yakni dunia akal budi dan tubuh walaupun kedua jenis tersebut ada di karenakan hasil pertolongan dari tuhan, tapi hal tersebut eksis secara terpisah namun dalam kehidupan yang real keduanya bisa saja berhubungan dengan erat. Sehingga yang perlu kita sampaikan pada tahap penyelesaian adalah bagaimana keduanya dapat menjadi satu kesatuan yang saling menopang dan bagaimana memahami keselarasan jiwa dan tubuh sesuai dengan prinsip dasar ide bawaan dan substansi kehidupan.&nbsp;<br><br><br>Oleh: Agus Salim</p><p>Ceo-founder S.A.D Institute</p>', '272', '44', NULL, NULL),
-(23, '1689680259', 'potensi-dasa', 'Potensi Dasa', '', 'potensi-full.jpg', '1', 'Khaeril Maswal ', 'The-Story', 'general', '<p data-placeholder=\"Ketikkan disini !\">Tentu kita semua pernah melakukan perjalanan dimana kita bertemu dengan orang-orang cerdik dan berprestasi, orang-orang yang loyal dalam bertindak dan sopan santun dalam berperilaku. Umumnya orang ini bertugas sebagai pemateri entah itu saat mengikuti kegiatan Diskusi Senja, Bedah Buku, Seminar Literasi atau kegiatan Training lainya yang jelas dalam sebuah kegiatan pasti ada orang hebatnya. Lalu mata yang melihat dan telinga yang mendengar hal-hal luar biasa dari diri seseorang tersebut kemudian menimbulkan rasa kagum bahkan keinginan itu bisa menjadi seperti itu juga. Iya, memang positif dan memberikan apresiasi pada mereka itu adalah hal yang sangat baik.</p><p>Pertanyaannya kemudian adalah, Sudahkah kita mengapresiasi diri sendiri? Apa lebih keraskah tepukan tangan untuk orang lain dibanding untuk diri sendiri? Suatu hal yang telah dia raih mungkin hanya belum kita raih, tetapi sesuatu yang telah kita raih mungkin tidak akan pernah bisa dia raih. Baik itu karena tidak memiliki kesempatan atau memang tidak punya jalanya.</p><p>Mengapresiasi berarti kita memberikan pengakuan bukan, lalu tidakkah kita mengakui sesuatu yang diperoleh oleh diri sendiri? Diri yang tanpa lelah membuka setiap lembaran, menelusuri banyak jalan, melewati hari-hari yang melelahkan dan masih mau berusaha meski kadang sempat beberapa kali berhenti ditengah jalan.</p><p>Kita juga hebat bukan, coba fikirkan dan sadari faktanya beberapa hal yang kita miliki ternyata tidak dimiliki oleh orang lain, beberapa pengalaman yang telah kita lalui tidak dirasakan oleh orang lain dan seterusnya. Sungguh baik perilaku merendah akan tetapi tulisan ini tentang mengapresiasi diri sendiri dan bukan untuk angkuh, tapi bersyukur bahwa kita juga hebat berdasarkan versi kita.</p><p>Banyak hal yang bisa kita lakukan sebagai bentuk mengapresiasi diri sendiri teman-teman, seperti jika punya uang lebih maka kita boleh membeli barang yang sudah lama kita inginkan, beli makanan kesukaan, main game, nonton film, kalau saya pribadi lebih sering libur akhir pekan/semester saya gunakan untuk liburan bersama teman-teman saya dan itu sangat menyenangkan, serta masih banyak lagi yang tentunya ini berarti kita self love(mencintai diri sendiri) dan itu penting.</p><p>Semangat menyuarakan mimpi dalam hati lalu mengikhtiarkan lewat tindakan! Belajar banyak dari orang-orang hebat untuk pembentukan dan konsisten pada acuan untuk mencapai tujuan.</p><p>Kita adalah orang-orang yg punya garisan takdir sama dalam hal ini, yah menjadi seorang penuntut ilmu(pelajar), maka bersemangat lah! Apresiasi diri untuk setiap peningkatan dan evaluasi untuk hal-hal yang terlewatkan. Terakhir jangan lupa tersenyum untuk diri sendiri : ).</p><p>Oleh: Ketua PD IPM Bulukumba, Bidang Pengkajian Ilmu Pengetahuan (PIP), IPMawati Syifa Azzahra</p>', '0', '12', NULL, '2023-07-18 11:37:39'),
+(23, '1689680259', 'potensi-desa', 'Potensi Dasa', '', 'potensi-full.jpg', '1', 'Khaeril Maswal ', 'The-Story', 'general', '<p data-placeholder=\"Ketikkan disini !\">Tentu kita semua pernah melakukan perjalanan dimana kita bertemu dengan orang-orang cerdik dan berprestasi, orang-orang yang loyal dalam bertindak dan sopan santun dalam berperilaku. Umumnya orang ini bertugas sebagai pemateri entah itu saat mengikuti kegiatan Diskusi Senja, Bedah Buku, Seminar Literasi atau kegiatan Training lainya yang jelas dalam sebuah kegiatan pasti ada orang hebatnya. Lalu mata yang melihat dan telinga yang mendengar hal-hal luar biasa dari diri seseorang tersebut kemudian menimbulkan rasa kagum bahkan keinginan itu bisa menjadi seperti itu juga. Iya, memang positif dan memberikan apresiasi pada mereka itu adalah hal yang sangat baik.</p><p>Pertanyaannya kemudian adalah, Sudahkah kita mengapresiasi diri sendiri? Apa lebih keraskah tepukan tangan untuk orang lain dibanding untuk diri sendiri? Suatu hal yang telah dia raih mungkin hanya belum kita raih, tetapi sesuatu yang telah kita raih mungkin tidak akan pernah bisa dia raih. Baik itu karena tidak memiliki kesempatan atau memang tidak punya jalanya.</p><p>Mengapresiasi berarti kita memberikan pengakuan bukan, lalu tidakkah kita mengakui sesuatu yang diperoleh oleh diri sendiri? Diri yang tanpa lelah membuka setiap lembaran, menelusuri banyak jalan, melewati hari-hari yang melelahkan dan masih mau berusaha meski kadang sempat beberapa kali berhenti ditengah jalan.</p><p>Kita juga hebat bukan, coba fikirkan dan sadari faktanya beberapa hal yang kita miliki ternyata tidak dimiliki oleh orang lain, beberapa pengalaman yang telah kita lalui tidak dirasakan oleh orang lain dan seterusnya. Sungguh baik perilaku merendah akan tetapi tulisan ini tentang mengapresiasi diri sendiri dan bukan untuk angkuh, tapi bersyukur bahwa kita juga hebat berdasarkan versi kita.</p><p>Banyak hal yang bisa kita lakukan sebagai bentuk mengapresiasi diri sendiri teman-teman, seperti jika punya uang lebih maka kita boleh membeli barang yang sudah lama kita inginkan, beli makanan kesukaan, main game, nonton film, kalau saya pribadi lebih sering libur akhir pekan/semester saya gunakan untuk liburan bersama teman-teman saya dan itu sangat menyenangkan, serta masih banyak lagi yang tentunya ini berarti kita self love(mencintai diri sendiri) dan itu penting.</p><p>Semangat menyuarakan mimpi dalam hati lalu mengikhtiarkan lewat tindakan! Belajar banyak dari orang-orang hebat untuk pembentukan dan konsisten pada acuan untuk mencapai tujuan.</p><p>Kita adalah orang-orang yg punya garisan takdir sama dalam hal ini, yah menjadi seorang penuntut ilmu(pelajar), maka bersemangat lah! Apresiasi diri untuk setiap peningkatan dan evaluasi untuk hal-hal yang terlewatkan. Terakhir jangan lupa tersenyum untuk diri sendiri : ).</p><p>Oleh: Ketua PD IPM Bulukumba, Bidang Pengkajian Ilmu Pengetahuan (PIP), IPMawati Syifa Azzahra</p>', '0', '12', NULL, '2023-07-18 11:37:39'),
 (24, '1654074500', 'ketika-saat-rasa-sedih-ini-datang', 'Ketika Saat Rasa Sedih ini Datang', 'Ketika saat-saat rasa sedih ini datang, aku bnyak mengadu pada-Nya dalam sholat di sepertiga malam.', 'ketika-saat-rasa-sedih-ini-datang.jpg', '0', 'Khaeril Maswal Zaid', 'The-Story', 'general', '<p>Ketika saat-saat rasa sedih ini datang, aku bnyak mengadu pada-Nya dalam sholat di sepertiga malam. &nbsp;</p><p>Ku tumpahkan seluruh beban dan air mata, sebab hanya Dia sebaik baik pendengar dari apa yg kujalani.&nbsp;</p><p>Aku pun bnyak belajar, &nbsp;bahwa akulah satu satunya yg mampu membuat keputusan untuk hidupQ, atas pertolongannya.&nbsp;</p><p>Bahwa sebenarnya akulah yang paling mengerti apa yg kubutuhkan, apa yg kurasakan, &nbsp;apa yg harus kulakukan. Bahkan keluarga sekalipun, tdk dapat sepenuhnya mengerti perasaanQ.&nbsp;</p><p>Akan ada masanya mereka merasa jenuh mendengar keluh kesahQ, sementara masih begitu bnyak yang ingin kukeluhkan, seolah olah tidak ada habisnya.&nbsp;</p><p>Dari situ aku mngerti bahwa diriku yg bisa mngendalikan perasaanQ dngn cara sabar dan tawakkal, karena Dia sebaik baik tempat mengadu.</p><p>Oleh : A. Mufidah Tunnisa, Mahasiswa Fakultas Ilmu Sosial dan Ilmu Politik Unismuh Makassar</p>', '228', '31', NULL, NULL),
 (25, '1654053902', 'membuka-pintu-peradaban-dan-kemajuan-bangsa-dan-negara-dengan-kunci-literasi', 'Membuka Pintu Peradaban dan Kemajuan Bangsa dan Negara dengan Kunci Literasi', 'Indonesia menjadi negara yang kaya akan segala hal, dari sumberdaya alamnya, sumberdaya manusianya, dan lain lain. Hal ini akan menjadi suatu keuntungan bagi Indonesia untuk selalu berproses menjadi Negara yang memiliki potensi yang tinggi untuk maju di kancah internasional. ', 'membuka-pintu-peradaban-dan-kemajuan-bangsa-dan-negara-dengan-kunci-literasi.jpg', '0', 'Khaeril Maswal Zaid', 'Opini', 'main', '<p>Indonesia menjadi negara yang kaya akan segala hal, dari sumberdaya alamnya, sumberdaya manusianya, dan lain lain. Hal ini akan menjadi suatu keuntungan bagi Indonesia untuk selalu berproses menjadi Negara yang memiliki potensi yang tinggi untuk maju di kancah internasional. Namun, yang perlu dikaji lebih lanjut tentang kondisi atau kualitas segala sumber daya yang dimiliki oleh Negara Indonesia tersebut, apakah sudah bisa dijadikan acuan atau sesuai jika akan dijadikan senjata untuk bersaing bersama Negara lainnya.</p><p>&nbsp;</p><p>Indonesia tumbuh dengan sumberdaya alam yang melimpah akan tetapi ada masalah serius yang perlu kita benahi yaitu, kurang dan rendahnya minat membaca atau menulis. Di negara ini rata-rata masyarakat Indonesia membaca buku hanya 3-4 kali per minggu dan durasi waktu membaca per hari rata-rata 30-59 menit. Bahkan berdasarkam studi <i>“most littered nation in the world”</i>. Tentang presentase minat baca di negara berkembang , yang dilakukan oleh <i>Central Connecticut State University</i> pada 2016 lalu. Indonesia dinyatakan menduduki peringkat ke-60 dari 61 negara soal minat membaca. Indonesia persis berada dibawah Thailand(59) dan diatas bostwana (61).</p><p>&nbsp;</p><p>Mengenai hal tersebut, sebagai pelajar sekaligus mahasiswa di Sekolah Tinggi Ilmu Al-Qur’an dan Sains Al-Ishlah dan sekaligus menjabat sebagai ketua umum bagian kajian dakwah islam (KDI) di salah satu cabang IPM lamongan, penulis memberikan kontribusi perihal masalah ini, yakni, sebagai pelajar dengan menggerakkan gerakan sadar sejarah dan gerakan literasi kepada masyarakat Indonesia khususnya para pelajar. Karena pelajarlah yang akan menjadi generasi emas dan benih yang nantinya yang menjadi pemimpin di masa mendatang. &nbsp;&nbsp;</p><p>&nbsp;</p><p>Sejarah menjadi suatu hal yang penting yang wajib dipelajari dan ditekankan kepada para pelajar. &nbsp;Mulai dari bangku sekolah dasar hingga bangku kuliah. Karena, dengan sejarah kita bisa belajar dan memahami bagaimana proses kemajuan dan kemunduran di suatu peradaban. Untuk mengenalkan sepak terjang literasi diberbagai zaman, sejarah merupakan metode terbaik untuk mengenalnya. Bisa dilihat misalnya munculnya literasi dalam islam ditandai dengan turunya wahyu Allah yang pertama yaitu <i>iqra’</i>. Yang berarti “bacalah”. Disini Allah memerintahkan nabi Muhammad saw. Beserta kaumnya dengan <i>iqra’</i> “bacalah” (bentuk fi’il amr) kata perintah. Kalimat ini bersifat umum yang mana kita diperintahkan untuk membaca dan belajar semua ilmu tak terkecuali. Dalam dunia islam. membaca dan menulis merupakan suatu aktivitas yang sangat penting bagi setiap pemeluknya. Bahkan fakta sejarah membuktikan, bahwa peradaban islam bergantung pada tradisi baca-tulis baik dalam proses pertumbuhanya maupun pelestariannya. Tapi seiring berjalannya waktu budaya membaca dan menulis atau yang biasa kita sebut literasi dalam islam ini mulai pudar bahkan hilang . Hal yang melatar belakangi mundurnya dan lunturnya minat budaya literasi dalam islam. selain faktor kurangnya pengenalan sejarah dan perjuangan literasi pada masyarakat sejak dini juga kurangnya kesadaran literasi sebagai kebutuhan di era industri ini. Aktivitas membaca merupakan awal diperolehnya segala ilmu pengetahuan. Baik itu ilmu dunia maupun ilmu akhirat, kegiatan membaca secara tidak langsung telah mengaktifkan proses semangat kita dalam menulis. Karena kita tidak selamanya seseorang itu mengingat apa yang ia baca. Perlu adanya media untuk mencurahkan pandangan atau pemahaman kita setelah kita membaca maupun meneliti, yaitu dengan menulis. Dari sinilah mulai dapat kita simpulkan bahwa membaca dapat meningkatkan rasa semangat dalam berkreasi dan berinovasi.</p><p>&nbsp;</p><p>Aktivitas literasi sangatlah berpengaruh pada perubahan pola pikir manusia. Bangsa Arablah yang memulai dan bertransformasi menjadi bangsa yang maju dengan sangat cepat dengan perantara literasi. Setelah datangnya Islam dan datangnya Al-Qur’an. Maka lahirlah suatu istilah “dari zaman gelap gulita menuju zaman yang terang benderang”. Istilah ini sering diucapkan penceramah, ulama’ dan sering kita jumpai pada suatu pengajian-pengajian dan muhadloroh. Lalu apa makna dibalik istilah tersebut?. Marilah kita menelaah dan menengok sejarah masyarakat Arab sebelum datangnya islam. Secara adab dan perilaku benar adanya bahwa mereka masih dalam kejahiliyaan atau kebodohan. Akan tetapi, bukan berarti mereka bodoh dalam segala hal. bahkan secara keilmuan mereka memiliki intelektualitas yang tinggi, daya ingat yang kuat dan juga mempunyai sastra yang sangat indah. Terbukti dari pakar sejarah Arab yang menyebutkan bahwa bangsa Arab memang maju dalam bidang sastra. Bahkan dengan kekuatan mengingat masyarakat Arab pada zaman dahulu bisa mengingat nasab mereka sampai beberapa keturunan. Sayangnya yang menjadi kekurangan bangsa Arab pra islam ialah mereka tak menyukai aksara dan dunia tulis menulis. Bahkan kegiatan menulis merupakan aib bagi mereka. Hanya orang-orang tertentu saja seperti pendeta, dukun dan lain sebagainya. Inilah faktor yang menyebabkan masyarakat Arab hidup dalam kegelapan atau kejahiliyahan. Karena secara keilmuan mereka mungkin sangat tinggi. Akan tetapi ilmu mereka hanya untuk diri mereka sendiri tidak untuk orang lain. Dan setelah datangnya islam mulailah kegiatan menulis dan literasi mulai dibangkitkan. Masyarakat Arab yang dulunya menjadikan kegiatan menulis adalah aib, setelah datangnya Islam tulis menulis dijadikan suatu budaya. Dan pada puncak kemajuan literasi Islam yang ditandai oleh daulah Abbasiyah dengan baitul hikmahnya inilah yang merupakan cikal bakal keilmuan timur dan barat. Berkat kegiatan membaca dan menulis pula lahirlah ribuan buku dan miliaran jilid serta ilmu yang kedepan nya akan mewariskan peradaban yang agung yang tak ternilai harganya. Inilah yang disebut dari zaman kegelapan menuju zaman terang benerang.</p><p>&nbsp;</p><p>Posisi &nbsp;literasi di negara indonesia ini sangatlah sentral dari zaman penjajahan sampai pada saat ini. karna berkat literasilah indonesia bisa bangkit dari pra kemerdekaan sampai merdeka. Karna literasi pula yang telah merubah sistem berfikir masyarakat indonesia &nbsp;sehingga para pemuda dan pelajar mempunyai wawasan yang luas dan mempunyai semangat perubahan yang tinggi. Dan itulah salah satu faktor Indonesia dapat merebut kemerdekaan dari tangan penjajah. Dibenak para penjajah Literasi sangatlah ditakuti, para penjajah berusaha mati-matian untuk menekan pendidikn yang ada di indonesia dengan membatasi dan mengawasi guru dan peredaran buku di indonesia. Karena mereka tahu bahwa semakin rakyat indonesia membaca maka akan semakin merubah pola pikir rakyat indonesia dari kebodohan menuju ke intelektualitasan dan bisa mengancam posisi penjajah di indonesia.</p><p>&nbsp;</p><p>Dalam UUD 1945 terdapat poin penting yang dapat kita ambil garis merah yaitu “mencerdaskan kehidupan bangsa”. Dari sini dapat kita telaah bahwa literasi merupakan salah satu wadah yang sangat berbobot untuk mencerdaskan kehidupan bangsa. Karena awal mula kemajuan suatu bangsa ialah dengan sejauh mana ia berliterasi contoh saja negara Jepang. Negara Jepang adalah salah satu negara yang maju dikawasan Asia produk-produknya telah tersebar keseluruh negara. Akan tetapi sebelum Jepang menjadi negara maju seperti saat ini, Jepang pernah menjadi negara miskin dan terpuruk karna kehancuran dan kekalahan Jepang pada perang dunia ke 2. Dua kota sentral Jepang yaitu Heroshima dan Nagasaki dibom oleh sekutu. Yang menyebabkan kerusakan vital negara Jepang. Pemerintah Jepang bergerak cepat untuk mengatasi masalah ini. yaitu dengan menyuruh semua guru yang ada di Jepang untuk menerbitkan buku, baik itu buku hukum, ekonomi, sosial dan lain-lain. Tak hanya itu pemerintah Jepang mengirim pelajar terbaiknya untuk disekolahkan di Amerika, setelah usai menempuh pendidikan di Amerika para belajar ini ditarik kembali ke Jepang untuk bersama sama memperbaiki negara jepang yang rusak parah akibat kekalahan perang dunia ke dua. Banyak hikmah yang dapat kita ambil dari negara Jepang, yaitu ketekunan mereka dalam belajar dan berliterasi.</p><p>&nbsp;</p><p>Dan diera modern ini. Perkembangan teknologi semakin canggih literasi tak hanya stagnan atau berhenti di membaca dan menulis saja tapi banyak banyak cabang di litersi itu sendiri. Seperti, literasi dasar, literasi teknologi, literasi perpustakaan, literasi media, litersi visual, dan masih banyak lagi. Tapi itu semua dapat kita capai dengan membaca dan menulis.</p><p>&nbsp;</p><p>Di akhir ini dapat kita tarik benang merah atas kunci majunya suatu peradaban dan negara. Dapat kita ukur dengan tingkat tinggi dan rendahnya suatu negara itu membaca dan menulis dan berliterasi, apapun literasinya. Disini penulis memberi judul “<i>membuka pintu peradaban dan kemajuan bangsa dan negara dengan kunci literasi”</i>&nbsp; karena suatu peradaban kalau ingin maju itu harus dibuka dan cara membukanya itu sendiri pastilah butuh yang namanya kunci, kunci adalah berliterasi yang terus berproses dari masa ke masa. Jadi kawans kita sebagai pelajar muhammadiyah yang tergabung dengan ortonom ikatan pelajar muhammadiyah. Maka jadilah pelajar yang benar-benar pelajar. Jihad kita sebagai seoarang pelajar ialah belajar. Senjata kita adalah pena. Energi kita adalah membaca, kekuatan kita adalah literasi. Seperti lafadz pertama yang allah turunkan yaitu iqro’. Membaca!. Baca semua buku dan situasi yang ada. Lalu, tuangkanlah dalam bentuk tulisan. Tulislah semua yang kamu tau sehingga apa yang ada didalam fikiranmu dapat dibaca semua orang. Dan mungkin dengan izin allah tulisan itu akan merasuk ke alam bawah sadar si pembaca, sehingga orang yang telah membaca tulisanmu akan akan mempunyai pandangan-pandangan baru. Yang mana pandangan-pandangan yang baru tersebut kan melahirkan pandangan-pandangan yang hebat sehingga sedikit demi sedikin akan mengangkat martabat dan kemajuan bangsa indonesia. Mari kita berliterasi! Kita mulai dari IPM. dari IPM untuk indonesia!</p><p>**</p><p>Opini ditulis oleh Labib Shalahuddin Al – Hadad. Mahasiswa Sekolah Tinggi Ilmu Al Quran dan Sains Lamongan.</p><p>Article copied from the website https://ipmjatim.or.id</p>', '205', '16', NULL, NULL),
 (26, '1654258704', 'mencari-autentisitas-dalam-dinamika-zaman', 'Mencari Autentisitas dalam Dinamika Zaman', 'Dalam situasi saat ini, kita masih dalam suasana berkabung yang dimana berpulangnya Prof. Dr. Ahmad Syafii Maarif atau yang biasa kita kenal Buya Syafii Maarif sesosok tokoh nasinonal yang dijuluki sebagia sang guru bangsa dan suluh bangsa.', 'mencari-autentisitas-dalam-dinamika-zamana.jpg', '0', 'Khaeril Maswal Zaid', 'Opini', 'general', '<p>Dalam situasi saat ini, kita masih dalam suasana berkabung yang dimana berpulangnya Prof. Dr. Ahmad Syafii Maarif atau yang biasa kita kenal Buya Syafii Maarif sesosok tokoh nasinonal yang dijuluki sebagia sang guru bangsa dan suluh bangsa. Seorang tokoh nasional yang bukan saja sebagai demisoner ketua umum PP Muhammadiyah, tetapi juga seseorang yang buah pemikiran dan pandangan yang brilirannya sering dimintai oleh berbagai kalangan. Mulai dari presiden, menteri, pejabat, akademisi hingga politisi. Hingga sampai beliau dijuluki sebagai guru bangsa dan suluh bangsa. Meski nyawa beliau sudah tak dikandung badan dan raga beliau sudah ditelan bumi, namun setiap tulisannya akan abadi. Salah satu buah pemikiran dari Buya Syafii, yakni sebuah buku yang berjudul Mencari Autentisitas dalam Dinamika Zaman, yang didalam sinopsis buku ini beliau menuliskan kesaksian atas realitas yang ada dinegeri ini. Mulai dari hal masalah agama, budaya, ekonomi hingga politik. Yang dengan tulisan-tulisannya ini dapat membuka mata bangsa ini untuk melihat realitas yang ada.</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Di bidang politik, bangsa ini mengalami krisis kepemimpinan pada tahap yang sangat kritis. Kursi kepemimpinan kita disesaki para “politikus rabun ayam” yang jangkauan pandangannya sangat pendek. Mereka lebih mengutamakan kepentingan pribadi dengan mengorbankan kepentingan bangsa. Masalah kepemimpinan adalah salah satu permasalahan paling krusial. Struktur politik kita dibangun diatas budaya agraris yang feodalistis. Secara pelan tetapi pasti, kultur foedalistis terus dipupuk dan dibudidayakan bersamaan dengan proses pembunuhan kultur maritim yang terbuka. Padahal, kultur maritim lebih kondusif bagi tegaknya daulat rakyat dan daulat hukum karena pendukungnya adalah para pedagang yang berjiwa bebas. Buya pula mengumpamakan negara Indonesia sebagai kapal tua yang hampir karam sehingga negara ini perlu nahkoda yang memiliki dasar pemikiran yang cemerlang.</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Buya Syafii mencita-citakan sebuah Indonesia yang egalitar secara sosial, ekonomi dan politik, serta betul-betul demokratis. Pemerintah harus bertanggung jawab kepada rakyat melalui pemilian umum yang <i>free and fair,&nbsp;</i>bebas dan berpihak. Buya Syafii mempertentangkan pendekatan moral dengan pendekatan kekuasaan, dan menyimpulkan bahwa sejak awal kemerdekaan, moralitas sering dikorbankan pada keperluan sesaat untuk kekuasaan. Tugas bangsa untuk mendirikan negara hukum diabaikan terus. Korupsi semakin memburuk sehingga Indonesia kini mejadi salah satu negara yang paling korup di dunia. Pola konflik berdasarkan daerah dan agama yang berkali-kali mengancam keutuhan bangsa dirunut kepada politisi yang meletakkan kepentingan pribadi dan golongan diatas kepentingan sosial. Kondisni Indoensia saat ini mesti dibenahi, bukan dibenahi dengan revolusi tatapi dengan dasar pemahaman pancasila.</p><p>&nbsp;</p><p>Dirilis dari penyampaian&nbsp;Kakanda Agus Salim dalam&nbsp;“Diskusi Pemikiran dan Tokoh” yang dilaksanakan oleh IMJ PNF UMB Bulukumba.</p>', '201', '12', NULL, NULL);
@@ -349,7 +356,7 @@ INSERT INTO `siades_artikel` (`id`, `time`, `slug`, `judul`, `description`, `pic
 -- --------------------------------------------------------
 
 --
--- Table structure for table `siades_datadesa`
+-- Struktur dari tabel `siades_datadesa`
 --
 
 CREATE TABLE `siades_datadesa` (
@@ -364,7 +371,7 @@ CREATE TABLE `siades_datadesa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `siades_datadesa`
+-- Dumping data untuk tabel `siades_datadesa`
 --
 
 INSERT INTO `siades_datadesa` (`id`, `slug`, `label`, `val_lk`, `val_pr`, `updated_by`, `created_at`, `updated_at`) VALUES
@@ -394,7 +401,7 @@ INSERT INTO `siades_datadesa` (`id`, `slug`, `label`, `val_lk`, `val_pr`, `updat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `siades_datawilayah`
+-- Struktur dari tabel `siades_datawilayah`
 --
 
 CREATE TABLE `siades_datawilayah` (
@@ -410,7 +417,7 @@ CREATE TABLE `siades_datawilayah` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `siades_datawilayah`
+-- Dumping data untuk tabel `siades_datawilayah`
 --
 
 INSERT INTO `siades_datawilayah` (`id`, `dusun`, `rk`, `rt`, `kk`, `l`, `p`, `created_at`, `updated_at`) VALUES
@@ -450,7 +457,7 @@ INSERT INTO `siades_datawilayah` (`id`, `dusun`, `rk`, `rt`, `kk`, `l`, `p`, `cr
 -- --------------------------------------------------------
 
 --
--- Table structure for table `siades_idm`
+-- Struktur dari tabel `siades_idm`
 --
 
 CREATE TABLE `siades_idm` (
@@ -473,7 +480,7 @@ CREATE TABLE `siades_idm` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `siades_idm`
+-- Dumping data untuk tabel `siades_idm`
 --
 
 INSERT INTO `siades_idm` (`id`, `group`, `idm`, `skor`, `keterangan`, `kegiatan`, `nilai`, `pusat`, `prov`, `kab`, `des`, `csr`, `lainnya`, `updated_by`, `created_at`, `update_at`) VALUES
@@ -531,7 +538,7 @@ INSERT INTO `siades_idm` (`id`, `group`, `idm`, `skor`, `keterangan`, `kegiatan`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `siades_keuangan`
+-- Struktur dari tabel `siades_keuangan`
 --
 
 CREATE TABLE `siades_keuangan` (
@@ -548,7 +555,7 @@ CREATE TABLE `siades_keuangan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `siades_keuangan`
+-- Dumping data untuk tabel `siades_keuangan`
 --
 
 INSERT INTO `siades_keuangan` (`id`, `title`, `subtitle`, `kode`, `uraian`, `anggaran`, `realisasi`, `updated_by`, `created_at`, `updated_at`) VALUES
@@ -567,7 +574,7 @@ INSERT INTO `siades_keuangan` (`id`, `title`, `subtitle`, `kode`, `uraian`, `ang
 -- --------------------------------------------------------
 
 --
--- Table structure for table `siades_konfigurasi`
+-- Struktur dari tabel `siades_konfigurasi`
 --
 
 CREATE TABLE `siades_konfigurasi` (
@@ -582,26 +589,27 @@ CREATE TABLE `siades_konfigurasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `siades_konfigurasi`
+-- Dumping data untuk tabel `siades_konfigurasi`
 --
 
 INSERT INTO `siades_konfigurasi` (`id`, `slug`, `label`, `value`, `more`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, 'media-sosial-kmz-165', 'Telpon', '081234567890', '', '', NULL, '2023-08-22 16:28:56'),
-(2, 'media-sosial-kmz-165', 'WhatsApp', '08123456789', '', '', NULL, NULL),
-(3, 'media-sosial-kmz-165', 'E-Mail', ' official@wakandaraya.desa.id', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(4, 'media-sosial-kmz-165', 'Facebook', 'Desa Wakanda Raya', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(5, 'media-sosial-kmz-165', 'Instagram', 'Desa Wakanda Raya', '', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(6, 'dusun-kmz-165', 'Dusun', 'Wakanda Timur', '', '', NULL, NULL),
-(7, 'dusun-kmz-165', 'Dusun', 'Wakanda Barat', '', '', NULL, NULL),
-(8, 'dusun-kmz-165', 'Dusun', 'Samaenre', '', '', NULL, NULL),
-(9, 'media-sosial-kmz-165', 'Discord', 'Desa Maju', '', 'Admin', '2023-08-22 16:51:26', '2023-08-22 17:22:14'),
-(16, 'add-media-sosial-kmz-165', 'LNSD', 'ODJD', '', 'Admin', '2023-08-22 17:09:47', '2023-08-22 17:09:47'),
-(17, 'add-media-sosial-kmz-165', 'LJCKJAHCKHCKH', 'KASBKBDKDB', '', 'Admin', '2023-08-22 17:10:34', '2023-08-22 17:10:34');
+(1, 'media-sosial-kmz-165', 'Telpon', '081234567890', '#', '', NULL, '2023-10-08 11:49:35'),
+(2, 'media-sosial-kmz-165', 'WhatsApp', '081234567890', '#', '', NULL, '2023-10-08 13:42:24'),
+(4, 'media-sosial-kmz-165', 'Facebook', 'Desa Wakanda Raya', '#', '', '0000-00-00 00:00:00', '2023-10-08 13:42:43'),
+(5, 'media-sosial-kmz-165', 'Instagram', 'Desa Wakanda Raya', '#', '', '0000-00-00 00:00:00', '2023-10-08 13:42:25'),
+(6, 'dusun-kmz-165', 'Dusun', 'Wakanda Timur', '#', '', NULL, NULL),
+(7, 'dusun-kmz-165', 'Dusun', 'Wakanda Barat', '#', '', NULL, NULL),
+(8, 'dusun-kmz-165', 'Dusun', 'Samaenre', '#', '', NULL, NULL),
+(9, 'media-sosial-kmz-165', 'Discord', 'Desa Maju', '#', 'Admin', '2023-08-22 16:51:26', '2023-08-22 17:22:14'),
+(21, 'media-sosial-kmz-165', 'Email', 'official@wakandaraya.desa.id', '#', 'Admin', '2023-10-07 07:03:19', '2023-10-07 07:03:48'),
+(22, 'tentang-aplikasi-kmz-165', 'Tentang Aplikasi', 'Merupakan Website Resmi Desa Wakanda Raya serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum.', '#', '', NULL, '2023-10-08 13:03:21'),
+(23, 'alamat-kantor-kmz-165', 'Alamat Kantor', 'Jln. Tani, Dusun Konoha, Desa Wakanda Raya', '#', '', NULL, '2023-10-08 13:03:22'),
+(26, 'media-sosial-kmz-165', 'Youtube', 'Desa Berkemajuan', '#', 'Admin', '2023-10-08 14:06:08', '2023-10-08 14:06:08');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `siades_pages1`
+-- Struktur dari tabel `siades_pages1`
 --
 
 CREATE TABLE `siades_pages1` (
@@ -619,26 +627,26 @@ CREATE TABLE `siades_pages1` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `siades_pages1`
+-- Dumping data untuk tabel `siades_pages1`
 --
 
 INSERT INTO `siades_pages1` (`id`, `idGroup`, `metadescription`, `slug`, `namepage`, `nicknamepage`, `tentang`, `tupoksi`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, '1', 'Merupakan lembaga perwujudan demokrasi dalam penyelenggaraan pemerintahan desa', 'bpd-kmz-165', 'Data Agama', 'BPD', '<p class=\"text-dark\" data-placeholder=\"Ketikkan disini !\"><span class=\"fw-bold\">Badan Permusyawaratan Desa (BPD)</span> dalam Permendagri No.110/2016 Tugas Badan Permusyawaratan Desa (BPD) mempunyai fungsi, membahas dan menyepakati Rancangan Peraturan Desa bersama Kepala Desa, menampung dan menyalurkan aspirasi masyarakat Desa, dan melakukan pengawasan kinerja Kepala Desa. Selain melaksanakan fungsi diatas, Badan Permusyawaratan Desa juga mempunyai tugas sebagai berikut. Tugas Badan Permusyawaratan Desa :</p><ol><li class=\"text-dark\">Menggali aspirasi masyarakat</li><li class=\"text-dark\">Menampung aspirasi masyarakat</li><li class=\"text-dark\">Mengelola aspirasi masyarakat</li><li class=\"text-dark\">Menyalurkan aspirasi masyarakat</li><li class=\"text-dark\">Menyelenggarakan musyawarah Tugas Badan Permusyawaratan Desa ()</li><li class=\"text-dark\">Menyelenggarakan musyawarah Desa</li><li class=\"text-dark\">Membentuk panitia pemilihan Kepala Desa</li><li class=\"text-dark\">Menyelenggarakan musyawarah Desa khusus untuk pemilihan Kepala Desa antarwaktu</li><li class=\"text-dark\">Membahas dan menyepakati rancangan Peraturan Desa bersama Kepala Desa</li><li class=\"text-dark\">Melaksanakan pengawasan terhadap kinerja Kepala Desa</li><li class=\"text-dark\">Melakukan evaluasi laporan keterangan penyelenggaraan Pemerintahan Desa</li><li class=\"text-dark\">Menciptakan hubungan kerja yang harmonis dengan Pemerintah Desa dan lembaga Desa lainnya; dan melaksanakan tugas lain yang diatur dalam ketentuan peraturan perundang-undangan.</li></ol>', '<p class=\"text-dark\" data-placeholder=\"Ketikkan disini !\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.</p><p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.</p>', '', NULL, '2023-08-22 09:44:58'),
-(2, '1', '', 'lpm-kmz-165', 'Lembaga Pemberdayaan Desa', 'LPM', '<p data-placeholder=\"Ketikkan disini !\">Fungsi Pokok</p>', '<p class=\"text-dark\" data-placeholder=\"Ketikkan disini !\">Tugas Pokok</p><p class=\"text-dark\" data-placeholder=\"Ketikkan disini !\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.</p><p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.</p>', '', NULL, '2023-07-18 10:01:55'),
-(3, '1', '', 'pkk-kmz-165', 'Pembinaan Kesejahteraan Keluarga', 'PKK', '<p data-placeholder=\"Ketikkan disini !\">Tugas Pokok dan Fungsi PKK</p>', '<p data-placeholder=\"Ketikkan disini !\"><span style=\"background-color:rgb(255,255,255);color:rgb(15,66,41);font-family:&quot;Open Sans&quot;, sans-serif;font-size:16px;\"><span style=\"-webkit-text-stroke-width:0px;display:inline !important;float:none;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.</span></span></p>', '', NULL, '2023-07-18 10:11:20'),
-(4, '1', '', 'karangtaruna-kmz-165', 'Karang Taruna', 'Karang Taruna', '<p data-placeholder=\"Ketikkan disini !\">cEKk</p>', '<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n', '', NULL, '2023-08-22 15:59:59'),
+(1, '1', 'Merupakan lembaga perwujudan demokrasi dalam penyelenggaraan pemerintahan desa', 'bpd-kmz-165', 'Badan Permusyawaratan Desa', 'BPD', '<p class=\"text-dark\" data-placeholder=\"Ketikkan disini !\"><span class=\"fw-bold\">Badan Permusyawaratan Desa (BPD)</span> dalam Permendagri No.110/2016 Tugas Badan Permusyawaratan Desa (BPD) mempunyai fungsi, membahas dan menyepakati Rancangan Peraturan Desa bersama Kepala Desa, menampung dan menyalurkan aspirasi masyarakat Desa, dan melakukan pengawasan kinerja Kepala Desa. Selain melaksanakan fungsi diatas, Badan Permusyawaratan Desa juga mempunyai tugas sebagai berikut. Tugas Badan Permusyawaratan Desa :</p><ol><li class=\"text-dark\">Menggali aspirasi masyarakat</li><li class=\"text-dark\">Menampung aspirasi masyarakat</li><li class=\"text-dark\">Mengelola aspirasi masyarakat</li><li class=\"text-dark\">Menyalurkan aspirasi masyarakat</li><li class=\"text-dark\">Menyelenggarakan musyawarah Tugas Badan Permusyawaratan Desa ()</li><li class=\"text-dark\">Menyelenggarakan musyawarah Desa</li><li class=\"text-dark\">Membentuk panitia pemilihan Kepala Desa</li><li class=\"text-dark\">Menyelenggarakan musyawarah Desa khusus untuk pemilihan Kepala Desa antarwaktu</li><li class=\"text-dark\">Membahas dan menyepakati rancangan Peraturan Desa bersama Kepala Desa</li><li class=\"text-dark\">Melaksanakan pengawasan terhadap kinerja Kepala Desa</li><li class=\"text-dark\">Melakukan evaluasi laporan keterangan penyelenggaraan Pemerintahan Desa</li><li class=\"text-dark\">Menciptakan hubungan kerja yang harmonis dengan Pemerintah Desa dan lembaga Desa lainnya; dan melaksanakan tugas lain yang diatur dalam ketentuan peraturan perundang-undangan.</li></ol>', '<p class=\"text-dark\" data-placeholder=\"Ketikkan disini !\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.</p><p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.</p>', '', NULL, '2023-08-22 09:44:58'),
+(2, '1', '', 'lpm-kmz-165', 'Lembaga Pemberdayaan Desa', 'LPM', '<p data-placeholder=\"Ketikkan disini !\">Fungsi Pokok</p>', '<p class=\"text-dark\" data-placeholder=\"Ketikkan disini !\">Tugas Pokok</p><p class=\"text-dark\" data-placeholder=\"Ketikkan disini !\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.</p><p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.</p>', '', NULL, '2023-10-16 06:09:16'),
+(3, '1', '', 'pkk-kmz-165', 'Pembinaan Kesejahteraan Keluarga', 'PKK', '<p data-placeholder=\"Ketikkan disini !\">Tugas Pokok dan Fungsi PKK</p>', '<p data-placeholder=\"Ketikkan disini !\"><span style=\"background-color:rgb(255,255,255);color:rgb(15,66,41);font-family:&quot;Open Sans&quot;, sans-serif;font-size:16px;\"><span style=\"-webkit-text-stroke-width:0px;display:inline !important;float:none;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.</span></span></p>', '', NULL, '2023-10-16 06:03:50'),
+(4, '1', '', 'karangtaruna-kmz-165', 'Karang Taruna', 'Karang Taruna', '<p data-placeholder=\"Ketikkan disini !\">cEKk</p>', '<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n', '', NULL, '2023-10-16 06:18:19'),
 (6, '', '', '-', 'Data Asuransi Kesehatang', 'Bendahara Desa', '', '<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n', '', NULL, '2023-08-22 09:45:15'),
 (7, '', '', '-', 'Kasi Pemerintahan', '', '', '<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n', '', NULL, NULL),
 (8, '', '', '', 'Kasi Kesra', '', '', '<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n', '', NULL, NULL),
 (9, '', '', '-', 'Kepala Desa', '', '', '<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n', '', NULL, NULL),
 (10, '', '', '-', 'Sekretaris Desa', '', '', '<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n<p class=\"text-dark\">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quasi repellat consectetur cupiditate porro, asperiores quo quisquam, numquam doloremque similique quibusdam laboriosam dicta obcaecati, molestiae architecto assumenda debitis accusamus vitae vel. Voluptatibus, dignissimos dolor, pariatur quasi, eius sapiente id officia accusamus eos vel ullam beatae quibusdam dolorum quia facilis assumenda sequi et unde itaque odit praesentium. Numquam odio obcaecati, pariatur laboriosam reprehenderit, eum consequatur eveniet similique earum nobis molestias porro. Est provident architecto possimus dicta temporibus, dignissimos at laboriosam nesciunt illo tenetur suscipit nisi exercitationem eaque itaque quae! Possimus quis cupiditate labore delectus soluta pariatur, explicabo perspiciatis eligendi debitis id.\r\n</p>\r\n', '', NULL, NULL),
-(11, '', '', 'visi-misi-desa', 'Visi Misi Desa', 'Visi Misi', '<p data-placeholder=\"Ketikkan disini !\">Visi Misi ini kodong na</p>', '<p data-placeholder=\"Ketikkan disini !\">Misi juga ini na</p>', '', NULL, '2023-07-18 11:21:27'),
-(12, '1', '', 'fkprm-kmz-165', 'Forum Komunikasi Pemuda Remaja Masjid', 'FKPRM', '', '', 'Admin', '2023-08-20 08:40:19', '2023-08-20 08:40:19');
+(11, '', '', 'visi-misi-desa', 'Visi Misi Desa', 'Visi Misi', '<p data-placeholder=\"Ketikkan disini !\">Visi Misi ini kodong na fgvf</p>', '<p data-placeholder=\"Ketikkan disini !\">Misi juga ini na</p>', '', NULL, '2023-10-08 11:59:41'),
+(12, '1', '', 'fkprm-kmz-165', 'Forum Komunikasi Pemuda Remaja Masjid', 'FKPRM', '', '', 'Admin', '2023-08-20 08:40:19', '2023-10-16 06:18:57');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `siades_personildesa`
+-- Struktur dari tabel `siades_personildesa`
 --
 
 CREATE TABLE `siades_personildesa` (
@@ -658,29 +666,29 @@ CREATE TABLE `siades_personildesa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `siades_personildesa`
+-- Dumping data untuk tabel `siades_personildesa`
 --
 
 INSERT INTO `siades_personildesa` (`id`, `diGroup`, `slug`, `class`, `nama`, `jabatan`, `alamat`, `pendidikan`, `kontak`, `foto`, `updated_by`, `created_at`, `updated_at`) VALUES
 (2, '1', 'bpd-kmz-165', '', 'Jokowi', 'Ketua BPD', 'Dusun Kayu Putih', 'SMA', '081234567890', 'team-1.jpg', '', NULL, '2023-07-18 14:45:16'),
 (3, '1', 'bpd-kmz-165', '', 'Prabowo Subianto', 'Sekretaris BPD', 'Dusun Kayu Putih', 'SMA', '081234567890', 'team-2.jpg', '', NULL, '2023-07-18 14:45:16'),
 (4, '', 'bpd-kmz-165', '', 'Sandiaga Uno', 'Bendahara BPD', 'Dusun Kayu Putih', 'SMA', '081234567890', 'team-3.jpg', '', NULL, '2023-07-18 14:45:16'),
-(5, '1', 'bpd-kmz-165', 'active', 'Anis Baswedan', 'Anggota BPD', 'Dusun Kayu Putih', 'S1', '0812345467890', 'team-1.jpg', '', NULL, '2023-07-18 14:45:16'),
+(5, '1', 'bpd-kmz-165', 'active', 'Anis Baswedan', 'Anggota BPD', 'Dusun Kayu Putih', 'S1', '0812345467890', 'bpd_anis-baswedan.png', 'BELUM', NULL, '2023-10-07 06:38:13'),
 (6, '1', 'karangtaruna-kmz-165', '', 'Ridwan Kamil', 'Anggota BPD', 'Dusun Kayu Putih', 'S1', '081234567890', 'karangtaruna_ridwan-kamil.jpg', 'BELUM', NULL, '2023-08-22 01:09:20'),
-(11, '2', 'lpm-kmz-165', 'active', 'Asrapul Rijal', 'Kepala Desa', '', '', '085343652494', 'team-3.jpg', '', NULL, '2023-08-20 06:04:50'),
+(11, '2', 'lpm-kmz-165', 'active', 'Asrapul Rijal', 'Anggota', 'sf', '', '085343652494', 'team-3.jpg', '', NULL, '2023-10-16 06:24:26'),
 (12, '2', 'lpm-kmz-165', '', 'Syamsul Qamar', 'Sekretaris Desa', 'Dusun Wakanda Timur', '', '', 'team-1.jpg', '', NULL, '2023-07-18 14:42:32'),
-(13, '2', 'strukturdesa-kmz-165', '', 'Agus Salim', 'Bendahara Desa', '', '', '', 'undefined_agus-salim.jpg', 'BELUM', NULL, '2023-08-20 08:42:05'),
-(17, '2', 'strukturdesa-kmz-165', '', 'Nur Fadiah', 'Kadus Samaenre', '', '', '', 'undefined_nur-fadiah.jpg', 'BELUM', NULL, '2023-08-20 09:18:03'),
-(18, '2', 'strukturdesa-kmz-165', '', 'Jusrianto', 'Kadus Bontotangga', '', '', '', 'strukturdesa_jusrianto.jpg', 'BELUM', NULL, '2023-08-20 08:58:24'),
+(13, '2', 'strukturdesa-kmz-165', 'active', 'Khaeril Maswal Zaid', 'Bendahara Desa', '', '', '', 'strukturdesa_khaeril-maswal-zaid.jpg', 'BELUM', NULL, '2023-10-08 15:25:55'),
+(17, '2', 'strukturdesa-kmz-165', '', 'Nur Fadiah', 'Kadus Samaenre', '', '', '', 'strukturdesa_nur-fadiah.jpg', 'BELUM', NULL, '2023-10-09 01:05:12'),
+(18, '2', 'strukturdesa-kmz-165', '', 'Jusrianto', 'Kadus Bontotangga', '', '', '', 'strukturdesa_jusrianto.jpg', 'BELUM', NULL, '2023-10-09 01:05:26'),
 (20, '', 'lpm-kmz-165', '', 'Azmi', 'Ketua', 'Balong, Kec. Ujung Loe', 'sfsfs', 'fsfsf', 'lpm_anis-baswedan.jpg', 'Admin', '2023-07-13 02:34:21', '2023-07-18 14:42:32'),
 (23, '', 'pkk-kmz-165', 'active', 'Muh. Zaid Abady', 'Ketua PKK', 'Wakanda Raya', 'SMA', '081', 'pkk_muh-zaid-abady.jpg', 'Admin', '2023-07-18 10:06:38', '2023-07-18 10:08:01'),
 (24, '', 'karangtaruna-kmz-165', 'active', 'Muh. Yusril', 'Ketua', 'Ujung Bulu', 'S1', '123', 'karangtaruna_muh-yusril.jpg', 'Admin', '2023-07-18 10:12:40', '2023-07-18 14:44:43'),
-(25, '', 'strukturdesa-kmz-165', 'active', 'Anis Baswedan', 'Presiden RI 2024', 'Jakarta', 'S3', '23', 'strukturdesa_anis-baswedan.jpg', 'BELUM', '2023-07-18 10:24:58', '2023-08-20 09:34:13');
+(25, '', 'strukturdesa-kmz-165', '', 'Anis Baswedan', 'Kepala Desa', 'Jakarta', 'S3', '23', 'strukturdesa_anis-baswedan.jpg', 'BELUM', '2023-07-18 10:24:58', '2023-10-08 15:24:27');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `siades_sdgs`
+-- Struktur dari tabel `siades_sdgs`
 --
 
 CREATE TABLE `siades_sdgs` (
@@ -694,7 +702,7 @@ CREATE TABLE `siades_sdgs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `siades_sdgs`
+-- Dumping data untuk tabel `siades_sdgs`
 --
 
 INSERT INTO `siades_sdgs` (`id`, `slug`, `label`, `value`, `updated_by`, `created_at`, `update_at`) VALUES
@@ -720,7 +728,7 @@ INSERT INTO `siades_sdgs` (`id`, `slug`, `label`, `value`, `updated_by`, `create
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -744,44 +752,44 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id`, `email`, `username`, `fullname`, `admin_image`, `password_hash`, `reset_hash`, `reset_at`, `reset_expires`, `activate_hash`, `status`, `status_message`, `active`, `force_pass_reset`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(5, 'muhammadkhaerilzaid@gmail.com', 'Khaeril', '', 'default-admin.jpg', '$2y$10$p/ll6z8PmPDIKxKRn6uofuQqFMgcynci64KQy2O.b3pp3JFUVAzWG', NULL, NULL, NULL, 'f830d7373def6eb90ab63c63532b1eb1', NULL, NULL, 1, 0, '2023-06-02 13:27:40', '2023-06-02 13:27:40', NULL);
+(6, 'muhammadkhaerilzaid@gmail.com', 'kmz739165', '', 'default-admin.jpg', '$2y$10$fBln3LKZzUj2/YEkFBYES.bMJc6S3rgh04y3FwGtQBpjUrFFCIIQS', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2023-10-16 10:41:39', '2023-10-16 10:42:43', NULL);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `auth_activation_attempts`
+-- Indeks untuk tabel `auth_activation_attempts`
 --
 ALTER TABLE `auth_activation_attempts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `auth_groups`
+-- Indeks untuk tabel `auth_groups`
 --
 ALTER TABLE `auth_groups`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `auth_groups_permissions`
+-- Indeks untuk tabel `auth_groups_permissions`
 --
 ALTER TABLE `auth_groups_permissions`
   ADD KEY `auth_groups_permissions_permission_id_foreign` (`permission_id`),
   ADD KEY `group_id_permission_id` (`group_id`,`permission_id`);
 
 --
--- Indexes for table `auth_groups_users`
+-- Indeks untuk tabel `auth_groups_users`
 --
 ALTER TABLE `auth_groups_users`
   ADD KEY `auth_groups_users_user_id_foreign` (`user_id`),
   ADD KEY `group_id_user_id` (`group_id`,`user_id`);
 
 --
--- Indexes for table `auth_logins`
+-- Indeks untuk tabel `auth_logins`
 --
 ALTER TABLE `auth_logins`
   ADD PRIMARY KEY (`id`),
@@ -789,19 +797,19 @@ ALTER TABLE `auth_logins`
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indexes for table `auth_permissions`
+-- Indeks untuk tabel `auth_permissions`
 --
 ALTER TABLE `auth_permissions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `auth_reset_attempts`
+-- Indeks untuk tabel `auth_reset_attempts`
 --
 ALTER TABLE `auth_reset_attempts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `auth_tokens`
+-- Indeks untuk tabel `auth_tokens`
 --
 ALTER TABLE `auth_tokens`
   ADD PRIMARY KEY (`id`),
@@ -809,223 +817,223 @@ ALTER TABLE `auth_tokens`
   ADD KEY `selector` (`selector`);
 
 --
--- Indexes for table `auth_users_permissions`
+-- Indeks untuk tabel `auth_users_permissions`
 --
 ALTER TABLE `auth_users_permissions`
   ADD KEY `auth_users_permissions_permission_id_foreign` (`permission_id`),
   ADD KEY `user_id_permission_id` (`user_id`,`permission_id`);
 
 --
--- Indexes for table `migrations`
+-- Indeks untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `siades_aduan`
+-- Indeks untuk tabel `siades_aduan`
 --
 ALTER TABLE `siades_aduan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `siades_artikel`
+-- Indeks untuk tabel `siades_artikel`
 --
 ALTER TABLE `siades_artikel`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `siades_datadesa`
+-- Indeks untuk tabel `siades_datadesa`
 --
 ALTER TABLE `siades_datadesa`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `siades_datawilayah`
+-- Indeks untuk tabel `siades_datawilayah`
 --
 ALTER TABLE `siades_datawilayah`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `siades_idm`
+-- Indeks untuk tabel `siades_idm`
 --
 ALTER TABLE `siades_idm`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `siades_keuangan`
+-- Indeks untuk tabel `siades_keuangan`
 --
 ALTER TABLE `siades_keuangan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `siades_konfigurasi`
+-- Indeks untuk tabel `siades_konfigurasi`
 --
 ALTER TABLE `siades_konfigurasi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `siades_pages1`
+-- Indeks untuk tabel `siades_pages1`
 --
 ALTER TABLE `siades_pages1`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `siades_personildesa`
+-- Indeks untuk tabel `siades_personildesa`
 --
 ALTER TABLE `siades_personildesa`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `siades_sdgs`
+-- Indeks untuk tabel `siades_sdgs`
 --
 ALTER TABLE `siades_sdgs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `auth_activation_attempts`
+-- AUTO_INCREMENT untuk tabel `auth_activation_attempts`
 --
 ALTER TABLE `auth_activation_attempts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `auth_groups`
+-- AUTO_INCREMENT untuk tabel `auth_groups`
 --
 ALTER TABLE `auth_groups`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `auth_logins`
+-- AUTO_INCREMENT untuk tabel `auth_logins`
 --
 ALTER TABLE `auth_logins`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `auth_permissions`
+-- AUTO_INCREMENT untuk tabel `auth_permissions`
 --
 ALTER TABLE `auth_permissions`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `auth_reset_attempts`
+-- AUTO_INCREMENT untuk tabel `auth_reset_attempts`
 --
 ALTER TABLE `auth_reset_attempts`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `auth_tokens`
+-- AUTO_INCREMENT untuk tabel `auth_tokens`
 --
 ALTER TABLE `auth_tokens`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `siades_aduan`
+-- AUTO_INCREMENT untuk tabel `siades_aduan`
 --
 ALTER TABLE `siades_aduan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
--- AUTO_INCREMENT for table `siades_artikel`
+-- AUTO_INCREMENT untuk tabel `siades_artikel`
 --
 ALTER TABLE `siades_artikel`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 
 --
--- AUTO_INCREMENT for table `siades_datadesa`
+-- AUTO_INCREMENT untuk tabel `siades_datadesa`
 --
 ALTER TABLE `siades_datadesa`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT for table `siades_datawilayah`
+-- AUTO_INCREMENT untuk tabel `siades_datawilayah`
 --
 ALTER TABLE `siades_datawilayah`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
--- AUTO_INCREMENT for table `siades_idm`
+-- AUTO_INCREMENT untuk tabel `siades_idm`
 --
 ALTER TABLE `siades_idm`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
--- AUTO_INCREMENT for table `siades_keuangan`
+-- AUTO_INCREMENT untuk tabel `siades_keuangan`
 --
 ALTER TABLE `siades_keuangan`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `siades_konfigurasi`
+-- AUTO_INCREMENT untuk tabel `siades_konfigurasi`
 --
 ALTER TABLE `siades_konfigurasi`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT for table `siades_pages1`
+-- AUTO_INCREMENT untuk tabel `siades_pages1`
 --
 ALTER TABLE `siades_pages1`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `siades_personildesa`
+-- AUTO_INCREMENT untuk tabel `siades_personildesa`
 --
 ALTER TABLE `siades_personildesa`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT for table `siades_sdgs`
+-- AUTO_INCREMENT untuk tabel `siades_sdgs`
 --
 ALTER TABLE `siades_sdgs`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `auth_groups_permissions`
+-- Ketidakleluasaan untuk tabel `auth_groups_permissions`
 --
 ALTER TABLE `auth_groups_permissions`
   ADD CONSTRAINT `auth_groups_permissions_group_id_foreign` FOREIGN KEY (`group_id`) REFERENCES `auth_groups` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `auth_groups_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `auth_permissions` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `auth_groups_users`
+-- Ketidakleluasaan untuk tabel `auth_groups_users`
 --
 ALTER TABLE `auth_groups_users`
   ADD CONSTRAINT `auth_groups_users_group_id_foreign` FOREIGN KEY (`group_id`) REFERENCES `auth_groups` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `auth_groups_users_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `auth_tokens`
+-- Ketidakleluasaan untuk tabel `auth_tokens`
 --
 ALTER TABLE `auth_tokens`
   ADD CONSTRAINT `auth_tokens_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `auth_users_permissions`
+-- Ketidakleluasaan untuk tabel `auth_users_permissions`
 --
 ALTER TABLE `auth_users_permissions`
   ADD CONSTRAINT `auth_users_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `auth_permissions` (`id`) ON DELETE CASCADE,
