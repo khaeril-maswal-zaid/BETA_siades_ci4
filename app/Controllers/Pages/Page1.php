@@ -25,8 +25,8 @@ class Page1 extends BaseController
       $lembaga = str_replace("-", " ", $lembaga);
       $lembaga = ucwords($lembaga);
 
+      $this->page1model->where('idGroup', 1);
       $valuespage = $this->page1model->where('namepage', $lembaga)->first();
-      // dd($valuespage);
 
       if (!isset($valuespage)) {
          return view('errors/html/error_404');

@@ -58,6 +58,18 @@ class Siades_Pages1 extends Seeder
                 'created_at' => Time::now(),
                 'updated_at' => Time::now(),
             ],
+            [
+                'idGroup' => '',
+                'metadescription' => 'Default',
+                'slug' => 'visi-misi-desa',
+                'namepage' => 'Visi Misi Desa',
+                'nicknamepage' => 'Visi Misi',
+                'tentang' => 'Default',
+                'tupoksi' => 'Default',
+                'updated_by' => 'Default',
+                'created_at' => Time::now(),
+                'updated_at' => Time::now(),
+            ],
         ];
 
         // Simple Queries

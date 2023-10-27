@@ -25,6 +25,7 @@ class Index extends BaseController
       $rk = [];
       $rt = [];
       $CdRk = [];
+      $CdRt = [];
       $value = [];
       $CdRtRk = [];
 
@@ -92,6 +93,8 @@ class Index extends BaseController
          }
          $value[] = [array_sum($vL), array_sum($vR), array_sum($vKk)];
       }
+
+      // dd($CdRtRk);
 
       $data = [
          'templatelayaout' => $this->templatelayaout,
