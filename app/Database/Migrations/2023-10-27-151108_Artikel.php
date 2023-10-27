@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class SiadesIdm extends Migration
+class Artikel extends Migration
 {
     public function up()
     {
@@ -15,57 +15,43 @@ class SiadesIdm extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'group' => [
+            'time' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '10',
+            ],
+            'slug' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '250',
+            ],
+            'judul' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '200',
             ],
-            'idm' => [
+            'description' => [
+                'type'       => 'TEXT'
+            ],
+            'picture' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '200',
             ],
-            'skor' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '200',
+            'album' => [
+                'type'       => 'INT',
+                'constraint' => '1',
             ],
-            'keterangan' => [
+            'oleh' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '200',
+                'constraint' => '150',
             ],
-            'kegiatan' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '200',
+            'artikel' => [
+                'type'       => 'TEXT',
             ],
-            'nilai' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '200'
-            ],
-            'pusat' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '200'
-            ],
-            'prov' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '200'
-            ],
-            'kab' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '200'
-            ],
-            'des' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '200'
-            ],
-            'csr' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '200'
-            ],
-            'lainnya' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '200'
+            'view' => [
+                'type'       => 'INT',
+                'constraint' => '5',
             ],
             'updated_by' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '200'
+                'constraint' => '255',
             ],
             'created_at' => [
                 'type'       => 'DATETIME',
@@ -77,11 +63,11 @@ class SiadesIdm extends Migration
             ]
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('siades_idm');
+        $this->forge->createTable('siades_artikel');
     }
 
     public function down()
     {
-        $this->forge->dropTable('siades_idm');
+        $this->forge->dropTable('siades_artikel');
     }
 }

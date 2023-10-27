@@ -10,26 +10,28 @@
   </div>
 </div>
 
-<!-- Alamat Web Start -->
-<div class="container-fluid">
-  <div class="px-3">
+<!-- Petunjuk URL Start -->
+<div class="container-xxl">
+  <div class="container">
     <div class="alert alert-success py-2" role="alert">
       <a href="/"><i class="bi bi-house-door-fill"></i></a>
       <span class="px-1">/</span>
 
-      <span class="text-success">SDGS</span>
+      <span class="px-1">SDGS Desa</span>
     </div>
   </div>
 </div>
-<!-- Alamat Web Start -->
+<!-- Petunjuk URL Enad -->
 
-
-<div class="container-xxl py-5">
+<!-- Features Start -->
+<section class="container-xxl py-3">
   <div class="container">
-    <h1 class="display-5 text-primary">Status SDGS</h1>
-    <p class="fs-5 fw-bold text-primary mb-5"><?= FULLENGKAP ?></p>
 
-    <div class="row">
+    <h1 class="display-5 text-primary">SDGS Desa</h1>
+    <p class="fs-4 d-md-block d-none fw-bold text-primary mb-5"><?= FULLENGKAP ?></p>
+    <p class="d-md-none d-block fw-bold text-primary mb-5"><?= FULLENGKAP ?></p>
+
+    <div class="row g-5">
       <?php foreach ($sdgs as $value) : ?>
         <div class="col-md-2 col-sm-4 col-6 wow fadeInUp" data-wow-delay="0.1s">
           <div class="card mb-3 shadow bg-light border border-success rounded-3">
@@ -123,7 +125,7 @@
     </div>
 
   </div>
-</div>
+</section>
 
 
 <?php $this->endSection() ?>

@@ -8,72 +8,74 @@
   </div>
 </div>
 
-<!-- Alamat Web Start -->
-<div class="container-fluid">
-  <div class="px-3">
+<!-- Petunjuk URL Start -->
+<div class="container-xxl">
+  <div class="container">
     <div class="alert alert-success py-2" role="alert">
       <a href="/"><i class="bi bi-house-door-fill"></i></a>
       <span class="px-1">/</span>
-      <span class="text-success">Fitur Utama</span>
 
-      <span class="px-1">/</span>
-      <span class="text-success">Keuangan Desa</span>
+      <span class="px-1">Keuangan Desa</span>
     </div>
   </div>
 </div>
-<!-- Alamat Web Start -->
+<!-- Petunjuk URL Enad -->
 
-<div class="container-xxl py-5">
+<!-- Features Start -->
+<section class="container-xxl py-3">
   <div class="container">
-    <div class="mb-5">
-      <h1 class="display-5 text-primary">Keuangan Desa</h1>
-      <p class="fs-5 fw-bold text-primary"><?= FULLENGKAP ?></p>
-    </div>
 
-    <?php $iTit = 0;
-    foreach ($keuangan[0] as $value0) :
-    ?>
-      <div class="card border-primary mb-3">
-        <div class="card-header bg-primary text-white"><?= $value0['title'] ?></div>
-        <div class="card-body">
+    <h1 class="display-5 text-primary">Keuangan Desa</h1>
+    <p class="fs-4 d-md-block d-none fw-bold text-primary mb-5"><?= FULLENGKAP ?></p>
+    <p class="d-md-none d-block fw-bold text-primary mb-5"><?= FULLENGKAP ?></p>
 
-          <?php $iSub = 0;
-          foreach ($keuangan[1][$iTit++] as $value1) :
-          ?>
-            <h6 class="card-title"><?= $value1['subtitle'] ?></h6>
-            <table style="font-size: 80%!important;" class="table table-striped table-bordered mb-4">
-              <thead>
-                <tr>
-                  <th class="text-center" scope="col" style="width: 122px;">#</th>
-                  <th class="text-center" scope="col" style="width: 550px;">Uraian</th>
-                  <th class="text-center" scope="col">Angaran (Rp)</th>
-                  <th class="text-center" scope="col">Realisasi (Rp)</th>
-                  <th class="text-center" scope="col">Lebih/Kurang (Rp)</th>
-                </tr>
-              </thead>
-              <tbody>
 
-                <?php $iVal = 0;
-                foreach ($keuangan[2][$iTit - 1][$iSub++] as $value2) :
-                ?>
+    <div class="g-5 mt-4">
+      <?php $iTit = 0;
+      foreach ($keuangan[0] as $value0) :
+      ?>
+        <div class="card border-primary mb-3">
+          <div class="card-header bg-primary text-white"><?= $value0['title'] ?></div>
+          <div class="card-body overflow-auto">
+
+            <?php $iSub = 0;
+            foreach ($keuangan[1][$iTit++] as $value1) :
+            ?>
+              <h6 class="card-title"><?= $value1['subtitle'] ?></h6>
+              <table style="font-size: 80%!important;" class="table table-striped table-bordered mb-4">
+                <thead>
                   <tr>
-                    <th class="text-center" scope="row"><?= $value2['kode'] ?></th>
-                    <td><?= $value2['uraian'] ?></td>
-                    <td class="text-center"><?= number_format($value2['anggaran'], 0, ',', '.') ?></td>
-                    <td class="text-center"><?= number_format($value2['realisasi'], 0, ',', '.') ?></td>
-                    <td class="text-center"><?= number_format($value2['anggaran'] - $value2['realisasi'], 0, ',', '.') ?></td>
+                    <th class="text-center" scope="col" style="width: 122px;">#</th>
+                    <th class="text-center" scope="col" style="width: 550px;">Uraian</th>
+                    <th class="text-center" scope="col">Angaran (Rp)</th>
+                    <th class="text-center" scope="col">Realisasi (Rp)</th>
+                    <th class="text-center" scope="col">Lebih/Kurang (Rp)</th>
                   </tr>
-                <?php endforeach ?>
+                </thead>
+                <tbody>
 
-              </tbody>
-            </table>
-          <?php endforeach ?>
+                  <?php $iVal = 0;
+                  foreach ($keuangan[2][$iTit - 1][$iSub++] as $value2) :
+                  ?>
+                    <tr>
+                      <th class="text-center" scope="row"><?= $value2['kode'] ?></th>
+                      <td><?= $value2['uraian'] ?></td>
+                      <td class="text-center"><?= number_format($value2['anggaran'], 0, ',', '.') ?></td>
+                      <td class="text-center"><?= number_format($value2['realisasi'], 0, ',', '.') ?></td>
+                      <td class="text-center"><?= number_format($value2['anggaran'] - $value2['realisasi'], 0, ',', '.') ?></td>
+                    </tr>
+                  <?php endforeach ?>
 
+                </tbody>
+              </table>
+            <?php endforeach ?>
+
+          </div>
         </div>
-      </div>
-    <?php endforeach ?>
+      <?php endforeach ?>
+    </div>
   </div>
-</div>
+</section>
 
 
 <?php $this->endSection() ?>

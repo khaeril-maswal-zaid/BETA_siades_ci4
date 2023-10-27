@@ -21,7 +21,7 @@ class SiadesAparaturDesa extends Migration
             ],
             'slug' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '255',
+                'constraint' => '50',
             ],
             'class' => [
                 'type'       => 'VARCHAR',
@@ -37,15 +37,15 @@ class SiadesAparaturDesa extends Migration
             ],
             'alamat' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '255',
+                'constraint' => '155',
             ],
             'pendidikan' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '255',
+                'constraint' => '155',
             ],
             'kontak' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '100',
+                'constraint' => '50',
             ],
             'foto' => [
                 'type'       => 'VARCHAR',

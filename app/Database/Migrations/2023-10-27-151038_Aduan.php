@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class SiadesKonfigurasi extends Migration
+class Aduan extends Migration
 {
     public function up()
     {
@@ -15,25 +15,43 @@ class SiadesKonfigurasi extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'slug' => [
+            'nik' => [
+                'type'       => 'INT',
+                'constraint' => '16',
+            ],
+            'name' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
             ],
-            'label' => [
+            'email' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '200',
+                'constraint' => '150',
             ],
-            'value' => [
+            'hp' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '255'
+                'constraint' => '50',
             ],
-            'more' => [
+            'subject' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '300'
+                'constraint' => '255',
+            ],
+            'aduan' => [
+                'type'       => 'TEXT'
+            ],
+            'file' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '255',
+            ],
+            'status' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '70',
+            ],
+            'respon' => [
+                'type'       => 'TEXT',
             ],
             'updated_by' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '200'
+                'constraint' => '255',
             ],
             'created_at' => [
                 'type'       => 'DATETIME',
@@ -45,11 +63,11 @@ class SiadesKonfigurasi extends Migration
             ]
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('siades_konfigurasi');
+        $this->forge->createTable('siades_aduan');
     }
 
     public function down()
     {
-        $this->forge->dropTable('siades_konfigurasi');
+        $this->forge->dropTable('siades_aduan');
     }
 }

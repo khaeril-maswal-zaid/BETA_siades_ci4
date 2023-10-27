@@ -8,30 +8,29 @@
   </div>
 </div>
 
-<!-- Alamat Web Start -->
-<div class="container-fluid">
-  <div class="px-3">
+<!-- Petunjuk URL Start -->
+<div class="container-xxl">
+  <div class="container">
     <div class="alert alert-success py-2" role="alert">
       <a href="/"><i class="bi bi-house-door-fill"></i></a>
       <span class="px-1">/</span>
-      <span class="text-success">Fitur Utama</span>
 
-      <span class="px-1">/</span>
-      <span class="text-success">Status IDM</span>
+      <span class="px-1">IDM Desa</span>
     </div>
   </div>
 </div>
-<!-- Alamat Web Start -->
+<!-- Petunjuk URL Enad -->
 
-<div class="container-xxl py-5">
+<!-- Features Start -->
+<section class="container-xxl py-3">
   <div class="container">
-    <div class="mb-5">
-      <h1 class="display-5 text-primary">Status IDM</h1>
-      <p class="fs-5 fw-bold text-primary mb-5"><?= FULLENGKAP ?></p>
-    </div>
+
+    <h1 class="display-5 text-primary">IDM Desa</h1>
+    <p class="fs-4 d-md-block d-none fw-bold text-primary mb-5"><?= FULLENGKAP ?></p>
+    <p class="d-md-none d-block fw-bold text-primary mb-5"><?= FULLENGKAP ?></p>
 
     <!-- Isi Disini -->
-    <div class="row mb-5">
+    <div class="row mb-5 g-5">
       <div class="col-md-6 ">
         <div class="row">
           <div class="col-sm-6 mb-3 wow fadeInUp" data-wow-delay="0.3s">
@@ -204,5 +203,6 @@
       </table>
     </div>
   </div>
+</section>
 
-  <?php $this->endSection() ?>
+<?php $this->endSection() ?>

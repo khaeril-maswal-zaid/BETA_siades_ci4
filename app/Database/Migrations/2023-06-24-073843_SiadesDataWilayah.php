@@ -21,11 +21,11 @@ class SiadesDataWilayah extends Migration
             ],
             'rk' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '50',
+                'constraint' => '100',
             ],
             'rt' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '50',
+                'constraint' => '100',
             ],
             'kk' => [
                 'type'       => 'INT',

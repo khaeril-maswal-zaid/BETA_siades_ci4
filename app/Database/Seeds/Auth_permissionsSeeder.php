@@ -9,7 +9,7 @@ class Auth_permissionsSeeder extends Seeder
     public function run()
     {
         $data = [
-            'name' => ['manager', 'administrator', 'development'],
+            'name' => ['Publisher', 'Administrator', 'Developer'],
             'description'    => ['Mengelola keseluruhan Website mulai dari konfigurasi, tampilan hingga mengelola informasi', 'Sebagai pengelola informasi website', 'HANYA UNTUK KHAERIL MASWAL ZAID'],
         ];
 

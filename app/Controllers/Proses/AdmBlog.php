@@ -123,10 +123,10 @@ class AdmBlog extends BaseController
             'judul' => $this->request->getVar('judul'),
             'description' => $this->request->getVar('deskripsi'),
             'picture' => $picture,
-            'album' => '1', //1 Artinya True
+            'album' => 1, //1 Artinya True
             'oleh' => $oleh,
             'artikel' => $this->request->getVar('isinaArtikel'),
-            'visit' => '0'
+            'view' => 50
         ]);
 
 

@@ -85,9 +85,6 @@ phpunit
 #-------------------------
 vendor/
 
-# Kecuali folder "myth" di dalam "vendor"
-!vendor/myth/
-
 #-------------------------
 # IDE / Development Files
 #-------------------------

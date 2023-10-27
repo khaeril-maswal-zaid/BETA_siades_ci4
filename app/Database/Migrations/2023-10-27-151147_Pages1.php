@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class SiadesKonfigurasi extends Migration
+class Pages1 extends Migration
 {
     public function up()
     {
@@ -15,25 +15,35 @@ class SiadesKonfigurasi extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
+            'idGroup' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '11',
+            ],
+            'metadescription' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '355',
+            ],
             'slug' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '255',
+                'constraint' => '50',
             ],
-            'label' => [
+            'namepage' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '200',
+                'constraint' => '250',
             ],
-            'value' => [
+            'nicknamepage' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '255'
+                'constraint' => '50',
             ],
-            'more' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '300'
+            'tentang' => [
+                'type'       => 'TEXT'
+            ],
+            'tupoksi' => [
+                'type'       => 'TEXT'
             ],
             'updated_by' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '200'
+                'constraint' => '255',
             ],
             'created_at' => [
                 'type'       => 'DATETIME',
@@ -45,11 +55,11 @@ class SiadesKonfigurasi extends Migration
             ]
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('siades_konfigurasi');
+        $this->forge->createTable('siades_pages1');
     }
 
     public function down()
     {
-        $this->forge->dropTable('siades_konfigurasi');
+        $this->forge->dropTable('siades_pages1');
     }
 }
