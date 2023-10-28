@@ -3,7 +3,7 @@
 namespace App\Controllers\Blog;
 
 use App\Controllers\BaseController;
-
+use App\Models\AdminsModel;
 use App\Models\ArtikelModel;
 use App\Models\PersonilDesaModel;
 
@@ -31,6 +31,9 @@ class Index extends BaseController
             return view('errors/html/error_404');
         }
 
+        $admin = new AdminsModel();
+        $imageAdmin = $admin->getOne('image', 'fullname', $artikel['oleh']);
+
         $data = [
             'templatelayaout' => $this->templatelayaout,
 
@@ -39,7 +42,7 @@ class Index extends BaseController
             'metadescription' => $artikel['description'],
 
             'dataartikel' => $artikel,
-
+            'fotoadmin' => $imageAdmin,
             'personildesa' => $this->personildesa->personilAll('strukturdesa-kmz-165'),
         ];
 
@@ -58,6 +61,9 @@ class Index extends BaseController
             return view('errors/html/error_404');
         }
 
+        $admin = new AdminsModel();
+        $imageAdmin = $admin->getOne('image', 'fullname', $artikel['oleh']);
+
         $data = [
             'templatelayaout' => $this->templatelayaout,
 
@@ -66,7 +72,7 @@ class Index extends BaseController
             'metadescription' => $artikel['description'],
 
             'dataartikel' => $artikel,
-
+            'fotoadmin' => $imageAdmin,
             'personildesa' => $this->personildesa->personilAll('strukturdesa-kmz-165'),
         ];
 

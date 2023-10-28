@@ -31,11 +31,11 @@
    <div class="container">
       <div class="row g-5">
          <div class="col-lg-8 wow fadeInUp mt-2" data-wow-delay="0.1s">
-            <img src="/img/blog/<?= $dataartikel['picture'] ?>" alt="" class="mb-2 img-fluid w-100" style="object-fit: cover" />
+            <img src="/img/blog/<?= $dataartikel['picture'] ?>" alt="<?= $dataartikel['picture'] ?>" class="mb-2 img-fluid w-100" style="object-fit: cover" />
 
             <div class="d-flex mb-lg-3 mb-3" style="font-size: 77%">
                <div class="align-items-center">
-                  <img class="rounded-circle me-0" src="/img/admin/testimonial-2.jpg" width="20" height="20" alt="" />
+                  <img class="rounded-circle me-0" src="/img/admin/<?= $fotoadmin ?>" width="20" height="20" alt="<?= $fotoadmin ?>" />
                   <span class="m-1"><?= $dataartikel['oleh'] ?></span>
                </div>
                <div class="d-flex align-items-center">
@@ -48,7 +48,7 @@
             </h1>
 
             <div class="mb-4" style="font-size: 77%">
-               <a class="btn btn-primary text-uppercase btn-sm fw-semi-bold rounded-0 p-0 px-1 me-2" href="">Kabar Desa</a>
+               <span class="btn btn-primary btn-sm fw-semi-bold rounded-0 p-0 px-1 me-2">KABAR DESA</span>
                <span class="text-body">07 Maret 2023</span>
             </div>
 
