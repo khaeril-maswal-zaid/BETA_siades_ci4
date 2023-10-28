@@ -55,6 +55,7 @@ class SiadesAparaturDesa extends Migration
             'updated_by' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
+                'default'    => 'default'
             ],
             'created_at' => [
                 'type'       => 'DATETIME',

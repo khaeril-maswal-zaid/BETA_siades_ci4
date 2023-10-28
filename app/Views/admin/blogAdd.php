@@ -291,7 +291,7 @@
                 <div class="col-md-4">
                     <div class="form-floating mb-2">
                         <select name="oleh" class="form-select" id="olehselect" aria-label="Floating label select example">
-                            <option value="Admin" selected>Admin</option>
+                            <option value="<?= user()->fullname ?>" selected><?= user()->fullname ?></option>
                             <option value="">Lainnya</option>
                         </select>
                         <label for="olehselect">Oleh</label>

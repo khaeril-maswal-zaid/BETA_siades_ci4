@@ -331,6 +331,7 @@ class Index extends BaseController
         $CdRk = [];
         $value = [];
         $CdRtRk = [];
+        $CdRt = [];
 
         //DATA DUSUN----------
         $dusun = $this->datawilyahmodel->select('dusun')->distinct()->findAll();

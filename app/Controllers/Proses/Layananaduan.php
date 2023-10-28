@@ -111,7 +111,7 @@ class Layananaduan extends BaseController
     {
         $this->aduanmodel->update($idDelete, [
             'status' => 'Sedang diproses',
-            'updated_by' => 'BELUM',
+            'updated_by' => user()->fullname,
             'respon' => $this->request->getVar('respon')
         ]);
 

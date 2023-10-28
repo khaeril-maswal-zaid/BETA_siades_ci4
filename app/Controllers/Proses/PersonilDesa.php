@@ -34,7 +34,7 @@ class PersonilDesa extends BaseController
             'pendidikan' => $this->request->getVar('pendidikan'),
             'kontak' => $this->request->getVar('kontak'),
             'foto' => $bakalslug . '_' . $fotoajax,
-            'updated_by' => 'Admin'
+            'updated_by' => user()->fullname
         ]);
 
         // Meskipun sudah ada validasi untuk menghindari terhpus Folder 'sementarabyajax'
@@ -95,7 +95,7 @@ class PersonilDesa extends BaseController
 
             $this->personaildesamodel->update($idUpdate, [
                 'foto' => $bakalslug . '_' . $fotoajax,
-                'updated_by' => 'BELUM'
+                'updated_by' => user()->fullname
             ]);
 
             $pesansession = 'Foto berhasil diperbarui';
@@ -107,6 +107,6 @@ class PersonilDesa extends BaseController
 
 
         session()->setFlashdata('updateData', $pesansession);
-        return redirect()->to(base_url() . 'admindes/' . $bacaslug);
+        return redirect()->to(base_url('admindes/' . $bacaslug));
     }
 }

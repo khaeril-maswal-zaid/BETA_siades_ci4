@@ -47,7 +47,7 @@ class Updatelembaga extends BaseController
             'slug' => url_title($this->request->getVar('singkatanlembaga'), '-', true) . '-kmz-165',
             'namepage' => $this->request->getVar('namalembaga'),
             'nicknamepage' => $this->request->getVar('singkatanlembaga'),
-            'updated_by' => 'Admin'
+            'updated_by' => user()->fullname
         ]);
 
         session()->setFlashdata('updateData', 'Lembaga baru berhasil ditambahkan');

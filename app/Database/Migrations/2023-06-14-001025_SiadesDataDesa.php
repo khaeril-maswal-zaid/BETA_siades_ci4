@@ -18,6 +18,7 @@ class SiadesDataDesa extends Migration
             'slug' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
+                'default'    => 'Doubel klik ki untuk edit'
             ],
             'label' => [
                 'type'       => 'VARCHAR',
@@ -26,14 +27,17 @@ class SiadesDataDesa extends Migration
             'val_lk' => [
                 'type'       => 'INT',
                 'constraint' => '11',
+                'default'    => 123
             ],
             'val_pr' => [
                 'type'       => 'INT',
                 'constraint' => '11',
+                'default'    => 123
             ],
             'updated_by' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '200',
+                'default'    => 'default'
             ],
             'created_at' => [
                 'type'       => 'DATETIME',
@@ -41,7 +45,7 @@ class SiadesDataDesa extends Migration
             ],
             'updated_at' => [
                 'type'       => 'DATETIME',
-                'null'       => true
+                'null'       => true,
             ]
         ]);
         $this->forge->addKey('id', true);

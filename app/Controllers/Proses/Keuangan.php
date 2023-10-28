@@ -29,7 +29,7 @@ class Keuangan extends BaseController
             'uraian' => $this->request->getVar('uraian'),
             'anggaran' => $this->request->getVar('anggaran'),
             'realisasi' => $this->request->getVar('realisasi'),
-            'updated_by' => 'BELUM',
+            'updated_by' =>  user()->fullname,
         ]);
 
         session()->setFlashdata('updateData', 'Data berhasil ditambahkan');

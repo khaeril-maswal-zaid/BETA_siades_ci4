@@ -50,7 +50,7 @@
                                     <th class="text-center  align-middle" scope="col">Angaran (Rp)</th>
                                     <th class="text-center  align-middle" scope="col">Realisasi (Rp)</th>
                                     <th class="text-center  align-middle" scope="col">Lebih/Kurang (Rp)</th>
-                                    <th class="text-center  align-middle" scope="col">Update By</th>
+                                    <th class="text-center  align-middle" scope="col">Added By</th>
                                 </tr>
                             </thead>
                             <tbody>

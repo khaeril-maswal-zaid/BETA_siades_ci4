@@ -42,6 +42,7 @@ class Artikel extends Migration
             'oleh' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '150',
+                'default'    => 'default'
             ],
             'artikel' => [
                 'type'       => 'TEXT',

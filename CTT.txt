@@ -1,0 +1,15 @@
+# MYTH AOUTH :
+----------------
+1. DATABASE -> MIGRATE :             
+        'fullname'         => ['type' => 'varchar', 'constraint' => 250, 'null' => true],
+        'image'            => ['type' => 'varchar', 'constraint' => 250, 'default' => 'default.jpg'],
+
+2. CONFIQ -> Auth -> View :
+        'login'           => 'App\Views\myth-auth\login',
+        'register'        => 'App\Views\myth-auth\register',
+
+3. CONFIQ -> Auth -> More :
+        public $allowRemembering = true;
+        public $rememberLength = 3 * DAY;
+
+---------------------------------------------------------------------------

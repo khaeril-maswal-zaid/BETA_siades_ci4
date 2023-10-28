@@ -94,6 +94,8 @@ function doubleClickEdit(sTable) {
     rows[i].addEventListener("dblclick", function (event) {
       var target = event.target;
 
+      console.log("ok");
+
       if (
         target.tagName.toLowerCase() === "td" &&
         target.classList.contains("edit-dbClick")

@@ -38,7 +38,7 @@ class Konfigurasi extends BaseController
             'label' => $this->request->getVar('label'),
             'value' => $this->request->getVar('value'),
             'more' => $more,
-            'updated_by' => 'Admin'
+            'updated_by' =>  user()->fullname
         ]);
 
         session()->setFlashdata('updateData', 'Lembaga baru berhasil ditambahkan');

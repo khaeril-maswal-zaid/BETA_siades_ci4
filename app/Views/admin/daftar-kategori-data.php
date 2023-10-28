@@ -35,6 +35,7 @@
 
 
     <!-- TIDAK MEMBUAT EDIT dbClick KARENA AKAN MEMBUAT KATEGORI DATA BERTAMBAH SETELAH DI EDIT -->
+    <!-- TIDAK MEMBUAT EDIT dbClick KARENA AKAN MEMBUAT KATEGORI DATA BERTAMBAH SETELAH DI EDIT -->
     <!-- <table class="table table-striped table-bordered" id="daftar-kategori-data" data-tabelsiades="<?= caesarCipherReverse($tabeldtb); ?>"> -->
     <table class="table table-striped table-bordered" data-tabelsiades="<?= caesarCipherReverse($tabeldtb); ?>">
         <thead>
@@ -42,7 +43,7 @@
                 <th>Aksi</th>
                 <th>No</th>
                 <th>Kategori Data</th>
-                <th>Updated By</th>
+                <th>Added By</th>
             </tr>
         </thead>
 
