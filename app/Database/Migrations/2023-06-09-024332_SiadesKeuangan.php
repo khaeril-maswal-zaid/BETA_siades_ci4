@@ -32,16 +32,17 @@ class SiadesKeuangan extends Migration
                 'constraint' => '200'
             ],
             'anggaran' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '75'
+                'type'       => 'INT',
+                'constraint' => '11'
             ],
             'realisasi' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '75'
+                'type'       => 'INT',
+                'constraint' => '11'
             ],
             'updated_by' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '200'
+                'constraint' => '200',
+                'default'   => 'default'
             ],
             'created_at' => [
                 'type'       => 'DATETIME',

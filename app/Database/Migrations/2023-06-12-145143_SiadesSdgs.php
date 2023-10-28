@@ -29,7 +29,8 @@ class SiadesSdgs extends Migration
             ],
             'updated_by' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '200'
+                'constraint' => '200',
+                'default'   => 'default'
             ],
             'created_at' => [
                 'type'       => 'DATETIME',

@@ -29,59 +29,60 @@
         </div>
     <?php endif ?>
 
-    <?php $iTit = 0;
-    foreach ($keuangan[0] as $value0) :
-    ?>
-        <div class="card border-primary mb-3">
-            <div class="card-header bg-primary text-white"><?= $value0['title'] ?></div>
-            <div class="card-body" id="<?= url_title('Keuangan Desa ' . DESA, '-', true) ?>" data-tabelsiades="<?= caesarCipherReverse($tabeldtb); ?>">
+    <div id="<?= url_title('Keuangan Desa ' . DESA, '-', true) ?>" data-tabelsiades="<?= caesarCipherReverse($tabeldtb); ?>">
+        <?php $iTit = 0;
+        foreach ($keuangan[0] as $value0) :
+        ?>
+            <div class="card border-primary mb-3">
+                <div class="card-header bg-primary text-white"><?= $value0['title'] ?></div>
+                <div class="card-body">
 
-                <?php $iSub = 0;
-                foreach ($keuangan[1][$iTit++] as $value1) :
-                ?>
-                    <h6 class="card-title"><?= $value1['subtitle'] ?></h6>
-                    <table style="font-size: 80%!important;" class="table table-striped table-bordered mb-4">
-                        <thead>
-                            <tr>
-                                <th scope="col" rowspan="2" class="text-center align-middle">Aksi</th>
-                                <th class="text-center  align-middle" scope="col" style="width: 122px;">#</th>
-                                <th class="text-center  align-middle" scope="col" style="width: 550px;">Uraian</th>
-                                <th class="text-center  align-middle" scope="col">Angaran (Rp)</th>
-                                <th class="text-center  align-middle" scope="col">Realisasi (Rp)</th>
-                                <th class="text-center  align-middle" scope="col">Lebih/Kurang (Rp)</th>
-                                <th class="text-center  align-middle" scope="col">Update By</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <?php $iVal = 0;
-                            foreach ($keuangan[2][$iTit - 1][$iSub++] as $value2) :
-                            ?>
+                    <?php $iSub = 0;
+                    foreach ($keuangan[1][$iTit++] as $value1) :
+                    ?>
+                        <h6 class="card-title"><?= $value1['subtitle'] ?></h6>
+                        <table style="font-size: 80%!important;" class="table table-striped table-bordered mb-4">
+                            <thead>
                                 <tr>
-                                    <td class="text-center">
-                                        <form action="/adm-proses/delete-keuangan/<?= convertToLetter($value2['id']) ?>" method="post">
-                                            <?= csrf_field() ?>
-                                            <input type="hidden" name="_method" value="DELETE">
-                                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin mau menghapus ?')">Hapus</button>
-                                        </form>
-                                    </td>
-                                    <td class="text-center  align-middle" scope="row"><?= $value2['kode'] ?></th>
-                                    <td class="align-middle edit-dbClick" data-id="<?= convertToLetter($value2['id']) ?>" data-colum="<?= caesarCipherReverse('uraian'); ?>"><?= $value2['uraian'] ?></td>
-                                    <td class="text-center align-middle edit-dbClick" data-id="<?= convertToLetter($value2['id']) ?>" data-colum="<?= caesarCipherReverse('anggaran'); ?>"><?= number_format($value2['anggaran'], 0, ',', '.') ?></td>
-                                    <td class="text-center align-middle edit-dbClick" data-id="<?= convertToLetter($value2['id']) ?>" data-colum="<?= caesarCipherReverse('realisasi'); ?>"><?= number_format($value2['realisasi'], 0, ',', '.') ?></td>
-                                    <td class="text-center align-middle"><?= number_format($value2['anggaran'] - $value2['realisasi'], 0, ',', '.') ?></td>
-                                    <td class=" align-middle"><?= $value2['updated_by'] ?></td>
+                                    <th scope="col" rowspan="2" class="text-center align-middle">Aksi</th>
+                                    <th class="text-center  align-middle" scope="col" style="width: 122px;">#</th>
+                                    <th class="text-center  align-middle" scope="col" style="width: 550px;">Uraian</th>
+                                    <th class="text-center  align-middle" scope="col">Angaran (Rp)</th>
+                                    <th class="text-center  align-middle" scope="col">Realisasi (Rp)</th>
+                                    <th class="text-center  align-middle" scope="col">Lebih/Kurang (Rp)</th>
+                                    <th class="text-center  align-middle" scope="col">Update By</th>
                                 </tr>
-                            <?php endforeach ?>
+                            </thead>
+                            <tbody>
 
-                        </tbody>
-                    </table>
-                <?php endforeach ?>
+                                <?php $iVal = 0;
+                                foreach ($keuangan[2][$iTit - 1][$iSub++] as $value2) :
+                                ?>
+                                    <tr>
+                                        <td class="text-center">
+                                            <form action="/adm-proses/delete-keuangan/<?= convertToLetter($value2['id']) ?>" method="post">
+                                                <?= csrf_field() ?>
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin mau menghapus ?')">Hapus</button>
+                                            </form>
+                                        </td>
+                                        <td class="text-center  align-middle" scope="row"><?= $value2['kode'] ?></th>
+                                        <td class="align-middle edit-dbClick" data-id="<?= convertToLetter($value2['id']) ?>" data-colum="<?= caesarCipherReverse('uraian'); ?>"><?= $value2['uraian'] ?></td>
+                                        <td class="text-center align-middle edit-dbClick" data-id="<?= convertToLetter($value2['id']) ?>" data-colum="<?= caesarCipherReverse('anggaran'); ?>"><?= number_format($value2['anggaran'], 0, ',', '.') ?></td>
+                                        <td class="text-center align-middle edit-dbClick" data-id="<?= convertToLetter($value2['id']) ?>" data-colum="<?= caesarCipherReverse('realisasi'); ?>"><?= number_format($value2['realisasi'], 0, ',', '.') ?></td>
+                                        <td class="text-center align-middle"><?= number_format($value2['anggaran'] - $value2['realisasi'], 0, ',', '.') ?></td>
+                                        <td class=" align-middle"><?= $value2['updated_by'] ?></td>
+                                    </tr>
+                                <?php endforeach ?>
 
+                            </tbody>
+                        </table>
+                    <?php endforeach ?>
+
+                </div>
             </div>
-        </div>
-    <?php endforeach ?>
-
+        <?php endforeach ?>
+    </div>
 </main>
 
 <!-- Modal -->
@@ -137,13 +138,13 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-floating mb-2">
-                                <input autocomplete="off" type="text" class="form-control" id="cc" placeholder="Anggaran" name="anggaran">
+                                <input autocomplete="off" type="number" class="form-control" id="cc" placeholder="Anggaran" name="anggaran">
                                 <label for="cc">Anggaran</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-floating mb-2">
-                                <input autocomplete="off" type="text" class="form-control" id="ccx" placeholder="Realisasi" name="realisasi">
+                                <input autocomplete="off" type="number" class="form-control" id="ccx" placeholder="Realisasi" name="realisasi">
                                 <label for="ccx">Realisasi</label>
                             </div>
                         </div>
