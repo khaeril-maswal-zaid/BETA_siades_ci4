@@ -50,7 +50,7 @@
                                  <h5 class="mb-0"><?= $personil['nama'] ?></h5>
                                  <span><?= $personil['jabatan'] ?></span>
                                  <div class="d-flex team-social mt-3">
-                                    <a class="btn btn-lg-square rounded-circle mx-2" href="/img/personil/team-1.jpg" data-lightbox="aparatur"><i class="fa fa-eye"></i></a>
+                                    <a class="btn btn-lg-square rounded-circle mx-2" href="/img/personil/default.png" data-lightbox="aparatur"><i class="fa fa-eye"></i></a>
                                     <a class="btn btn-lg-square rounded-circle mx-2" href="/struktur-desa"><i class="fa fa-link"></i></a>
                                  </div>
                               </div>

@@ -11,7 +11,7 @@ class Siades_datawilayah extends Seeder
     {
         $data = [
             [
-                'dusun' => 'Samaenre',
+                'dusun' => 'Wakanda Timur',
                 'rk' => '001',
                 'rt' => '001',
                 'kk' => '123',
@@ -21,7 +21,7 @@ class Siades_datawilayah extends Seeder
                 'updated_at' => Time::now(),
             ],
             [
-                'dusun' => 'Samaenre',
+                'dusun' => 'Wakanda Timur',
                 'rk' => '001',
                 'rt' => '002',
                 'kk' => '123',
@@ -31,7 +31,7 @@ class Siades_datawilayah extends Seeder
                 'updated_at' => Time::now(),
             ],
             [
-                'dusun' => 'Samaenre',
+                'dusun' => 'Wakanda Timur',
                 'rk' => '002',
                 'rt' => '003',
                 'kk' => '123',
@@ -41,7 +41,7 @@ class Siades_datawilayah extends Seeder
                 'updated_at' => Time::now(),
             ],
             [
-                'dusun' => 'Samaenre',
+                'dusun' => 'Wakanda Timur',
                 'rk' => '002',
                 'rt' => '004',
                 'kk' => '123',
@@ -51,7 +51,7 @@ class Siades_datawilayah extends Seeder
                 'updated_at' => Time::now(),
             ],
             [
-                'dusun' => 'Samaenre',
+                'dusun' => 'Wakanda Timur',
                 'rk' => '003',
                 'rt' => '005',
                 'kk' => '123',
@@ -61,7 +61,7 @@ class Siades_datawilayah extends Seeder
                 'updated_at' => Time::now(),
             ],
             [
-                'dusun' => 'Samaenre',
+                'dusun' => 'Wakanda Timur',
                 'rk' => '003',
                 'rt' => '006',
                 'kk' => '123',
@@ -71,7 +71,7 @@ class Siades_datawilayah extends Seeder
                 'updated_at' => Time::now(),
             ],
             [
-                'dusun' => 'Kayu Putih',
+                'dusun' => 'Wakanda Barat',
                 'rk' => '001',
                 'rt' => '001',
                 'kk' => '123',
@@ -81,7 +81,7 @@ class Siades_datawilayah extends Seeder
                 'updated_at' => Time::now(),
             ],
             [
-                'dusun' => 'Kayu Putih',
+                'dusun' => 'Wakanda Barat',
                 'rk' => '001',
                 'rt' => '002',
                 'kk' => '123',
@@ -91,7 +91,7 @@ class Siades_datawilayah extends Seeder
                 'updated_at' => Time::now(),
             ],
             [
-                'dusun' => 'Kayu Putih',
+                'dusun' => 'Wakanda Barat',
                 'rk' => '002',
                 'rt' => '003',
                 'kk' => '123',
@@ -101,7 +101,7 @@ class Siades_datawilayah extends Seeder
                 'updated_at' => Time::now(),
             ],
             [
-                'dusun' => 'Kayu Putih',
+                'dusun' => 'Wakanda Barat',
                 'rk' => '002',
                 'rt' => '004',
                 'kk' => '123',
@@ -111,7 +111,7 @@ class Siades_datawilayah extends Seeder
                 'updated_at' => Time::now(),
             ],
             [
-                'dusun' => 'Kayu Putih',
+                'dusun' => 'Wakanda Barat',
                 'rk' => '003',
                 'rt' => '005',
                 'kk' => '123',
@@ -121,7 +121,7 @@ class Siades_datawilayah extends Seeder
                 'updated_at' => Time::now(),
             ],
             [
-                'dusun' => 'Kayu Putih',
+                'dusun' => 'Wakanda Barat',
                 'rk' => '003',
                 'rt' => '006',
                 'kk' => '123',
@@ -131,7 +131,7 @@ class Siades_datawilayah extends Seeder
                 'updated_at' => Time::now(),
             ],
             [
-                'dusun' => 'Batu Eja',
+                'dusun' => 'Wakanda Tengah',
                 'rk' => '001',
                 'rt' => '002',
                 'kk' => '123',
@@ -141,7 +141,7 @@ class Siades_datawilayah extends Seeder
                 'updated_at' => Time::now(),
             ],
             [
-                'dusun' => 'Batu Eja',
+                'dusun' => 'Wakanda Tengah',
                 'rk' => '002',
                 'rt' => '003',
                 'kk' => '123',
@@ -151,7 +151,7 @@ class Siades_datawilayah extends Seeder
                 'updated_at' => Time::now(),
             ],
             [
-                'dusun' => 'Batu Eja',
+                'dusun' => 'Wakanda Tengah',
                 'rk' => '002',
                 'rt' => '004',
                 'kk' => '123',
@@ -161,7 +161,7 @@ class Siades_datawilayah extends Seeder
                 'updated_at' => Time::now(),
             ],
             [
-                'dusun' => 'Batu Eja',
+                'dusun' => 'Wakanda Tengah',
                 'rk' => '003',
                 'rt' => '005',
                 'kk' => '123',
@@ -171,7 +171,7 @@ class Siades_datawilayah extends Seeder
                 'updated_at' => Time::now(),
             ],
             [
-                'dusun' => 'Batu Eja',
+                'dusun' => 'Wakanda Tengah',
                 'rk' => '003',
                 'rt' => '006',
                 'kk' => '123',

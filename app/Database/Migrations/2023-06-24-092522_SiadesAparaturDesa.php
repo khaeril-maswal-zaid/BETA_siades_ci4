@@ -50,6 +50,7 @@ class SiadesAparaturDesa extends Migration
             'foto' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
+                'default' => 'default.jpg',
             ],
             'updated_by' => [
                 'type'       => 'VARCHAR',

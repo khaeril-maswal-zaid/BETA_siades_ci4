@@ -33,6 +33,7 @@ class Artikel extends Migration
             'picture' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '200',
+                'default'   => 'default.jpg'
             ],
             'album' => [
                 'type'       => 'INT',
@@ -48,10 +49,6 @@ class Artikel extends Migration
             'view' => [
                 'type'       => 'INT',
                 'constraint' => '5',
-            ],
-            'updated_by' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '255',
             ],
             'created_at' => [
                 'type'       => 'DATETIME',

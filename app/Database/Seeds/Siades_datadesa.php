@@ -93,15 +93,6 @@ class Siades_datadesa extends Seeder
             ],
             [
                 'slug' => 'Data Status Perkawinan',
-                'label' => 'BPJS Bantuan Daerah',
-                'val_lk' => '123',
-                'val_pr' => '123',
-                'updated_by' => 'admin',
-                'created_at' => Time::now(),
-                'updated_at' => Time::now(),
-            ],
-            [
-                'slug' => 'Data Status Perkawinan',
                 'label' => 'KAWIN',
                 'val_lk' => '123',
                 'val_pr' => '123',
