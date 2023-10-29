@@ -50,8 +50,12 @@ $routes->get('/layanan-pengaduan', 'Pages\Page7::index');
 
 //Fitur Utama
 $routes->get('/sdgs-desa', 'Fiturutama\Fitur1::index');
+$routes->get('/sdgs-desa/(:num)', 'Fiturutama\Fitur1::index/$1');
+
 $routes->get('/keuangan-dasa', 'Fiturutama\Fitur2::index');
+
 $routes->get('/status-idm', 'Fiturutama\Fitur3::index');
+$routes->get('/status-idm/(:num)', 'Fiturutama\Fitur3::index/$1');
 
 //Proses---------------------------------------------------
 //----------------------------------------------------------

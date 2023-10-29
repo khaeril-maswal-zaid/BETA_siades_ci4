@@ -16,8 +16,11 @@ class Fitur1 extends BaseController
         $this->sdgsmodel = new SdgsModel();
     }
 
-    public function index()
+    public function index($tahun = false)
     {
+        if ($tahun == false) {
+            $tahun = date('Y');
+        }
 
         $data = [
             'templatelayaout' => $this->templatelayaout,
@@ -26,7 +29,8 @@ class Fitur1 extends BaseController
             'metakeywords' => 'SDGS ' . FULLENGKAP . ', SDGS Desa  Terbaik,',
             'metadescription' => 'SDGS ' . FULLENGKAP,
 
-            'sdgs' => $this->sdgsmodel->findAll()
+            'sdgs' => $this->sdgsmodel->where('tahun', $tahun)->findAll(),
+            'tahun' => $tahun
         ];
 
         return view('fiturutama/fitur1', $data);

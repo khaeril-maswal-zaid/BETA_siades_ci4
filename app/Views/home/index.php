@@ -141,7 +141,7 @@
                 <div class="col-4 col-lg-2 mb-2 wow fadeInDown px-1" data-wow-delay="0.3s">
                     <div class="rounded shadow py-2 text-center border border-success">
                         <span class="text-sm tracking-widest capitalize text-primary">
-                            <img src="img/assets/moon.png" alt="" width="37" /><span>Imsak</span>
+                            <img src="img/assets/moon.png" alt="Imsak" width="37" /><span>Imsak</span>
                         </span>
 
                         <h3 class="card-subtitle mt-2 mb-1">04:34</h3>
@@ -150,7 +150,7 @@
                 <div class="col-4 col-lg-2 mb-2 wow fadeInDown px-1" data-wow-delay="0.3s">
                     <div class="rounded shadow py-2 text-center border border-success">
                         <span class="text-sm tracking-widest capitalize text-primary">
-                            <img src="img/assets/moon.png" alt="" width="37" /><span>Subuh</span>
+                            <img src="img/assets/moon.png" alt="Subuh" width="37" /><span>Subuh</span>
                         </span>
 
                         <h3 class="card-subtitle mt-2 mb-1">04:34</h3>
@@ -159,7 +159,7 @@
                 <div class="col-4 col-lg-2 mb-2 wow fadeInDown px-1" data-wow-delay="0.3s">
                     <div class="rounded shadow py-2 text-center border border-success">
                         <span class="text-sm tracking-widest capitalize text-primary">
-                            <img src="img/assets/moon.png" alt="" width="37" /><span>Isyah</span>
+                            <img src="img/assets/moon.png" alt="Isyah" width="37" /><span>Isyah</span>
                         </span>
 
                         <h3 class="card-subtitle mt-2 mb-1">04:34</h3>
@@ -168,7 +168,7 @@
                 <div class="col-4 col-lg-2 mb-2 wow fadeInDown px-1" data-wow-delay="0.3s">
                     <div class="rounded shadow py-2 text-center border border-success">
                         <span class="text-sm tracking-widest capitalize text-primary">
-                            <img src="img/assets/moon.png" alt="" width="37" /><span>Zhuhur
+                            <img src="img/assets/moon.png" alt="Zhuhur" width="37" /><span>Zhuhur
                             </span>
                         </span>
 
@@ -178,7 +178,7 @@
                 <div class="col-4 col-lg-2 mb-2 wow fadeInDown px-1" data-wow-delay="0.3s">
                     <div class="rounded shadow py-2 text-center border border-success">
                         <span class="text-sm tracking-widest capitalize text-primary">
-                            <img src="img/assets/moon.png" alt="" width="37" /><span>Ashar</span>
+                            <img src="img/assets/moon.png" alt="Ashar" width="37" /><span>Ashar</span>
                         </span>
 
                         <h3 class="card-subtitle mt-2 mb-1">04:34</h3>
@@ -187,7 +187,7 @@
                 <div class="col-4 col-lg-2 mb-2 wow fadeInDown px-1" data-wow-delay="0.3s">
                     <div class="rounded shadow py-2 text-center border border-success">
                         <span class="text-sm tracking-widest capitalize text-primary">
-                            <img src="img/assets/moon.png" alt="" width="37" /><span style="font-size: 80%">Maghrib</span>
+                            <img src="img/assets/moon.png" alt="Maghrib" width="37" /><span style="font-size: 80%">Maghrib</span>
                         </span>
 
                         <h3 class="card-subtitle mt-2 mb-1">04:34</h3>
@@ -208,24 +208,18 @@
             <div class="col-md-8 col-lg-9">
                 <div class="row">
                     <div class="col-lg-4 col-sm-5 col-md-12 wow fadeInUp mb-3" data-wow-delay="0.1s">
-                        <img class="img-fluid rounded d-none d-sm-block d-md-none d-lg-block" data-wow-delay="0.1s" src="img/blog/potensi.jpg" />
-                        <img class="img-fluid rounded d-block d-md-block d-sm-none d-lg-none" data-wow-delay="0.1s" src="img/blog/potensi-full.jpg" />
+                        <img class="img-fluid rounded d-none d-sm-block d-md-none d-lg-block" data-wow-delay="0.1s" src="img/blog/<?= $potensi['picture'] ?>" />
+                        <img class="img-fluid rounded d-block d-md-block d-sm-none d-lg-none" data-wow-delay="0.1s" src="img/blog/<?= $potensi['picture'] ?>" />
                     </div>
 
                     <div class="col-lg-8 col-sm-7 col-md-12 wow fadeInUp ps-lg-2 pe-lg-4 mh-100" data-wow-delay="0.3s">
                         <h1 class="display-4 text-primary mb-2">
                             Potensi Desa <?= DESA ?>
                         </h1>
-                        <h3 class="">Potensi Limbah Kulit Jagung</h3>
+                        <h3 class="-"><?= $potensi['judul'] ?></h3>
                         <p class="mb-4 overflow-hidden">
-                            Salah satu kekayaan alam yang ada di desa lunjen dan menjadi
-                            sumber penghasilan masyarakat adalah tanaman jagung. Jagung
-                            merupakan tanaman pangan sebagai penghasil karbohidrat yang
-                            terpenting selain gandum dan padi, Jagung merupakan salah satu
-                            kekayaan dan menjadi sumber penghasilan masyarakat didesa
-                            lunjen. Karena secara umum masyarakat berpegang dari hasi
-                            jagung ini, sehingga mau tidak mau limbah kulit jagung
-                            menumpuk disepanjang area kebun masyarakat
+                            <?= batasiKarakter($potensi['description'], 457) ?>
+                            BUAT DESKRIPSINYA DENGAN MAKSIMAL 457 + CONTOH JUDUL "Potensi Limbah Kulit Jagung"
                         </p>
                         <a class="btn btn-primary btn-sm py-2 px-3" href="/potensi-desa">Selengkapnya...</a>
                     </div>
@@ -307,7 +301,7 @@
 <section class="container-xxl py-5">
     <div class="container">
         <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px">
-            <p class="fs-5 fw-bold text-primary"><?= $today ?></p>
+            <p class="fs-5 fw-bold text-primary"><?= dateIna_helper() ?></p>
             <h1 class="display-5 mb-5">Kabar Desa Terkini</h1>
         </div>
         <div class="row g-4">
@@ -316,9 +310,9 @@
                 <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="service-item rounded d-flex h-100">
                         <div class="service-img rounded">
-                            <img class="img-fluid" src="/img/blog/<?= $artikel['picture'] ?>" alt="" />
+                            <img class="img-fluid" src="/img/blog/<?= $artikel['picture'] ?>" alt="<?= $artikel['picture'] ?>" />
                         </div>
-                        <div class=" service-text rounded p-5">
+                        <div class="service-text rounded p-5 w-100">
                             <div class="btn-square rounded-circle mx-auto mb-3">
                                 <img class="img-fluid" src="img/assets/icon-6.png" alt="Icon" />
                             </div>
@@ -344,7 +338,7 @@
             <h1 class="display-5 text-primary mb-3">Peta Desa <?= DESA ?></h1>
 
             <div class="overflowhidden border border-3 border-success rounded">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12428.04460640446!2d120.41324731012118!3d-5.488315148052575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbc0972e26dcbb5%3A0x32c1c4177d63233d!2sPakubalaho%2C%20Kec.%20Bonto%20Tiro%2C%20Kabupaten%20Bulukumba%2C%20Sulawesi%20Selatan!5e0!3m2!1sid!2sid!4v1684291021556!5m2!1sid!2sid" width="100%" height="450" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="<?= LINKMAPS ?>" width="100%" height="450" style="border: 0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
         <div class="col-lg-4 px-3 pt-4 px-lg-0 wow fadeInDown" data-wow-delay="0.1s">

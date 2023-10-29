@@ -27,7 +27,7 @@
 <section class="container-xxl py-3">
   <div class="container">
 
-    <h1 class="display-5 text-primary">SDGS Desa</h1>
+    <h1 class="display-5 text-primary">SDGS Desa Tahun <?= $tahun ?></h1>
     <p class="fs-4 d-md-block d-none fw-bold text-primary mb-5"><?= FULLENGKAP ?></p>
     <p class="d-md-none d-block fw-bold text-primary mb-5"><?= FULLENGKAP ?></p>
 

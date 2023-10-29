@@ -25,7 +25,7 @@
 <section class="container-xxl py-3">
   <div class="container">
 
-    <h1 class="display-5 text-primary">IDM Desa</h1>
+    <h1 class="display-5 text-primary">IDM Desa Tahun <?= $tahun ?></h1>
     <p class="fs-4 d-md-block d-none fw-bold text-primary mb-5"><?= FULLENGKAP ?></p>
     <p class="d-md-none d-block fw-bold text-primary mb-5"><?= FULLENGKAP ?></p>
 
@@ -160,7 +160,7 @@
             <th rowspan="2" class="align-middle text-center">Keterangan</th>
             <th rowspan="2" nowrap class="align-middle text-center">Kegiatan Yang Dapat Dilakukan</th>
             <th rowspan="2" nowrap class="align-middle text-center">+ Nilai</th>
-            <th colspan="6" class="text-center">Yang Dapat Melaksanakan Kehiatan</th>
+            <th colspan="6" class="text-center">Yang Dapat Melaksanakan Kegiatan</th>
           </tr>
           <tr>
             <th>Pusat</th>

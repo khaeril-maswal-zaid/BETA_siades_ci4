@@ -27,6 +27,11 @@ class SiadesSdgs extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => '200',
             ],
+            'tahun' => [
+                'type'       => 'INT',
+                'constraint' => '4',
+                'default'   => '2023'
+            ],
             'updated_by' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '200',

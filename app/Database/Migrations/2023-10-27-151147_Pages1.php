@@ -56,6 +56,8 @@ class Pages1 extends Migration
             ]
         ]);
         $this->forge->addKey('id', true);
+        $this->forge->addUniqueKey('namepage');
+        $this->forge->addUniqueKey('nicknamepage');
         $this->forge->createTable('siades_pages1');
     }
 

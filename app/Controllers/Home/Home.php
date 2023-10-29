@@ -45,9 +45,9 @@ class Home extends BaseController
 
          'personildesa' => $this->personildesa->personilAll('strukturdesa-kmz-165'),
          'artikels' => $this->artikelmodel->orderBy('id', 'DESC')->findAll(6),
+         'potensi' => $this->artikelmodel->where('slug', 'potensi-desa')->first(),
 
-         'statistik' => ['kk' => array_sum($kk), 'lk' => array_sum($lk), 'pr' => array_sum($pr)],
-         'today' => dateIna_helper()
+         'statistik' => ['kk' => array_sum($kk), 'lk' => array_sum($lk), 'pr' => array_sum($pr)]
       ];
 
       return view('home/index', $data);

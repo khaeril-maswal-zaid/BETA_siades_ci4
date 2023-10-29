@@ -16,15 +16,21 @@ class Fitur3 extends BaseController
         $this->idm = new IdmModel();
     }
 
-    public function index()
+    public function index($tahun = false)
     {
-        $group = $this->idm->select('group')->orderBy('id', 'ASC')->distinct()->findAll();
+        if ($tahun == false) {
+            $tahun = date('Y');
+        }
+
+        $group = $this->idm->select('group')->where('tahun', $tahun)->orderBy('id', 'ASC')->distinct()->findAll();
 
         $val = [];
         $skorIndexpergrup = [];
         for ($i = 0; $i < count($group); $i++) {
 
             //val val----------
+            $this->idm->where('tahun', $tahun);
+
             $valrow = $this->idm->where('group', $group[$i])->findAll();
             $val[] = $valrow;
 
@@ -64,7 +70,8 @@ class Fitur3 extends BaseController
             'metadescription' => 'IDM ' . FULLENGKAP,
 
             'dataidm' => [$group, $val, $skorIndexpergrup],
-            'statusIdm' => $statusIdm
+            'statusIdm' => $statusIdm,
+            'tahun' => $tahun
         ];
 
         return view('fiturutama/fitur3', $data);
