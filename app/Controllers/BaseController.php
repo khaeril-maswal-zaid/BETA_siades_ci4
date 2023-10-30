@@ -52,7 +52,7 @@ define('LINKYOUTUBE', $konfigurasimodel->select('more')->where('label', 'Youtube
 define('LINKFACEBOOK', $konfigurasimodel->select('more')->where('label', 'Facebook')->first()['more']);
 
 /***---------------------*/
-define('LINKMAPS', $konfigurasimodel->select('value')->where('label', 'Link Maps')->first()['value']);
+define('LINKMAPS', $konfigurasimodel->select('more')->where('label', 'Link Maps')->first()['more']);
 
 
 /**

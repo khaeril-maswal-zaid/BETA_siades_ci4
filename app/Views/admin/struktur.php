@@ -84,16 +84,19 @@
                                 </button>
                             </li>
                             <li>
-                                <form action="/adm-proses/delete-struktur/<?= convertToLetter($personil['id']) ?>" method="post">
-                                    <?= csrf_field() ?>
-                                    <input type="hidden" name="_method" value="DELETE">
-                                    <button type="submit" class="dropdown-item" onclick="return confirm('Yakin mau menghapus ?')">Hapus</button>
-                                </form>
+                                <a href="/admindes/tupoksi/<?= strtolower(str_replace(' ', '-', $personil['nama'])) ?>" class="dropdown-item viewStruktur">Set Tupoksi</a>
                             </li>
                             <li>
                                 <form action="/adm-proses/mainfoto-lembaga/<?= convertToLetter($personil['id']) ?>/struktur-desa" method="post">
                                     <?= csrf_field() ?>
                                     <button type="submit" class="dropdown-item">Set Foto Utama</button>
+                                </form>
+                            </li>
+                            <li>
+                                <form action="/adm-proses/delete-struktur/<?= convertToLetter($personil['id']) ?>" method="post">
+                                    <?= csrf_field() ?>
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button type="submit" class="dropdown-item" onclick="return confirm('Yakin mau menghapus ?')">Hapus</button>
                                 </form>
                             </li>
                         </ul>

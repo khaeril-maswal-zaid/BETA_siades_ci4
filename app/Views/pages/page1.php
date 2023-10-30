@@ -50,8 +50,8 @@
                                  <h5 class="mb-0"><?= $personil['nama'] ?></h5>
                                  <span><?= $personil['jabatan'] ?></span>
                                  <div class="d-flex team-social mt-3">
-                                    <a class="btn btn-lg-square rounded-circle mx-2" href="/img/personil/default.png" data-lightbox="aparatur"><i class="fa fa-eye"></i></a>
-                                    <a class="btn btn-lg-square rounded-circle mx-2" href="/struktur-desa"><i class="fa fa-link"></i></a>
+                                    <a class="btn btn-lg-square rounded-circle mx-2" href="/img/personil/<?= $personil['foto'] ?>" data-lightbox="aparatur"><i class="fa fa-eye"></i></a>
+                                    <a class="btn btn-lg-square rounded-circle mx-2" href="<?= generateWhatsappLink($personil['kontak'], $personil['nama']) ?>" target="_blank"><i class="fa fa-phone"></i></a>
                                  </div>
                               </div>
                            </div>
@@ -68,17 +68,6 @@
                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
                      <span class="visually-hidden">Next</span>
                   </button>
-               </div>
-
-               <div class="d-flex" style="font-size: 70%">
-                  <div class="align-items-center">
-                     <img class="rounded-circle me-0" src="/img/team-1.jpg" width="25" height="25" alt="" />
-                     <span class="m-1">Official Pintu Peradaban</span>
-                  </div>
-                  <div class="d-flex align-items-center">
-                     <span class="ms-3"><i class="far fa-eye mr-2"></i>181</span>
-                     <span class="ms-3"><i class="far fa-solid fa-user mr-2"></i>133</span>
-                  </div>
                </div>
             </div>
          </div>

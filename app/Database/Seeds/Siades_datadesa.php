@@ -48,7 +48,7 @@ class Siades_datadesa extends Seeder
             ],
             [
                 'slug' => 'Data Agama',
-                'label' => 'BUDHA',
+                'label' => 'Doubel klik ki untuk edit',
                 'val_lk' => '123',
                 'val_pr' => '123',
                 'updated_by' => 'default',
@@ -84,7 +84,7 @@ class Siades_datadesa extends Seeder
             ],
             [
                 'slug' => 'Data Asuransi Kesehatan',
-                'label' => 'BPJS Bantuan Daerah',
+                'label' => 'Doubel klik ki untuk edit',
                 'val_lk' => '123',
                 'val_pr' => '123',
                 'updated_by' => 'default',
@@ -111,7 +111,7 @@ class Siades_datadesa extends Seeder
             ],
             [
                 'slug' => 'Data Status Perkawinan',
-                'label' => 'CERAI MATI',
+                'label' => 'Doubel klik ki untuk edit',
                 'val_lk' => '123',
                 'val_pr' => '123',
                 'updated_by' => 'default',
@@ -192,7 +192,7 @@ class Siades_datadesa extends Seeder
             ],
             [
                 'slug' => 'Data Pendidikan',
-                'label' => 'TIDAK SEDANG SEKOLAH',
+                'label' => 'Doubel klik ki untuk edit',
                 'val_lk' => '123',
                 'val_pr' => '123',
                 'updated_by' => 'default',
@@ -201,6 +201,10 @@ class Siades_datadesa extends Seeder
             ],
             [
                 'slug' => 'Data Pekerjaan',
+                'label' => 'Doubel klik ki untuk edit',
+                'val_lk' => '123',
+                'val_pr' => '123',
+                'updated_by' => 'default',
                 'created_at' => Time::now(),
                 'updated_at' => Time::now(),
             ],

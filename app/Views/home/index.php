@@ -245,8 +245,8 @@
                                             <h5 class="mb-0"><?= $personil['nama'] ?></h5>
                                             <span><?= $personil['jabatan'] ?></span>
                                             <div class="d-flex team-social mt-3">
-                                                <a class="btn btn-lg-square rounded-circle mx-2" href="/img/personil/team-1.jpg" data-lightbox="aparatur"><i class="fa fa-eye"></i></a>
-                                                <a class="btn btn-lg-square rounded-circle mx-2" href="/struktur-pemerintahan/<?= url_title($personil['jabatan'], '-', true) ?>/<?= url_title($personil['nama'], '-', true) ?>"><i class="fa fa-link"></i></a>
+                                                <a class="btn btn-lg-square rounded-circle mx-2" href="/img/personil/<?= $personil['foto'] ?>" data-lightbox="aparatur"><i class="fa fa-eye"></i></a>
+                                                <a class="btn btn-lg-square rounded-circle mx-2" href="/struktur-pemerintahan/<?= url_title($personil['jabatan'], '-', true) ?>/<?= strtolower(str_replace(' ', '-', $personil['nama'])) ?>"><i class="fa fa-link"></i></a>
                                             </div>
                                         </div>
                                     </div>

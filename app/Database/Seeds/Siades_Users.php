@@ -11,6 +11,17 @@ class Siades_Users extends Seeder
     {
         $data = [
             [
+                'email' => 'muhammadkhaerilzaid@gmail.com',
+                'username' => 'alzaid',
+                'fullname' => 'Khaeril Maswal Zaid',
+                'image' => 'default.jpg',
+                'password_hash' => '$2y$10$QiWF8KV5hM5SgEPr8DX86OaJc39nH82EO3312PeCT7pxGZ.kyUCRK',
+                'activate_hash' => '55db417df524b6df46b2cb20c0b31304',
+                'active' => 1,
+                'created_at' => Time::now(),
+                'updated_at' => Time::now(),
+            ],
+            [
                 'email' => 'official@wakandaraya.desa.id',
                 'username' => 'Default',
                 'fullname' => 'Default Admin',

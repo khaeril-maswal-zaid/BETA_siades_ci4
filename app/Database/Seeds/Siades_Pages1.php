@@ -70,6 +70,18 @@ class Siades_Pages1 extends Seeder
                 'created_at' => Time::now(),
                 'updated_at' => Time::now(),
             ],
+            [
+                'idGroup' => '',
+                'metadescription' => 'Default',
+                'slug' => 'kepala-desa',
+                'namepage' => 'Kepala Desa',
+                'nicknamepage' => 'Kepala Desa',
+                'tentang' => 'Default',
+                'tupoksi' => 'Default',
+                'updated_by' => 'Default',
+                'created_at' => Time::now(),
+                'updated_at' => Time::now(),
+            ],
         ];
 
         // Simple Queries

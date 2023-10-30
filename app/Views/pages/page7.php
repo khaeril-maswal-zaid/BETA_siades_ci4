@@ -92,8 +92,6 @@
               </div>
             </div>
             <div class="col-12">
-              <?php //dd(old('aduan')) 
-              ?>
               <div class="form-floating">
                 <textarea name="pengaduan" class="form-control <?= ($validation[2]) ? 'is-invalid' : ''; ?>" id="message" style="height: 200px"><?= old('pengaduan') ?></textarea>
                 <label for="message">Isi Pengaduan*</label>

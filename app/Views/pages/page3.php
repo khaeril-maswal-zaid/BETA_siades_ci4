@@ -30,13 +30,13 @@
          <h1 class="display-5 mb-5"><?= DESA ?></h1>
       </div>
       <div class="row wow fadeInUp" data-wow-delay="0.3s">
-         <div class="col-12 text-center">
+         <!-- <div class="col-12 text-center">
             <ul class="list-inline rounded mb-5" id="portfolio-flters">
                <li class="mx-2 active" data-filter="*">All</li>
                <li class="mx-2" data-filter=".first">Complete Projects</li>
                <li class="mx-2" data-filter=".second">Ongoing Projects</li>
             </ul>
-         </div>
+         </div> -->
       </div>
       <div class="row portfolio-containerX mb-3 ">
 

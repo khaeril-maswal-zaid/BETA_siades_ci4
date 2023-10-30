@@ -44,23 +44,22 @@ class Page2 extends BaseController
       $personil = $personildesa->first();
 
       $tupoksilembaga = new Page1Model();
-      $tupoksi = $tupoksilembaga->select('tupoksi')->where('namepage', $jabatan)->first()['tupoksi'];
+      $tupoksi = $tupoksilembaga->select('tupoksi')->where('namepage', $jabatan)->first();
 
-
-      if (!isset($personil) || !isset($tupoksi)) {
+      if (!isset($personil) || !isset($tupoksi['tupoksi'])) {
          return view('errors/html/error_404');
       }
 
       $data = [
          'templatelayaout' => $this->templatelayaout,
 
-         'title' => 'Struktur Pemerintahan' . DESA,
+         'title' => 'Struktur Pemerintahan ' . DESA,
          'metakeywords' => 'Struktur Pemerintahan' . FULLENGKAP . ', ' . $jabatan . ', Struktur Pemerintahan Desa Terbaik,',
          'metadescription' => 'Struktur Pemerintahan ' . FULLENGKAP,
 
 
          'detailpersonil' => $personil,
-         'tupoksilembaga' => $tupoksi,
+         'tupoksilembaga' => $tupoksi['tupoksi'],
       ];
 
       return view('pages/page2-detail', $data);

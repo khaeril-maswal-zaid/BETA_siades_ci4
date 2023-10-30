@@ -12,6 +12,11 @@ class AdminsModel extends Model
 
     public function getOne($colum, $where, $key)
     {
-        return $this->select($colum)->where($where, $key)->first()[$colum];
+        $return = $this->select($colum)->where($where, $key)->first();
+        if (isset($return)) {
+            return $return[$colum];
+        } else {
+            return 'default.jpg';
+        }
     }
 }

@@ -28,8 +28,7 @@ class SiadesKonfigurasi extends Migration
                 'constraint' => '255'
             ],
             'more' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '300'
+                'type'       => 'TEXT'
             ],
             'updated_by' => [
                 'type'       => 'VARCHAR',

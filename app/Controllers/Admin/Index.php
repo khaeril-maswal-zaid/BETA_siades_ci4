@@ -595,4 +595,9 @@ class Index extends BaseController
 
         return view('admin/daftar-conf-aplikasi', $data);
     }
+
+    public function profilAdmin()
+    {
+        dd(user_id());
+    }
 }

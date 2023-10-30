@@ -103,9 +103,6 @@ class PersonilDesa extends BaseController
             $pesansession = 'Tidak ada foto diperbarui';
         }
 
-
-
-
         session()->setFlashdata('updateData', $pesansession);
         return redirect()->to(base_url('admindes/' . $bacaslug));
     }
