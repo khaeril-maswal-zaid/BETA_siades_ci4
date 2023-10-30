@@ -3,15 +3,18 @@
 namespace App\Controllers\Proses;
 
 use App\Controllers\BaseController;
+use App\Models\Page1Model;
 use App\Models\PersonilDesaModel;
 
 class PersonilDesa extends BaseController
 {
     protected $personaildesamodel;
+    protected $tupoksimodel;
 
     public function __construct()
     {
         $this->personaildesamodel = new PersonilDesaModel();
+        $this->tupoksimodel = new Page1Model();
     }
 
     public function index($bacaslug)
@@ -23,6 +26,11 @@ class PersonilDesa extends BaseController
 
         $slug = $bakalslug . '-kmz-165';
         $fotoajax = $this->request->getVar('fotopost');
+
+        $this->personaildesamodel->save([
+            'namepage' => $this->request->getVar('jabatan'),
+            'updated_by' => user()->fullname
+        ]);
 
         $this->personaildesamodel->save([
             'diGroup' => '1',
