@@ -27,7 +27,7 @@ class PersonilDesa extends BaseController
         $slug = $bakalslug . '-kmz-165';
         $fotoajax = $this->request->getVar('fotopost');
 
-        $this->personaildesamodel->save([
+        $this->tupoksimodel->save([
             'namepage' => $this->request->getVar('jabatan'),
             'updated_by' => user()->fullname
         ]);

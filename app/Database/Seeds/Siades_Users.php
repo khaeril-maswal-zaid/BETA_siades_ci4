@@ -27,6 +27,7 @@ class Siades_Users extends Seeder
                 'fullname' => 'Default Admin',
                 'image' => 'default.jpg',
                 'password_hash' => 'wakandaraya',
+                'activate_hash' => 'Default',
                 'active' => 1,
                 'created_at' => Time::now(),
                 'updated_at' => Time::now(),
@@ -41,5 +42,6 @@ class Siades_Users extends Seeder
 
         $this->db->table('users')->insertBatch($data);
         // php spark db:seed Siades_Users
+        //Pass : zaiddevaloper
     }
 }
