@@ -14,4 +14,19 @@ class Page1Model extends Model
     {
         return $this->where('slug', $slug)->first();
     }
+
+    //Untuk yg dari add Personil
+    public function addPages($lembaga)
+    {
+        $this->save([
+            'idGrup' => 'Default',
+            'metadescription' => 'Default',
+            'slug' => url_title($lembaga, '-', true),
+            'namepage' => $lembaga,
+            'nicknamepage' => $lembaga,
+            'tentang' => 'Default',
+            'tupoksi' => 'Default',
+            'updated_by' => user()->fullname,
+        ]);
+    }
 }

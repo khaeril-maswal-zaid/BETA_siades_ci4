@@ -27,10 +27,10 @@ class PersonilDesa extends BaseController
         $slug = $bakalslug . '-kmz-165';
         $fotoajax = $this->request->getVar('fotopost');
 
-        $this->tupoksimodel->save([
-            'namepage' => $this->request->getVar('jabatan'),
-            'updated_by' => user()->fullname
-        ]);
+        $kemungkinan = $this->tupoksimodel->where('namepage', $this->request->getVar('jabatan'))->countAllResults();
+        if ($kemungkinan < 1) {
+            $this->tupoksimodel->addPages($this->request->getVar('jabatan'));
+        }
 
         $this->personaildesamodel->save([
             'diGroup' => '1',

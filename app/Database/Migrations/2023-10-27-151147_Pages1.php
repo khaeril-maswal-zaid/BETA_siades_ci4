@@ -16,8 +16,8 @@ class Pages1 extends Migration
                 'auto_increment' => true,
             ],
             'idGroup' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '11',
+                'type'       => 'INT',
+                'constraint' => '3',
             ],
             'metadescription' => [
                 'type'       => 'VARCHAR',
