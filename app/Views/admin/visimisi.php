@@ -26,7 +26,7 @@
         </div>
     <?php endif ?>
 
-    <form action="/adm-proses/update-visimisi/<?= convertToLetter($visimisi['idUpdate']) ?>" method="post">
+    <form action="/adm-proses/update-lembaga/<?= convertToLetter($visimisi['idUpdate']) ?>" method="post">
         <div class="card border-primary mb-3">
             <?= csrf_field() ?>
 
@@ -260,7 +260,7 @@
             </div>
         </div>
     </form>
-    <form action="/adm-proses/update-visimisi/<?= convertToLetter($visimisi['idUpdate']) ?>" method="post">
+    <form action="/adm-proses/update-lembaga/<?= convertToLetter($visimisi['idUpdate']) ?>" method="post">
         <div class="card border-primary mb-3">
 
             <?= csrf_field() ?>

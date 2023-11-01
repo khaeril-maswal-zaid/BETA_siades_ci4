@@ -28,6 +28,7 @@ class PersonilDesa extends BaseController
         $fotoajax = $this->request->getVar('fotopost');
 
         $kemungkinan = $this->tupoksimodel->where('namepage', $this->request->getVar('jabatan'))->countAllResults();
+        //Jika Tupoksinya belum ada, tambhakan
         if (!$kemungkinan) {
             $this->tupoksimodel->addPages($this->request->getVar('jabatan'));
         }

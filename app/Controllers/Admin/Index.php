@@ -287,13 +287,18 @@ class Index extends BaseController
 
     public function tupoksiPersonil($jabatan, $id)
     {
-        $jabatan = str_replace("-", " ", $jabatan);
+        $jabatan = ucfirst(str_replace("-", " ", $jabatan));
         $tupoksi = $this->lembagamodel->select(['tupoksi', 'id'])->where('namepage', $jabatan)->first();
 
+        //Jika personilnya ada dan Tupoksinya belum ada
+        if ($tupoksi == null) {
+            $this->lembagamodel->addPages($jabatan);
+            $tupoksi = $this->lembagamodel->select(['tupoksi', 'id'])->where('namepage', $jabatan)->first();
+        }
+
+        //Jika personil tidak ada
         $personildesa = $this->personildesa->where('id', convertToNumber($id))->first();
-
-
-        if ($tupoksi == null || $personildesa == null) {
+        if ($personildesa == null) {
             return view('errors/html/error_404_admin');
         }
 
@@ -306,7 +311,8 @@ class Index extends BaseController
             'metakeywords' => null,
             'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
 
-            '$tupoksi' => $tupoksi,
+            'tupoksi' => $tupoksi,
+            'jabatan' => $jabatan,
             'personildesa' => $personildesa,
         ];
 

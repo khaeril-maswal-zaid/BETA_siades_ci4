@@ -73,7 +73,7 @@ $routes->post('/adm-proses/blog/(:num)', 'Proses\AdmBlog::save/$1'); //Edit
 $routes->post('/adm-proses/update-dbclick-ajax/(:any)', 'Proses\Updatedbclickajax::index/$1');
 
 $routes->post('/adm-proses/update-lembaga/(:any)', 'Proses\Updatelembaga::index/$1');
-$routes->post('/adm-proses/update-visimisi/(:any)', 'Proses\Updatelembaga::index/$1');
+// $routes->post('/adm-proses/update-visimisi/(:any)', 'Proses\Updatelembaga::index/$1');
 $routes->post('/adm-proses/add-lembaga', 'Proses\Updatelembaga::add');
 $routes->delete('/adm-proses/delete-lembaga/(:any)', 'Proses\Updatelembaga::delete/$1');
 

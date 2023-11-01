@@ -20,14 +20,19 @@ class Updatelembaga extends BaseController
         $targetColum = caesarCipherReverse($this->request->getVar('kolumtarget'), -7);
         $newvalue = $this->request->getVar('valueupdate');
 
-        $nicknamepage = $this->lemabagamodel->select('nicknamepage')->where('id', $idUpdate)->first();
+        $khusustupoksipersonil = convertToNumber($this->request->getVar('khusustupoksipersonil'));
 
-        // dd($targetColum);
+        $nicknamepage = $this->lemabagamodel->select('nicknamepage')->where('id', $idUpdate)->first();
 
         $this->lemabagamodel->update($idUpdate, [$targetColum => $newvalue]);
 
         session()->setFlashdata('updateData', 'Data berhasil diperbaharui');
-        return redirect()->to(base_url() . 'admindes/' . url_title($nicknamepage['nicknamepage'], '-', true));
+
+        if ($khusustupoksipersonil === 0) {
+            return redirect()->to(base_url('admindes/' . url_title($nicknamepage['nicknamepage'], '-', true)));
+        } else {
+            return redirect()->to(base_url('admindes/tupoksi/' . url_title($nicknamepage['nicknamepage'], '-', true) . '/' . convertToLetter($khusustupoksipersonil)));
+        }
     }
 
     public function delete($idDeleteF)
