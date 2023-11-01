@@ -84,7 +84,7 @@
                                 </button>
                             </li>
                             <li>
-                                <a href="/admindes/tupoksi/<?= strtolower(str_replace(' ', '-', $personil['nama'])) ?>" class="dropdown-item viewStruktur">Set Tupoksi</a>
+                                <a href="/admindes/tupoksi/<?= strtolower(str_replace(' ', '-', $personil['jabatan'])) . '/' . convertToLetter($personil['id']) ?>" class="dropdown-item viewStruktur">Set Tupoksi</a>
                             </li>
                             <li>
                                 <form action="/adm-proses/mainfoto-lembaga/<?= convertToLetter($personil['id']) ?>/struktur-desa" method="post">

@@ -125,6 +125,7 @@ $routes->get('/admindes/keuangan-desa', 'Admin\Index::keuangan');
 
 $routes->get('/admindes/visi-misi', 'Admin\Index::visimisi');
 $routes->get('/admindes/struktur-desa', 'Admin\Index::struktur');
+$routes->get('/admindes/tupoksi/(:any)', 'Admin\Index::tupoksiPersonil/$1');
 
 $routes->get('/admindes/data-desa/data-wilayah', 'Admin\index::dataWilayah');
 $routes->get('/admindes/data-desa/(:any)', 'Admin\index::dataDesa/$1');

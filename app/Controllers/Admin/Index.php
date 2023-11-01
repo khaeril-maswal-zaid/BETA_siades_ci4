@@ -285,6 +285,34 @@ class Index extends BaseController
         return view('admin/struktur', $data);
     }
 
+    public function tupoksiPersonil($jabatan, $id)
+    {
+        $jabatan = str_replace("-", " ", $jabatan);
+        $tupoksi = $this->lembagamodel->select(['tupoksi', 'id'])->where('namepage', $jabatan)->first();
+
+        $personildesa = $this->personildesa->where('id', convertToNumber($id))->first();
+
+
+        if ($tupoksi == null || $personildesa == null) {
+            return view('errors/html/error_404_admin');
+        }
+
+        $data = [
+            'aduanbelum' => $this->aduanbelum,
+            'statusaduan' => $this->statusaduan,
+
+            'title' => 'Desa ' . DESA,
+            'templatelayaout' => $this->templatelayaout,
+            'metakeywords' => null,
+            'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
+
+            '$tupoksi' => $tupoksi,
+            'personildesa' => $personildesa,
+        ];
+
+        return view('admin/tupoksi-personil', $data);
+    }
+
     public function lembaga($sblembaga = null)
     {
         $lembaga = str_replace("-", " ", $sblembaga);
