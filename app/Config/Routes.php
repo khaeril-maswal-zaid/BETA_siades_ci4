@@ -73,7 +73,6 @@ $routes->post('/adm-proses/blog/(:num)', 'Proses\AdmBlog::save/$1'); //Edit
 $routes->post('/adm-proses/update-dbclick-ajax/(:any)', 'Proses\Updatedbclickajax::index/$1');
 
 $routes->post('/adm-proses/update-lembaga/(:any)', 'Proses\Updatelembaga::index/$1');
-// $routes->post('/adm-proses/update-visimisi/(:any)', 'Proses\Updatelembaga::index/$1');
 $routes->post('/adm-proses/add-lembaga', 'Proses\Updatelembaga::add');
 $routes->delete('/adm-proses/delete-lembaga/(:any)', 'Proses\Updatelembaga::delete/$1');
 
@@ -99,6 +98,8 @@ $routes->post('/adm-proses/add-media-sosial', 'Proses\Konfigurasi::add/media-sos
 $routes->post('/adm-proses/add-dusun', 'Proses\Konfigurasi::add/dusun');
 $routes->delete('/adm-proses/delete-conf/(:any)/(:any)', 'Proses\Konfigurasi::delete/$1/$2');
 $routes->post('/adm-proses/update-aplikasi', 'Proses\Konfigurasi::updateAplikasi');
+
+$routes->post('/adm-proses/update-foto/(:any)', 'Proses\Admin::updateFoto/$1');
 
 $routes->post('/adm-proses/updatefoto-personil/(:any)/(:any)', 'Proses\PersonilDesa::updateFoto/$1/$2');
 

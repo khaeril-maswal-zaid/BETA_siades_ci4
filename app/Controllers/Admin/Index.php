@@ -632,6 +632,14 @@ class Index extends BaseController
 
     public function profilAdmin()
     {
-        dd(user_id());
+        $data = [
+            'aduanbelum' => $this->aduanbelum,
+            'statusaduan' => $this->statusaduan,
+            'templatelayaout' => $this->templatelayaout,
+            'title' => 'Desa ' . DESA,
+
+        ];
+
+        return view('admin/profil-admin', $data);
     }
 }
