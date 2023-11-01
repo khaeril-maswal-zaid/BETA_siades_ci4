@@ -637,9 +637,36 @@ class Index extends BaseController
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
             'title' => 'Desa ' . DESA,
-
         ];
 
         return view('admin/profil-admin', $data);
+    }
+
+    public function gantiPassword()
+    {
+        $data = [
+            'aduanbelum' => $this->aduanbelum,
+            'statusaduan' => $this->statusaduan,
+            'templatelayaout' => $this->templatelayaout,
+            'title' => 'Desa ' . DESA,
+        ];
+
+        return view('admin/ganti-paswoard', $data);
+    }
+
+    public function resetPassword()
+    {
+        $token = $this->request->getGet('token');
+
+        $data = [
+            'aduanbelum' => $this->aduanbelum,
+            'statusaduan' => $this->statusaduan,
+            'templatelayaout' => $this->templatelayaout,
+            'title' => 'Desa ' . DESA,
+
+            'token' => $token
+        ];
+
+        return view('admin/reset-paswoard', $data);
     }
 }

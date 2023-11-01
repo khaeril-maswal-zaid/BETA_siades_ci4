@@ -137,6 +137,8 @@ $routes->get('/admindes/daftar-media-sosial', 'Admin\Index::konfMedsos/media-sos
 $routes->get('/admindes/konf-aplikasi', 'Admin\Index::konfAplikasi');
 
 $routes->get('/admindes/myprofil', 'Admin\Index::profilAdmin');
+$routes->get('/forgot', 'Admin\Index::gantiPassword');
+$routes->get('/reset-password', 'Admin\Index::resetPassword');
 
 $routes->get('/admindes/bpd', 'Admin\Index::lembaga/bpd'); // Supaya tidak masuk kategori lembaga di URL 
 $routes->get('/admindes/daftar-lembaga', 'Admin\index::daftarLembaga');
