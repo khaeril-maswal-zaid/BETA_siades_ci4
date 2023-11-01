@@ -8,7 +8,7 @@ class AdminsModel extends Model
 {
     protected $table = 'users';
     protected $useTimestamps = true;
-    protected $allowedFields = ['image', 'fullname', 'password_hash'];
+    protected $allowedFields = ['image', 'fullname'];
 
     public function getOne($colum, $where, $key)
     {

@@ -5,7 +5,7 @@
 <main class="ms-sm-auto p-md-4 pb-md-0">
     <div class="container-fluid bg-light px-4 rounded">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-            <h1 class="h3">Profil Admin SIDES <?= DESA ?></h1>
+            <h1 class="h3 id-table">Profil Admin SIDES <?= DESA ?></h1>
             <!-- Karena diusahakan ambil data di API -->
             <!-- <button class="btn btn-success">Tambah Data</button> -->
         </div>
@@ -61,29 +61,33 @@
                     <span class="d-inline text-white fs-5">Informasi Admin</span>
                 </div>
                 <div class="card-body">
-                    <table class="table">
+                    <table class="table" data-tabelsiades="<?= caesarCipherReverse('users'); ?>" id="<?= url_title('Profil Admin SIDES ' . DESA, '-', true) ?>">
                         <thead>
                             <tr>
                                 <th scope="col">Email</th>
                                 <th scope="col">:</th>
                                 <th scope="col"><?= user()->email ?></th>
+                                <th scope="col" class="text-center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>Nama</td>
                                 <td>:</td>
-                                <td><?= user()->fullname ?></td>
+                                <td class="edit-dbClick" data-id="<?= convertToLetter(user_id()) ?>" data-colum="<?= caesarCipherReverse('fullname'); ?>"><?= user()->fullname ?></td>
+                                <td class="text-center"><span class="badge bg-secondary">Double Clik "Nama" for Edit</span></td>
                             </tr>
                             <tr>
-                                <td>Username</td>
+                                <td>Password</td>
                                 <td>:</td>
-                                <td><?= user()->username ?></td>
+                                <td>Terverifikasi</td>
+                                <td class="text-center"><a href="/forgot" class="btn btn-sm btn-primary">Edit</a></td>
                             </tr>
                             <tr>
                                 <td>Amanah Sides</td>
                                 <td>:</td>
                                 <td><? ?></td>
+                                <td></td>
                             </tr>
                         </tbody>
                     </table>

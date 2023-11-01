@@ -45,12 +45,12 @@
                             <thead>
                                 <tr>
                                     <th scope="col" rowspan="2" class="text-center align-middle">Aksi</th>
-                                    <th class="text-center  align-middle" scope="col" style="width: 122px;">#</th>
-                                    <th class="text-center  align-middle" scope="col" style="width: 550px;">Uraian</th>
-                                    <th class="text-center  align-middle" scope="col">Angaran (Rp)</th>
-                                    <th class="text-center  align-middle" scope="col">Realisasi (Rp)</th>
-                                    <th class="text-center  align-middle" scope="col">Lebih/Kurang (Rp)</th>
-                                    <th class="text-center  align-middle" scope="col">Added By</th>
+                                    <th class="text-center align-middle" scope="col" style="width: 122px;">#</th>
+                                    <th class="text-center align-middle" scope="col" style="width: 550px;">Uraian</th>
+                                    <th class="text-center align-middle" scope="col">Angaran (Rp)</th>
+                                    <th class="text-center align-middle" scope="col">Realisasi (Rp)</th>
+                                    <th class="text-center align-middle" scope="col">Lebih/Kurang (Rp)</th>
+                                    <th class="text-center align-middle" scope="col">Added By</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -66,7 +66,7 @@
                                                 <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin mau menghapus ?')">Hapus</button>
                                             </form>
                                         </td>
-                                        <td class="text-center  align-middle" scope="row"><?= $value2['kode'] ?></th>
+                                        <td class="text-center align-middle" scope="row"><?= $value2['kode'] ?></th>
                                         <td class="align-middle edit-dbClick" data-id="<?= convertToLetter($value2['id']) ?>" data-colum="<?= caesarCipherReverse('uraian'); ?>"><?= $value2['uraian'] ?></td>
                                         <td class="text-center align-middle edit-dbClick" data-id="<?= convertToLetter($value2['id']) ?>" data-colum="<?= caesarCipherReverse('anggaran'); ?>"><?= number_format($value2['anggaran'], 0, ',', '.') ?></td>
                                         <td class="text-center align-middle edit-dbClick" data-id="<?= convertToLetter($value2['id']) ?>" data-colum="<?= caesarCipherReverse('realisasi'); ?>"><?= number_format($value2['realisasi'], 0, ',', '.') ?></td>
