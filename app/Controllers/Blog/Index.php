@@ -5,6 +5,7 @@ namespace App\Controllers\Blog;
 use App\Controllers\BaseController;
 use App\Models\AdminsModel;
 use App\Models\ArtikelModel;
+use App\Models\CountViewersModel;
 use App\Models\PersonilDesaModel;
 
 class Index extends BaseController
@@ -12,12 +13,14 @@ class Index extends BaseController
     protected $templatelayaout;
     protected $artikelmodel;
     protected $personildesa;
+    protected $countviewersmodel;
 
     public function __construct()
     {
         $this->templatelayaout = ['layout-htmlcodex/header', 'layout-htmlcodex/footer'];
         $this->artikelmodel = new ArtikelModel();
         $this->personildesa = new PersonilDesaModel;
+        $this->countviewersmodel = new CountViewersModel();
     }
 
     public function index($slug, $time)
@@ -46,8 +49,7 @@ class Index extends BaseController
             'personildesa' => $this->personildesa->personilAll('strukturdesa-kmz-165'),
         ];
 
-        dd(takeusers());
-
+        $this->countviewersmodel->addViewers([$artikel['id']]);
         return view('blog/index', $data);
     }
 
@@ -78,8 +80,7 @@ class Index extends BaseController
             'personildesa' => $this->personildesa->personilAll('strukturdesa-kmz-165'),
         ];
 
-        dd(takeusers());
-
+        $this->countviewersmodel->addViewers([$artikel['id']]);
         return view('blog/index', $data);
     }
 }

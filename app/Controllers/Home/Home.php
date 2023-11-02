@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 
 use App\Models\PersonilDesaModel;
 use App\Models\ArtikelModel;
+use App\Models\CountViewersModel;
 use App\Models\DataWilayahModel;
 
 class Home extends BaseController
@@ -14,6 +15,7 @@ class Home extends BaseController
    protected $personildesa;
    protected $artikelmodel;
    protected $datawilayah;
+   protected $countviewersmodel;
 
    public function __construct()
    {
@@ -21,6 +23,7 @@ class Home extends BaseController
       $this->personildesa = new PersonilDesaModel();
       $this->artikelmodel = new ArtikelModel();
       $this->datawilayah = new DataWilayahModel();
+      $this->countviewersmodel = new CountViewersModel();
    }
 
    public function index()
@@ -44,12 +47,13 @@ class Home extends BaseController
          'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
 
          'personildesa' => $this->personildesa->personilAll('strukturdesa-kmz-165'),
-         'artikels' => $this->artikelmodel->orderBy('id', 'DESC')->findAll(6),
+         'artikels' => $this->artikelmodel->where('jenis', 'umum')->orderBy('id', 'DESC')->findAll(6),
          'potensi' => $this->artikelmodel->where('slug', 'potensi-desa')->first(),
 
          'statistik' => ['kk' => array_sum($kk), 'lk' => array_sum($lk), 'pr' => array_sum($pr)]
       ];
 
+      $this->countviewersmodel->addViewers('home');
       return view('home/index', $data);
    }
 }

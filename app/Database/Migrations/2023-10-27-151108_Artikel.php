@@ -51,6 +51,11 @@ class Artikel extends Migration
                 'type'       => 'INT',
                 'constraint' => '5',
             ],
+            'jenis' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '20',
+                'default'    => 'umum'
+            ],
             'created_at' => [
                 'type'       => 'DATETIME',
                 'null'       => true

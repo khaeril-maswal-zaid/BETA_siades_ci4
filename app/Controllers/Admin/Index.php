@@ -68,7 +68,7 @@ class Index extends BaseController
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
 
-            'artikels' => $this->artikelmodel->orderBy('id', 'DESC')->paginate(9, 'siades_bloger'),
+            'artikels' => $this->artikelmodel->where('jenis', 'umum')->orderBy('id', 'DESC')->paginate(9, 'siades_bloger'),
             'pager' => $this->artikelmodel->pager,
         ];
 

@@ -26,12 +26,15 @@ class AdmBlog extends BaseController
         if ($judul == 'Profil Wilayah' ||  $judul == 'Sejarah Desa' || $judul == 'Potensi Desa') {
             $redirect = 'admindes/' . url_title($this->request->getVar('judul'), '-', true);
             $sessionFlash = 'Data berhasil diperbaharui';
+            $jenis = 'khusus';
         } elseif ($idUpdate) {
             $redirect = 'admindes/' . 'kabar-desa/update/' . $urlUpdate;
             $sessionFlash = 'Data berhasil diperbaharui';
+            $jenis = 'umum';
         } else {
             $redirect = 'admindes/' . 'kabar-desa';
             $sessionFlash = 'Data berhasil ditambahkan';
+            $jenis = 'umum';
         }
 
 
@@ -126,7 +129,8 @@ class AdmBlog extends BaseController
             'album' => 1, //1 Artinya True
             'oleh' => $oleh,
             'artikel' => $this->request->getVar('isinaArtikel'),
-            'view' => 50
+            'view' => 50,
+            'jenis' =>  $jenis
         ]);
 
 

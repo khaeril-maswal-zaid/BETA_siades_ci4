@@ -21,7 +21,7 @@ class Layananaduan extends BaseController
     {
         //Validasi------------------------------------
         if (!$this->validate([
-            'email' => 'required',
+            'email' => 'required|valid_email',
             'name' => 'required',
             'subject' => 'required',
             'pengaduan' => 'required',
