@@ -46,6 +46,8 @@ class Index extends BaseController
             'personildesa' => $this->personildesa->personilAll('strukturdesa-kmz-165'),
         ];
 
+        dd(takeusers());
+
         return view('blog/index', $data);
     }
 
@@ -75,6 +77,8 @@ class Index extends BaseController
             'fotoadmin' => $imageAdmin,
             'personildesa' => $this->personildesa->personilAll('strukturdesa-kmz-165'),
         ];
+
+        dd(takeusers());
 
         return view('blog/index', $data);
     }
