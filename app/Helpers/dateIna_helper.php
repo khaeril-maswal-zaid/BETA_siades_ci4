@@ -1,7 +1,22 @@
 <?php
 
-function dateIna_helper()
+function dateIna_helper($date = null)
 {
+
+    if ($date == null) {
+        $hari = date('l');
+        $tanggal = date('d');
+        $bulan = date('m');
+        $tahun = date('Y');
+    } else {
+        $date = explode('-', $date);
+
+        $hari = $date[0];
+        $tanggal = $date[1];
+        $bulan = $date[2];
+        $tahun = $date[3];
+    }
+
     // Buat sebuah array asosiatif untuk mengonversi angka bulan ke nama bulan
     $bulanIndonesia = [
         1 => 'Januari',
@@ -28,7 +43,7 @@ function dateIna_helper()
         "Saturday" => "Sabtu"
     ];
 
-    $hasil = $hariIndonesia[date('l')] . ', ' . date('d') . ' ' . $bulanIndonesia[(int)date('m')] . ' ' . date('Y');
+    $hasil = $hariIndonesia[$hari] . ', ' . $tanggal . ' ' . $bulanIndonesia[(int)$bulan] . ' ' . $tahun;
 
     return $hasil;
 }

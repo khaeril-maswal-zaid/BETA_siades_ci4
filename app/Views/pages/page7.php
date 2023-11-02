@@ -16,7 +16,7 @@
         <a href="/"><i class="bi bi-house-door-fill"></i></a>
         <span class="px-1">/</span>
 
-        <a href="/kontak-desa">Kontak Desa</a>
+        <a href="/kontak-desa">Layanan Pengaduan</a>
       </div>
     </div>
   </div>
@@ -54,37 +54,45 @@
 
         <form action="/post-layanan-pengaduan" method="post" enctype="multipart/form-data">
           <?= csrf_field() ?>
+          <input type="hidden" name="nomoraduan" value="<?= date('ymd') . random_string('numeric', 4) ?>">
           <div class="row g-3">
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input value="<?= old('email') ?>" autofocus name="email" type="email" class="form-control <?= ($validation[0]) ? 'is-invalid' : ''; ?>" id="email" placeholder="Email Anda">
+                <label for="email">Email*</label>
+                <div class="invalid-feedback">
+                  Email wajib diisi
+                </div>
+              </div>
+            </div>
+
             <div class="col-md-6">
               <div class="form-floating">
                 <input value="<?= old('nik') ?>" name="nik" type="text" class="form-control" id="nik" placeholder="NIK Anda" maxlength="16">
                 <label for="nik">NIK</label>
               </div>
             </div>
+
             <div class="col-md-6">
               <div class="form-floating">
-                <input value="<?= old('name') ?>" autofocus name="name" type="text" class="form-control <?= ($validation[0]) ? 'is-invalid' : ''; ?>" id="name" placeholder="Nama Anda">
+                <input value="<?= old('name') ?>" name="name" type="text" class="form-control <?= ($validation[1]) ? 'is-invalid' : ''; ?>" id="name" placeholder="Nama Anda">
                 <label for="name">Nama*</label>
                 <div class="invalid-feedback">
                   Nama wajib diisi
                 </div>
               </div>
             </div>
+
             <div class="col-md-6">
               <div class="form-floating">
                 <input value="<?= old('hp') ?>" name="hp" type="text" class="form-control" id="hp" placeholder="No Hp Anda">
                 <label for="hp">No Hp</label>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="form-floating">
-                <input value="<?= old('email') ?>" name="email" type="email" class="form-control" id="email" placeholder="Email Anda">
-                <label for="email">Email</label>
-              </div>
-            </div>
+
             <div class="col-12">
               <div class="form-floating">
-                <input value="<?= old('subject') ?>" name="subject" type="text" class="form-control <?= ($validation[1]) ? 'is-invalid' : ''; ?>" id="subject" placeholder="Subject">
+                <input value="<?= old('subject') ?>" name="subject" type="text" class="form-control <?= ($validation[2]) ? 'is-invalid' : ''; ?>" id="subject" placeholder="Subject">
                 <label for="subject">Subjek*</label>
                 <div class="invalid-feedback">
                   Subjek wajib diisi
@@ -93,7 +101,7 @@
             </div>
             <div class="col-12">
               <div class="form-floating">
-                <textarea name="pengaduan" class="form-control <?= ($validation[2]) ? 'is-invalid' : ''; ?>" id="message" style="height: 200px"><?= old('pengaduan') ?></textarea>
+                <textarea name="pengaduan" class="form-control <?= ($validation[3]) ? 'is-invalid' : ''; ?>" id="message" style="height: 200px"><?= old('pengaduan') ?></textarea>
                 <label for="message">Isi Pengaduan*</label>
                 <div class="invalid-feedback">
                   Isi Pengaduan wajib diisi
@@ -103,7 +111,7 @@
             <div class="col-12">
               <div class="form-floatingX">
                 <label for="file" class="form-label">File Lampiran (jpg, jpeg, png)</label>
-                <input value="<?= old('fileaduan') ?>" name="fileaduan" type="file" class="form-control <?= ($validation[3]) ? 'is-invalid' : ''; ?>" id="file" placeholder="Subject">
+                <input value="<?= old('fileaduan') ?>" name="fileaduan" type="file" class="form-control <?= ($validation[4]) ? 'is-invalid' : ''; ?>" id="file" placeholder="Subject">
                 <div class="invalid-feedback">
                   <?= ($validation[3]) ? $validation[3] : ''; ?>
                 </div>
@@ -128,10 +136,10 @@
               <div class="testimonial-item">
 
                 <?php foreach ($aduan as $value) : ?>
-                  <div class="mt-5">
+                  <div class="mt-4 border rounded p-3 bg-light">
                     <h4><?= $value['name'] ?></h4>
                     <div class="#">
-                      <span class="fw-bold"><?= $value['subject'] ?></span>
+                      <span class="fw-bold">Subjek: <?= $value['subject'] ?></span>
                       <?php if ($value['file']) : ?>
                         <span id="file" class="badge rounded-pill bg-danger">File<span class="visually-hidden">unread messages</span></span>
                       <?php endif ?>
@@ -140,7 +148,7 @@
                     <div class="overflow-hidden mb-2 mt-1" style="height: 5.7em;">
                       <p class="fs-5"><?= $value['aduan'] ?></p>
                     </div>
-                    <button data-id="<?= $value['id'] ?>" class="btn btn-light btn-sm border-success modelAduan" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <button data-id="<?= $value['id'] ?>" class="btn btn-warning btn-sm modelAduan" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                       Selengkapnya
                     </button>
                   </div>
@@ -176,7 +184,7 @@
                 <div id="lampiran" style="height: 13em;" class="overflow-hidden mb-3">
                   <img src="/imgc/aduan/default.jpg" alt="default" class="">
                 </div>
-                <h5 id="subjectm" class="card-title">Penawaran Domain Website Desa</h5>
+                <h5 id="subjectm" class="card-title">Subjek: Penawaran Domain Website Desa</h5>
                 <p id="aduan" class="card-text">Kami senang dapat menyediakan layanan domain website desa untuk memperkuat kehadiran online dan mempromosikan potensi dan informasi penting dari Desa Wakanda Raya</p>
               </div>
             </div>
@@ -188,8 +196,9 @@
                 <span id="nama">Respon</span>
               </div>
               <div class="card-body">
+                <h5 id="noaduan" class="card-title">No. Aduan: 7777777777</h5>
                 <p id="respon" class="card-text">
-
+                  Respon Balik dari admin
                 </p>
               </div>
             </div>

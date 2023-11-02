@@ -22,7 +22,7 @@ class Page7 extends BaseController
         if (session()->getFlashdata('validation')) {
             $validation = session()->getFlashdata('validation');
         } else {
-            $validation = [false, false, false, false];
+            $validation = [false, false, false, false, false];
         }
 
         $dataaduan = $this->aduanmodel->orderBy('id', 'DESC')->findAll();

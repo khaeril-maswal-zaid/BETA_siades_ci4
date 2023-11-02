@@ -55,11 +55,7 @@ class Index extends BaseController
         $data = [
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
-
-            'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
-            'metakeywords' => null,
-            'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
         ];
 
         return view('admin/index', $data);
@@ -70,11 +66,7 @@ class Index extends BaseController
         $data = [
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
-
-            'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
-            'metakeywords' => null,
-            'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
 
             'artikels' => $this->artikelmodel->orderBy('id', 'DESC')->paginate(9, 'siades_bloger'),
             'pager' => $this->artikelmodel->pager,
@@ -107,11 +99,7 @@ class Index extends BaseController
         $data = [
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
-
-            'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
-            'metakeywords' => null,
-            'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
 
             'dataupdate' => $dataartikel,
             'label' => $label,
@@ -131,11 +119,7 @@ class Index extends BaseController
         $data = [
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
-
-            'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
-            'metakeywords' => null,
-            'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
 
             'datasdgs' => $datasdgs
         ];
@@ -185,11 +169,7 @@ class Index extends BaseController
         $data = [
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
-
-            'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
-            'metakeywords' => null,
-            'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
 
             'dataidm' => [$group, $val, $skorIndexpergrup],
             'statusIdm' => $statusIdm
@@ -226,11 +206,7 @@ class Index extends BaseController
         $data = [
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
-
-            'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
-            'metakeywords' => null,
-            'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
 
             'keuangan' => [$title, $subtitle, $values],
             'subtitleAll' => $subtitleAll,
@@ -252,11 +228,8 @@ class Index extends BaseController
         $data = [
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
-
-            'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
-            'metakeywords' => null,
-            'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
+
             'visimisi' => ['visi' => $visimisi['tentang'], 'misi' => $visimisi['tupoksi'], 'idUpdate' => $visimisi['id']]
         ];
 
@@ -271,11 +244,7 @@ class Index extends BaseController
         $data = [
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
-
-            'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
-            'metakeywords' => null,
-            'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
 
             'personildesa' => $this->personildesa->personilAll('strukturdesa-kmz-165'),
             'tabeldtb' => $this->personildesa->table,
@@ -305,11 +274,7 @@ class Index extends BaseController
         $data = [
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
-
-            'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
-            'metakeywords' => null,
-            'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
 
             'tupoksi' => $tupoksi,
             'jabatan' => $jabatan,
@@ -336,11 +301,7 @@ class Index extends BaseController
         $data = [
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
-
-            'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
-            'metakeywords' => null,
-            'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
 
             'namalembaga' => $lembaga['namepage'],
             'singkatanlembaga' => $lembaga['nicknamepage'],
@@ -435,12 +396,7 @@ class Index extends BaseController
         $data = [
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
-
             'templatelayaout' => $this->templatelayaout,
-
-            'title' => 'Data Wilayah ' . LENGKAP,
-            'metakeywords' => 'Data Wilayah ' . FULLENGKAP . ', Data Wilayah Desa  Terbaik,',
-            'metadescription' => 'Data Wilayah ' . FULLENGKAP,
 
             'datawilayah' => [$dusun, $rk, $rt, $CdRk, $CdRt, $value, $CdRtRk],
             'tabeldtb' => $this->datawilyahmodel->table,
@@ -495,12 +451,7 @@ class Index extends BaseController
         $data = [
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
-
             'templatelayaout' => $this->templatelayaout,
-
-            'title' => $kategori . ' ' . LENGKAP,
-            'metakeywords' => $kategori . ' ' . FULLENGKAP . ', ' . $kategori . ' Terbaik,',
-            'metadescription' => $kategori . ' ' . FULLENGKAP,
 
             'label' => $kategori,
             'datadesa' => $datadesa,
@@ -518,11 +469,7 @@ class Index extends BaseController
         $data = [
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
-
-            'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
-            'metakeywords' => null,
-            'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
 
             'dataaduan' => $this->aduanmodel->orderBy('id', 'DESC')->findAll()
         ];
@@ -543,11 +490,7 @@ class Index extends BaseController
         $data = [
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
-
-            'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
-            'metakeywords' => null,
-            'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
 
             'lembaga' =>  $daftarlembaga,
             'tabeldtb' => $this->lembagamodel->table
@@ -561,11 +504,7 @@ class Index extends BaseController
         $data = [
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
-
-            'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
-            'metakeywords' => null,
-            'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
 
             'kategoridata' =>  $this->datadesamodel->select('id, slug, updated_by')->groupBy('slug')->findAll(),
             // 'kategoridata' =>  $this->datadesamodel->select('slug')->distinct()->findAll(),
@@ -580,11 +519,7 @@ class Index extends BaseController
         $data = [
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
-
-            'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
-            'metakeywords' => null,
-            'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
 
             'kategoriconf' =>  $this->konfigurasimodel->where('slug', $conf)->findAll(),
             'tabeldtb' => $this->konfigurasimodel->table
@@ -598,11 +533,7 @@ class Index extends BaseController
         $data = [
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
-
-            'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
-            'metakeywords' => null,
-            'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
 
             'kategoriconf' =>  $this->konfigurasimodel->where('slug', $conf)->findAll(),
             'tabeldtb' => $this->konfigurasimodel->table
@@ -616,11 +547,7 @@ class Index extends BaseController
         $data = [
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
-
-            'title' => 'Desa ' . DESA,
             'templatelayaout' => $this->templatelayaout,
-            'metakeywords' => null,
-            'metadescription' => 'Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum',
 
             'konftentang' =>  $this->konfigurasimodel->select('value')->where('slug', 'tentang-aplikasi-kmz-165')->first(),
             'konfalamat' =>  $this->konfigurasimodel->select('value')->where('slug', 'alamat-kantor-kmz-165')->first(),
@@ -636,7 +563,6 @@ class Index extends BaseController
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
-            'title' => 'Desa ' . DESA,
         ];
 
         return view('admin/profil-admin', $data);
@@ -648,7 +574,6 @@ class Index extends BaseController
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
-            'title' => 'Desa ' . DESA,
         ];
 
         return view('admin/ganti-paswoard', $data);
@@ -662,7 +587,6 @@ class Index extends BaseController
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
-            'title' => 'Desa ' . DESA,
 
             'token' => $token
         ];

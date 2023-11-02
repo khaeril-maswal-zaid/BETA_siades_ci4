@@ -15,8 +15,12 @@ class Aduan extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
+            'nomoraduan' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '10',
+            ],
             'nik' => [
-                'type'       => 'INT',
+                'type'       => 'VARCHAR',
                 'constraint' => '16',
             ],
             'name' => [
@@ -48,6 +52,7 @@ class Aduan extends Migration
             ],
             'respon' => [
                 'type'       => 'TEXT',
+                'default'    => 'Terima kasih atas aduan Anda! Kontribusi Anda sangat berarti bagi kami dalam meningkatkan layanan lebih baik.'
             ],
             'updated_by' => [
                 'type'       => 'VARCHAR',

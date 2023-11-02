@@ -3,10 +3,10 @@
 
 <head>
    <meta charset="utf-8">
-   <title>DASHMIN - Bootstrap Admin Template</title>
+   <title>Admin Sidaes | <?= user()->fullname ?></title>
    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-   <meta content="" name="keywords">
-   <meta content="" name="description">
+   <meta content="Website Desa <?= DESA ?>, Desa terbaik, Website desa terbaik, <?= DESA ?>" name="keywords">
+   <meta content="Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum" name="description">
 
    <!-- Favicon -->
    <link href="img/favicon.ico" rel="icon">

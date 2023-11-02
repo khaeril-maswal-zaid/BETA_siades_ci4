@@ -3,21 +3,25 @@
 namespace App\Controllers\Proses;
 
 use App\Controllers\BaseController;
+use App\Libraries\SendByEmail;
 use App\Models\AduanModel;
 
 class Layananaduan extends BaseController
 {
     protected $aduanmodel;
+    protected $sendemail;
 
     public function __construct()
     {
         $this->aduanmodel = new AduanModel();
+        $this->sendemail = new SendByEmail();
     }
 
     public function add()
     {
         //Validasi------------------------------------
         if (!$this->validate([
+            'email' => 'required',
             'name' => 'required',
             'subject' => 'required',
             'pengaduan' => 'required',
@@ -34,6 +38,7 @@ class Layananaduan extends BaseController
             //Error------------------------------------
             // dd($this->validator->getError('fileaduan'));
             session()->setFlashdata('validation', [
+                $this->validator->getError('email'),
                 $this->validator->getError('name'),
                 $this->validator->getError('subject'),
                 $this->validator->getError('pengaduan'),
@@ -54,18 +59,25 @@ class Layananaduan extends BaseController
             $newfilename = '';
         }
 
+        $emailsender = $this->request->getVar('email');
+        $nama = $this->request->getVar('name');
+        $nomoraduan = date('ymd') . random_string('numeric', 4);
+        $subjek = $this->request->getVar('subject');
 
         // Save Data------------------------------------------
         $this->aduanmodel->save([
+            'nomoraduan' => $nomoraduan,
             'nik' => $this->request->getVar('nik'),
-            'name' => $this->request->getVar('name'),
-            'email' => $this->request->getVar('nik'),
+            'name' => $nama,
+            'email' => $emailsender,
             'hp' => $this->request->getVar('hp'),
-            'subject' => $this->request->getVar('subject'),
+            'subject' =>  $subjek,
             'aduan' => $this->request->getVar('pengaduan'),
             'file' => $newfilename,
             'status' => 'Belum diproses',
         ]);
+
+        $this->sendemail->notifAduan([$emailsender, $nama, $nomoraduan, $subjek]);
 
         session()->setFlashdata('pesan', 'Informasi berhasil tersubmit');
         return redirect()->to(base_url() . 'layanan-pengaduan');
@@ -107,13 +119,18 @@ class Layananaduan extends BaseController
         return redirect()->to(base_url() . 'admindes/aduan-masyarakat');
     }
 
-    public function respon($idDelete)
+    public function respon($idUpdate)
     {
-        $this->aduanmodel->update($idDelete, [
+        $respon = $this->request->getVar('respon');
+        $dataaduan = $this->aduanmodel->select(['email', 'name', 'nomoraduan'])->where('id', $idUpdate)->first();
+
+        $this->aduanmodel->update($idUpdate, [
             'status' => 'Sedang diproses',
             'updated_by' => user()->fullname,
-            'respon' => $this->request->getVar('respon')
+            'respon' =>  $respon
         ]);
+
+        $this->sendemail->responAduan([$dataaduan['email'], $dataaduan['name'], $dataaduan['nomoraduan'],  $respon]);
 
         session()->setFlashdata('addArtikel', 'Data berhasil ditanggapi');
         return redirect()->to(base_url() . 'admindes/aduan-masyarakat');

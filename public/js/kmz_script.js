@@ -13,7 +13,7 @@ $(function () {
       dataType: "json",
       success: function (data) {
         $("#nama").text(data.name);
-        $("#subjectm").text(data.subject);
+        $("#subjectm").text("Subjek: " + data.subject);
         $("#status").text(data.status);
         $("#aduan").text(data.aduan);
 
@@ -42,6 +42,7 @@ $(function () {
         }
 
         //Tampilkan hasil respon admin
+        $("#noaduan").html(data.nomoraduan);
         $("#respon").html(data.respon);
       },
     });
