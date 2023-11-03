@@ -37,6 +37,8 @@ class Index extends BaseController
         $admin = new AdminsModel();
         $imageAdmin = $admin->getOne('image', 'fullname', $artikel['oleh']);
 
+        $viewers = $this->countviewersmodel->getDataByPage($artikel['id']);
+
         $data = [
             'templatelayaout' => $this->templatelayaout,
 
@@ -47,6 +49,7 @@ class Index extends BaseController
             'dataartikel' => $artikel,
             'fotoadmin' => $imageAdmin,
             'personildesa' => $this->personildesa->personilAll('strukturdesa-kmz-165'),
+            'viewers' => $viewers + 50
         ];
 
         $this->countviewersmodel->addViewers([$artikel['id']]);
@@ -68,6 +71,8 @@ class Index extends BaseController
         $admin = new AdminsModel();
         $imageAdmin = $admin->getOne('image', 'fullname', $artikel['oleh']);
 
+        $viewers = $this->countviewersmodel->getDataByPage($artikel['id']);
+
         $data = [
             'templatelayaout' => $this->templatelayaout,
 
@@ -78,6 +83,7 @@ class Index extends BaseController
             'dataartikel' => $artikel,
             'fotoadmin' => $imageAdmin,
             'personildesa' => $this->personildesa->personilAll('strukturdesa-kmz-165'),
+            'viewers' => $viewers + 50
         ];
 
         $this->countviewersmodel->addViewers([$artikel['id']]);

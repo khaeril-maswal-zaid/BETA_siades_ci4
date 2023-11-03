@@ -39,7 +39,7 @@
                   <span class="m-1"><?= $dataartikel['oleh'] ?></span>
                </div>
                <div class="d-flex align-items-center">
-                  <span class="ms-2"><i class="far fa-eye mr-2"></i> <?= $dataartikel['view'] ?></span>
+                  <span class="ms-2"><i class="far fa-eye mr-2"></i> <?= $viewers ?></span>
                </div>
             </div>
 
