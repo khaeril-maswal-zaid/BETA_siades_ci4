@@ -137,13 +137,14 @@ $routes->get('/admindes/daftar-media-sosial', 'Admin\Index::konfMedsos/media-sos
 $routes->get('/admindes/konf-aplikasi', 'Admin\Index::konfAplikasi');
 
 $routes->get('/admindes/myprofil', 'Admin\Index::profilAdmin');
-$routes->get('/forgot', 'Admin\Index::gantiPassword');
-$routes->get('/reset-password', 'Admin\Index::resetPassword');
 
 $routes->get('/admindes/bpd', 'Admin\Index::lembaga/bpd'); // Supaya tidak masuk kategori lembaga di URL 
 $routes->get('/admindes/daftar-lembaga', 'Admin\index::daftarLembaga');
 $routes->get('/admindes/(:any)', 'Admin\Index::lembaga/$1');
 
+$routes->get('/forgot', 'Myth\Index::gantiPassword');
+$routes->get('/reset-password', 'Myth\Index::resetPassword');
+// $routes->get('/login', 'Myth\Index::login');  // TIDAK SESUAI EKSPESTASI
 
 
 // Post Foto menggunakan Ajax
