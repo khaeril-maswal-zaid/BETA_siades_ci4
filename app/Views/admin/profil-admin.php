@@ -76,6 +76,12 @@
                                 <td class="text-center"><span class="badge bg-secondary">Double Clik "Nama" for Edit</span></td>
                             </tr>
                             <tr>
+                                <td>No WA</td>
+                                <td>:</td>
+                                <td class="edit-dbClick" data-id="<?= convertToLetter(user_id()) ?>" data-colum="<?= caesarCipherReverse('username'); ?>"><?= user()->username ?></td>
+                                <td class="text-center"><span class="badge bg-secondary">Double Clik "No WA" for Edit</span></td>
+                            </tr>
+                            <tr>
                                 <td>Password</td>
                                 <td>:</td>
                                 <td>Terverifikasi</td>

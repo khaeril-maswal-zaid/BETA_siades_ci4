@@ -47,10 +47,6 @@ class Artikel extends Migration
             'artikel' => [
                 'type'       => 'TEXT',
             ],
-            'view' => [
-                'type'       => 'INT',
-                'constraint' => '5',
-            ],
             'jenis' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '20',

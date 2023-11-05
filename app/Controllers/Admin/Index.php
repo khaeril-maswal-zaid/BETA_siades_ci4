@@ -5,6 +5,7 @@ namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 use App\Models\AduanModel;
 use App\Models\ArtikelModel;
+use App\Models\CountViewersModel;
 use App\Models\DataDesaModel;
 use App\Models\DataWilayahModel;
 use App\Models\IdmModel;
@@ -28,6 +29,7 @@ class Index extends BaseController
         $datawilyahmodel,
         $aduanmodel,
         $konfigurasimodel,
+        $viewerswebmodel,
 
         $statusaduan,
         $aduanbelum;
@@ -45,6 +47,7 @@ class Index extends BaseController
         $this->datawilyahmodel = new DataWilayahModel();
         $this->aduanmodel = new AduanModel();
         $this->konfigurasimodel = new KonfigurasiModel();
+        $this->viewerswebmodel = new CountViewersModel();
 
         $this->aduanbelum = $this->aduanmodel->where('status', 'Belum diproses')->countAllResults();
         $this->statusaduan = $this->aduanmodel->select('name, created_at')->where('status', 'Belum diproses')->findAll();
@@ -56,6 +59,9 @@ class Index extends BaseController
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
+            'viewrsbyday' => $this->viewerswebmodel->getDataForDays(15),
+            'viewrsbymonth' => $this->viewerswebmodel->getDataForMonths(),
+            'viewrsbyyeart' => $this->viewerswebmodel->getDataForYears()
         ];
 
         return view('admin/index', $data);
@@ -63,13 +69,16 @@ class Index extends BaseController
 
     public function blog()
     {
+        $artikels = $this->artikelmodel->where('jenis', 'umum')->orderBy('id', 'DESC')->paginate(9, 'siades_bloger');
+        $idforviewers = $this->artikelmodel->select('id')->where('jenis', 'umum')->orderBy('id', 'DESC')->paginate(9, 'siades_bloger');
         $data = [
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
 
-            'artikels' => $this->artikelmodel->where('jenis', 'umum')->orderBy('id', 'DESC')->paginate(9, 'siades_bloger'),
+            'artikels' => $artikels,
             'pager' => $this->artikelmodel->pager,
+            'viewrsbyyeart' => $this->viewerswebmodel->getDataByPagies($idforviewers)
         ];
 
         return view('admin/bloger', $data);

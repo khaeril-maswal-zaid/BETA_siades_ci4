@@ -10,6 +10,8 @@ class CountViewersModel extends Model
     protected $useTimestamps = true;
     protected $allowedFields = ['idpage', 'useradress', 'tanggal', 'bulan', 'tahun'];
 
+    protected $setAwalViewers = 0; // Tidak sesuai ekspestasi jadi atur di add saja
+
     public function addViewers($idpage)
     {
         $array = [
@@ -22,7 +24,19 @@ class CountViewersModel extends Model
 
         $unique = $this->where($array)->countAllResults();
 
-        if ($unique === 0) {
+        $cekFirst = $this->where('idpage', $idpage)->countAllResults();
+
+        if ($cekFirst === 0) {
+            for ($i = 1; $i < 51; $i++) {
+                $this->save([
+                    'idpage' => $idpage,
+                    'useradress' => takeusers() . '-' . $i,
+                    'tanggal' => date('d'),
+                    'bulan' => date('m'),
+                    'tahun' => date('Y'),
+                ]);
+            }
+        } elseif ($unique === 0) {
             $this->save([
                 'idpage' => $idpage,
                 'useradress' => takeusers(),
@@ -35,14 +49,27 @@ class CountViewersModel extends Model
 
     public function getDataByPage($idpage): int
     {
-        return $this->where('idpage', $idpage)->countAllResults();
+        $return = $this->setAwalViewers + $this->where('idpage', $idpage)->countAllResults();
+
+        return $return;
+    }
+
+    public function getDataByPagies(array $idpagies): array
+    {
+        $returns = [];
+        foreach ($idpagies as $ids) {
+            $returns[] = $this->setAwalViewers + $this->where('idpage', $ids)->countAllResults();
+        }
+
+        return $returns;
     }
 
     public function getDataForDays($days = 7): array
     {
         $result = [];
+        $dayss = [];
 
-        for ($i = 0; $i < $days; $i++) {
+        for ($i = $days - 1; $i >= 0; $i--) {
             $day = date('d', strtotime("-$i days")); // Menghitung tanggal mundur sebanyak $i hari dari hari ini
 
             $array = [
@@ -51,13 +78,19 @@ class CountViewersModel extends Model
                 'tahun' => date('Y'),
             ];
 
+            $dayss[] = $day . date('-m-Y');
 
             $count = $this->where($array)->countAllResults();
+
+            if ($count != 0) {
+                $count = $this->setAwalViewers + $count;
+            }
             $result[$day] = $count;
         }
 
-        return $result;
+        return [$result, $dayss];
     }
+
 
     public function getDataForMonths($currentMonth = null, $historyMonths = 12): array
     {
@@ -66,9 +99,12 @@ class CountViewersModel extends Model
         }
 
         $result = [];
+        $label = [];
 
-        for ($i = 0; $i < $historyMonths; $i++) {
+        for ($i = $historyMonths - 1; $i >= 0; $i--) {
             $targetMonth = date('Y-m', strtotime("-$i months", strtotime($currentMonth)));
+            $labelMonth = date('F, Y', strtotime("-$i months", strtotime($currentMonth)));
+
             $year = date('Y', strtotime($targetMonth));
             $month = date('m', strtotime($targetMonth));
 
@@ -76,29 +112,38 @@ class CountViewersModel extends Model
             $this->where('tahun', $year);
             $count = $this->countAllResults();
 
+            if ($count != 0) {
+                $count = $this->setAwalViewers + $count;
+            }
+            $label[] =  $labelMonth;
             $result[$targetMonth] = $count;
         }
 
-        return $result;
+        return [$result, $label];
     }
 
-    public function getDataForYears($currentYear = null, $historyYears = 5): array
+    public function getDataForYears($currentYear = null, $historyYears = 4): array
     {
         if ($currentYear == null) {
             $currentYear = date('Y');
         }
 
         $result = [];
+        $label = [];
 
-        for ($i = 0; $i < $historyYears; $i++) {
+        for ($i = $historyYears; $i >= 0; $i--) {
             $targetYear = $currentYear - $i;
 
             $this->where('tahun', $targetYear);
             $count = $this->countAllResults();
 
+            if ($count != 0) {
+                $count = $this->setAwalViewers + $count;
+            }
+            $label[] = $targetYear;
             $result[$targetYear] = $count;
         }
 
-        return $result;
+        return [$result, $label];
     }
 }

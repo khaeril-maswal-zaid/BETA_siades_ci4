@@ -640,7 +640,7 @@
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="uploaded">
-                                        <img src="/img/personil/team-1.jpg" class="card-img-top img-fluid vwFoto" alt="kmz" id="vwFoto">
+                                        <img src="/img/personil/default.jpg" class="card-img-top img-fluid vwFoto" alt="kmz" id="vwFoto">
                                     </div>
                                     <div class="alert alert-danger d-none pesan-error m-0 mt-2" role="alert">
                                         BUG dev.by KMZ

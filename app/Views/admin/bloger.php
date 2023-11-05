@@ -37,12 +37,13 @@
                     <th scope="col" class="text-center">Aksi</th>
                     <th scope="col" class="text-center">Tanggal/Waktu</th>
                     <th scope="col" class="text-center">Judul</th>
+                    <th scope="col" class="text-center">Viewers</th>
                     <th scope="col" class="text-center">Oleh</th>
                 </tr>
             </thead>
             <tbody>
                 <?php $no = 1;
-                foreach ($artikels as $artikel) : ?>
+                foreach ($artikels as $key => $artikel) : ?>
                     <tr style="font-size: 85%;">
                         <td class="align-middle"><?= $no++ ?></td>
                         <td class="align-middle">
@@ -60,12 +61,13 @@
                                             <button type="submit" class="dropdown-item" onclick="return confirm('Yakin mau menghapus ?')">Hapus</button>
                                         </form>
                                     </li>
-                                    <li><a href="<?= generetWaShareAdmin('pke nomor admin login', base_url() . $artikel['slug'] . '/' . $artikel['time']) ?>" class="dropdown-item" target="_blank">Share WA</a></li>
+                                    <li><a href="<?= generetWaShareAdmin(user()->username, '*' . $artikel['judul'] . '*%0A%0A Selengkapnya di,.. ' . base_url($artikel['slug'] . '/' . $artikel['time'])) ?>" class="dropdown-item" target="_blank">Share WA</a></li>
                                 </ul>
                             </div>
                         </td>
                         <td class="align-middle" nowrap><?= $artikel['updated_at'] ?></td>
                         <td class="align-middle"><?= $artikel['judul'] ?></td>
+                        <td class="align-middle"><?= $viewrsbyyeart[$key] ?></td>
                         <td class="align-middle" nowrap><?= $artikel['oleh'] ?></td>
                     </tr>
                 <?php endforeach ?>

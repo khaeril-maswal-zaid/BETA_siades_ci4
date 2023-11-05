@@ -79,14 +79,14 @@ class AdmBlog extends BaseController
                 $this->validator->getError('imageblog'),
             ]);
 
-            return redirect()->to(base_url() . $redirect)->withInput();
+            return redirect()->to(base_url() . $redirect . '/add')->withInput();
         }
 
         //OLEH & OLEH LAINNYA tidak boleh kosong secara bersamaan
         //Tidk dmasukkan di role validation karena boleh ji kosong salah satunya
         if ($this->request->getVar('oleh') == '' && $this->request->getVar('oleh-lainnya') == '') {
             session()->setFlashdata('val-oleh', true);
-            return redirect()->to(base_url() . $redirect)->withInput();
+            return redirect()->to(base_url() . $redirect . '/add')->withInput();
         }
 
         //Cek oleh klw kosong gunkan yg lainnya
@@ -100,7 +100,7 @@ class AdmBlog extends BaseController
         $defaultartikel = '<p class="ck-placeholder" data-placeholder="Ketikkan disini !"><br data-cke-filler="true"></p>';
         if ($this->request->getVar('isinaArtikel') == $defaultartikel) {
             session()->setFlashdata('val-isinaArtikel', true);
-            return redirect()->to(base_url() . $redirect)->withInput();
+            return redirect()->to(base_url() . $redirect . '/add')->withInput();
         }
 
         //Cek foto
@@ -123,7 +123,7 @@ class AdmBlog extends BaseController
             'id' => $idUpdate,
             'time' => time(),
             'slug' => $slug,
-            'judul' => $this->request->getVar('judul'),
+            'judul' => rtrim($this->request->getVar('judul')), // Hilangkan space di akhir kalimat
             'description' => $this->request->getVar('deskripsi'),
             'picture' => $picture,
             'album' => 1, //1 Artinya True
