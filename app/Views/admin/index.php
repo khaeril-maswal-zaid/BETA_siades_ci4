@@ -60,7 +60,7 @@
                     },
 
                     series: [{
-                        name: 'Pengunjung Harian Web',
+                        name: 'Pengunjung Harian',
                         data: [<?php
                                 foreach ($viewrsbyday[0] as $vDay) {
                                     echo $vDay . ',';

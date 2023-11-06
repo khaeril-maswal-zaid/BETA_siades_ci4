@@ -106,13 +106,13 @@
                </div>
                <div class="card border-success mb-3">
                   <div class="card-header bg-light">Profil <?= $singkatanlembaga ?></div>
-                  <div class="card-body text-success">
+                  <div class="card-body text-dark">
                      <?= $tentang ?>
                   </div>
                </div>
                <div class="card border-success mb-3">
                   <div class="card-header bg-light">Tugas Pokok & Fungsi <?= $singkatanlembaga ?></div>
-                  <div class="card-body text-success"> <?= $tupoksi ?></div>
+                  <div class="card-body text-dark"> <?= $tupoksi ?></div>
                </div>
             </main>
          </div>

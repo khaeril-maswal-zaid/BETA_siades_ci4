@@ -46,71 +46,101 @@
         </div>
     <?php endif ?>
 
-    <table class="table table-striped table-bordered" id="<?= url_title('Struktur Desa  ' . DESA, '-', true) ?>" data-tabelsiades="<?= caesarCipherReverse($tabeldtb) ?>">
-        <thead>
-            <tr class="text-center">
-                <th scope="col">#</th>
-                <th scope="col">Aksi</th>
-                <th scope="col">Nama</th>
-                <th scope="col">Jabatan</th>
-                <th scope="col">Alamat</th>
-                <th scope="col">Pendidikan</th>
-                <th scope="col">Kontak</th>
-                <th scope="col">Update By</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            $iNo = 1;
-            foreach ($personildesa as $personil) :
-            ?>
-                <tr class="#">
-                    <td><?= $iNo++ ?></td>
-                    <td>
-                        <button style="font-size: 87%;" id="btnGroupDrop1" type="button" class="btn btn-sm btn-primary dropdown-toggle position-relative" data-bs-toggle="dropdown" aria-expanded="false">
-                            Action
-                            <?= ($personil['class']) ?
-                                '<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                M
-                                <span class="visually-hidden">KMZ Alzaid</span>
-                            </span>' : ''
-                            ?>
-                        </button>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card parent-control-post-foto">
+                <div class="uploaded">
+                    <img src="/img/personil/struktur-organisasi.jpg" class="card-img-top mb-0" alt="Struktur Organisasi">
+                </div>
+                <div class="card-body">
+                    <div class="">
+                        <div class="alert alert-danger d-none pesan-error" role="alert">
+                            BUG dev.by KMZ
+                        </div>
+                        <form action="" method="post">
+                            <div class="row">
+                                <div class="col-9 pe-0"> <input class="form-control form-control-sm imgtarget" id="str" type="file">
+                                    <input type="hidden" value="struktur-organisasi" class="labelimgajax">
+                                </div>
+                                <div class="col-3">
+                                    <button type="submit" class="btn btn-sm btn-warning">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 overflow-auto">
+            <div style="min-width: 1000px; max-height: 100px;">
+                <table class="table table-striped table-bordered" id="<?= url_title('Struktur Desa  ' . DESA, '-', true) ?>" data-tabelsiades="<?= caesarCipherReverse($tabeldtb) ?>">
+                    <thead>
+                        <tr class="text-center">
+                            <th scope="col">#</th>
+                            <th scope="col">Aksi</th>
+                            <th scope="col">Nama</th>
+                            <th scope="col">Jabatan</th>
+                            <th scope="col">Alamat</th>
+                            <th scope="col">Pendidikan</th>
+                            <th scope="col">Kontak</th>
+                            <th scope="col">Added By</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $iNo = 1;
+                        foreach ($personildesa as $personil) :
+                        ?>
+                            <tr class="#">
+                                <td><?= $iNo++ ?></td>
+                                <td>
+                                    <button style="font-size: 87%;" id="btnGroupDrop1" type="button" class="btn btn-sm btn-primary dropdown-toggle position-relative" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Action
+                                        <?= ($personil['class']) ?
+                                            '<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                                M
+                                                <span class="visually-hidden">KMZ Alzaid</span>
+                                            </span>' : ''
+                                        ?>
+                                    </button>
 
-                        <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="font-size: 90%!important;">
-                            <li>
-                                <button type="button" data-id="<?= convertToLetter($personil['id']) ?>" class="dropdown-item viewStruktur" data-bs-toggle="modal" data-bs-target="#staticBackdropView">
-                                    View
-                                </button>
-                            </li>
-                            <li>
-                                <a href="/admindes/tupoksi/<?= strtolower(str_replace(' ', '-', $personil['jabatan'])) . '/' . convertToLetter($personil['id']) ?>" class="dropdown-item viewStruktur">Set Tupoksi</a>
-                            </li>
-                            <li>
-                                <form action="/adm-proses/mainfoto-lembaga/<?= convertToLetter($personil['id']) ?>/struktur-desa" method="post">
-                                    <?= csrf_field() ?>
-                                    <button type="submit" class="dropdown-item">Set Foto Utama</button>
-                                </form>
-                            </li>
-                            <li>
-                                <form action="/adm-proses/delete-struktur/<?= convertToLetter($personil['id']) ?>" method="post">
-                                    <?= csrf_field() ?>
-                                    <input type="hidden" name="_method" value="DELETE">
-                                    <button type="submit" class="dropdown-item" onclick="return confirm('Yakin mau menghapus ?')">Hapus</button>
-                                </form>
-                            </li>
-                        </ul>
-                    </td>
-                    <td class="edit-dbClick" data-id="<?= convertToLetter($personil['id']) ?>" data-colum="<?= caesarCipherReverse('nama'); ?>"><?= $personil['nama'] ?></td>
-                    <td class="edit-dbClick" data-id="<?= convertToLetter($personil['id']) ?>" data-colum="<?= caesarCipherReverse('jabatan'); ?>"><?= $personil['jabatan'] ?></td>
-                    <td class="edit-dbClick" data-id="<?= convertToLetter($personil['id']) ?>" data-colum="<?= caesarCipherReverse('alamat'); ?>"><?= $personil['alamat'] ?></td>
-                    <td class="edit-dbClick" data-id="<?= convertToLetter($personil['id']) ?>" data-colum="<?= caesarCipherReverse('pendidikan'); ?>"><?= $personil['pendidikan'] ?></td>
-                    <td class="edit-dbClick" data-id="<?= convertToLetter($personil['id']) ?>" data-colum="<?= caesarCipherReverse('kontak'); ?>"><?= $personil['kontak'] ?></td>
-                    <td><?= $personil['updated_by'] ?></td>
-                </tr>
-            <?php endforeach ?>
-        </tbody>
-    </table>
+                                    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1" style="font-size: 90%!important;">
+                                        <li>
+                                            <button type="button" data-id="<?= convertToLetter($personil['id']) ?>" class="dropdown-item viewStruktur" data-bs-toggle="modal" data-bs-target="#staticBackdropView">
+                                                View
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <a href="/admindes/tupoksi/<?= strtolower(str_replace(' ', '-', $personil['jabatan'])) . '/' . convertToLetter($personil['id']) ?>" class="dropdown-item viewStruktur">Set Tupoksi</a>
+                                        </li>
+                                        <li>
+                                            <form action="/adm-proses/mainfoto-lembaga/<?= convertToLetter($personil['id']) ?>/struktur-desa" method="post">
+                                                <?= csrf_field() ?>
+                                                <button type="submit" class="dropdown-item">Set Foto Utama</button>
+                                            </form>
+                                        </li>
+                                        <li>
+                                            <form action="/adm-proses/delete-struktur/<?= convertToLetter($personil['id']) ?>" method="post">
+                                                <?= csrf_field() ?>
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <button type="submit" class="dropdown-item" onclick="return confirm('Yakin mau menghapus ?')">Hapus</button>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td class="edit-dbClick" data-id="<?= convertToLetter($personil['id']) ?>" data-colum="<?= caesarCipherReverse('nama'); ?>"><?= $personil['nama'] ?></td>
+                                <td class="edit-dbClick" data-id="<?= convertToLetter($personil['id']) ?>" data-colum="<?= caesarCipherReverse('jabatan'); ?>"><?= $personil['jabatan'] ?></td>
+                                <td class="edit-dbClick" data-id="<?= convertToLetter($personil['id']) ?>" data-colum="<?= caesarCipherReverse('alamat'); ?>"><?= $personil['alamat'] ?></td>
+                                <td class="edit-dbClick" data-id="<?= convertToLetter($personil['id']) ?>" data-colum="<?= caesarCipherReverse('pendidikan'); ?>"><?= $personil['pendidikan'] ?></td>
+                                <td class="edit-dbClick" data-id="<?= convertToLetter($personil['id']) ?>" data-colum="<?= caesarCipherReverse('kontak'); ?>"><?= $personil['kontak'] ?></td>
+                                <td><?= $personil['updated_by'] ?></td>
+                            </tr>
+                        <?php endforeach ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </main>
 
 <!-- Modal Add -->
@@ -187,7 +217,7 @@
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="uploaded">
-                                        <img src="/img/personil/team-1.jpg" class="card-img-top img-fluid vwFoto" alt="kmz" id="vwFoto">
+                                        <img src="/img/personil/default.jpg" class="card-img-top img-fluid vwFoto" alt="kmz" id="vwFoto">
                                     </div>
                                     <div class="alert alert-danger d-none pesan-error m-0 mt-2" role="alert">
                                         BUG dev.by KMZ
