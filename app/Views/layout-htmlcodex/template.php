@@ -30,6 +30,13 @@
 
    <!-- Template Stylesheet -->
    <link href="<?= base_url() ?>css/style.css" rel="stylesheet" />
+   <style>
+      .page-header {
+         background: linear-gradient(rgba(15, 66, 41, 0.6), rgba(15, 66, 41, 0.6)),
+            url(../img/assets/carousel-1.jpg) center center no-repeat;
+         background-size: cover;
+      }
+   </style>
 
    <!-- Highcharts Stylesheet -->
    <link href="<?= base_url() ?>css/highcharts.css" rel="stylesheet" />

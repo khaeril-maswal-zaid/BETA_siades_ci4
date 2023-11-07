@@ -135,6 +135,7 @@ $routes->get('/admindes/daftar-kategori-data', 'Admin\index::daftarData');
 $routes->get('/admindes/daftar-dusun', 'Admin\Index::konfDusun/dusun-kmz-165');
 $routes->get('/admindes/daftar-media-sosial', 'Admin\Index::konfMedsos/media-sosial-kmz-165');
 $routes->get('/admindes/konf-aplikasi', 'Admin\Index::konfAplikasi');
+$routes->get('/admindes/konf-carousel', 'Admin\Index::postPhoto');
 
 $routes->get('/admindes/myprofil', 'Admin\Index::profilAdmin');
 

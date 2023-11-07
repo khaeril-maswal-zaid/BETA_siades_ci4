@@ -59,7 +59,8 @@
                         </div>
                         <form action="" method="post">
                             <div class="row">
-                                <div class="col-9 pe-0"> <input class="form-control form-control-sm imgtarget" id="str" type="file">
+                                <div class="col-9 pe-0">
+                                    <input class="form-control form-control-sm imgtarget" id="str" type="file">
                                     <input type="hidden" value="struktur-organisasi" class="labelimgajax">
                                 </div>
                                 <div class="col-3">

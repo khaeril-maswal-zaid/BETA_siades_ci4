@@ -136,6 +136,33 @@ class Siades_Konfigurasi extends Seeder
                 'created_at' => Time::now(),
                 'updated_at' => Time::now(),
             ],
+            [
+                'slug' => 'carousel-1-kmz-165',
+                'label' => 'Carousel',
+                'value' => 'Carousel 1',
+                'more' => 'carousel-1.jpg',
+                'updated_by' => 'Default',
+                'created_at' => Time::now(),
+                'updated_at' => Time::now(),
+            ],
+            [
+                'slug' => 'carousel-1-kmz-165',
+                'label' => 'Carousel',
+                'value' => 'Carousel 1',
+                'more' => 'carousel-2.jpg',
+                'updated_by' => 'Default',
+                'created_at' => Time::now(),
+                'updated_at' => Time::now(),
+            ],
+            [
+                'slug' => 'carousel-1-kmz-165',
+                'label' => 'Carousel',
+                'value' => 'Carousel 1',
+                'more' => 'carousel-3.jpg',
+                'updated_by' => 'Default',
+                'created_at' => Time::now(),
+                'updated_at' => Time::now(),
+            ],
         ];
 
         // Simple Queries

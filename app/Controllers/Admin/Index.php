@@ -576,4 +576,16 @@ class Index extends BaseController
 
         return view('admin/profil-admin', $data);
     }
+
+    public function postPhoto()
+    {
+        $data = [
+            'aduanbelum' => $this->aduanbelum,
+            'statusaduan' => $this->statusaduan,
+            'templatelayaout' => $this->templatelayaout,
+            'carousels' => $this->konfigurasimodel->select(['more', 'id'])->where('label', 'Carousel')->findAll(3)
+        ];
+
+        return view('admin/konf-carousel', $data);
+    }
 }

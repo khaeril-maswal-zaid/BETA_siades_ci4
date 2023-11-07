@@ -194,11 +194,12 @@ h6,
   }
 }
 
-.page-header {
+/* DI PINDAHKAN KE HEAD HTML SUPAYA BISA PASANG VARIABEL FOTO CAROUSEL */
+/* .page-header {
   background: linear-gradient(rgba(15, 66, 41, 0.6), rgba(15, 66, 41, 0.6)),
     url(../img/assets/carousel-1.jpg) center center no-repeat;
   background-size: cover;
-}
+} */
 
 .page-header .breadcrumb-item + .breadcrumb-item::before {
   color: var(--light);

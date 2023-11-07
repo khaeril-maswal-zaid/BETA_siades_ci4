@@ -207,6 +207,16 @@ $("#closeView").on("click", function () {
   resetFwFile.value = null;
 });
 
+//.................................................
+//Model Aduan
+$(".button-ganti").on("click", function () {
+  $("#csimg").attr("src", "/img/assets/" + $(this).data("img"));
+  $("#idCarousel").val($(this).data("id-carousel"));
+  $(".labelimgajax").val($(this).data("bakal-name-image"));
+
+  $("#blockspinner").addClass("d-none");
+});
+
 //HANYA SEMENTARA..................................
 //Api Data
 // $.ajax({
