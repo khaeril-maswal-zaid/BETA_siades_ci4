@@ -48,29 +48,33 @@
 
     <div class="row">
         <div class="col-md-4">
-            <div class="card parent-control-post-foto">
-                <div class="uploaded">
-                    <img src="/img/personil/struktur-organisasi.jpg" class="card-img-top mb-0" alt="Struktur Organisasi">
-                </div>
-                <div class="card-body">
-                    <div class="">
-                        <div class="alert alert-danger d-none pesan-error" role="alert">
-                            BUG dev.by KMZ
-                        </div>
-                        <form action="" method="post">
+            <form action="/adm-proses/update-struktur" method="post">
+                <?= csrf_field() ?>
+
+                <div class="card parent-control-post-foto">
+                    <div class="uploaded">
+                        <img src="/img/personil/<?= $image['more'] ?>" class="card-img-top mb-0" alt="Struktur Organisasi">
+                    </div>
+                    <div class="card-body">
+                        <div class="">
+                            <div class="alert alert-danger d-none pesan-error" role="alert">
+                                BUG dev.by KMZ
+                            </div>
+
                             <div class="row">
                                 <div class="col-9 pe-0">
                                     <input class="form-control form-control-sm imgtarget" id="str" type="file">
                                     <input type="hidden" value="struktur-organisasi" class="labelimgajax">
+                                    <input type="hidden" value="<?= $image['id'] ?>" id="idCarousel" name="idCarousel">
                                 </div>
                                 <div class="col-3">
                                     <button type="submit" class="btn btn-sm btn-warning">Submit</button>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
         <div class="col-md-8 overflow-auto">
             <div style="min-width: 1000px; max-height: 100px;">

@@ -25,18 +25,21 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <?php endif ?>
-
-    <?php foreach ($carousels as $key =>  $value) : ?>
-        <div class="card border-primary mb-3">
-            <div class="card-header bg-primary text-white">
-                <span class="d-inline text-white fs-5">Image Carousel <?= $key + 1 ?></span>
-                <button type="button" class="float-end btn btn-warning btn-sm button-ganti" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-bakal-name-image="carousel-<?= $key + 1 ?>" data-id-carousel="<?= $value['id'] ?>" data-img="<?= $value['more'] ?>">Ganti</button>
+    <div class="row">
+        <?php foreach ($carousels as $key =>  $value) : ?>
+            <div class="col-md-6">
+                <div class="card border-primary mb-3">
+                    <div class="card-header bg-primary text-white">
+                        <span class="d-inline text-white fs-5">Image Carousel <?= $key + 1 ?></span>
+                        <button type="button" class="float-end btn btn-warning btn-sm button-ganti" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-bakal-name-image="carousel-<?= $key + 1 ?>" data-id-carousel="<?= $value['id'] ?>" data-img="<?= $value['more'] ?>">Ganti</button>
+                    </div>
+                    <div class="card-body p-1">
+                        <img src="/img/assets/<?= $value['more'] ?>" class="img-fluid img-thumbnail" alt="Carousel <?= $key + 1 ?>">
+                    </div>
+                </div>
             </div>
-            <div class="card-body">
-                <img src="/img/assets/<?= $value['more'] ?>" class="img-fluid img-thumbnail" alt="Carousel <?= $key + 1 ?>">
-            </div>
-        </div>
-    <?php endforeach ?>
+        <?php endforeach ?>
+    </div>
 </main>
 
 <!-- Modal Add -->
@@ -57,7 +60,7 @@
                     <div class="">
                         <input class="form-control form-control-sm imgtarget" id="vwImgtarget" type="file">
                         <input type="hidden" value="carousel" class="labelimgajax">
-                        <input type="hidden" value="carousel" id="idCarousel">
+                        <input type="hidden" value="carousel" id="idCarousel" name="idCarousel">
                     </div>
 
                     <div class="alert alert-danger d-none pesan-error mt-3" role="alert">

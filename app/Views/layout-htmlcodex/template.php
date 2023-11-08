@@ -33,7 +33,7 @@
    <style>
       .page-header {
          background: linear-gradient(rgba(15, 66, 41, 0.6), rgba(15, 66, 41, 0.6)),
-            url(../img/assets/carousel-1.jpg) center center no-repeat;
+            url(../img/assets/<?= CAROUSELPAGES ?>) center center no-repeat;
          background-size: cover;
       }
    </style>

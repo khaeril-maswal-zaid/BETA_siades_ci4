@@ -100,6 +100,8 @@ $routes->delete('/adm-proses/delete-conf/(:any)/(:any)', 'Proses\Konfigurasi::de
 $routes->post('/adm-proses/update-aplikasi', 'Proses\Konfigurasi::updateAplikasi');
 
 $routes->post('/adm-proses/update-foto/(:any)', 'Proses\Admin::updateFoto/$1');
+$routes->post('/adm-proses/update-carousel', 'Proses\Konfigurasi::postPhoto/konf-carousel/assets');
+$routes->post('/adm-proses/update-struktur', 'Proses\Konfigurasi::postPhoto/struktur-desa/personil');
 
 $routes->post('/adm-proses/updatefoto-personil/(:any)/(:any)', 'Proses\PersonilDesa::updateFoto/$1/$2');
 
@@ -116,6 +118,7 @@ $routes->get('/admindes/aduan-masyarakat', 'Admin\Index::aduan');
 $routes->get('/admindes/profil-wilayah', 'Admin\Index::blogAdd/profil-wilayah/Update profil-wilayah/readonly');
 $routes->get('/admindes/sejarah-desa', 'Admin\Index::blogAdd/sejarah-desa/Update sejarah-desa/readonly');
 $routes->get('/admindes/potensi-desa', 'Admin\Index::blogAdd/potensi-desa/Update potensi-desa/readonly');
+$routes->get('/admindes/potensi-desa/lg', 'Admin\Index::blogAdd/potensi-desa/Update potensi-desa');
 
 $routes->get('/admindes/kabar-desa/add', 'Admin\Index::blogAdd');
 $routes->get('/admindes/kabar-desa/update/(:any)', 'Admin\Index::blogAdd/$1/Update $1');

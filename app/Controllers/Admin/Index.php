@@ -257,7 +257,8 @@ class Index extends BaseController
 
             'personildesa' => $this->personildesa->personilAll('strukturdesa-kmz-165'),
             'tabeldtb' => $this->personildesa->table,
-            'active' => count($active)
+            'active' => count($active),
+            'image' => $this->konfigurasimodel->select(['more', 'id'])->where('label', 'Struktur')->first()
         ];
 
         return view('admin/struktur', $data);
@@ -583,7 +584,7 @@ class Index extends BaseController
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
-            'carousels' => $this->konfigurasimodel->select(['more', 'id'])->where('label', 'Carousel')->findAll(3)
+            'carousels' => $this->konfigurasimodel->select(['more', 'id'])->where('label', 'Carousel')->findAll(4)
         ];
 
         return view('admin/konf-carousel', $data);

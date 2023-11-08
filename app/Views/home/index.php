@@ -6,7 +6,7 @@
     <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="w-100" src="/img/assets/carousel-1.jpg" alt="Image" />
+                <img class="w-100" src="/img/assets/<?= $imagecrausel[0]['more'] ?>" alt="Carousel 1" />
                 <div class="carousel-caption">
                     <div class="container">
                         <div class="row justify-content-center">
@@ -21,7 +21,22 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="w-100" src="/img/assets/carousel-2.jpg" alt="Image" />
+                <img class="w-100" src="/img/assets/<?= $imagecrausel[2]['more'] ?>" alt="Carousel 2" />
+                <div class="carousel-caption">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-7">
+                                <h1 class="display-6 text-white mb-5 animated slideInDown">
+                                    Pintu Informasi Desa <br />
+                                    Transparan, Terpercaya dan Terkini
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="w-100" src="/img/assets/<?= $imagecrausel[3]['more'] ?>" alt="Carousel 3" />
                 <div class="carousel-caption">
                     <div class="container">
                         <div class="row justify-content-center">
@@ -141,7 +156,7 @@
                 <div class="col-4 col-lg-2 mb-2 wow fadeInDown px-1" data-wow-delay="0.3s">
                     <div class="rounded shadow py-2 text-center border border-success">
                         <span class="text-sm tracking-widest capitalize text-primary">
-                            <img src="img/assets/moon.png" alt="Imsak" width="37" /><span>Imsak</span>
+                            <img src="/img/assets/moon.png" alt="Imsak" width="37" /><span>Imsak</span>
                         </span>
 
                         <h3 class="card-subtitle mt-2 mb-1">04:34</h3>
@@ -150,7 +165,7 @@
                 <div class="col-4 col-lg-2 mb-2 wow fadeInDown px-1" data-wow-delay="0.3s">
                     <div class="rounded shadow py-2 text-center border border-success">
                         <span class="text-sm tracking-widest capitalize text-primary">
-                            <img src="img/assets/moon.png" alt="Subuh" width="37" /><span>Subuh</span>
+                            <img src="/img/assets/moon.png" alt="Subuh" width="37" /><span>Subuh</span>
                         </span>
 
                         <h3 class="card-subtitle mt-2 mb-1">04:34</h3>
@@ -159,7 +174,7 @@
                 <div class="col-4 col-lg-2 mb-2 wow fadeInDown px-1" data-wow-delay="0.3s">
                     <div class="rounded shadow py-2 text-center border border-success">
                         <span class="text-sm tracking-widest capitalize text-primary">
-                            <img src="img/assets/moon.png" alt="Isyah" width="37" /><span>Isyah</span>
+                            <img src="/img/assets/moon.png" alt="Isyah" width="37" /><span>Isyah</span>
                         </span>
 
                         <h3 class="card-subtitle mt-2 mb-1">04:34</h3>
@@ -168,7 +183,7 @@
                 <div class="col-4 col-lg-2 mb-2 wow fadeInDown px-1" data-wow-delay="0.3s">
                     <div class="rounded shadow py-2 text-center border border-success">
                         <span class="text-sm tracking-widest capitalize text-primary">
-                            <img src="img/assets/moon.png" alt="Zhuhur" width="37" /><span>Zhuhur
+                            <img src="/img/assets/moon.png" alt="Zhuhur" width="37" /><span>Zhuhur
                             </span>
                         </span>
 
@@ -178,7 +193,7 @@
                 <div class="col-4 col-lg-2 mb-2 wow fadeInDown px-1" data-wow-delay="0.3s">
                     <div class="rounded shadow py-2 text-center border border-success">
                         <span class="text-sm tracking-widest capitalize text-primary">
-                            <img src="img/assets/moon.png" alt="Ashar" width="37" /><span>Ashar</span>
+                            <img src="/img/assets/moon.png" alt="Ashar" width="37" /><span>Ashar</span>
                         </span>
 
                         <h3 class="card-subtitle mt-2 mb-1">04:34</h3>
@@ -187,7 +202,7 @@
                 <div class="col-4 col-lg-2 mb-2 wow fadeInDown px-1" data-wow-delay="0.3s">
                     <div class="rounded shadow py-2 text-center border border-success">
                         <span class="text-sm tracking-widest capitalize text-primary">
-                            <img src="img/assets/moon.png" alt="Maghrib" width="37" /><span style="font-size: 80%">Maghrib</span>
+                            <img src="/img/assets/moon.png" alt="Maghrib" width="37" /><span style="font-size: 80%">Maghrib</span>
                         </span>
 
                         <h3 class="card-subtitle mt-2 mb-1">04:34</h3>
@@ -208,18 +223,18 @@
             <div class="col-md-8 col-lg-9">
                 <div class="row">
                     <div class="col-lg-4 col-sm-5 col-md-12 wow fadeInUp mb-3" data-wow-delay="0.1s">
-                        <img class="img-fluid rounded d-none d-sm-block d-md-none d-lg-block" data-wow-delay="0.1s" src="img/blog/<?= $potensi['picture'] ?>" />
-                        <img class="img-fluid rounded d-block d-md-block d-sm-none d-lg-none" data-wow-delay="0.1s" src="img/blog/<?= $potensi['picture'] ?>" />
+                        <img class="img-fluid rounded d-none d-sm-block d-md-none d-lg-block" data-wow-delay="0.1s" src="/img/blog/<?php $exp = explode('.', $potensi['picture']);
+                                                                                                                                    echo $exp[0] . '-lg.' . $exp[1] ?>" />
+                        <img class="img-fluid rounded d-block d-md-block d-sm-none d-lg-none" data-wow-delay="0.1s" src="/img/blog/<?= $potensi['picture'] ?>" />
                     </div>
 
                     <div class="col-lg-8 col-sm-7 col-md-12 wow fadeInUp ps-lg-2 pe-lg-4 mh-100" data-wow-delay="0.3s">
                         <h1 class="display-4 text-primary mb-2">
                             Potensi Desa <?= DESA ?>
                         </h1>
-                        <h3 class="-"><?= $potensi['judul'] ?></h3>
+                        <h3 class="-"><?= $potensi['description'] ?></h3>
                         <p class="mb-4 overflow-hidden">
-                            <?= batasiKarakter($potensi['description'], 457) ?>
-                            BUAT DESKRIPSINYA DENGAN MAKSIMAL 457 + CONTOH JUDUL "Potensi Limbah Kulit Jagung"
+                            <?= batasiKarakter($potensi['artikel'], 457) ?>,..
                         </p>
                         <a class="btn btn-primary btn-sm py-2 px-3" href="/potensi-desa">Selengkapnya...</a>
                     </div>

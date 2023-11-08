@@ -66,4 +66,23 @@ class Konfigurasi extends BaseController
         session()->setFlashdata('updateData', 'Konfigurasi Aplikasi Berhasil diperbarui');
         return redirect()->to(base_url() . 'admindes/konf-aplikasi');
     }
+
+    public function postPhoto($url, $folder)
+    {
+        // dd($this->request->getVar());
+        $fotoposted = $this->request->getVar('fotopost');
+        $idCarousel = $this->request->getVar('idCarousel');
+
+        if ($fotoposted) {
+            $this->konfigurasimodel->update($idCarousel, [
+                'more' => $fotoposted
+            ]);
+
+            //Pindahkan file yg dari Ajax ke tempat tujuan
+            rename('img/sementarabyajax/' . $fotoposted, 'img/' . $folder . '/' . $fotoposted);
+            return redirect()->to(base_url('admindes/' . $url));
+        }
+
+        return redirect()->to(base_url('admindes/' . $url));
+    }
 }

@@ -3,7 +3,7 @@
 namespace App\Controllers\Pages;
 
 use App\Controllers\BaseController;
-
+use App\Models\KonfigurasiModel;
 use App\Models\PersonilDesaModel;
 use App\Models\Page1Model;
 
@@ -11,11 +11,13 @@ class Page2 extends BaseController
 {
    protected $templatelayaout;
    protected $personildesa;
+   protected $konfigurasimodel;
 
    public function __construct()
    {
       $this->templatelayaout = ['layout-htmlcodex/header', 'layout-htmlcodex/footer'];
       $this->personildesa = new PersonilDesaModel;
+      $this->konfigurasimodel = new KonfigurasiModel();
    }
 
    public function index()
@@ -27,8 +29,8 @@ class Page2 extends BaseController
          'metakeywords' => 'Struktur Pemerintahan ' . FULLENGKAP . ', Struktur Pemerintahan Desa Terbaik,',
          'metadescription' => 'Struktur Pemerintahan ' . FULLENGKAP,
 
-
-         'personildesa' => $this->personildesa->personilAll('strukturdesa-kmz-165')
+         'personildesa' => $this->personildesa->personilAll('strukturdesa-kmz-165'),
+         'imageorganiasi' => $this->konfigurasimodel->select('more')->where('slug', 'struktur-organisasi-kmz-165')->first()
       ];
 
       return view('pages/page2', $data);

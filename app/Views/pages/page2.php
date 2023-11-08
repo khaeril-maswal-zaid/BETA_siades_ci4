@@ -41,7 +41,7 @@
             <div class="card border-success mb-3 wow fadeInUp position-sticky" data-wow-delay="0.1s" style="top: 7rem">
                <div class="card-header bg-light">Struktur Organisasi</div>
                <div class="card-body text-success px-4">
-                  <img src="/img/personil/struktur-organisasi.jpg" alt="struktur-organisasi.jpg" class="img-fluid" />
+                  <img src="/img/personil/<?= $imageorganiasi['more'] ?>" alt="Struktur Organisasi" class="img-fluid" />
                </div>
             </div>
          </div>

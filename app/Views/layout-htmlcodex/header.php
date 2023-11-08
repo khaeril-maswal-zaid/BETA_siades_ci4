@@ -3,10 +3,8 @@
    <div class="row gx-0 d-none d-lg-flex">
       <div class="col-lg-7 px-5 text-start">
          <div class="h-100 d-inline-flex align-items-center me-4">
-            <a href="/admindes">
-               <span class="fa fa-phone-alt me-2"></span>
-               <span><?= TELPON ?></span>
-            </a>
+            <span class="fa fa-phone-alt me-2"></span>
+            <span><?= TELPON ?></span>
          </div>
          <div class="h-100 d-inline-flex align-items-center">
             <span class="far fa-envelope me-2"></span>

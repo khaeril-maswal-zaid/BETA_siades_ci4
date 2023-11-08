@@ -54,6 +54,9 @@ define('LINKFACEBOOK', $konfigurasimodel->select('more')->where('label', 'Facebo
 /***---------------------*/
 define('LINKMAPS', $konfigurasimodel->select('more')->where('label', 'Link Maps')->first()['more']);
 
+/***---------------------*/
+define('CAROUSELPAGES', $konfigurasimodel->select('more')->where('slug', 'carousel-4-kmz-165')->first()['more']);
+
 
 /**
  * Class BaseController
