@@ -56,6 +56,7 @@ class Index extends BaseController
     public function index()
     {
         $data = [
+            'activeheader' => ['active', false, false, false, false, false, false],
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
@@ -72,6 +73,7 @@ class Index extends BaseController
         $artikels = $this->artikelmodel->where('jenis', 'umum')->orderBy('id', 'DESC')->paginate(9, 'siades_bloger');
         $idforviewers = $this->artikelmodel->select('id')->where('jenis', 'umum')->orderBy('id', 'DESC')->paginate(9, 'siades_bloger');
         $data = [
+            'activeheader' => [false, 'active', false, false, false, false, false],
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
@@ -98,6 +100,13 @@ class Index extends BaseController
             return view('errors/html/error_404_admin');
         }
 
+        //klw khusus maka active di ke 3
+        if ($disabled == false) {
+            $activeheader = [false, 'active', false, false, false, false, false];
+        } else {
+            $activeheader = [false, false, 'active', false, false, false, false];
+        }
+
 
         if ($dataartikel) {
             $label = $dataartikel['judul'];
@@ -106,6 +115,7 @@ class Index extends BaseController
         }
 
         $data = [
+            'activeheader' => $activeheader,
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
@@ -129,6 +139,7 @@ class Index extends BaseController
         $datasdgs = $this->sdgsmodel->where('tahun', $tahun)->findAll();
 
         $data = [
+            'activeheader' => [false, 'active', false, false, false, false, false],
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
@@ -184,6 +195,7 @@ class Index extends BaseController
         }
 
         $data = [
+            'activeheader' => [false, 'active', false, false, false, false, false],
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
@@ -226,6 +238,7 @@ class Index extends BaseController
         }
 
         $data = [
+            'activeheader' => [false, 'active', false, false, false, false, false],
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
@@ -249,6 +262,7 @@ class Index extends BaseController
         }
 
         $data = [
+            'activeheader' => [false, false, false, 'active', false, false, false],
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
@@ -265,6 +279,7 @@ class Index extends BaseController
         $active = $this->personildesa->select('class')->where('class', 'active')->findAll();
 
         $data = [
+            'activeheader' => [false, false, false, 'active', false, false, false],
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
@@ -296,6 +311,7 @@ class Index extends BaseController
         }
 
         $data = [
+            'activeheader' => [false, false, false, 'active', false, false, false],
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
@@ -323,6 +339,7 @@ class Index extends BaseController
         $active = $this->personildesa->select('class')->where('class', 'active')->findAll();
 
         $data = [
+            'activeheader' => [false, false, false, false, 'active', false, false],
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
@@ -418,6 +435,7 @@ class Index extends BaseController
         }
 
         $data = [
+            'activeheader' => [false, false, false, false, false, 'active', false],
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
@@ -473,6 +491,7 @@ class Index extends BaseController
         }
 
         $data = [
+            'activeheader' => [false, false, false, false, false, 'active', false],
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
@@ -491,6 +510,7 @@ class Index extends BaseController
     public function aduan()
     {
         $data = [
+            'activeheader' => [false, 'active', false, false, false, false, false],
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
@@ -512,6 +532,7 @@ class Index extends BaseController
         $daftarlembaga = $this->lembagamodel->findAll();
 
         $data = [
+            'activeheader' => [false, false, false, false, 'active', false, false],
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
@@ -526,6 +547,7 @@ class Index extends BaseController
     public function daftarData()
     {
         $data = [
+            'activeheader' => [false, false, false, false, false, 'active', false],
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
@@ -541,6 +563,7 @@ class Index extends BaseController
     public function konfMedsos($conf)
     {
         $data = [
+            'activeheader' => [false, false, false, false, false, false, 'active'],
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
@@ -555,6 +578,7 @@ class Index extends BaseController
     public function konfDusun($conf)
     {
         $data = [
+            'activeheader' => [false, false, false, false, false, false, 'active'],
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
@@ -569,6 +593,7 @@ class Index extends BaseController
     public function konfAplikasi()
     {
         $data = [
+            'tahun' => [false, false, false, false, false, false, 'active'],
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
@@ -584,6 +609,7 @@ class Index extends BaseController
     public function profilAdmin()
     {
         $data = [
+            'tahun' => [false, false, false, false, false, false, 'active'],
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
@@ -595,6 +621,7 @@ class Index extends BaseController
     public function postPhoto()
     {
         $data = [
+            'tahun' => [false, false, false, false, false, false, false],
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,

@@ -25,10 +25,10 @@
             </div>
          </div>
          <div class="navbar-nav w-100">
-            <a href="/admindes" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+            <a href="/admindes" class="nav-item nav-link <?= $activeheader[0] ?>"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
 
             <div class="nav-item dropdown">
-               <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Informasi Publik</a>
+               <a href="#" class="nav-link dropdown-toggle <?= $activeheader[1] ?>" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Informasi Publik</a>
                <div class="dropdown-menu bg-transparent border-0">
                   <a href="/admindes/kabar-desa" class="dropdown-item">Kabar Desa</a>
                   <a href="/admindes/keuangan-desa" class="dropdown-item">Keuangan Desa</a>
@@ -39,7 +39,7 @@
             </div>
 
             <div class="nav-item dropdown">
-               <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Profil Desa</a>
+               <a href="#" class="nav-link dropdown-toggle <?= $activeheader[2] ?>" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Profil Desa</a>
                <div class="dropdown-menu bg-transparent border-0">
                   <a href="/admindes/profil-wilayah" class="dropdown-item">Profil Wilayah</a>
                   <a href="/admindes/sejarah-desa" class="dropdown-item">Sejarah Desa</a>
@@ -49,7 +49,7 @@
             </div>
 
             <div class="nav-item dropdown">
-               <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pemerintahan</a>
+               <a href="#" class="nav-link dropdown-toggle <?= $activeheader[3] ?>" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pemerintahan</a>
                <div class="dropdown-menu bg-transparent border-0">
                   <a href="/admindes/bpd" class="dropdown-item">BPD</a>
                   <a href="/admindes/visi-misi" class="dropdown-item">Visi Misi</a>
@@ -58,7 +58,7 @@
             </div>
 
             <div class="nav-item dropdown">
-               <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Kelembagaan</a>
+               <a href="#" class="nav-link dropdown-toggle <?= $activeheader[4] ?>" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Kelembagaan</a>
                <div class="dropdown-menu bg-transparent border-0">
                   <a href="/admindes/lpm" class="dropdown-item">LPM</a>
                   <a href="/admindes/pkk" class="dropdown-item">PKK</a>
@@ -72,7 +72,7 @@
             </div>
 
             <div class="nav-item dropdown">
-               <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Data Desa</a>
+               <a href="#" class="nav-link dropdown-toggle <?= $activeheader[5] ?>" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Data Desa</a>
                <div class="dropdown-menu bg-transparent border-0">
                   <a href="/admindes/data-desa/data-wilayah" class="dropdown-item">Data Wilayah</a>
 
@@ -85,7 +85,7 @@
             </div>
 
             <div class="nav-item dropdown">
-               <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Konfigurasi SID</a>
+               <a href="#" class="nav-link dropdown-toggle <?= $activeheader[6] ?>" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Konfigurasi SID</a>
                <div class="dropdown-menu bg-transparent border-0">
                   <a href="/admindes/daftar-dusun" class="dropdown-item">Dusun</a>
                   <a href="/admindes/daftar-media-sosial" class="dropdown-item">Media Sosial</a>

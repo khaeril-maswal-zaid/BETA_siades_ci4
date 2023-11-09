@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="w-100" src="/img/assets/<?= $imagecrausel[2]['more'] ?>" alt="Carousel 2" />
+                <img class="w-100" src="/img/assets/<?= $imagecrausel[1]['more'] ?>" alt="Carousel 2" />
                 <div class="carousel-caption">
                     <div class="container">
                         <div class="row justify-content-center">
@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="w-100" src="/img/assets/<?= $imagecrausel[3]['more'] ?>" alt="Carousel 3" />
+                <img class="w-100" src="/img/assets/<?= $imagecrausel[2]['more'] ?>" alt="Carousel 3" />
                 <div class="carousel-caption">
                     <div class="container">
                         <div class="row justify-content-center">
@@ -288,7 +288,7 @@
 <!-- Potensi End -->
 
 <!-- Facts Start -->
-<section class="container-fluid facts my-5 py-5" data-parallax="scroll" data-image-src="/img/assets/carousel-1.jpg">
+<section class="container-fluid facts my-5 py-5" data-parallax="scroll" data-image-src="/img/assets/<?= $imagecrausel[3]['more'] ?>">
     <div class="container py-5">
         <div class="row g-5">
             <div class="col-sm-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">

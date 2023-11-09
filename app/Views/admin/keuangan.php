@@ -107,6 +107,7 @@
 <!-- Modal -->
 <form action="/adm-proses/add-keuangan" method="post">
     <?= csrf_field() ?>
+    <input type="hidden" name="tahun" value="<?= $tahun ?>">
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

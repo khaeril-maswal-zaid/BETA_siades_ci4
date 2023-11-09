@@ -22,6 +22,8 @@ class Keuangan extends BaseController
             $subtitle = $this->request->getVar('subkategori');
         }
 
+        $tahun = $this->request->getVar('tahun');
+
         $this->keuanganmodel->save([
             'title' => $this->request->getVar('kategori'),
             'subtitle' => $subtitle,
@@ -29,11 +31,17 @@ class Keuangan extends BaseController
             'uraian' => $this->request->getVar('uraian'),
             'anggaran' => $this->request->getVar('anggaran'),
             'realisasi' => $this->request->getVar('realisasi'),
+            'tahun' => $tahun,
             'updated_by' =>  user()->fullname,
         ]);
 
         session()->setFlashdata('updateData', 'Data berhasil ditambahkan');
-        return redirect()->to(base_url() . 'admindes/keuangan-desa');
+
+        if ($tahun == date('Y')) {
+            return redirect()->to(base_url('admindes/keuangan-desa'));
+        } else {
+            return redirect()->to(base_url('admindes/keuangan-desa/' . $tahun));
+        }
     }
 
     public function delete($idDeleteF)
