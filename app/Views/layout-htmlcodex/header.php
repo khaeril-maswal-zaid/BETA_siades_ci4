@@ -31,10 +31,10 @@
    </button>
    <div class="collapse navbar-collapse" id="navbarCollapse">
       <div class="navbar-nav ms-auto p-4 p-lg-0">
-         <a href="/" class="nav-item nav-link active">Beranda</a>
+         <a href="/" class="nav-item nav-link <?= $active[0] ?>">Beranda</a>
 
          <div class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Profil</a>
+            <a href="#" class="nav-link dropdown-toggle <?= $active[1] ?>" data-bs-toggle="dropdown">Profil</a>
             <div class="dropdown-menu bg-light m-0">
                <a href="/profil-wilayah" class="dropdown-item">Profil Wilayah</a>
                <a href="/sejarah-desa" class="dropdown-item">Sejarah Desa</a>
@@ -42,7 +42,7 @@
             </div>
          </div>
          <div class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pemerintahan</a>
+            <a href="#" class="nav-link dropdown-toggle <?= $active[2] ?>" data-bs-toggle="dropdown">Pemerintahan</a>
             <div class="dropdown-menu bg-light m-0">
                <a href="/badan-permusyawaratan-desa" class="dropdown-item">Badan Permusyawaratan Desa (BPD)</a>
                <a href="/visi-misi-desa" class="dropdown-item">Visi Misi Desa</a>
@@ -50,7 +50,7 @@
             </div>
          </div>
          <div class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Kelembagaan</a>
+            <a href="#" class="nav-link dropdown-toggle <?= $active[3] ?>" data-bs-toggle="dropdown">Kelembagaan</a>
             <div class="dropdown-menu bg-light m-0">
                <a class="dropdown-item" href="/lembaga-pemberdayaan-desa">Lembaga Pemberdayaan Desa (LPM)</a>
                <a class="dropdown-item" href="/pembinaan-kesejahteraan-keluarga">Pemberdayaan Kesejahteraan Keluarga (PKK)</a>
@@ -70,7 +70,7 @@
             </div>
          </div>
          <div class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Data</a>
+            <a href="#" class="nav-link dropdown-toggle <?= $active[4] ?>" data-bs-toggle="dropdown">Data</a>
             <div class="dropdown-menu bg-light m-0">
                <a href="/data-desa/data-wilayah" class="dropdown-item">Data Wilayah</a>
 
@@ -81,8 +81,8 @@
             </div>
          </div>
       </div>
-      <a href="/kontak-desa" class="btn btn-primary py-4 px-md-4 rounded-0 d-none d-md-block">Kontak kami<i class="fa fa-arrow-right ms-3"></i></a>
-      <a href="/kontak-desa" class="btn btn-primary rounded d-block d-md-none m-3 mb-5 py-2" style="max-height: 45px !important">Kontak kami<i class="fa fa-arrow-right ms-3"></i></a>
+      <a href="/kontak-desa" class="btn btn-primary py-4 px-md-4 rounded-0 d-none d-md-block <?= $active[5] ?>">Kontak kami<i class="fa fa-arrow-right ms-3"></i></a>
+      <a href="/kontak-desa" class="btn btn-primary rounded d-block d-md-none m-3 mb-5 py-2 <?= $active[5] ?>" style="max-height: 45px !important">Kontak kami<i class="fa fa-arrow-right ms-3"></i></a>
    </div>
 </nav>
 <!-- Navbar End -->

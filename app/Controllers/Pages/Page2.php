@@ -30,7 +30,9 @@ class Page2 extends BaseController
          'metadescription' => 'Struktur Pemerintahan ' . FULLENGKAP,
 
          'personildesa' => $this->personildesa->personilAll('strukturdesa-kmz-165'),
-         'imageorganiasi' => $this->konfigurasimodel->select('more')->where('slug', 'struktur-organisasi-kmz-165')->first()
+         'imageorganiasi' => $this->konfigurasimodel->select('more')->where('slug', 'struktur-organisasi-kmz-165')->first(),
+
+         'active' => [false, false, 'active', false, false, false]
       ];
 
       return view('pages/page2', $data);
@@ -59,9 +61,10 @@ class Page2 extends BaseController
          'metakeywords' => 'Struktur Pemerintahan' . FULLENGKAP . ', ' . $jabatan . ', Struktur Pemerintahan Desa Terbaik,',
          'metadescription' => 'Struktur Pemerintahan ' . FULLENGKAP,
 
-
          'detailpersonil' => $personil,
          'tupoksilembaga' => $tupoksi['tupoksi'],
+
+         'active' => [false, false, 'active', false, false, false]
       ];
 
       return view('pages/page2-detail', $data);

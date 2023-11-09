@@ -49,7 +49,9 @@ class Index extends BaseController
             'dataartikel' => $artikel,
             'fotoadmin' => $imageAdmin,
             'personildesa' => $this->personildesa->personilAll('strukturdesa-kmz-165'),
-            'viewers' => $viewers
+            'viewers' => $viewers,
+
+            'active' => [false, false, false, false, false, false]
         ];
 
         $this->countviewersmodel->addViewers([$artikel['id']]);
@@ -83,7 +85,9 @@ class Index extends BaseController
             'dataartikel' => $artikel,
             'fotoadmin' => $imageAdmin,
             'personildesa' => $this->personildesa->personilAll('strukturdesa-kmz-165'),
-            'viewers' => $viewers
+            'viewers' => $viewers,
+
+            'active' => [false, 'active', false, false, false, false]
         ];
 
         $this->countviewersmodel->addViewers([$artikel['id']]);

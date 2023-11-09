@@ -53,6 +53,7 @@ $routes->get('/sdgs-desa', 'Fiturutama\Fitur1::index');
 $routes->get('/sdgs-desa/(:num)', 'Fiturutama\Fitur1::index/$1');
 
 $routes->get('/keuangan-dasa', 'Fiturutama\Fitur2::index');
+$routes->get('/keuangan-dasa/(:num)', 'Fiturutama\Fitur2::index/$1');
 
 $routes->get('/status-idm', 'Fiturutama\Fitur3::index');
 $routes->get('/status-idm/(:num)', 'Fiturutama\Fitur3::index/$1');
@@ -124,8 +125,11 @@ $routes->get('/admindes/kabar-desa/add', 'Admin\Index::blogAdd');
 $routes->get('/admindes/kabar-desa/update/(:any)', 'Admin\Index::blogAdd/$1/Update $1');
 
 $routes->get('/admindes/status-sdgs', 'Admin\Index::sdgs');
+$routes->get('/admindes/status-sdgs/(:num)', 'Admin\Index::sdgs/$1');
 $routes->get('/admindes/status-idm', 'Admin\Index::idm');
+$routes->get('/admindes/status-idm/(:num)', 'Admin\Index::idm/$1');
 $routes->get('/admindes/keuangan-desa', 'Admin\Index::keuangan');
+$routes->get('/admindes/keuangan-desa/(:num)', 'Admin\Index::keuangan/$1');
 
 $routes->get('/admindes/visi-misi', 'Admin\Index::visimisi');
 $routes->get('/admindes/struktur-desa', 'Admin\Index::struktur');

@@ -103,7 +103,9 @@ class Index extends BaseController
          'metakeywords' => 'Data Wilayah ' . FULLENGKAP . ', Data Wilayah Desa  Terbaik,',
          'metadescription' => 'Data Wilayah ' . FULLENGKAP,
 
-         'datawilayah' => [$dusun, $rk, $rt, $CdRk, $CdRt, $value, $CdRtRk]
+         'datawilayah' => [$dusun, $rk, $rt, $CdRk, $CdRt, $value, $CdRtRk],
+
+         'active' => [false, false, false, false,  'active',  false]
       ];
 
       return view('datadesa/data-wilayah', $data);
@@ -151,7 +153,9 @@ class Index extends BaseController
          'datadesa' => $this->datadesamodel->where('slug', $kategori)->findAll(),
          'totalPerdata' => $totalPerdata,
          'totalJumlah' => array_sum($totalPerdata),
-         'totalperjk' => $totalperJk
+         'totalperjk' => $totalperJk,
+
+         'active' => [false, false, false, false,  'active',  false]
       ];
 
       return view('datadesa/data-desa', $data);

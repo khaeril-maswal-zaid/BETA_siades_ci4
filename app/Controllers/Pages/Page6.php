@@ -38,7 +38,9 @@ class Page6 extends BaseController
          'metadescription' => 'Struktur Pemerintahan ' . FULLENGKAP,
 
          'detailpersonil' => $personildesa,
-         'visimisi' => ['visi' => $visimisi['tentang'], 'misi' => $visimisi['tupoksi']]
+         'visimisi' => ['visi' => $visimisi['tentang'], 'misi' => $visimisi['tupoksi']],
+
+         'active' => [false, false, 'active', false, false, false]
       ];
 
       return view('pages/page6', $data);

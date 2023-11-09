@@ -29,6 +29,24 @@
     <p class="fs-4 d-md-block d-none fw-bold text-primary mb-5"><?= FULLENGKAP ?></p>
     <p class="d-md-none d-block fw-bold text-primary mb-5"><?= FULLENGKAP ?></p>
 
+    <ul class="nav nav-tabs mb-5">
+      <li class="nav-item">
+        <a class="nav-link <?= ($tahun == date('Y')) ? 'active' : ''; ?>" href="/status-idm/"><?= date('Y') ?></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <?= ($tahun == date('Y') - 1) ? 'active' : ''; ?>" href="/status-idm/<?= date('Y') - 1 ?>"><?= date('Y') - 1 ?></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <?= ($tahun == date('Y') - 2) ? 'active' : ''; ?>" href="/status-idm/<?= date('Y') - 2 ?>"><?= date('Y') - 2 ?></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <?= ($tahun == date('Y') - 3) ? 'active' : ''; ?>" href="/status-idm/<?= date('Y') - 3 ?>"><?= date('Y') - 3 ?></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <?= ($tahun == date('Y') - 4) ? 'active' : ''; ?>" href="/status-idm/<?= date('Y') - 4 ?>"><?= date('Y') - 4 ?></a>
+      </li>
+    </ul>
+
     <!-- Isi Disini -->
     <div class="row mb-5 g-5">
       <div class="col-md-6 ">

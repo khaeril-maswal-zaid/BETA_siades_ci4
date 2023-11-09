@@ -71,7 +71,9 @@ class Fitur3 extends BaseController
 
             'dataidm' => [$group, $val, $skorIndexpergrup],
             'statusIdm' => $statusIdm,
-            'tahun' => $tahun
+            'tahun' => $tahun,
+
+            'active' => [false, false, false, false, false, false]
         ];
 
         return view('fiturutama/fitur3', $data);

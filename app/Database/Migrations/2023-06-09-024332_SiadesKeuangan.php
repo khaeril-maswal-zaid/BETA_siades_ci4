@@ -39,6 +39,11 @@ class SiadesKeuangan extends Migration
                 'type'       => 'INT',
                 'constraint' => '11'
             ],
+            'tahun' => [
+                'type'       => 'INT',
+                'constraint' => '4',
+                'default'   => '2023'
+            ],
             'updated_by' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '200',

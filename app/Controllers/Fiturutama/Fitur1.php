@@ -30,7 +30,9 @@ class Fitur1 extends BaseController
             'metadescription' => 'SDGS ' . FULLENGKAP,
 
             'sdgs' => $this->sdgsmodel->where('tahun', $tahun)->findAll(),
-            'tahun' => $tahun
+            'tahun' => $tahun,
+
+            'active' => [false, false, false, false, false, false],
         ];
 
         return view('fiturutama/fitur1', $data);

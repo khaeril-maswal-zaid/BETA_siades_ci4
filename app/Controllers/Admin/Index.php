@@ -121,34 +121,42 @@ class Index extends BaseController
         return view('admin/blogAdd', $data);
     }
 
-    public function sdgs()
+    public function sdgs($tahun = false)
     {
-        $datasdgs = $this->sdgsmodel->findAll();
+        if ($tahun == false) {
+            $tahun = date('Y');
+        }
+        $datasdgs = $this->sdgsmodel->where('tahun', $tahun)->findAll();
 
         $data = [
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
 
-            'datasdgs' => $datasdgs
+            'datasdgs' => $datasdgs,
+            'tahun' => $tahun,
         ];
 
         return view('admin/sdgs', $data);
     }
 
-    public function idm()
+    public function idm($tahun = false)
     {
-        $group = $this->idmmodel->select('group')->orderBy('id', 'ASC')->distinct()->findAll();
+        if ($tahun == false) {
+            $tahun = date('Y');
+        }
+
+        $group = $this->idmmodel->select('group')->where('tahun', $tahun)->orderBy('id', 'ASC')->distinct()->findAll();
 
         $val = [];
         $skorIndexpergrup = [];
         for ($i = 0; $i < count($group); $i++) {
 
             //val val----------
-            $valrow = $this->idmmodel->where('group', $group[$i])->findAll();
+            $valrow = $this->idmmodel->where(['group' => $group[$i], 'tahun' => $tahun])->findAll();
             $val[] = $valrow;
 
-            $valskor = $this->idmmodel->select('skor')->where('group', $group[$i])->findAll();
+            $valskor = $this->idmmodel->select('skor')->where(['group' => $group[$i], 'tahun' => $tahun])->findAll();
 
             $rowskor = [];
             foreach ($valskor as  $value) {
@@ -181,31 +189,36 @@ class Index extends BaseController
             'templatelayaout' => $this->templatelayaout,
 
             'dataidm' => [$group, $val, $skorIndexpergrup],
-            'statusIdm' => $statusIdm
+            'statusIdm' => $statusIdm,
+            'tahun' => $tahun,
         ];
 
         return view('admin/idm', $data);
     }
 
-    public function keuangan()
+    public function keuangan($tahun = false)
     {
+        if ($tahun == false) {
+            $tahun = date('Y');
+        }
+
         //Ambil TITLE
-        $title = $this->keuanganmodel->select('title')->distinct()->findAll();
-        $subtitleAll = $this->keuanganmodel->select('subtitle')->distinct()->findAll();
+        $title = $this->keuanganmodel->select('title')->where('tahun', $tahun)->distinct()->findAll();
+        $subtitleAll = $this->keuanganmodel->select('subtitle')->where('tahun', $tahun)->distinct()->findAll();
 
         $subtitle = [];
         $values = [];
         for ($i = 0; $i < count($title); $i++) {
 
             //DATA SUBTITLE----------
-            $subtitlerow = $this->keuanganmodel->select(['subtitle'])->where('title', $title[$i])->distinct()->findAll();
+            $subtitlerow = $this->keuanganmodel->select(['subtitle'])->where(['title' => $title[$i], 'tahun' => $tahun])->distinct()->findAll();
             $subtitle[] = $subtitlerow;
 
             $valuesrow = [];
             for ($ii = 0; $ii < count($subtitlerow); $ii++) {
 
                 //DATA values---------
-                $valuesrows = $this->keuanganmodel->where('title', $title[$i]);
+                $valuesrows = $this->keuanganmodel->where(['title' => $title[$i], 'tahun' => $tahun]);
                 $valuesrows = $this->keuanganmodel->where('subtitle', $subtitlerow[$ii]['subtitle'])->distinct()->findAll();
                 $valuesrow[] = $valuesrows;
             }
@@ -220,6 +233,7 @@ class Index extends BaseController
             'keuangan' => [$title, $subtitle, $values],
             'subtitleAll' => $subtitleAll,
             'tabeldtb' => $this->keuanganmodel->table,
+            'tahun' => $tahun,
         ];
 
         return view('admin/keuangan', $data);

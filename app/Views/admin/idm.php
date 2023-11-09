@@ -11,6 +11,24 @@
         </div>
     </div>
 
+    <ul class="nav nav-tabs my-4">
+        <li class="nav-item">
+            <a class="nav-link <?= ($tahun == date('Y')) ? 'active' : ''; ?>" href="/admindes/status-idm"><?= date('Y') ?></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link <?= ($tahun == date('Y') - 1) ? 'active' : ''; ?>" href="/admindes/status-idm/<?= date('Y') - 1 ?>"><?= date('Y') - 1 ?></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link <?= ($tahun == date('Y') - 2) ? 'active' : ''; ?>" href="/admindes/status-idm/<?= date('Y') - 2 ?>"><?= date('Y') - 2 ?></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link <?= ($tahun == date('Y') - 3) ? 'active' : ''; ?>" href="/admindes/status-idm/<?= date('Y') - 3 ?>"><?= date('Y') - 3 ?></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link <?= ($tahun == date('Y') - 4) ? 'active' : ''; ?>" href="/admindes/status-idm/<?= date('Y') - 4 ?>"><?= date('Y') - 4 ?></a>
+        </li>
+    </ul>
+
     <div class="container-fluid bg-light p-4 rounded">
         <!-- Isi Disini -->
         <div class="row mb-5">

@@ -55,6 +55,8 @@ class Home extends BaseController
          'artikels' => $this->artikelmodel->where('jenis', 'umum')->orderBy('id', 'DESC')->findAll(6),
          'potensi' => $this->artikelmodel->where('slug', 'potensi-desa')->first(),
          'statistik' => ['kk' => array_sum($kk), 'lk' => array_sum($lk), 'pr' => array_sum($pr)],
+
+         'active' => ['active', false, false, false, false, false]
       ];
 
       $this->countviewersmodel->addViewers('home');

@@ -220,7 +220,7 @@ $(".button-ganti").on("click", function () {
 //HANYA SEMENTARA..................................
 //Api Data
 // $.ajax({
-//   url: "https://idm.kemendesa.go.id/open/api/desa/rumusan/730207003/2022",
+//   url: "https://idm.kemendesa.go.id/open/api/desa/rumusan/7302072005/2022",
 //   success: function (data) {
 //     console.log(data);
 //   },

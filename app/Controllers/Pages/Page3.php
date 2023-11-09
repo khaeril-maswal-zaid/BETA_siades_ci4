@@ -31,7 +31,9 @@ class Page3 extends BaseController
 
          'artikels' => $this->artikelmodel->orderBy('id', 'DESC')->paginate(9, 'siades_artikel'),
          'pager' => $this->artikelmodel->pager,
-         'urutan' => ['first', 'second']
+         'urutan' => ['first', 'second'],
+
+         'active' => [false,  'active', false, false, false, false]
       ];
 
       return view('pages/page3', $data);

@@ -35,7 +35,9 @@ class Page7 extends BaseController
             'metadescription' => 'Layanan Pengaduan ' . FULLENGKAP,
 
             'validation' => $validation,
-            'dataaduan' =>  array_chunk($dataaduan, 2)
+            'dataaduan' =>  array_chunk($dataaduan, 2),
+
+            'active' => [false, false, false, false, false,  'active']
         ];
 
         session();

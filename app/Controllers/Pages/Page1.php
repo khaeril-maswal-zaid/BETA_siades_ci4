@@ -32,6 +32,12 @@ class Page1 extends BaseController
          return view('errors/html/error_404');
       }
 
+      if ($valuespage['nicknamepage'] === 'BPD') {
+         $active = [false, false, 'active', false,  false, false];
+      } else {
+         $active = [false, false, false, 'active', false, false];
+      }
+
       $data = [
          'templatelayaout' => $this->templatelayaout,
 
@@ -44,7 +50,9 @@ class Page1 extends BaseController
          'tentang' => $valuespage['tentang'],
          'tupoksi' => $valuespage['tupoksi'],
 
-         'personildesa' => $this->personildesa->personilAll($valuespage['slug'])
+         'personildesa' => $this->personildesa->personilAll($valuespage['slug']),
+
+         'active' => $active
       ];
 
       return view('pages/page1', $data);

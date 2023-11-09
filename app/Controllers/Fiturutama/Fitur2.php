@@ -17,25 +17,29 @@ class Fitur2 extends BaseController
         $this->keuanganmodel = new KeuanganModel();
     }
 
-    public function index()
+    public function index($tahun = false)
     {
+        if ($tahun == false) {
+            $tahun = date('Y');
+        }
+
         //Ambil TITLE
-        $title = $this->keuanganmodel->select('title')->distinct()->findAll();
+        $title = $this->keuanganmodel->select('title')->where('tahun', $tahun)->distinct()->findAll();
 
         $subtitle = [];
         $values = [];
         for ($i = 0; $i < count($title); $i++) {
 
             //DATA SUBTITLE----------
-            $subtitlerow = $this->keuanganmodel->select(['subtitle'])->where('title', $title[$i])->distinct()->findAll();
+            $subtitlerow = $this->keuanganmodel->select(['subtitle'])->where(['title' => $title[$i], 'tahun' => $tahun])->distinct()->findAll();
             $subtitle[] = $subtitlerow;
 
             $valuesrow = [];
             for ($ii = 0; $ii < count($subtitlerow); $ii++) {
 
                 //DATA values---------
-                $valuesrows = $this->keuanganmodel->where('title', $title[$i]);
-                $valuesrows = $this->keuanganmodel->where('subtitle', $subtitlerow[$ii]['subtitle'])->distinct()->findAll();
+                $valuesrows = $this->keuanganmodel->where(['title' => $title[$i], 'tahun' => $tahun]);
+                $valuesrows = $this->keuanganmodel->where(['subtitle' => $subtitlerow[$ii]['subtitle'], 'tahun' => $tahun])->distinct()->findAll();
                 $valuesrow[] = $valuesrows;
             }
             $values[] = $valuesrow;
@@ -48,7 +52,10 @@ class Fitur2 extends BaseController
             'metakeywords' => 'Keuangan ' . FULLENGKAP . ', Keuangan Desa  Terbaik,',
             'metadescription' => 'Keuangan ' . FULLENGKAP,
 
-            'keuangan' => [$title, $subtitle, $values]
+            'keuangan' => [$title, $subtitle, $values],
+            'tahun' => $tahun,
+
+            'active' => [false, false, false, false, false, false]
         ];
 
         return view('fiturutama/fitur2', $data);

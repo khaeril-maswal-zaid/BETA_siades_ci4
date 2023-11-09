@@ -29,7 +29,26 @@
         </div>
     <?php endif ?>
 
+    <ul class="nav nav-tabs my-4">
+        <li class="nav-item">
+            <a class="nav-link <?= ($tahun == date('Y')) ? 'active' : ''; ?>" href="/admindes/keuangan-desa"><?= date('Y') ?></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link <?= ($tahun == date('Y') - 1) ? 'active' : ''; ?>" href="/admindes/keuangan-desa/<?= date('Y') - 1 ?>"><?= date('Y') - 1 ?></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link <?= ($tahun == date('Y') - 2) ? 'active' : ''; ?>" href="/admindes/keuangan-desa/<?= date('Y') - 2 ?>"><?= date('Y') - 2 ?></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link <?= ($tahun == date('Y') - 3) ? 'active' : ''; ?>" href="/admindes/keuangan-desa/<?= date('Y') - 3 ?>"><?= date('Y') - 3 ?></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link <?= ($tahun == date('Y') - 4) ? 'active' : ''; ?>" href="/admindes/keuangan-desa/<?= date('Y') - 4 ?>"><?= date('Y') - 4 ?></a>
+        </li>
+    </ul>
+
     <div id="<?= url_title('Keuangan Desa ' . DESA, '-', true) ?>" data-tabelsiades="<?= caesarCipherReverse($tabeldtb); ?>">
+
         <?php $iTit = 0;
         foreach ($keuangan[0] as $value0) :
         ?>
