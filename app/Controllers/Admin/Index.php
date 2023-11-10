@@ -4,6 +4,7 @@ namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
 use App\Models\AduanModel;
+use App\Models\ApiKemendesModel;
 use App\Models\ArtikelModel;
 use App\Models\CountViewersModel;
 use App\Models\DataDesaModel;
@@ -203,9 +204,39 @@ class Index extends BaseController
             'dataidm' => [$group, $val, $skorIndexpergrup],
             'statusIdm' => $statusIdm,
             'tahun' => $tahun,
+
+            'idapiidm' => $this->konfigurasimodel->select(['id', 'value'])->where('slug', 'iddesaidm-kmz-165')->first()
         ];
 
         return view('admin/idm', $data);
+    }
+
+    public function idmApi($tahun = false)
+    {
+        if ($tahun == false) {
+            $tahun = date('Y');
+        }
+
+        $iddesaidm = $this->konfigurasimodel->select('value')->where('slug', 'iddesaidm-kmz-165')->first()['value'];
+
+        $apikemendes = new ApiKemendesModel;
+        $resultidm = $apikemendes->idmApi($iddesaidm, 2023);
+
+        $data = [
+            'activeheader' => [false, 'active', false, false, false, false, false],
+            'aduanbelum' => $this->aduanbelum,
+            'statusaduan' => $this->statusaduan,
+            'templatelayaout' => $this->templatelayaout,
+
+            'dataidm' => [$group, $val],
+            'statusIdm' => $resultidm['SUMMARIES']['TARGET_STATUS'],
+            'skorIdmTerkini' => $resultidm['SUMMARIES']['SKOR_SAAT_INI'],
+            'tahun' => $tahun,
+
+            'idapiidm' => $this->konfigurasimodel->select(['id', 'value'])->where('slug', 'iddesaidm-kmz-165')->first()
+        ];
+
+        return view('admin/idm-api', $data);
     }
 
     public function keuangan($tahun = false)
@@ -338,8 +369,14 @@ class Index extends BaseController
         $active = $this->personildesa->select('class')->where('slug', $lembaga['slug']);
         $active = $this->personildesa->select('class')->where('class', 'active')->findAll();
 
+        if ($sblembaga == 'bpd') {
+            $activeheader = [false, false, false, 'active', false,  false, false];
+        } else {
+            $activeheader = [false, false, false, false, 'active', false, false];
+        }
+
         $data = [
-            'activeheader' => [false, false, false, false, 'active', false, false],
+            'activeheader' => $activeheader,
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,

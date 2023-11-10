@@ -104,6 +104,8 @@ $routes->post('/adm-proses/update-foto/(:any)', 'Proses\Admin::updateFoto/$1');
 $routes->post('/adm-proses/update-carousel', 'Proses\Konfigurasi::postPhoto/konf-carousel/assets');
 $routes->post('/adm-proses/update-struktur', 'Proses\Konfigurasi::postPhoto/struktur-desa/personil');
 
+$routes->post('/adm-proses/get-iddesa/(:any)', 'Proses\Konfigurasi::addIdDesa/$1');
+
 $routes->post('/adm-proses/updatefoto-personil/(:any)/(:any)', 'Proses\PersonilDesa::updateFoto/$1/$2');
 
 //----------------------------------------------------------
@@ -126,10 +128,13 @@ $routes->get('/admindes/kabar-desa/update/(:any)', 'Admin\Index::blogAdd/$1/Upda
 
 $routes->get('/admindes/status-sdgs', 'Admin\Index::sdgs');
 $routes->get('/admindes/status-sdgs/(:num)', 'Admin\Index::sdgs/$1');
-$routes->get('/admindes/status-idm', 'Admin\Index::idm');
-$routes->get('/admindes/status-idm/(:num)', 'Admin\Index::idm/$1');
+// $routes->get('/admindes/status-idm', 'Admin\Index::idm'); //SEMENTARA GUNAKAN DARI API
+// $routes->get('/admindes/status-idm/(:num)', 'Admin\Index::idm/$1'); //SEMENTARA GUNAKAN DARI API
 $routes->get('/admindes/keuangan-desa', 'Admin\Index::keuangan');
 $routes->get('/admindes/keuangan-desa/(:num)', 'Admin\Index::keuangan/$1');
+
+$routes->get('/admindes/status-idm', 'Admin\Index::idmApi');
+$routes->get('/admindes/status-idm/(:num)', 'Admin\Index::idmApi/$1');
 
 $routes->get('/admindes/visi-misi', 'Admin\Index::visimisi');
 $routes->get('/admindes/struktur-desa', 'Admin\Index::struktur');
