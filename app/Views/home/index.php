@@ -151,6 +151,7 @@
             </div>
         </div>
 
+        <!-- SUMBER API JADWAL SHOLAT DI "https://api.myquran.com/v1/sholat/kota/cari/BULUKUMBA" -->
         <div class="col-lg-8">
             <div class="row px-2">
                 <?php $Sholat = ["Imsak", "Subuh", "Dhuhr", "Ashar", "Maghrib", "Isya"];

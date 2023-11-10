@@ -45,6 +45,7 @@ class Home extends BaseController
          $pr[] = $val['p'];
       }
 
+      // SUMBER API JADWAL SHOLAT DI "https://api.myquran.com/v1/sholat/kota/cari/BULUKUMBA"
       $idKabJadwalSholat = $this->konfigurasimodel->select('value')->where('slug', 'idkabsholat-kmz-165')->first();
       $apijadwalsholat = $this->apikemdesmodel->jadwalSholatApi($idKabJadwalSholat['value'])['data'];
       $perhari = whereArray($apijadwalsholat['jadwal'], 'date', date('Y-m-d'))[0];
