@@ -199,6 +199,15 @@ class Siades_Konfigurasi extends Seeder
                 'created_at' => Time::now(),
                 'updated_at' => Time::now(),
             ],
+            [
+                'slug' => 'idkabsholat-kmz-165',
+                'label' => 'Id Kab Sholat',
+                'value' => '2604',
+                'more' => '#',
+                'updated_by' => 'Default',
+                'created_at' => Time::now(),
+                'updated_at' => Time::now(),
+            ],
         ];
 
         // Simple Queries
@@ -209,6 +218,9 @@ class Siades_Konfigurasi extends Seeder
 
         $this->db->table('siades_konfigurasi')->insertBatch($data);
         // php spark db:seed Siades_Konfigurasi
+
+
         //id IDM & SDGS secara default adalah id Desa Bulo-Bulo, Kec. Bulukumpa
+        //id Kab. JadwaL Sholat adalah Kab. Bulukumba, Sulsel
     }
 }

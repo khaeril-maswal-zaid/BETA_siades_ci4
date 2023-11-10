@@ -52,54 +52,65 @@
       <div class="col-md-6 ">
         <div class="row">
           <div class="col-sm-6 mb-3 wow fadeInUp" data-wow-delay="0.3s">
-            <div class="card text-white bg-secondary  mb-2 h-100">
+            <div class="card text-white bg-dark  mb-2 h-100">
+              <div class="card-header"><?= $desaapiidm ?></div>
+              <div class="card-body  position-relative me-2">
+                <h1 class="text-white mt-3">
+                  <?= round($cardapiidm['TAHUN'], 4) ?>
+                </h1>
+                <i class="bi bi-award-fill position-absolute bottom-0 end-0" style="font-size: 4em;"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 mb-3 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="card text-white bg-primary  mb-2 h-100">
               <div class="card-header">SKOR IDM TERKINI</div>
               <div class="card-body  position-relative me-2">
                 <h1 class="text-white mt-3">
-
-                  <?php
-                  $skorIdmTerkini = number_format(array_sum($dataidm[2]) / 3, 4);
-                  echo $skorIdmTerkini
-                  ?>
-
+                  <?= round($cardapiidm['SKOR_SAAT_INI'], 4) ?>
                 </h1>
                 <i class="bi bi-graph-up position-absolute bottom-0 end-0" style="font-size: 4em;"></i>
               </div>
             </div>
           </div>
           <div class="col-sm-6 mb-3 wow fadeInUp" data-wow-delay="0.5s">
-            <div class="card text-white bg-warning mb-2 h-100">
+            <div class="card text-white bg-success  mb-2 h-100">
               <div class="card-header">STATUS IDM</div>
               <div class="card-body  position-relative me-2">
-                <h3 class="text-white mt-3 text-uppercase"><?= $statusIdm ?></h3>
+                <h3 class="text-white mt-3 text-uppercase">
+                  <?= $cardapiidm['STATUS'] ?>
+                </h3>
                 <i class="bi bi-pin-angle-fill position-absolute bottom-0 end-0" style="font-size: 4em;"></i>
               </div>
             </div>
           </div>
+
+          <div class="col-sm-6 mb-3 wow fadeInDown" data-wow-delay="0.3s">
+            <div class="card text-white bg-warning mb-2 h-100">
+              <div class="card-header">TARGET STATUS</div>
+              <div class="card-body position-relative me-2">
+                <h2 class="text-white mt-3"><?= $cardapiidm['TARGET_STATUS'] ?></h2>
+                <i class="bi bi-clipboard-data position-absolute bottom-0 end-0" style="font-size: 4em;"></i>
+              </div>
+            </div>
+          </div>
+
           <div class="col-sm-6 mb-3 wow fadeInDown" data-wow-delay="0.5s">
             <div class="card text-white bg-danger mb-2 h-100">
               <div class="card-header">SKOR MINIMAL</div>
               <div class="card-body  position-relative me-2">
-                <h1 class="text-white mt-3">0.1234</h1>
+                <h1 class="text-white mt-3"><?= round($cardapiidm['SKOR_MINIMAL'], 4) ?></h1>
                 <i class="bi bi-calendar-event position-absolute bottom-0 end-0" style="font-size: 4em;"></i>
               </div>
             </div>
           </div>
+
           <div class="col-sm-6 mb-3 wow fadeInDown" data-wow-delay="0.3s">
-            <div class="card text-white bg-primary mb-2 h-100">
-              <div class="card-header">TARGET STATUS</div>
-              <div class="card-body position-relative me-2">
-                <h2 class="text-white mt-3">MANDIRI</h2>
-                <i class="bi bi-clipboard-data position-absolute bottom-0 end-0" style="font-size: 4em;"></i>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 mb-3 wow fadeInDown" data-wow-delay="0.3s">
-            <div class="card text-white bg-info mb-2 h-100">
+            <div class="card text-white bg-secondary mb-2 h-100">
               <div class="card-header">PENAMBAHAN</div>
               <div class="card-body position-relative me-2">
-                <h2 class="text-white mt-3">MANDIRI</h2>
-                <i class="bi bi-clipboard-data position-absolute bottom-0 end-0" style="font-size: 4em;"></i>
+                <h1 class="text-white mt-3"><?= round($cardapiidm['PENAMBAHAN'], 4) ?></h1>
+                <i class="bi bi-dash-circle-fill position-absolute bottom-0 end-0" style="font-size: 4em;"></i>
               </div>
             </div>
           </div>
@@ -143,27 +154,14 @@
                 borderRadius: 5,
                 data: [
                   <?php
-                  $pattern = "/\((.*?)\)/"; // Pola regex untuk mencari teks di dalam tanda kurung
-                  $matches = array();
-
-                  $patternl = "/\s*\([^)]+\)/"; // Pola regex untuk mencocokkan teks di dalam tanda kurung dan teks sekitarnya
-                  $replacement = ""; // Mengganti teks yang cocok dengan string kosong
-
-                  $iValc = 0;
-
-                  foreach ($dataidm[0] as $idmc) :
-                  ?> {
-                      name: `<?php
-                              preg_match($pattern, $idmc['group'], $matches);
-                              echo  $matches[1];
-                              ?>`,
-                      y: <?= $dataidm[2][$iValc++] ?>,
-                      z: `<?php
-                          $hasil = preg_replace($patternl, $replacement, $idmc['group']);
-                          echo $hasil;
-                          ?>`
-                    },
-                  <?php endforeach ?>
+                  foreach ($chartidmdesa as $key => $value) {
+                    echo "{
+                      name: `" . $value[0] . "`,
+                      y: " . $value[1] . ",
+                      z: `" . $value[2] . "`,
+                    },";
+                  }
+                  ?>
                 ],
                 colors: [
                   '#4caefe',
@@ -180,7 +178,7 @@
     <div class="overflow-auto">
       <table class="table table-striped table-bordered" style="font-size: 75%;">
         <thead>
-          <tr>
+          <tr class="table-warning">
             <th rowspan="2" class="align-middle text-center">No</th>
             <th rowspan="2" class="align-middle text-center">Indikator IDM</th>
             <th rowspan="2" class="align-middle text-center">Skor</th>
@@ -189,7 +187,7 @@
             <th rowspan="2" nowrap class="align-middle text-center">+ Nilai</th>
             <th colspan="6" class="text-center">Yang Dapat Melaksanakan Kegiatan</th>
           </tr>
-          <tr>
+          <tr class="table-warning">
             <th>Pusat</th>
             <th>Provensi</th>
             <th>Kabupaten</th>
@@ -199,33 +197,23 @@
           </tr>
         </thead>
         <tbody>
-
           <?php
-          $no = 1;
-          $iVal = 0;
-          foreach ($dataidm[0] as $idm0) :
-            foreach ($dataidm[1][$iVal++] as $idm1) : ?>
-              <tr>
-                <td><?= $no++ ?></td>
-                <td style="min-width: 170px"> <?= $idm1['idm'] ?> </td>
-                <td> <?= $idm1['skor'] ?> </td>
-                <td style="min-width: 200px"> <?= $idm1['keterangan'] ?> </td>
-                <td style="min-width: 200px"> <?= $idm1['kegiatan'] ?> </td>
-                <td> <?= $idm1['nilai'] ?> </td>
-                <td> <?= $idm1['pusat'] ?> </td>
-                <td> <?= $idm1['prov'] ?> </td>
-                <td> <?= $idm1['kab'] ?> </td>
-                <td> <?= $idm1['des'] ?> </td>
-                <td> <?= $idm1['csr'] ?> </td>
-                <td> <?= $idm1['lainnya'] ?> </td>
-              </tr>
-            <?php endforeach; ?>
-            <tr class="table-primary">
-              <td colspan="3" class="text-center fw-bold"><?= $idm0['group'] ?></td>
-              <td colspan="9" class=" fw-bold"><?= $dataidm[2][$iVal - 1] ?></td>
+          foreach ($tabelapiidm as $idm) : ?>
+            <tr class="<?= (!isset($idm['NO'])) ? 'table-primary' : ''; ?>">
+              <td class="align-middle"><?= $idm['NO'] ?></td>
+              <td class="align-middle" style="min-width: 170px"> <?= $idm['INDIKATOR'] ?> </td>
+              <td class="align-middle text-center"> <?= $idm['SKOR'] ?> </td>
+              <td class="align-middle" style="min-width: 200px"> <?= $idm['KETERANGAN'] ?> </td>
+              <td class="align-middle" style="min-width: 200px"> <?= $idm['KEGIATAN'] ?> </td>
+              <td class="align-middle text-center"> <?= $idm['NILAI'] ?> </td>
+              <td class="align-middle"> <?= $idm['PUSAT'] ?> </td>
+              <td class="align-middle"> <?= $idm['PROV'] ?> </td>
+              <td class="align-middle"> <?= $idm['KAB'] ?> </td>
+              <td class="align-middle"> <?= $idm['DESA'] ?> </td>
+              <td class="align-middle"> <?= $idm['CSR'] ?> </td>
+              <td class="align-middle"> <?= $idm['LAINNYA'] ?> </td>
             </tr>
           <?php endforeach; ?>
-
         </tbody>
       </table>
     </div>

@@ -4,6 +4,8 @@ namespace App\Controllers\Fiturutama;
 
 use App\Controllers\BaseController;
 use App\Models\IdmModel;
+use App\Models\ApiKemendesModel;
+use App\Models\KonfigurasiModel;
 
 class Fitur3 extends BaseController
 {
@@ -61,7 +63,7 @@ class Fitur3 extends BaseController
             $statusIdm = "Mandiri";
         }
 
-
+        // dd($group);
         $data = [
             'templatelayaout' => $this->templatelayaout,
 
@@ -77,5 +79,52 @@ class Fitur3 extends BaseController
         ];
 
         return view('fiturutama/fitur3', $data);
+    }
+
+    public function byApi($tahun = false)
+    {
+        if ($tahun == false) {
+            $tahun = date('Y');
+        }
+
+        $konfigurasimodel = new KonfigurasiModel();
+        $iddesaidm = $konfigurasimodel->select('value')->where('slug', 'iddesaidm-kmz-165')->first()['value'];
+
+        $apikemendes = new ApiKemendesModel;
+        $resultapiidm = $apikemendes->idmApi($iddesaidm, $tahun);
+
+        if ($resultapiidm['status'] == '400') {
+            return view('errors/html/error_404');
+        }
+
+        $nilaiDicari = ['IKS ' . $tahun, 'IKE ' . $tahun, 'IKL ' . $tahun]; //Kasik sama urutannya
+        $hasilArray = [];
+        foreach ($nilaiDicari as $value) {
+            $hasilArray[] = whereArray($resultapiidm['mapData']['ROW'], 'INDIKATOR', $value);
+        }
+
+        $manual = ['Indeks Ketahanan Sosial', 'Indeks Ketahanan Ekonomi', 'Indeks Ketahanan Lingkungan']; //Kasik sama urutannya
+        $chart = [];
+        foreach ($hasilArray as $key => $value) {
+            $chart[] = [$value[0]['INDIKATOR'], $value[0]['SKOR'], $manual[$key]];
+        }
+
+        $data = [
+            'templatelayaout' => $this->templatelayaout,
+
+            'title' => 'IDM ' . LENGKAP,
+            'metakeywords' => 'IDM ' . FULLENGKAP . ', IDM Desa  Terbaik,',
+            'metadescription' => 'IDM ' . FULLENGKAP,
+
+            'tabelapiidm' => $resultapiidm['mapData']['ROW'],
+            'cardapiidm' => $resultapiidm['mapData']['SUMMARIES'],
+            'desaapiidm' => $resultapiidm['mapData']['IDENTITAS'][0]['nama_desa'],
+            'chartidmdesa' => $chart,
+            'tahun' => $tahun, //Untuk di nav bukan di card, card dari API
+
+            'active' => [false, false, false, false, false, false]
+        ];
+
+        return view('fiturutama/fitur3-api', $data);
     }
 }

@@ -144,70 +144,27 @@
         <div class="col-lg-4 wow fadeIn" data-wow-delay="0.5s">
             <div class="py-4 ps-3 bg-success mb-2 rounded">
                 <h6 class="fw-bold text-white">
-                    <i class="bi bi-clock pe-2"></i> Jadwal Sholat Kab. Bulukumba
+                    <i class="bi bi-clock pe-2"></i> Jadwal Sholat <?= ucwords(strtolower($jadwalsholat['lokasi'])) ?>
                 </h6>
                 <i class="bi bi-calendar-date text-white pe-2"></i>
-                <span class="fst-italic text-white">Selasa, 17 Oktober 2023</span>
+                <span class="fst-italic text-white"><?= dateIna_helper() ?></span>
             </div>
         </div>
 
         <div class="col-lg-8">
             <div class="row px-2">
-                <div class="col-4 col-lg-2 mb-2 wow fadeInDown px-1" data-wow-delay="0.3s">
-                    <div class="rounded shadow py-2 text-center border border-success">
-                        <span class="text-sm tracking-widest capitalize text-primary">
-                            <img src="/img/assets/moon.png" alt="Imsak" width="37" /><span>Imsak</span>
-                        </span>
-
-                        <h3 class="card-subtitle mt-2 mb-1">04:34</h3>
-                    </div>
-                </div>
-                <div class="col-4 col-lg-2 mb-2 wow fadeInDown px-1" data-wow-delay="0.3s">
-                    <div class="rounded shadow py-2 text-center border border-success">
-                        <span class="text-sm tracking-widest capitalize text-primary">
-                            <img src="/img/assets/moon.png" alt="Subuh" width="37" /><span>Subuh</span>
-                        </span>
-
-                        <h3 class="card-subtitle mt-2 mb-1">04:34</h3>
-                    </div>
-                </div>
-                <div class="col-4 col-lg-2 mb-2 wow fadeInDown px-1" data-wow-delay="0.3s">
-                    <div class="rounded shadow py-2 text-center border border-success">
-                        <span class="text-sm tracking-widest capitalize text-primary">
-                            <img src="/img/assets/moon.png" alt="Isyah" width="37" /><span>Isyah</span>
-                        </span>
-
-                        <h3 class="card-subtitle mt-2 mb-1">04:34</h3>
-                    </div>
-                </div>
-                <div class="col-4 col-lg-2 mb-2 wow fadeInDown px-1" data-wow-delay="0.3s">
-                    <div class="rounded shadow py-2 text-center border border-success">
-                        <span class="text-sm tracking-widest capitalize text-primary">
-                            <img src="/img/assets/moon.png" alt="Zhuhur" width="37" /><span>Zhuhur
+                <?php $Sholat = ["Imsak", "Subuh", "Dhuhr", "Ashar", "Maghrib", "Isya"];
+                foreach ($jadwalsholat['jadwal'] as $key =>  $value) : ?>
+                    <div class="col-4 col-lg-2 mb-2 wow fadeInDown px-1" data-wow-delay="0.3s">
+                        <div class="rounded shadow py-2 text-center border border-success">
+                            <span class="text-sm tracking-widest capitalize text-primary">
+                                <img src="/img/assets/moon.png" alt="Subuh" width="37" /><span><?= $Sholat[$key] ?></span>
                             </span>
-                        </span>
 
-                        <h3 class="card-subtitle mt-2 mb-1">04:34</h3>
+                            <h3 class="card-subtitle mt-2 mb-1"><?= $value ?></h3>
+                        </div>
                     </div>
-                </div>
-                <div class="col-4 col-lg-2 mb-2 wow fadeInDown px-1" data-wow-delay="0.3s">
-                    <div class="rounded shadow py-2 text-center border border-success">
-                        <span class="text-sm tracking-widest capitalize text-primary">
-                            <img src="/img/assets/moon.png" alt="Ashar" width="37" /><span>Ashar</span>
-                        </span>
-
-                        <h3 class="card-subtitle mt-2 mb-1">04:34</h3>
-                    </div>
-                </div>
-                <div class="col-4 col-lg-2 mb-2 wow fadeInDown px-1" data-wow-delay="0.3s">
-                    <div class="rounded shadow py-2 text-center border border-success">
-                        <span class="text-sm tracking-widest capitalize text-primary">
-                            <img src="/img/assets/moon.png" alt="Maghrib" width="37" /><span style="font-size: 80%">Maghrib</span>
-                        </span>
-
-                        <h3 class="card-subtitle mt-2 mb-1">04:34</h3>
-                    </div>
-                </div>
+                <?php endforeach ?>
             </div>
         </div>
     </div>

@@ -90,7 +90,7 @@ class Konfigurasi extends BaseController
     {
         $idapi = convertToNumber($idapi);
 
-        $iddesaidm = $this->request->getVar('iddesaidm');
+        $iddesaidm = $this->request->getVar('iddesa');
         $url = $this->request->getVar('url');
 
         $this->konfigurasimodel->update($idapi, [

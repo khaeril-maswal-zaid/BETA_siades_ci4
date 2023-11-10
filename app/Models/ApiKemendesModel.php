@@ -15,13 +15,26 @@ class ApiKemendesModel
         curl_close($curl);
         $result = json_decode($result, true);
 
-        return $result['mapData'];
+        return $result;
     }
 
-    public function idmSdgs($idDesa)
+    public function sdgsApi($idDesa)
     {
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, 'https://sid.kemendesa.go.id/sdgs/searching/score-sdgs?location_code=' . $idDesa);
+
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        $result = curl_exec($curl);
+        curl_close($curl);
+        $result = json_decode($result, true);
+
+        return $result;
+    }
+
+    public function jadwalSholatApi($idKab)
+    {
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, 'https://api.myquran.com/v1/sholat/jadwal/' . $idKab . '/' . date('Y') . '/' . date('m'));
 
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         $result = curl_exec($curl);
