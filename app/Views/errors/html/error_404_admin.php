@@ -51,16 +51,16 @@
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                        <img class="rounded-circle" src="/img/admin/testimonial-1.jpg" alt="" style="width: 40px; height: 40px;">
+                        <img class="rounded-circle" src="/img/admin/<?= user()->image ?>" alt="<?= user()->image ?>" style="width: 40px; height: 40px;">
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-3">
-                        <h6 class="mb-0">Jhon Doe</h6>
+                        <h6 class="mb-0"><?= batasiKarakter(user()->fullname, 13); ?>...</h6>
                         <span>Admin</span>
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="/admindes" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="/admindes" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
 
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Informasi Publik</a>
@@ -95,6 +95,9 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Kelembagaan</a>
                         <div class="dropdown-menu bg-transparent border-0">
+                            <a href="/admindes/lpm" class="dropdown-item">LPM</a>
+                            <a href="/admindes/pkk" class="dropdown-item">PKK</a>
+                            <a href="/admindes/karang-taruna" class="dropdown-item">Karang Taruna</a>
                             <?php foreach (LEMABAGADESA as $lemabaga) : ?>
                                 <a href="/admindes/<?= url_title($lemabaga['nicknamepage'], '-', true) ?>" class="dropdown-item"><?= $lemabaga['nicknamepage'] ?></a>
                             <?php endforeach ?>
@@ -121,6 +124,8 @@
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="/admindes/daftar-dusun" class="dropdown-item">Dusun</a>
                             <a href="/admindes/daftar-media-sosial" class="dropdown-item">Media Sosial</a>
+                            <a href="/admindes/konf-aplikasi" class="dropdown-item">Aplikasi</a>
+                            <a href="/admindes/konf-carousel" class="dropdown-item">Carousel</a>
                         </div>
                     </div>
 
@@ -149,39 +154,6 @@
                             <i class="fa fa-envelope me-lg-2"></i>
                             <span class="d-none d-lg-inline-flex">Message</span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-end bg-light shadow m-0">
-                            <a href="#" class="dropdown-item">
-                                <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="/img/admin/testimonial-1.jpg" alt="" style="width: 40px; height: 40px;">
-                                    <div class="ms-2">
-                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                                        <small>15 minutes ago</small>
-                                    </div>
-                                </div>
-                            </a>
-                            <hr class="dropdown-divider">
-                            <a href="#" class="dropdown-item">
-                                <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="/img/admin/testimonial-1.jpg" alt="" style="width: 40px; height: 40px;">
-                                    <div class="ms-2">
-                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                                        <small>15 minutes ago</small>
-                                    </div>
-                                </div>
-                            </a>
-                            <hr class="dropdown-divider">
-                            <a href="#" class="dropdown-item">
-                                <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="/img/admin/testimonial-1.jpg" alt="" style="width: 40px; height: 40px;">
-                                    <div class="ms-2">
-                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
-                                        <small>15 minutes ago</small>
-                                    </div>
-                                </div>
-                            </a>
-                            <hr class="dropdown-divider">
-                            <a href="#" class="dropdown-item text-center">See all message</a>
-                        </div>
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
@@ -190,33 +162,19 @@
                         </a>
                         <!-- <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0"> -->
                         <div class="dropdown-menu dropdown-menu-end bg-light shadow m-0">
-                            <a href="#" class="dropdown-item">
-                                <h6 class="fw-normal mb-0">Profile updated</h6>
-                                <small>15 minutes ago</small>
-                            </a>
-                            <hr class="dropdown-divider">
-                            <a href="#" class="dropdown-item">
-                                <h6 class="fw-normal mb-0">New user added</h6>
-                                <small>15 minutes ago</small>
-                            </a>
-                            <hr class="dropdown-divider">
-                            <a href="#" class="dropdown-item">
-                                <h6 class="fw-normal mb-0">Password changed</h6>
-                                <small>15 minutes ago</small>
-                            </a>
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item text-center">See all notifications</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="/img/admin/testimonial-1.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">John Doe</span>
+                            <img class="rounded-circle me-lg-2" src="/img/admin/<?= user()->image ?>" alt="<?= user()->image ?>" style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex"><?= user()->fullname ?></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Log Out</a>
+                            <a href="/admindes/myprofil" class="dropdown-item">My Profile</a>
+                            <!-- <a href="#" class="dropdown-item">Settings</a> -->
+                            <a href="<?= base_url('logout') ?>" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>

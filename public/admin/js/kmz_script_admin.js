@@ -217,10 +217,11 @@ $(".button-ganti").on("click", function () {
   $("#blockspinner").addClass("d-none");
 });
 
-//HANYA SEMENTARA..................................
-//Api Data
+// HANYA SEMENTARA..................................
+// Api Data
 // $.ajax({
-//   url: "https://idm.kemendesa.go.id/open/api/desa/rumusan/7302072005/2022",
+//   url: "https://sid.kemendesa.go.id/sdgs/searching/score-sdgs?location_code=7302070003",
+//   type: "GET",
 //   success: function (data) {
 //     console.log(data);
 //   },
@@ -236,3 +237,18 @@ $(".button-ganti").on("click", function () {
 //     console.log(response);
 //   },
 // });
+
+//SCORE SDGS
+//https://sid.kemendesa.go.id/sdgs/searching/score-sdgs?location_code=7302070003
+
+//CHART SDGS
+//https://sid.kemendesa.go.id/sdgs/searching/chart-sdgs?location_code=7302070003
+
+//IDM RUMUSAN api
+//https://idm.kemendesa.go.id/open/api/desa/rumusan/7302072005/2023
+
+//IDM RUMUSAN HTML
+//https://idm.kemendesa.go.id/open/api/desa/rumusanpokok/7302072005/2023
+
+//IDM REKOMENDASI HTML
+//https://idm.kemendesa.go.id/open/api/desa/rekomendasi/7302072005/2023

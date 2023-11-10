@@ -4,6 +4,8 @@ namespace App\Controllers\Fiturutama;
 
 use App\Controllers\BaseController;
 use App\Models\SdgsModel;
+use App\Models\ApiKemendesModel;
+use App\Models\KonfigurasiModel;
 
 class Fitur1 extends BaseController
 {
@@ -36,5 +38,35 @@ class Fitur1 extends BaseController
         ];
 
         return view('fiturutama/fitur1', $data);
+    }
+
+    public function byApi($tahun = null)
+    {
+        //TAHUN ANTISIPASI NANTI JIKA SUDAH BUTUH TAHAUN DI API NYA
+        if ($tahun == false) {
+            $tahun = date('Y');
+        }
+
+        $konfigurasimodel = new KonfigurasiModel();
+        $iddesasdgs = $konfigurasimodel->select('value')->where('slug', 'iddesasdgs-kmz-165')->first()['value'];
+
+        $apikemendes = new ApiKemendesModel;
+        $resultapisdgs = $apikemendes->sdgsApi($iddesasdgs);
+
+        $data = [
+            'templatelayaout' => $this->templatelayaout,
+
+            'title' => 'SDGS ' . LENGKAP,
+            'metakeywords' => 'SDGS ' . FULLENGKAP . ', SDGS Desa Terbaik,',
+            'metadescription' => 'SDGS ' . FULLENGKAP,
+
+            'average' => $resultapisdgs['average'],
+            'sdgs' => $resultapisdgs['data'],
+            'tahun' => $tahun,
+
+            'active' => [false, false, false, false, false, false],
+        ];
+
+        return view('fiturutama/fitur1-api', $data);
     }
 }

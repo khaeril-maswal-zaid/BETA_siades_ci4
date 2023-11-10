@@ -85,4 +85,18 @@ class Konfigurasi extends BaseController
 
         return redirect()->to(base_url('admindes/' . $url));
     }
+
+    public function addIdDesa($idapi)
+    {
+        $idapi = convertToNumber($idapi);
+
+        $iddesaidm = $this->request->getVar('iddesa');
+        $url = $this->request->getVar('url');
+
+        $this->konfigurasimodel->update($idapi, [
+            'value' => $iddesaidm
+        ]);
+
+        return redirect()->to(base_url('admindes/' . $url));
+    }
 }

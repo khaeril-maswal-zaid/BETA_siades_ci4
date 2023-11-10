@@ -128,8 +128,8 @@
                      <?= ($aduanbelum) ?
                         '<span class="position-absolute translate-middle badge rounded-pill bg-danger">
                         ' . $aduanbelum . '
-                        <span class="visually-hidden">KMZ Alzaid</span>
-                     </span>' : ''
+                           <span class="visually-hidden">KMZ Alzaid</span>
+                        </span>' : ''
                      ?>
                   </i>
                   <span class="d-none d-lg-inline-flex">Notificatin</span>

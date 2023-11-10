@@ -16,7 +16,6 @@
     <div class="alert alert-success py-2" role="alert">
       <a href="/"><i class="bi bi-house-door-fill"></i></a>
       <span class="px-1">/</span>
-
       <span class="px-1">SDGS Desa</span>
     </div>
   </div>
@@ -31,38 +30,19 @@
     <p class="fs-4 d-md-block d-none fw-bold text-primary mb-5"><?= FULLENGKAP ?></p>
     <p class="d-md-none d-block fw-bold text-primary mb-5"><?= FULLENGKAP ?></p>
 
-    <!-- SEPERTINYA BELUM ADA DATA PERTAHUN -->
-    <!-- <ul class="nav nav-tabs mb-5">
-      <li class="nav-item">
-        <a class="nav-link <?= ($tahun == date('Y')) ? 'active' : ''; ?>" href="/sdgs-desa/"><?= date('Y') ?></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link <?= ($tahun == date('Y') - 1) ? 'active' : ''; ?>" href="/sdgs-desa/<?= date('Y') - 1 ?>"><?= date('Y') - 1 ?></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link <?= ($tahun == date('Y') - 2) ? 'active' : ''; ?>" href="/sdgs-desa/<?= date('Y') - 2 ?>"><?= date('Y') - 2 ?></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link <?= ($tahun == date('Y') - 3) ? 'active' : ''; ?>" href="/sdgs-desa/<?= date('Y') - 3 ?>"><?= date('Y') - 3 ?></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link <?= ($tahun == date('Y') - 4) ? 'active' : ''; ?>" href="/sdgs-desa/<?= date('Y') - 4 ?>"><?= date('Y') - 4 ?></a>
-      </li>
-    </ul> -->
-
     <div class="text-center mx-auto wow fadeInUp pt-lg-5 pb-lg-3" data-wow-delay="0.1s" style="max-width: 500px;">
       <h1 class="display-5">Skor SDGs Desa</h1>
-      <h2 class="mb-5">12345</h2>
+      <h2 class="mb-5"><?= $average ?></h2>
     </div>
 
     <div class="row g-5">
       <?php foreach ($sdgs as $value) : ?>
         <div class="col-md-2 col-sm-4 col-6 wow fadeInUp" data-wow-delay="0.1s">
           <div class="card mb-3 shadow bg-light border border-success rounded-3">
-            <img src="/img/sdgs/<?= $value['slug'] ?>" class="card-img-top" alt="...">
+            <img src="/img/sdgs/skor-sdgs-<?= $value['goals'] ?>.jpg" class="card-img-top" alt="<?= $value['title'] ?>">
             <div class="card-body text-center">
               <p class="card-text mb-2">Skor Nilai</p>
-              <h4 class="card-title"><?= $value['value'] ?></h4>
+              <h4 class="card-title"><?= $value['score'] ?></h4>
             </div>
           </div>
         </div>
@@ -88,7 +68,7 @@
               type: 'column'
             },
             title: {
-              text: 'Status SDGS'
+              text: 'Skor 18 Goals SDGs Desa'
             },
             subtitle: {
               text: '<?= LENGKAP ?>'
@@ -127,7 +107,7 @@
               groupPadding: 0,
               data: [
                 <?php foreach ($sdgs as $value) {
-                  echo '["' . $value['label'] . '",' . $value['value'] . '],';
+                  echo '["' . $value['title'] . '",' . $value['score'] . '],';
                 } ?>
               ],
               dataLabels: {

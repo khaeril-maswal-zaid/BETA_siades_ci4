@@ -4,6 +4,7 @@ namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
 use App\Models\AduanModel;
+use App\Models\ApiKemendesModel;
 use App\Models\ArtikelModel;
 use App\Models\CountViewersModel;
 use App\Models\DataDesaModel;
@@ -136,6 +137,7 @@ class Index extends BaseController
         if ($tahun == false) {
             $tahun = date('Y');
         }
+
         $datasdgs = $this->sdgsmodel->where('tahun', $tahun)->findAll();
 
         $data = [
@@ -149,6 +151,33 @@ class Index extends BaseController
         ];
 
         return view('admin/sdgs', $data);
+    }
+
+    public function sdgsApi($tahun = false)
+    {
+        if ($tahun == false) {
+            $tahun = date('Y');
+        }
+
+        $konfigurasimodel = new KonfigurasiModel();
+        $iddesasdgs = $konfigurasimodel->select('value')->where('slug', 'iddesasdgs-kmz-165')->first()['value'];
+
+        $apikemendes = new ApiKemendesModel;
+        $resultapisdgs = $apikemendes->sdgsApi($iddesasdgs);
+
+        $data = [
+            'activeheader' => [false, 'active', false, false, false, false, false],
+            'aduanbelum' => $this->aduanbelum,
+            'statusaduan' => $this->statusaduan,
+            'templatelayaout' => $this->templatelayaout,
+
+            'datasdgs' => $resultapisdgs['data'],
+            'tahun' => $tahun,
+
+            'idapisdgs' => $this->konfigurasimodel->select(['id', 'value'])->where('slug', 'iddesasdgs-kmz-165')->first()
+        ];
+
+        return view('admin/sdgs-api', $data);
     }
 
     public function idm($tahun = false)
@@ -203,9 +232,43 @@ class Index extends BaseController
             'dataidm' => [$group, $val, $skorIndexpergrup],
             'statusIdm' => $statusIdm,
             'tahun' => $tahun,
+
+            'idapiidm' => $this->konfigurasimodel->select(['id', 'value'])->where('slug', 'iddesaidm-kmz-165')->first()
         ];
 
         return view('admin/idm', $data);
+    }
+
+    public function idmApi($tahun = false)
+    {
+        if ($tahun == false) {
+            $tahun = date('Y');
+        }
+
+        $iddesaidm = $this->konfigurasimodel->select('value')->where('slug', 'iddesaidm-kmz-165')->first()['value'];
+
+        $apikemendes = new ApiKemendesModel;
+        $resultapiidm = $apikemendes->idmApi($iddesaidm, $tahun);
+
+        if ($resultapiidm['status'] == '400') {
+            return view('errors/html/error_404_admin');
+        }
+        $tabelapiidm = $resultapiidm['mapData']['ROW'];
+
+        $data = [
+            'activeheader' => [false, 'active', false, false, false, false, false],
+            'aduanbelum' => $this->aduanbelum,
+            'statusaduan' => $this->statusaduan,
+            'templatelayaout' => $this->templatelayaout,
+
+            'tabelapiidm' => $tabelapiidm,
+            'desaapiidm' => $resultapiidm['mapData']['IDENTITAS'][0]['nama_desa'],
+            'tahun' => $tahun,
+
+            'idapiidm' => $this->konfigurasimodel->select(['id', 'value'])->where('slug', 'iddesaidm-kmz-165')->first()
+        ];
+
+        return view('admin/idm-api', $data);
     }
 
     public function keuangan($tahun = false)
@@ -258,7 +321,7 @@ class Index extends BaseController
         $visimisi = $visimisimodel->select(['tentang', 'tupoksi', 'id'])->where('slug', 'visi-misi-desa')->first();
 
         if (!isset($visimisi)) {
-            return view('errors/html/error_404');
+            return view('errors/html/error_404_admin');
         }
 
         $data = [
@@ -332,17 +395,11 @@ class Index extends BaseController
         $lembaga = $this->lembagamodel->where('nicknamepage', $lembaga)->first();
 
         if (!isset($lembaga)) {
-            return view('errors/html/error_404');
+            return view('errors/html/error_404_admin');
         }
 
         $active = $this->personildesa->select('class')->where('slug', $lembaga['slug']);
         $active = $this->personildesa->select('class')->where('class', 'active')->findAll();
-
-        if ($sblembaga == 'bpd') {
-            $activeheader =  [false, false, false,  'active', false, false, false];
-        } else {
-            $activeheader =  [false, false, false, false, 'active', false, false];
-        }
 
         $data = [
             'activeheader' => $activeheader,
@@ -462,7 +519,7 @@ class Index extends BaseController
         $valLkPr = $this->datadesamodel->select(['val_lk', 'val_pr'])->where('slug', $kategori)->findAll();
 
         if ($valLkPr == null) {
-            return view('errors/html/error_404');
+            return view('errors/html/error_404_admin');
         }
 
         $totalPerdata = [];
@@ -599,7 +656,7 @@ class Index extends BaseController
     public function konfAplikasi()
     {
         $data = [
-            'tahun' => [false, false, false, false, false, false, 'active'],
+            'activeheader' => [false, false, false, false, false, false, 'active'],
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
@@ -615,7 +672,7 @@ class Index extends BaseController
     public function profilAdmin()
     {
         $data = [
-            'tahun' => [false, false, false, false, false, false, 'active'],
+            'activeheader' => [false, false, false, false, false, false, 'active'],
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
@@ -627,7 +684,7 @@ class Index extends BaseController
     public function postPhoto()
     {
         $data = [
-            'tahun' => [false, false, false, false, false, false, false],
+            'activeheader' => [false, false, false, false, false, false, false],
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
