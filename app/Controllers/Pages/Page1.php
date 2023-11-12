@@ -29,7 +29,7 @@ class Page1 extends BaseController
       $valuespage = $this->page1model->where('namepage', $lembaga)->first();
 
       if (!isset($valuespage)) {
-         return view('errors/html/error_404');
+         return view('errors/html/error_404_legal');
       }
 
       if ($valuespage['nicknamepage'] === 'BPD') {

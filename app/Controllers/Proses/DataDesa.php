@@ -45,6 +45,19 @@ class DataDesa extends BaseController
 
     public function addKategori()
     {
+        //Validasi------------------------------------
+        if (!$this->validate([
+            'kategoribaru' => 'max_length[200]|required'
+        ])) {
+
+            //Error------------------------------------
+            // dd($this->validator->getError('fileaduan'));
+            session()->setFlashdata('validation', [
+                $this->validator->getError('kategoribaru')
+            ]);
+            return redirect()->to(base_url('admindes/daftar-kategori-data'))->withInput();
+        }
+
         $this->datadesamodel->save([
             'slug' => $this->request->getVar('kategoribaru'),
             'label' => 'Doubel klik ki untuk edit',

@@ -72,8 +72,11 @@
                 <div class="modal-body">
 
                     <div class="form-floating mb-2">
-                        <input autocomplete="off" type="text" class="form-control" id="iddesa" placeholder="iddesa" name="iddesa" value="<?= $idapiidm['value'] ?>">
+                        <input autocomplete="off" type="text" class="form-control <?= ($validation) ? 'is-invalid' : ''; ?>" id="iddesa" placeholder="iddesa" name="iddesa" value="<?= (old('iddesa')) ? old('iddesa') : $idapiidm['value']; ?>">
                         <label for="iddesa">Id Desa</label>
+                        <div class="invalid-feedback">
+                            Id Desa wajib diisi, mesti 10 karakter dan numeric
+                        </div>
                     </div>
                     <div class="form-floating mb-2">
                         <input autocomplete="off" disabled type="text" value="<?= $desaapiidm ?>" class="form-control" id="aav">

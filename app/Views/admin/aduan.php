@@ -35,7 +35,7 @@
                 <th scope="col">Subjek</th>
                 <th scope="col">NIK</th>
                 <th scope="col">No Hp</th>
-                <th scope="col">Status</th>
+                <th scope="col" nowrap>Status</th>
             </tr>
         </thead>
         <tbody>
@@ -70,13 +70,13 @@
                     <td class="align-middle"><?= $aduan['subject'] ?></td>
                     <td class="align-middle"><?= $aduan['nik'] ?></td>
                     <td class="align-middle"><?= $aduan['hp'] ?></td>
-                    <td class="align-middle text-white bg-<?php if ($aduan['status'] == 'Belum diproses') {
-                                                                echo 'dark';
-                                                            } elseif ($aduan['status'] == 'Sedang diproses') {
-                                                                echo 'info';
-                                                            } else {
-                                                                echo 'success';
-                                                            } ?>"><?= $aduan['status'] ?></td>
+                    <td nowrap class="align-middle text-white bg-<?php if ($aduan['status'] == 'Belum diproses') {
+                                                                        echo 'dark';
+                                                                    } elseif ($aduan['status'] == 'Sedang diproses') {
+                                                                        echo 'info';
+                                                                    } else {
+                                                                        echo 'success';
+                                                                    } ?>"><?= $aduan['status'] ?></td>
                 </tr>
             <?php endforeach ?>
         </tbody>

@@ -53,11 +53,15 @@
             ?>
                 <tr class="#">
                     <td class="text-center">
-                        <form action="/adm-proses/delete-conf/<?= convertToLetter($val['id']) ?>/media-sosial" method="post">
-                            <?= csrf_field() ?>
-                            <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin mau menghapus ?')">Hapus</button>
-                        </form>
+                        <?php if ($val['label'] == 'Telpon' || $val['label'] == 'WhatsApp' || $val['label'] == 'Facebook' || $val['label'] == 'Instagram' || $val['label'] == 'Email' || $val['label'] == 'Youtube') { ?>
+                            <button type="" class="btn btn-sm btn-secondary" onclick="return alert('<?= $val['label'] ?> Tidak Dapat dihapus')">Hapus</button>
+                        <?php } else { ?>
+                            <form action="/adm-proses/delete-conf/<?= convertToLetter($val['id']) ?>/media-sosial" method="post">
+                                <?= csrf_field() ?>
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Yakin mau menghapus ?')">Hapus</button>
+                            </form>
+                        <?php } ?>
                     </td>
                     <td class="text-center"><?= $iNo++ ?></td>
                     <td><?= $val['label'] ?></td>
@@ -84,16 +88,25 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-floating mb-3">
-                        <input autocomplete="off" type="text" class="form-control" id="aa" placeholder="Media Sosial" name="label">
+                        <input autocomplete="off" type="text" class="form-control <?= ($validation[1]) ? 'is-invalid' : ''; ?>" id="aa" placeholder="Media Sosial" name="label" value="<?= old('label') ?>">
                         <label for="aa">Media Sosial</label>
+                        <div class="invalid-feedback">
+                            Medsos wajib diisi dan tidak boleh lebih 200 karakter
+                        </div>
                     </div>
                     <div class="form-floating mb-3">
-                        <input autocomplete="off" type="text" class="form-control" id="aa" placeholder="Nama Akun" name="value">
-                        <label for="aa">Nama Akun</label>
+                        <input autocomplete="off" type="text" class="form-control <?= ($validation[0]) ? 'is-invalid' : ''; ?>" id="bb" placeholder="Nama Akun" name="value" value="<?= old('value') ?>">
+                        <label for="bb">Nama Akun</label>
+                        <div class="invalid-feedback">
+                            Nama Akun wajib diisi dan tidak boleh lebih 200 karakter
+                        </div>
                     </div>
                     <div class="form-floating mb-3">
-                        <input autocomplete="off" type="text" class="form-control" id="aa" placeholder="Link Akun" name="more">
-                        <label for="aa">Link Akun</label>
+                        <input autocomplete="off" type="text" class="form-control <?= ($validation[2]) ? 'is-invalid' : ''; ?>" id="cc" placeholder="Link Akun" name="more" value="<?= old('more') ?>">
+                        <label for="cc">Link Akun</label>
+                        <div class="invalid-feedback">
+                            Link Akun wajib diisi dan tidak boleh lebih 500 karakter
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">

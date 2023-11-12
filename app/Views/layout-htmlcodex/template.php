@@ -9,7 +9,7 @@
    <meta content="<?= $metadescription ?>" name="description" />
 
    <!-- Favicon -->
-   <link href="<?= base_url() ?>img/favicon.ico" rel="icon" />
+   <link href="<?= base_url('img/assets/icon.png') ?>" rel="icon" />
 
    <!-- Google Web Fonts -->
    <link rel="preconnect" href="https://fonts.googleapis.com" />

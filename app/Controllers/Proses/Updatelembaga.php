@@ -47,6 +47,21 @@ class Updatelembaga extends BaseController
 
     public function add()
     {
+        //Validasi------------------------------------
+        if (!$this->validate([
+            'singkatanlembaga' => 'max_length[50]|required',
+            'namalembaga' => 'max_length[200]|required'
+        ])) {
+
+            //Error------------------------------------
+            // dd($this->validator->getError('fileaduan'));
+            session()->setFlashdata('validation', [
+                $this->validator->getError('singkatanlembaga'),
+                $this->validator->getError('namalembaga')
+            ]);
+            return redirect()->to(base_url('admindes/daftar-lembaga'))->withInput();
+        }
+
         $this->lemabagamodel->save([
             'idGroup' => '1',
             'slug' => url_title($this->request->getVar('singkatanlembaga'), '-', true) . '-kmz-165',

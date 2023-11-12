@@ -22,9 +22,9 @@ class Layananaduan extends BaseController
         //Validasi------------------------------------
         if (!$this->validate([
             'email' => 'required|valid_email',
-            'name' => 'required',
-            'subject' => 'required',
-            'pengaduan' => 'required',
+            'name' => 'max_length[150]|required',
+            'subject' => 'max_length[200]|required',
+            'pengaduan' => 'max_length[1000]|required',
             'fileaduan' =>            [
                 'rules' => 'max_size[fileaduan,500]|is_image[fileaduan]|mime_in[fileaduan,image/jpg,image/jpeg,image/png]',
                 'errors' => [
@@ -77,7 +77,7 @@ class Layananaduan extends BaseController
             'status' => 'Belum diproses',
         ]);
 
-        $this->sendemail->notifAduan([$emailsender, $nama, $nomoraduan, $subjek]);
+        // $this->sendemail->notifAduan([$emailsender, $nama, $nomoraduan, $subjek]);
 
         session()->setFlashdata('pesan', 'Informasi berhasil tersubmit');
         return redirect()->to(base_url() . 'layanan-pengaduan');

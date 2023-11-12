@@ -41,8 +41,11 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-floating mb-3">
-                            <input name="alamatkantor" type="teks" class="form-control" id="floatingInput4" value="<?= $konfalamat['value'] ?>">
+                            <input name="alamatkantor" type="teks" class="form-control <?= ($validation[0]) ? 'is-invalid' : ''; ?>" id="floatingInput4" value="<?= (old('alamatkantor')) ? old('alamatkantor') : $konfalamat['value']; ?>">
                             <label for="floatingInput4">Alamat Kantor</label>
+                            <div class="invalid-feedback">
+                                Alamat Kantor wajib diisi dan tidak boleh lebih 200 karakter
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -67,8 +70,11 @@
                 </div>
 
                 <div class="form-floating">
-                    <textarea name="tentangaplikasi" class="form-control" id="floatingTextarea2" style="height: 200px; resize:vertical" maxlength="300"><?= $konftentang['value'] ?></textarea>
+                    <textarea name="tentangaplikasi" class="form-control <?= ($validation[1]) ? 'is-invalid' : ''; ?>" id="floatingTextarea2" style="height: 200px; resize:vertical" maxlength="300"><?= (old('tentangaplikasi')) ? old('tentangaplikasi') : $konftentang['value']; ?></textarea>
                     <label for="floatingTextarea2">Tentang Aplikasi</label>
+                    <div class="invalid-feedback">
+                        Tentang Aplikasi wajib diisi dan tidak boleh lebih 500 karakter
+                    </div>
                 </div>
             </div>
         </div>

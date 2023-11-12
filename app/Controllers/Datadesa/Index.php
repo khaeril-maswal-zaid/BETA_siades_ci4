@@ -120,7 +120,7 @@ class Index extends BaseController
 
 
       if ($valLkPr == null) {
-         return view('errors/html/error_404');
+         return view('errors/html/error_404_legal');
       }
 
       $totalPerdata = [];

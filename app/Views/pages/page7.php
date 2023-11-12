@@ -61,7 +61,7 @@
                 <input value="<?= old('email') ?>" autofocus name="email" type="email" class="form-control <?= ($validation[0]) ? 'is-invalid' : ''; ?>" id="email" placeholder="Email Anda">
                 <label for="email">Email*</label>
                 <div class="invalid-feedback">
-                  Email wajib diisi
+                  Email wajib diisi & Valid Email
                 </div>
               </div>
             </div>
@@ -78,7 +78,7 @@
                 <input value="<?= old('name') ?>" name="name" type="text" class="form-control <?= ($validation[1]) ? 'is-invalid' : ''; ?>" id="name" placeholder="Nama Anda">
                 <label for="name">Nama*</label>
                 <div class="invalid-feedback">
-                  Nama wajib diisi
+                  Nama wajib diisi & tidak lebih 150 karakter
                 </div>
               </div>
             </div>
@@ -95,7 +95,7 @@
                 <input value="<?= old('subject') ?>" name="subject" type="text" class="form-control <?= ($validation[2]) ? 'is-invalid' : ''; ?>" id="subject" placeholder="Subject">
                 <label for="subject">Subjek*</label>
                 <div class="invalid-feedback">
-                  Subjek wajib diisi
+                  Subjek wajib diisi & tidak lebih 200 karakter
                 </div>
               </div>
             </div>
@@ -104,7 +104,7 @@
                 <textarea name="pengaduan" class="form-control <?= ($validation[3]) ? 'is-invalid' : ''; ?>" id="message" style="height: 200px"><?= old('pengaduan') ?></textarea>
                 <label for="message">Isi Pengaduan*</label>
                 <div class="invalid-feedback">
-                  Isi Pengaduan wajib diisi
+                  Isi Pengaduan wajib diisi & tidak lebih 1000 karakter
                 </div>
               </div>
             </div>

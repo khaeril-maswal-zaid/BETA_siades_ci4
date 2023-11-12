@@ -160,26 +160,41 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-floating mb-2">
-                        <input autocomplete="off" type="text" class="form-control labelimgajax" id="aad2" placeholder="nama" name="nama">
-                        <label for="aad2">Nama</label>
+                        <input autocomplete="off" type="text" class="form-control labelimgajax <?= ($validation[0]) ? 'is-invalid' : ''; ?>" id="aad2" placeholder="nama" name="nama" value="<?= old('nama') ?>">
+                        <label for="aad2">Nama*</label>
+                        <div class="invalid-feedback">
+                            Nama Wajib di Isi
+                        </div>
                     </div>
                     <div class="form-floating mb-2">
-                        <input autocomplete="off" type="text" class="form-control" id="bb" placeholder="Alamat" name="alamat">
+                        <input autocomplete="off" type="text" class="form-control <?= ($validation[1]) ? 'is-invalid' : ''; ?>" id="bb" placeholder="Alamat" name="alamat" value="<?= old('alamat') ?>">
                         <label for="bb">Alamat</label>
+                        <div class="invalid-feedback">
+                            Alamat tidak boleh lebih 200 karakter
+                        </div>
                     </div>
                     <div class="form-floating mb-2">
-                        <input autocomplete="off" type="text" class="form-control" id="aav" placeholder="Jabatan" name="jabatan">
+                        <input autocomplete="off" type="text" class="form-control <?= ($validation[2]) ? 'is-invalid' : ''; ?>" id="aav" placeholder="Jabatan" name="jabatan" value="<?= old('jabatan') ?>">
                         <label for="aav">Jabatan</label>
+                        <div class="invalid-feedback">
+                            Jabatan tidak boleh lebih 200 karakter
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-6">
                             <div class="form-floating mb-2">
-                                <input autocomplete="off" type="text" class="form-control" id="bb" placeholder="Pendidikan" name="pendidikan">
+                                <input autocomplete="off" type="text" class="form-control <?= ($validation[3]) ? 'is-invalid' : ''; ?>" id="bb" placeholder="Pendidikan" name="pendidikan" value="<?= old('pendidikan') ?>">
                                 <label for="bb">Pendidikan</label>
+                                <div class="invalid-feedback">
+                                    Pendidikan tidak boleh lebih 200 karakter
+                                </div>
                             </div>
                             <div class="form-floating mb-2">
-                                <input autocomplete="off" type="text" class="form-control" id="cc" placeholder="Kontak" name="kontak">
+                                <input autocomplete="off" type="text" class="form-control <?= ($validation[4]) ? 'is-invalid' : ''; ?>" id="cc" placeholder="Kontak" name="kontak" value="<?= old('kontak') ?>">
                                 <label for="cc">Kontak</label>
+                                <div class="invalid-feedback">
+                                    Kontak tidak boleh lebih 200 karakter
+                                </div>
                             </div>
 
                             <div class="mb-3">
