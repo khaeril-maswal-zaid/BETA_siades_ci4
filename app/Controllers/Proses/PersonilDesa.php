@@ -22,6 +22,27 @@ class PersonilDesa extends BaseController
         // BELUM ADA VALIDASI
         //KERJA VALIDASI
 
+        //Validasi------------------------------------
+        if (!$this->validate([
+            'nama' => 'required',
+            'alamat' => 'max_length[200]',
+            'jabatan' => 'max_length[200]',
+            'pendidikan' => 'max_length[200]',
+            'kontak' => 'max_length[200]',
+        ])) {
+
+            //Error------------------------------------
+            // dd($this->validator->getError('fileaduan'));
+            session()->setFlashdata('validation', [
+                $this->validator->getError('nama'),
+                $this->validator->getError('alamat'),
+                $this->validator->getError('jabatan'),
+                $this->validator->getError('pendidikan'),
+                $this->validator->getError('kontak'),
+            ]);
+            return redirect()->to(base_url('admindes/struktur-desa'))->withInput();
+        }
+
         $bakalslug = str_replace('-', '',  $bacaslug);
 
         $slug = $bakalslug . '-kmz-165';

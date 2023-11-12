@@ -159,6 +159,12 @@ class Index extends BaseController
             $tahun = date('Y');
         }
 
+        if (session()->getFlashdata('validation')) {
+            $validation = session()->getFlashdata('validation');
+        } else {
+            $validation = false;
+        }
+
         $konfigurasimodel = new KonfigurasiModel();
         $iddesasdgs = $konfigurasimodel->select('value')->where('slug', 'iddesasdgs-kmz-165')->first()['value'];
 
@@ -170,6 +176,8 @@ class Index extends BaseController
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
+
+            'validation' => $validation,
 
             'datasdgs' => $resultapisdgs['data'],
             'tahun' => $tahun,
@@ -245,6 +253,12 @@ class Index extends BaseController
             $tahun = date('Y');
         }
 
+        if (session()->getFlashdata('validation')) {
+            $validation = session()->getFlashdata('validation');
+        } else {
+            $validation = false;
+        }
+
         $iddesaidm = $this->konfigurasimodel->select('value')->where('slug', 'iddesaidm-kmz-165')->first()['value'];
 
         $apikemendes = new ApiKemendesModel;
@@ -260,6 +274,8 @@ class Index extends BaseController
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
+
+            'validation' => $validation,
 
             'tabelapiidm' => $tabelapiidm,
             'desaapiidm' => $resultapiidm['mapData']['IDENTITAS'][0]['nama_desa'],
@@ -338,6 +354,12 @@ class Index extends BaseController
 
     public function struktur()
     {
+        if (session()->getFlashdata('validation')) {
+            $validation = session()->getFlashdata('validation');
+        } else {
+            $validation = [false, false, false, false, false];
+        }
+
         $active = $this->personildesa->select('class')->where('slug', 'strukturdesa-kmz-165');
         $active = $this->personildesa->select('class')->where('class', 'active')->findAll();
 
@@ -346,6 +368,8 @@ class Index extends BaseController
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
+
+            'validation' => $validation,
 
             'personildesa' => $this->personildesa->personilAll('strukturdesa-kmz-165'),
             'tabeldtb' => $this->personildesa->table,
@@ -631,11 +655,19 @@ class Index extends BaseController
 
     public function konfMedsos($conf)
     {
+        if (session()->getFlashdata('validation')) {
+            $validation = session()->getFlashdata('validation');
+        } else {
+            $validation = [false, false, false];
+        }
+
         $data = [
             'activeheader' => [false, false, false, false, false, false, 'active'],
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
+
+            'validation' => $validation,
 
             'kategoriconf' =>  $this->konfigurasimodel->where('slug', $conf)->findAll(),
             'tabeldtb' => $this->konfigurasimodel->table
@@ -646,11 +678,19 @@ class Index extends BaseController
 
     public function konfDusun($conf)
     {
+        if (session()->getFlashdata('validation')) {
+            $validation = session()->getFlashdata('validation');
+        } else {
+            $validation = [false];
+        }
+
         $data = [
             'activeheader' => [false, false, false, false, false, false, 'active'],
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
+
+            'validation' => $validation,
 
             'kategoriconf' =>  $this->konfigurasimodel->where('slug', $conf)->findAll(),
             'tabeldtb' => $this->konfigurasimodel->table
@@ -661,11 +701,19 @@ class Index extends BaseController
 
     public function konfAplikasi()
     {
+        if (session()->getFlashdata('validation')) {
+            $validation = session()->getFlashdata('validation');
+        } else {
+            $validation = [false, false];
+        }
+
         $data = [
             'activeheader' => [false, false, false, false, false, false, 'active'],
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
+
+            'validation' => $validation,
 
             'konftentang' =>  $this->konfigurasimodel->select('value')->where('slug', 'tentang-aplikasi-kmz-165')->first(),
             'konfalamat' =>  $this->konfigurasimodel->select('value')->where('slug', 'alamat-kantor-kmz-165')->first(),

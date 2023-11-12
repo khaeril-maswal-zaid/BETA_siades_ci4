@@ -27,26 +27,52 @@ class Konfigurasi extends BaseController
 
     public function add($slug)
     {
-        if ($this->request->getVar('more') != '') {
-            $more = $this->request->getVar('more');
-        } else {
-            $more = '#';
+        //Validasi------------------------------------
+        if (!$this->validate([
+            'value' => 'max_length[200]|required',
+            'label' => 'max_length[200]|required',
+            'more' => 'max_length[500]|required',
+        ])) {
+
+            //Error------------------------------------
+            // dd($this->validator->getError('fileaduan'));
+            session()->setFlashdata('validation', [
+                $this->validator->getError('value'),
+                $this->validator->getError('label'),
+                $this->validator->getError('more')
+            ]);
+            return redirect()->to(base_url('admindes/daftar-' . $slug))->withInput();
         }
 
         $this->konfigurasimodel->save([
             'slug' => $slug . '-kmz-165',
             'label' => $this->request->getVar('label'),
             'value' => $this->request->getVar('value'),
-            'more' => $more,
+            'more' => $this->request->getVar('more'),
             'updated_by' =>  user()->fullname
         ]);
 
         session()->setFlashdata('updateData', 'Lembaga baru berhasil ditambahkan');
-        return redirect()->to(base_url() . 'admindes/daftar-' . $slug);
+        return redirect()->to(base_url('admindes/daftar-' . $slug));
     }
 
     function updateAplikasi()
     {
+        //Validasi------------------------------------
+        if (!$this->validate([
+            'alamatkantor' => 'max_length[200]|required',
+            'tentangaplikasi' => 'max_length[500]|required'
+        ])) {
+
+            //Error------------------------------------
+            // dd($this->validator->getError('fileaduan'));
+            session()->setFlashdata('validation', [
+                $this->validator->getError('alamatkantor'),
+                $this->validator->getError('tentangaplikasi')
+            ]);
+            return redirect()->to(base_url('admindes/konf-aplikasi'))->withInput();
+        }
+
         $konfApp = $this->konfigurasimodel->select('id, label')->where('slug', 'tentang-aplikasi-kmz-165')->first();
         $konfAlamat = $this->konfigurasimodel->select('id, label')->where('slug', 'alamat-kantor-kmz-165')->first();
 
@@ -64,7 +90,7 @@ class Konfigurasi extends BaseController
         ]);
 
         session()->setFlashdata('updateData', 'Konfigurasi Aplikasi Berhasil diperbarui');
-        return redirect()->to(base_url() . 'admindes/konf-aplikasi');
+        return redirect()->to(base_url('admindes/konf-aplikasi'));
     }
 
     public function postPhoto($url, $folder)
@@ -88,6 +114,22 @@ class Konfigurasi extends BaseController
 
     public function addIdDesa($idapi)
     {
+        $url = $this->request->getVar('url');
+
+        //Validasi------------------------------------
+        if (!$this->validate([
+            'iddesa' => 'max_length[10]|min_length[10]|required|numeric'
+        ])) {
+
+            //Error------------------------------------
+            // dd($this->validator->getError('fileaduan'));
+            session()->setFlashdata(
+                'validation',
+                $this->validator->getError('iddesa')
+            );
+            return redirect()->to(base_url('admindes/' . $url))->withInput();
+        }
+
         $idapi = convertToNumber($idapi);
 
         $iddesaidm = $this->request->getVar('iddesa');

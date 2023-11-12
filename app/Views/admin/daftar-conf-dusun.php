@@ -78,13 +78,16 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Tambah Media Sosial</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Tambah Dusun</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="form-floating mb-3">
-                        <input autocomplete="off" type="text" class="form-control" id="aa" placeholder="Nama Akun" name="value">
+                        <input autocomplete="off" type="text" class="form-control <?= ($validation[0]) ? 'is-invalid' : ''; ?>" id="aa" placeholder="Nama Akun" name="value" value="<?= old('value') ?>">
                         <label for="aa">Nama Dusun</label>
+                        <div class="invalid-feedback">
+                            Nama Dusun wajib diisi dan tidak boleh lebih 200 karakter
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">

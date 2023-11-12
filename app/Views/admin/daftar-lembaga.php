@@ -46,44 +46,42 @@
         </thead>
 
         <tbody>
-                <tr class="#">
-                    <td class="text-center">
-                        <form>
-                            <button type="" class="btn btn-sm btn-secondary" onclick="return alert('Lembaga Default Tidak Dapat dihapus')">Hapus</button>
-                        </form>
-                    </td>
-                    <td class="text-center">1</td>
-                    <td>Lembaga Pemberdayaan Desa</td>
-                    <td>LPM</td>
-                    <td>Default</td>
-                </tr>
-                <tr class="#">
-                    <td class="text-center">
-                        <form>
-                            <button type="" class="btn btn-sm btn-secondary" onclick="return alert('Lembaga Default Tidak Dapat dihapus')">Hapus</button>
-                        </form>
-                    </td>
-                    <td class="text-center">2</td>
-                    <td>Pembinaan Kesejahteraan Keluarga</td>
-                    <td>PKK</td>
-                    <td>Default</td>
-                </tr>
-                <tr class="#">
-                    <td class="text-center">
-                        <form>
-                            <button type="" class="btn btn-sm btn-secondary" onclick="return alert('Lembaga Default Tidak Dapat dihapus')">Hapus</button>
-                        </form>
-                    </td>
-                    <td class="text-center">3</td>
-                    <td>Karang Taruna</td>
-                    <td>Karang Taruna</td>
-                    <td>Default</td>
-                </tr>
+            <tr class="#">
+                <td class="text-center">
+                    <button type="" class="btn btn-sm btn-secondary" onclick="return alert('Lembaga Default Tidak Dapat dihapus')">Hapus</button>
+                </td>
+                <td class="text-center">1</td>
+                <td>Lembaga Pemberdayaan Desa</td>
+                <td>LPM</td>
+                <td>Default</td>
+            </tr>
+            <tr class="#">
+                <td class="text-center">
+                    <form>
+                        <button type="" class="btn btn-sm btn-secondary" onclick="return alert('Lembaga Default Tidak Dapat dihapus')">Hapus</button>
+                    </form>
+                </td>
+                <td class="text-center">2</td>
+                <td>Pembinaan Kesejahteraan Keluarga</td>
+                <td>PKK</td>
+                <td>Default</td>
+            </tr>
+            <tr class="#">
+                <td class="text-center">
+                    <form>
+                        <button type="" class="btn btn-sm btn-secondary" onclick="return alert('Lembaga Default Tidak Dapat dihapus')">Hapus</button>
+                    </form>
+                </td>
+                <td class="text-center">3</td>
+                <td>Karang Taruna</td>
+                <td>Karang Taruna</td>
+                <td>Default</td>
+            </tr>
 
-                <?php
-                    $iNo = 4;
-                    foreach ($lembaga as $val) :
-                ?>
+            <?php
+            $iNo = 4;
+            foreach ($lembaga as $val) :
+            ?>
                 <tr class="#">
                     <td class="text-center">
                         <form action="/adm-proses/delete-lembaga/<?= convertToLetter($val['id']) ?>" method="post">

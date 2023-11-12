@@ -287,7 +287,7 @@
                         </div>
                         <div class="service-text rounded p-5 w-100">
                             <div class="btn-square rounded-circle mx-auto mb-3">
-                                <img class="img-fluid" src="img/assets/icon-3.png" alt="Icon" />
+                                <img class="img-fluid" src="img/assets/icon-artikel-home.png" alt="Icon" />
                             </div>
                             <h4 class="mb-4">
                                 <?= $artikel['judul'] ?>
