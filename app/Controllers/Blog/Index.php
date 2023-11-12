@@ -31,7 +31,7 @@ class Index extends BaseController
         // dd($artikel);
 
         if (!isset($artikel)) {
-            return view('errors/html/error_404');
+            return view('errors/html/error_404_legal');
         }
 
         $admin = new AdminsModel();
@@ -67,7 +67,7 @@ class Index extends BaseController
         $artikel = $this->artikelmodel->where('slug', $slug)->first();
 
         if (!isset($artikel)) {
-            return view('errors/html/error_404');
+            return view('errors/html/error_404_legal');
         }
 
         $admin = new AdminsModel();

@@ -51,7 +51,7 @@ class Page2 extends BaseController
       $tupoksi = $tupoksilembaga->select('tupoksi')->where('namepage', $jabatan)->first();
 
       if (!isset($personil) || !isset($tupoksi['tupoksi'])) {
-         return view('errors/html/error_404');
+         return view('errors/html/error_404_legal');
       }
 
       $data = [

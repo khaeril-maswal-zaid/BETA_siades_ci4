@@ -83,8 +83,11 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-floating mb-3">
-                        <input autocomplete="off" type="text" class="form-control" id="aa" placeholder="Kategori Data Baru" name="kategoribaru">
-                        <label for="aa">Kategori Data Baru</label>
+                        <input autocomplete="off" type="text" class="form-control <?= ($validation) ? 'is-invalid' : ''; ?>" id="aa" placeholder="Kategori Data Baru" name="kategoribaru" value="<?= old('kategoribaru') ?>">
+                        <label for="aa">Kategori Data Baru*</label>
+                        <div class="invalid-feedback">
+                            Kategori Data Baru wajib diisi dan tidak boleh lebih 200 karakter
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">

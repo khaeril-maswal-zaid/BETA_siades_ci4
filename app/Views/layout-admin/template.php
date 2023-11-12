@@ -9,7 +9,7 @@
    <meta content="Website Resmi Desa Pakubalaho serta merupakan platform online yang dirancang secara khusus untuk memberikan kemudahan dalam berkomunikasi dan bertukar informasi antara pemerintah desa, warga desa, dan masyarakat umum" name="description">
 
    <!-- Favicon -->
-   <link href="<?= base_url('img/assets/icon-web.png') ?>" rel="icon" />
+   <link href="<?= base_url('img/assets/icon.png') ?>" rel="icon" />
 
    <!-- Google Web Fonts -->
    <link rel="preconnect" href="https://fonts.googleapis.com">

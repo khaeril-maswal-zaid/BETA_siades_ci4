@@ -27,7 +27,7 @@ class Page6 extends BaseController
       $visimisi = $visimisimodel->select(['tentang', 'tupoksi'])->where('slug', 'visi-misi-desa')->first();
 
       if (!isset($personildesa) || !isset($visimisi)) {
-         return view('errors/html/error_404');
+         return view('errors/html/error_404_legal');
       }
 
       $data = [

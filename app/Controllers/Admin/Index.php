@@ -616,6 +616,13 @@ class Index extends BaseController
 
     public function daftarLembaga()
     {
+        if (session()->getFlashdata('validation')) {
+            $validation = session()->getFlashdata('validation');
+        } else {
+            $validation = [false, false];
+        }
+
+
         $this->lembagamodel->where('idGroup', '1');
         $this->lembagamodel->where('nicknamepage !=', 'bpd');
         $this->lembagamodel->where('nicknamepage !=', 'lpm');
@@ -630,6 +637,8 @@ class Index extends BaseController
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
 
+            'validation' => $validation,
+
             'lembaga' =>  $daftarlembaga,
             'tabeldtb' => $this->lembagamodel->table
         ];
@@ -639,11 +648,19 @@ class Index extends BaseController
 
     public function daftarData()
     {
+        if (session()->getFlashdata('validation')) {
+            $validation = session()->getFlashdata('validation');
+        } else {
+            $validation = false;
+        }
+
         $data = [
             'activeheader' => [false, false, false, false, false, 'active', false],
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => $this->templatelayaout,
+
+            'validation' => $validation,
 
             'kategoridata' =>  $this->datadesamodel->select('id, slug, updated_by')->groupBy('slug')->findAll(),
             // 'kategoridata' =>  $this->datadesamodel->select('slug')->distinct()->findAll(),

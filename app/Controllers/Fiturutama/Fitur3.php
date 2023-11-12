@@ -94,7 +94,7 @@ class Fitur3 extends BaseController
         $resultapiidm = $apikemendes->idmApi($iddesaidm, $tahun);
 
         if ($resultapiidm['status'] == '400') {
-            return view('errors/html/error_404');
+            return view('errors/html/error_404_legal');
         }
 
         $nilaiDicari = ['IKS ' . $tahun, 'IKE ' . $tahun, 'IKL ' . $tahun]; //Kasik sama urutannya
