@@ -94,7 +94,19 @@ class Fitur3 extends BaseController
         $resultapiidm = $apikemendes->idmApi($iddesaidm, $tahun);
 
         if ($resultapiidm['status'] == '400') {
-            return view('errors/html/error_404_legal');
+            $dataN = [
+                'templatelayaout' => $this->templatelayaout,
+
+                'title' => 'IDM ' . LENGKAP,
+                'metakeywords' => 'IDM ' . FULLENGKAP . ', IDM Desa  Terbaik,',
+                'metadescription' => 'IDM ' . FULLENGKAP,
+
+                'tahun' => $tahun, //Untuk di nav bukan di card, card dari API
+
+                'active' => [false, false, false, false, false, false]
+            ];
+
+            return view('fiturutama/fitur3-api-null', $dataN);
         }
 
         $nilaiDicari = ['IKS ' . $tahun, 'IKE ' . $tahun, 'IKL ' . $tahun]; //Kasik sama urutannya

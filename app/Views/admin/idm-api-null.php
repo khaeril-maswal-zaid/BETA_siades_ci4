@@ -29,48 +29,10 @@
         </li>
     </ul>
 
-    <div class="container-fluid bg-light px-0 rounded">
-        <div class="overflow-auto" style="max-height: 500px;">
-            <table class="table table-striped table-bordered table-info" style="font-size: 75%;" id="<?= url_title('Status IMD Desa ' . DESA, '-', true) ?>">
-                <thead>
-                    <tr class="table-warning">
-                        <th rowspan="2" class="align-middle text-center">No</th>
-                        <th rowspan="2" class="align-middle text-center">Indikator IDM</th>
-                        <th rowspan="2" class="align-middle text-center">Skor</th>
-                        <th rowspan="2" class="align-middle text-center">Keterangan</th>
-                        <th rowspan="2" nowrap class="align-middle text-center">Kegiatan Yang Dapat Dilakukan</th>
-                        <th rowspan="2" nowrap class="align-middle text-center">+ Nilai</th>
-                        <th colspan="6" class="text-center">Yang Dapat Melaksanakan Kehiatan</th>
-                    </tr>
-                    <tr class="table-warning">
-                        <th>Pusat</th>
-                        <th>Provensi</th>
-                        <th>Kabupaten</th>
-                        <th>Desa</th>
-                        <th>CSR</th>
-                        <th>Lainnya</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    foreach ($tabelapiidm as $idm) : ?>
-                        <tr class="<?= (!isset($idm['NO'])) ? 'table-dark' : ''; ?>">
-                            <td class="align-middle"><?= $idm['NO'] ?></td>
-                            <td class="align-middle" style="min-width: 170px"> <?= $idm['INDIKATOR'] ?> </td>
-                            <td class="align-middle"> <?= $idm['SKOR'] ?> </td>
-                            <td class="align-middle" style="min-width: 200px"> <?= $idm['KETERANGAN'] ?> </td>
-                            <td class="align-middle" style="min-width: 200px"> <?= $idm['KEGIATAN'] ?> </td>
-                            <td class="align-middle"> <?= $idm['NILAI'] ?> </td>
-                            <td class="align-middle"> <?= $idm['PUSAT'] ?> </td>
-                            <td class="align-middle"> <?= $idm['PROV'] ?> </td>
-                            <td class="align-middle"> <?= $idm['KAB'] ?> </td>
-                            <td class="align-middle"> <?= $idm['DESA'] ?> </td>
-                            <td class="align-middle"> <?= $idm['CSR'] ?> </td>
-                            <td class="align-middle"> <?= $idm['LAINNYA'] ?> </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+    <div class="container-fluid bg-light px-0 rounded" style="min-height: 300px;">
+        <div class="text-center mx-auto wow fadeInUp pt-lg-5 pb-lg-3" data-wow-delay="0.1s" style="max-width: 500px;">
+            <h1 class="display-5">IDM Desa <?= $tahun ?></h1>
+            <h2 class="mb-5">Tidak Ada Data</h2>
         </div>
     </div>
 </main>
@@ -97,7 +59,7 @@
                         </div>
                     </div>
                     <div class="form-floating mb-2">
-                        <input autocomplete="off" disabled type="text" value="<?= $desaapiidm ?>" class="form-control" id="aav">
+                        <input autocomplete="off" disabled type="text" value="Tidak Ada Data" class="form-control" id="aav">
                         <label for="aav">Nama Desa</label>
                     </div>
                 </div>

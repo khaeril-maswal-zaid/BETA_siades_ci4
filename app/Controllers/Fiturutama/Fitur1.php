@@ -53,6 +53,22 @@ class Fitur1 extends BaseController
         $apikemendes = new ApiKemendesModel;
         $resultapisdgs = $apikemendes->sdgsApi($iddesasdgs);
 
+        if (!$resultapisdgs) {
+            $dataN = [
+                'templatelayaout' => $this->templatelayaout,
+
+                'title' => 'SDGS ' . LENGKAP,
+                'metakeywords' => 'SDGS ' . FULLENGKAP . ', SDGS Desa Terbaik,',
+                'metadescription' => 'SDGS ' . FULLENGKAP,
+
+                'tahun' => $tahun,
+
+                'active' => [false, false, false, false, false, false],
+            ];
+
+            return view('fiturutama/fitur1-api-null', $dataN);
+        }
+
         $data = [
             'templatelayaout' => $this->templatelayaout,
 
