@@ -171,6 +171,22 @@ class Index extends BaseController
         $apikemendes = new ApiKemendesModel;
         $resultapisdgs = $apikemendes->sdgsApi($iddesasdgs);
 
+        if (!$resultapisdgs) {
+            $data = [
+                'activeheader' => [false, 'active', false, false, false, false, false],
+                'aduanbelum' => $this->aduanbelum,
+                'statusaduan' => $this->statusaduan,
+                'templatelayaout' => $this->templatelayaout,
+
+                'validation' => $validation,
+
+                'tahun' => $tahun,
+                'idapisdgs' => $this->konfigurasimodel->select(['id', 'value'])->where('slug', 'iddesasdgs-kmz-165')->first()
+            ];
+
+            return view('admin/sdgs-api-null', $data);
+        }
+
         $data = [
             'activeheader' => [false, 'active', false, false, false, false, false],
             'aduanbelum' => $this->aduanbelum,
@@ -265,8 +281,21 @@ class Index extends BaseController
         $resultapiidm = $apikemendes->idmApi($iddesaidm, $tahun);
 
         if ($resultapiidm['status'] == '400') {
-            return view('errors/html/error_404_admin');
+            $data = [
+                'activeheader' => [false, 'active', false, false, false, false, false],
+                'aduanbelum' => $this->aduanbelum,
+                'statusaduan' => $this->statusaduan,
+                'templatelayaout' => $this->templatelayaout,
+
+                'validation' => $validation,
+
+                'tahun' => $tahun,
+                'idapiidm' => $this->konfigurasimodel->select(['id', 'value'])->where('slug', 'iddesaidm-kmz-165')->first()
+            ];
+
+            return view('admin/idm-api-null', $data);
         }
+
         $tabelapiidm = $resultapiidm['mapData']['ROW'];
 
         $data = [
@@ -424,6 +453,12 @@ class Index extends BaseController
 
         $active = $this->personildesa->select('class')->where('slug', $lembaga['slug']);
         $active = $this->personildesa->select('class')->where('class', 'active')->findAll();
+
+        if ($sblembaga == 'bpd') {
+            $activeheader = [false, false, false, 'active', false,  false, false];
+        } else {
+            $activeheader = [false, false, false, false, 'active', false, false];
+        }
 
         $data = [
             'activeheader' => $activeheader,

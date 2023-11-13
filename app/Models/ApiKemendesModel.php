@@ -5,7 +5,7 @@ namespace App\Models;
 class ApiKemendesModel
 {
 
-    public function idmApi($idDesa, $tahun): array
+    public function idmApi($idDesa, $tahun)
     {
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, 'https://idm.kemendesa.go.id/open/api/desa/rumusan/' . $idDesa . '/' . $tahun);
@@ -42,5 +42,20 @@ class ApiKemendesModel
         $result = json_decode($result, true);
 
         return $result;
+    }
+
+    public function jadwalSholatNonApi(): array
+    {
+        $jadwal = [
+            'imsak' => "04:33",
+            'subuh' => "04:43",
+            'dzuhur' => "12:05",
+            'ashar' => "15:15",
+            'maghrib' => "18:02",
+            'isya' => "19:04"
+        ];
+
+
+        return [$jadwal, 'Bulukumba'];
     }
 }

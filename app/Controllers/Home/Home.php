@@ -47,9 +47,16 @@ class Home extends BaseController
 
       // SUMBER API JADWAL SHOLAT DI "https://api.myquran.com/v1/sholat/kota/cari/BULUKUMBA"
       $idKabJadwalSholat = $this->konfigurasimodel->select('value')->where('slug', 'idkabsholat-kmz-165')->first();
-      $apijadwalsholat = $this->apikemdesmodel->jadwalSholatApi($idKabJadwalSholat['value'])['data'];
-      $perhari = whereArray($apijadwalsholat['jadwal'], 'date', date('Y-m-d'))[0];
-      unset($perhari['tanggal'], $perhari['terbit'], $perhari['dhuha'], $perhari['date']);
+      $apijadwalsholat = $this->apikemdesmodel->jadwalSholatApi($idKabJadwalSholat['value']);
+      if ($apijadwalsholat && $apijadwalsholat['status'] != false) {
+         $perhari = whereArray($apijadwalsholat['data']['jadwal'], 'date', date('Y-m-d'))[0];
+         unset($perhari['tanggal'], $perhari['terbit'], $perhari['dhuha'], $perhari['date']);
+
+         $lokasi = $apijadwalsholat['data']['lokasi'];
+      } else {
+         $perhari = $this->apikemdesmodel->jadwalSholatNonApi()[0];
+         $lokasi = $this->apikemdesmodel->jadwalSholatNonApi()[1];
+      }
 
       $data = [
          'title' => 'Desa ' . DESA,
@@ -64,7 +71,7 @@ class Home extends BaseController
          'potensi' => $this->artikelmodel->where('slug', 'potensi-desa')->first(),
          'statistik' => ['kk' => array_sum($kk), 'lk' => array_sum($lk), 'pr' => array_sum($pr)],
          'jadwalsholat' => [
-            'lokasi' => $apijadwalsholat['lokasi'],
+            'lokasi' => $lokasi,
             'jadwal' => array_values($perhari)
          ],
 
