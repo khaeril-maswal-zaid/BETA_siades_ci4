@@ -77,7 +77,7 @@ class Layananaduan extends BaseController
             'status' => 'Belum diproses',
         ]);
 
-        // $this->sendemail->notifAduan([$emailsender, $nama, $nomoraduan, $subjek]);
+        $this->sendemail->notifAduan([$emailsender, $nama, $nomoraduan, $subjek]);
 
         session()->setFlashdata('pesan', 'Informasi berhasil tersubmit');
         return redirect()->to(base_url() . 'layanan-pengaduan');
