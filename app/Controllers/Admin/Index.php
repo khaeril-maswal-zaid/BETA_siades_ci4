@@ -425,12 +425,6 @@ class Index extends BaseController
         $active = $this->personildesa->select('class')->where('slug', $lembaga['slug']);
         $active = $this->personildesa->select('class')->where('class', 'active')->findAll();
 
-        if ($sblembaga == 'bpd') {
-            $activeheader = [false, false, false, 'active', false,  false, false];
-        } else {
-            $activeheader = [false, false, false, false, 'active', false, false];
-        }
-
         $data = [
             'activeheader' => $activeheader,
             'aduanbelum' => $this->aduanbelum,
