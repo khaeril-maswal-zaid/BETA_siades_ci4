@@ -194,6 +194,7 @@
             <div class="card">
               <div class="card-header">
                 <span id="nama">Respon</span>
+                <span class="d-block" style="font-size: 12px;" id="emailtanggapan">tanggapan: muhammadkhaerilzaid@gmail.com</span>
               </div>
               <div class="card-body">
                 <h5 id="noaduan" class="card-title">No. Aduan: 7777777777</h5>

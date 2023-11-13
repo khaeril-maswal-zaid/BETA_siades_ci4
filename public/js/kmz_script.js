@@ -16,6 +16,7 @@ $(function () {
         $("#subjectm").text("Subjek: " + data.subject);
         $("#status").text(data.status);
         $("#aduan").text(data.aduan);
+        $("#emailtanggapan").html(data.email);
 
         if (data.status == "Sedang diproses") {
           $("#status").removeClass("bg-dark");

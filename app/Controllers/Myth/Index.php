@@ -24,9 +24,9 @@ class Index extends BaseController
     public function login() // TIDAK SESUAI EKSPESTASI
     {
         $data = [
+            'activeheader' => [false, false, false, false, false, false, false],
             'templatelayaout' => ['layout-htmlcodex/header', 'layout-htmlcodex/footer'],
 
-            'title' => 'SIDES ' . DESA . ' | Login',
             'metakeywords' => 'Website Desa ' . DESA . ', SIDES Desa Terbaik, Desa terbaik, Website desa terbaik',
             'metadescription' => 'SIDES ' . DESA . ' | Login',
         ];
@@ -37,9 +37,11 @@ class Index extends BaseController
     public function gantiPassword()
     {
         $data = [
+            'activeheader' => [false, false, false, false, false, false, false],
+            'templatelayaout' => ['layout-admin/header', 'layout-admin/footer'],
+
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
-            'templatelayaout' => ['layout-admin/header', 'layout-admin/footer'],
         ];
 
         return view('myth-auth/ganti-paswoard', $data);
@@ -50,6 +52,8 @@ class Index extends BaseController
         $token = $this->request->getGet('token');
 
         $data = [
+            'activeheader' => [false, false, false, false, false, false, false],
+
             'aduanbelum' => $this->aduanbelum,
             'statusaduan' => $this->statusaduan,
             'templatelayaout' => ['layout-admin/header', 'layout-admin/footer'],

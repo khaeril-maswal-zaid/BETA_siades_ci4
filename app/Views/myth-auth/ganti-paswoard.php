@@ -44,13 +44,16 @@
         </div>
 
         <div class="col-md-4">
-            <div class="card border-primary">
+            <div class="card border-primary h-100">
                 <div class="card-header bg-primary text-white">
                     <span class="text-white fs-5">Informasi</span>
                 </div>
-                <div class="card-body">
-
-
+                <div class="card-body ps-0">
+                    <ul>
+                        <li>Harap isikan alamat email dari akun Anda yang ingin Anda gunakan untuk melakukan pergantian password. Alamat email tidak mesti akun yang sedang login.</li>
+                        <li>Jika telah mendapatkan Token dari alamat email Anda tekan button warna Kuning.</li>
+                        <li>Selanjutnya atur ulang sandi anda.</li>
+                    </ul>
                 </div>
             </div>
         </div>

@@ -9,7 +9,7 @@
    <meta content="Sistem Informasi Desa, SID, Website Desa Terbaik" name="description" />
 
    <!-- Favicon -->
-   <link href="<?= base_url() ?>img/favicon.ico" rel="icon" />
+   <link href="<?= base_url('img/assets/icon.png') ?>" rel="icon" />
 
    <!-- Google Web Fonts -->
    <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -39,7 +39,7 @@
 </head>
 
 <body>
-<!-- Navbar Start -->
+   <!-- Navbar Start -->
    <nav class="navbar navbar-expand-md bg-white navbar-light sticky-top p-0">
       <a href="/" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
          <h1 class="m-0">Admin SiDesa</h1>
@@ -54,25 +54,25 @@
             <div class="nav-item dropdown">
                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Profil</a>
                <div class="dropdown-menu bg-light m-0">
-                  
+
                </div>
             </div>
             <div class="nav-item dropdown">
                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pemerintahan</a>
                <div class="dropdown-menu bg-light m-0">
-                  
+
                </div>
             </div>
             <div class="nav-item dropdown">
                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Kelembagaan</a>
                <div class="dropdown-menu bg-light m-0">
-                
+
                </div>
             </div>
             <div class="nav-item dropdown">
                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Data</a>
                <div class="dropdown-menu bg-light m-0">
-                 
+
                </div>
             </div>
          </div>

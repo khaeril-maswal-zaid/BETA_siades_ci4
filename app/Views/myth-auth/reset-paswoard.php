@@ -67,12 +67,16 @@
         </div>
 
         <div class="col-md-4">
-            <div class="card border-primary">
+            <div class="card border-primary h-100">
                 <div class="card-header bg-primary text-white">
                     <span class="text-white fs-5">Informasi</span>
                 </div>
                 <div class="card-body">
-
+                    <ul>
+                        <li>Silahkan isikan Token yang telah anda dapatkan dari alamat email Anda.</li>
+                        <li>Kemudian isikan ulang email Anda yang telah anda isikan sebelumnya.</li>
+                        <li>Selanjutnya Atur ulang sandi Anda.</li>
+                    </ul>
                 </div>
             </div>
         </div>

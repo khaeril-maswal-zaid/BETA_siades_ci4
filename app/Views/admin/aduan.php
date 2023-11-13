@@ -112,6 +112,7 @@
                             <div class="card">
                                 <div class="card-header">
                                     Tanggapan
+                                    <span class="d-block" style="font-size: 12px;" id="emailtanggapan">tanggapan: muhammadkhaerilzaid@gmail.com</span>
                                 </div>
                             </div>
                             <!-- <div class="card-body"> -->
