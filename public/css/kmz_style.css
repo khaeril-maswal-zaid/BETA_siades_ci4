@@ -5,8 +5,12 @@
 }
 
 /* UNTUK MENGECILKAN TEKS DI LAYAR HP (MINI) PADA AREA KONTAK KAMI */
-@media (max-width: 450px) {
+@media (max-width: 435px) {
   .kontak-area {
     font-size: 17px;
+  }
+
+  .label-url {
+    font-size: 85%;
   }
 }

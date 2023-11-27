@@ -122,7 +122,7 @@
                         </div>
                         <div class="ps-3">
                             <h4>Stasus SDGS</h4>
-                            <span>Pembangunan ekonomi, sosial, lingkungan dan tata kelola</span>
+                            <span>Ekonomi, sosial, lingkungan dan tata kelola</span>
                         </div>
                     </div>
                     <div class="portfolio-text">

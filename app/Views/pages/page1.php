@@ -12,7 +12,7 @@
    <!-- Petunjuk URL Start -->
    <div class="container-xxl">
       <div class="container">
-         <div class="alert alert-success py-2" role="alert">
+         <div class="alert alert-success py-2 label-url" role="alert">
             <a href="/"><i class="bi bi-house-door-fill"></i></a>
             <span class="px-1">/</span>
 
