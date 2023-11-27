@@ -6,8 +6,8 @@ use CodeIgniter\Config\BaseConfig;
 
 class Email extends BaseConfig
 {
-    public string $fromEmail  = 'admin@lipmb.umbulukumba.ac.id';
-    public string $fromName   = 'KMZ Devaloper';
+    public string $fromEmail  = 'khaerilmaswalzaid73@gmail.com'; //'admin@lipmb.umbulukumba.ac.id';
+    public string $fromName   = 'Zaid Devaloper';
     public string $recipients = '';
 
     /**
@@ -28,12 +28,13 @@ class Email extends BaseConfig
     /**
      * SMTP Server Address
      */
-    public string $SMTPHost = 'mail.lipmb.umbulukumba.ac.id';
+    public string $SMTPHost = 'smtp
+    .googlemail.com'; //'mail.lipmb.umbulukumba.ac.id';
 
     /**
      * SMTP Username
      */
-    public string $SMTPUser = 'admin@lipmb.umbulukumba.ac.id';
+    public string $SMTPUser = 'khaerilmaswalzaid73@gmail.com'; //'admin@lipmb.umbulukumba.ac.id';
 
     /**
      * SMTP Password

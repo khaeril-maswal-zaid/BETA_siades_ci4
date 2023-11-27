@@ -91,7 +91,7 @@
                <div class="card-header bg-light">
                   Tugas Pokok & Fungsi Kepala Desa
                </div>
-               <div class="card-body text-success"><?= $tupoksilembaga ?></div>
+               <div class="card-body text-dark"><?= $tupoksilembaga ?></div>
             </div>
          </div>
       </div>
