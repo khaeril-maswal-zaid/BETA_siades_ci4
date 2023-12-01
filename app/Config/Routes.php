@@ -29,7 +29,7 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'home\Home::index');
+$routes->get('/', 'Home\Home::index');
 
 // $routes->get('/(:any)', 'Pages\Page1::index/$1'); //|| DI PINDAHKAN KE ROUTS LOGIN MITH/AUTH
 
@@ -38,8 +38,8 @@ $routes->get('/struktur-pemerintahan', 'Pages\Page2::index');
 $routes->get('/struktur-pemerintahan/(:any)/(:any)/', 'Pages\Page2::detail/$1/$2');
 
 //PAGES 4 DATA-----------------------------------------------
-$routes->get('/data-desa/data-wilayah', 'Datadesa\index::index');
-$routes->get('/data-desa/(:any)', 'Datadesa\index::Datadesa/$1');
+$routes->get('/data-desa/data-wilayah', 'Datadesa\Index::index');
+$routes->get('/data-desa/(:any)', 'Datadesa\Index::Datadesa/$1');
 
 
 //More Page---------------------------------------------------
@@ -74,7 +74,7 @@ $routes->post('/adm-proses/aduan-status/(:any)', 'Proses\Layananaduan::status/$1
 $routes->post('/adm-proses/aduan-respon/(:any)', 'Proses\Layananaduan::respon/$1');
 
 $routes->delete('/adm-proses/blog-delete/(:any)', 'Proses\AdmBlog::delete/$1');
-$routes->post('/adm-proses/blog', 'Proses\AdmBlog::save'); // Save
+$routes->post('/adm-proses/blog/add', 'Proses\AdmBlog::save'); // Save
 $routes->post('/adm-proses/blog/(:num)', 'Proses\AdmBlog::save/$1'); //Edit 
 
 $routes->post('/adm-proses/update-dbclick-ajax/(:any)', 'Proses\Updatedbclickajax::index/$1');
@@ -181,10 +181,10 @@ $routes->post('/postfotoajax/(:any)', function ($judulberita) {
 });
 
 //BLOG-----------------------------------------------------
-$routes->get('/potensi-desa', 'Blog\index::khusus/potensi-desa');
-$routes->get('/sejarah-desa', 'Blog\index::khusus/sejarah-desa');
-$routes->get('/profil-wilayah', 'Blog\index::khusus/profil-wilayah');
-$routes->get('/(:any)/(:num)', 'Blog\index::index/$1/$2');
+$routes->get('/potensi-desa', 'Blog\Index::khusus/potensi-desa');
+$routes->get('/sejarah-desa', 'Blog\Index::khusus/sejarah-desa');
+$routes->get('/profil-wilayah', 'Blog\Index::khusus/profil-wilayah');
+$routes->get('/(:any)/(:num)', 'Blog\Index::index/$1/$2');
 
 //PAGE LEMBAGA DESA ---------------------------------------------------
 $routes->get('/badan-permusyawaratan-desa', 'Pages\Page1::index/badan-permusyawaratan-desa');

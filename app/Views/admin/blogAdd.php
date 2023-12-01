@@ -3,7 +3,7 @@
 
 
 <main class="ms-sm-auto p-md-4 pb-md-0">
-    <form action="/adm-proses/blog/<?= ($dataupdate) ? $dataupdate['id'] : ''; ?>" method="post" enctype="multipart/form-data">
+    <form action="/adm-proses/blog/<?= ($dataupdate) ? $dataupdate['id'] : 'add'; ?>" method="post" enctype="multipart/form-data">
         <?= csrf_field() ?>
         <input type="hidden" name="picture" value="<?= ($dataupdate) ? $dataupdate['picture'] : ''; ?>">
         <input type="hidden" name="isinaArtikel" id="isinaArtikel">

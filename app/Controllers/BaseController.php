@@ -84,7 +84,7 @@ abstract class BaseController extends Controller
      *
      * @var array
      */
-    protected $helpers = ['whereArray_helper', 'takeusers_helper', 'batasiKarakter_helper', 'auth', 'dateIna_helper', 'generateWhatsappLink', 'generetWaShareAdmin', 'caesarCipherReverse', 'convertToNumber', 'convertToLetter', 'text'];
+    protected $helpers = ['whereArray', 'takeusers', 'batasiKarakter', 'auth', 'dateIna_helper', 'generateWhatsappLink', 'generetWaShareAdmin', 'caesarCipherReverse', 'convertToNumber', 'convertToLetter', 'text'];
 
     /**
      * Be sure to declare properties for any property fetch you initialized.
