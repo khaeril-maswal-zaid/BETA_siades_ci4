@@ -1,3 +1,12 @@
+#Untuk instalasi :
+- perhatikan keseusian php di server dan di composer.lock :
+"require": {
+        "ext-ctype": "*",
+        "ext-mbstring": "*",
+        "php": "^7.4 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0" (ini)
+}
+
+
 # MYTH AOUTH :
 ----------------
 1. DATABASE -> MIGRATE :             

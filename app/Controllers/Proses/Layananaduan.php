@@ -75,6 +75,7 @@ class Layananaduan extends BaseController
             'aduan' => $this->request->getVar('pengaduan'),
             'file' => $newfilename,
             'status' => 'Belum diproses',
+            'respon' => 'Terima kasih atas aduan Anda! Kontribusi Anda sangat berarti bagi kami dalam meningkatkan layanan lebih baik.'
         ]);
 
         $this->sendemail->notifAduan([$emailsender, $nama, $nomoraduan, $subjek]);

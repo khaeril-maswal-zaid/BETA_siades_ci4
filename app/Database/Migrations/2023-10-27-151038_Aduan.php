@@ -52,7 +52,6 @@ class Aduan extends Migration
             ],
             'respon' => [
                 'type'       => 'TEXT',
-                'default'    => 'Terima kasih atas aduan Anda! Kontribusi Anda sangat berarti bagi kami dalam meningkatkan layanan lebih baik.'
             ],
             'updated_by' => [
                 'type'       => 'VARCHAR',

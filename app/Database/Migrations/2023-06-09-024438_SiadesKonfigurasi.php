@@ -29,7 +29,6 @@ class SiadesKonfigurasi extends Migration
             ],
             'more' => [
                 'type'       => 'TEXT',
-                'default'    => '#'
             ],
             'updated_by' => [
                 'type'       => 'VARCHAR',
