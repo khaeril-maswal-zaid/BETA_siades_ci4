@@ -39,7 +39,8 @@ class Siades_Users extends Seeder
         // $this->db->table('user')->insert($data);
 
         $this->db->table('users')->insertBatch($data);
-        // php spark db:seed Siades_Users
+        // php spark db:seed Siades_Users 
+        //ATUR DULU MIGRATE DI VENDOR->MYTH AUTH (lihat ctt)
         //Pass : zaiddevaloper
     }
 }

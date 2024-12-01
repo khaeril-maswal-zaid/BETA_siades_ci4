@@ -7,7 +7,7 @@
 }
 
 
-# MYTH AOUTH :
+# VENDOR -> MYTH AOUTH :
 ----------------
 1. DATABASE -> MIGRATE :             
         'fullname'         => ['type' => 'varchar', 'constraint' => 250, 'default' => 'Default Admin'],
