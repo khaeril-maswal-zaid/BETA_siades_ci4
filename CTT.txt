@@ -15,10 +15,11 @@
 
 2. CONFIQ -> Auth -> View :
         'login'           => 'App\Views\myth-auth\login',
-        'register'        => 'App\Views\myth-auth\register',
+        //'register'        => 'App\Views\myth-auth\register', //(Jika awal hilangkan // untuk untuk daftarkan admin baru)
 
 3. CONFIQ -> Auth -> More :
         public $allowRemembering = true;
         public $rememberLength = 3 * DAY;
+        public $allowRegistration = false; //(KECUALI AWAL 'true' untuk daftarkan admin baru)
 
 ---------------------------------------------------------------------------

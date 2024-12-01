@@ -25,7 +25,7 @@ class Siades_Users extends Seeder
                 'username' => '081234567890',
                 'fullname' => 'Default Admin',
                 'image' => 'default.jpg',
-                'password_hash' => 'wakandaraya',
+                'password_hash' => '$2y$10$o8kqcs3aY5uyhxyhEl.NwuA8U9AY5O0LM7UiB7Av6s5W/Ob7QYRV6',
                 'active' => 1,
                 'created_at' => Time::now(),
                 'updated_at' => Time::now(),
