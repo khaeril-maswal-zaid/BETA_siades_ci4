@@ -6,6 +6,11 @@
         "php": "^7.4 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0" (ini)
 }
 
+#Jika server API IDM bermasalah (Non Aktif) 
+- Gunakan data yg sudah ditarik sebelunmnya saat server masih normal 
+- Data yg telah ditarik sebelunmnya tahun 2021-2024
+- Saat ini menambahkan CURLOPT_SSL_VERIFYPEER => false,  dan CURLOPT_SSL_VERIFYHOST => false, karena SSL servernya bermasalah
+
 
 # VENDOR -> MYTH AOUTH :
 ----------------
